@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://v51siikiuxu0"]
+
+[ext_resource type="Script" path="res://src/ui/license/license.gd" id="1_cc1lc"]
+
+[node name="license" type="VBoxContainer"]
+script = ExtResource("1_cc1lc")
+
+[node name="label" type="Label" parent="."]
+layout_mode = 2
+text = "Licenses Attributions
+----------------------"
+
+[node name="text" type="Label" parent="."]
+layout_mode = 2
+text = "Images:
+	- INSERT
+Fonts:
+	- INSERT
+Audio
+	- INSERT"
+
+[node name="redirect" type="LinkButton" parent="."]
+layout_mode = 2
+text = "License link redirect     "
+underline = 1
+
+[node name="back" type="Button" parent="."]
+layout_mode = 2
+text = "Back"
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="pressed" from="redirect" to="." method="_on_redirect_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

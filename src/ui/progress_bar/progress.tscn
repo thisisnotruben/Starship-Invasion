@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c2hkvxhmydyt7"]
+
+[node name="progress" type="VBoxContainer"]
+visible = false
+
+[node name="label" type="Label" parent="."]
+layout_mode = 2
+text = "Loading..."
+
+[node name="progressBar" type="ProgressBar" parent="."]
+layout_mode = 2

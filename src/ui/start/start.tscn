@@ -1,0 +1,119 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm6lrl0cgaejr"]
+
+[ext_resource type="Script" path="res://src/ui/start/start.gd" id="1_pxw42"]
+[ext_resource type="PackedScene" uid="uid://ck2an14jilmcn" path="res://src/ui/loader/loader.tscn" id="2_6btv7"]
+[ext_resource type="AudioStream" uid="uid://cii7ar0yom6l3" path="res://asset/snd/dos88-paid/Waves.mp3" id="2_vea38"]
+[ext_resource type="PackedScene" uid="uid://v51siikiuxu0" path="res://src/ui/license/license.tscn" id="3_stmor"]
+[ext_resource type="PackedScene" uid="uid://b2q8kep108aib" path="res://src/ui/credits/credits.tscn" id="4_gjr5u"]
+[ext_resource type="PackedScene" uid="uid://c2hkvxhmydyt7" path="res://src/ui/progress_bar/progress.tscn" id="6_e6vpc"]
+
+[node name="start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pxw42")
+
+[node name="loader" parent="." instance=ExtResource("2_6btv7")]
+progress_bar_path = NodePath("../center/panel/margin/tabs/progress/progressBar")
+
+[node name="snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vea38")
+autoplay = true
+
+[node name="background" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="panel" type="PanelContainer" parent="center"]
+layout_mode = 2
+
+[node name="margin" type="MarginContainer" parent="center/panel"]
+layout_mode = 2
+
+[node name="tabs" type="TabContainer" parent="center/panel/margin"]
+layout_mode = 2
+tabs_visible = false
+
+[node name="main" type="VBoxContainer" parent="center/panel/margin/tabs"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+text = "Overmind"
+
+[node name="start" type="Button" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+text = "Start"
+
+[node name="license" type="Button" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+text = "License"
+
+[node name="credits" type="Button" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+text = "Credits"
+
+[node name="exit" type="Button" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+text = "Exit"
+
+[node name="difficulty" type="VBoxContainer" parent="center/panel/margin/tabs"]
+visible = false
+layout_mode = 2
+
+[node name="label" type="Label" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Overmind"
+
+[node name="easy" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Easy"
+
+[node name="medium" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Medium"
+
+[node name="hard" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Hard"
+
+[node name="back" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Back"
+
+[node name="license" parent="center/panel/margin/tabs" instance=ExtResource("3_stmor")]
+visible = false
+layout_mode = 2
+
+[node name="credits" parent="center/panel/margin/tabs" instance=ExtResource("4_gjr5u")]
+visible = false
+layout_mode = 2
+
+[node name="progress" parent="center/panel/margin/tabs" instance=ExtResource("6_e6vpc")]
+layout_mode = 2
+
+[connection signal="done_loading" from="loader" to="." method="_on_loader_done_loading"]
+[connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/license" to="." method="_on_license_pressed"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/exit" to="." method="_on_exit_pressed"]
+[connection signal="draw" from="center/panel/margin/tabs/difficulty" to="." method="_on_difficulty_draw"]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/easy" to="." method="_on_difficulty_mode_pressed" binds= ["easy"]]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/medium" to="." method="_on_difficulty_mode_pressed" binds= ["medium"]]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_difficulty_mode_pressed" binds= ["hard"]]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_back_pressed"]
+[connection signal="back_pressed" from="center/panel/margin/tabs/license" to="." method="_on_back_pressed"]
+[connection signal="back_pressed" from="center/panel/margin/tabs/credits" to="." method="_on_back_pressed"]

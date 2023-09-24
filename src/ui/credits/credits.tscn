@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2q8kep108aib"]
+
+[ext_resource type="Script" path="res://src/ui/credits/credits.gd" id="1_cixev"]
+
+[node name="credits" type="VBoxContainer"]
+script = ExtResource("1_cixev")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Overmind Credits
+--------------------------"
+
+[node name="text" type="Label" parent="."]
+layout_mode = 2
+text = "Developer:
+    - Ruben Alvarez Reyes
+Authors:
+    - Ruben Alvarez Reyes
+    - qinru"
+
+[node name="redirect" type="LinkButton" parent="."]
+layout_mode = 2
+text = "<Github repo redirect>"
+underline = 1
+
+[node name="back" type="Button" parent="."]
+layout_mode = 2
+text = "Back"
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="pressed" from="redirect" to="." method="_on_redirect_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

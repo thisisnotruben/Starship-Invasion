@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://qngpfx7xjv6a"]
+
+[ext_resource type="PackedScene" uid="uid://b2q8kep108aib" path="res://src/ui/credits/credits.tscn" id="1_2itcm"]
+[ext_resource type="Script" path="res://src/ui/end/end.gd" id="1_ekhi6"]
+[ext_resource type="PackedScene" uid="uid://ck2an14jilmcn" path="res://src/ui/loader/loader.tscn" id="2_qa37y"]
+
+[node name="end" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekhi6")
+
+[node name="loader" parent="." instance=ExtResource("2_qa37y")]
+
+[node name="snd" type="AudioStreamPlayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="panel" type="PanelContainer" parent="center"]
+layout_mode = 2
+
+[node name="margin" type="MarginContainer" parent="center/panel"]
+layout_mode = 2
+
+[node name="tabs" type="TabContainer" parent="center/panel/margin"]
+layout_mode = 2
+tabs_visible = false
+
+[node name="credits" parent="center/panel/margin/tabs" instance=ExtResource("1_2itcm")]
+layout_mode = 2
+
+[node name="start_menu" type="Button" parent="center/panel/margin/tabs/credits"]
+layout_mode = 2
+text = "Start Menu"
+
+[node name="back" parent="center/panel/margin/tabs/credits" index="4"]
+text = "Exit Game"
+
+[connection signal="done_loading" from="loader" to="." method="_on_loader_done_loading"]
+[connection signal="back_pressed" from="center/panel/margin/tabs/credits" to="." method="_on_credits_back_pressed"]
+[connection signal="pressed" from="center/panel/margin/tabs/credits/start_menu" to="." method="_on_start_menu_pressed"]
+
+[editable path="center/panel/margin/tabs/credits"]

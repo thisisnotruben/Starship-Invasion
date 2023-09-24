@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbwsdg4frpi15"]
+
+[ext_resource type="PackedScene" uid="uid://cdnjvbwj32jfv" path="res://asset/crocotile3d/map1/map_1.tscn" id="1_qroke"]
+[ext_resource type="Texture2D" uid="uid://ddr6ajxd3m0fm" path="res://asset/img/Space Background.png" id="1_wt6rs"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w80h5"]
+panorama = ExtResource("1_wt6rs")
+
+[sub_resource type="Sky" id="Sky_jnki3"]
+sky_material = SubResource("PanoramaSkyMaterial_w80h5")
+
+[sub_resource type="Environment" id="Environment_cddn4"]
+background_mode = 2
+sky = SubResource("Sky_jnki3")
+glow_enabled = true
+glow_blend_mode = 0
+glow_map_strength = 0.28
+
+[node name="level1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cddn4")
+
+[node name="map1" parent="." instance=ExtResource("1_qroke")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0338006, 0.999429, 0, -0.999429, 0.0338006, 3.41427, 5.56338, 2.1811)

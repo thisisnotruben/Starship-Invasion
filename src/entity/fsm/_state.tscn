@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsr3g17sj1uyc"]
+
+[ext_resource type="Script" path="res://src/entity/fsm/_state.gd" id="1_kfn8v"]
+
+[node name="_state" type="Node"]
+script = ExtResource("1_kfn8v")

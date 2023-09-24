@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck2an14jilmcn"]
+
+[ext_resource type="Script" path="res://src/ui/loader/loader.gd" id="1_cmr74"]
+
+[node name="loader" type="Node"]
+script = ExtResource("1_cmr74")

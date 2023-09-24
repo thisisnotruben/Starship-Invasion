@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cffj2cxc154f2"]
+
+[ext_resource type="Script" path="res://src/ui/popup/popup.gd" id="1_x2vlc"]
+
+[node name="popup" type="VBoxContainer"]
+script = ExtResource("1_x2vlc")
+
+[node name="label" type="Label" parent="."]
+layout_mode = 2
+
+[node name="hBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="yes" type="Button" parent="hBox"]
+layout_mode = 2
+
+[node name="no" type="Button" parent="hBox"]
+layout_mode = 2
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="pressed" from="hBox/yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="hBox/no" to="." method="_on_no_pressed"]
