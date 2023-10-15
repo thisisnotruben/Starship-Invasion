@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv8d4kmkslthv"]
+
+[ext_resource type="Script" path="res://src/map/spawn/spawn.gd" id="1_mxy50"]
+
+[node name="spawn" type="Node3D" groups=["spawn"]]
+script = ExtResource("1_mxy50")
+spawn_chance = null
+spawn_interval_sec = null

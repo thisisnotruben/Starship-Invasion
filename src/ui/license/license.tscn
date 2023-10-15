@@ -8,21 +8,23 @@ script = ExtResource("1_cc1lc")
 [node name="label" type="Label" parent="."]
 layout_mode = 2
 text = "Licenses Attributions
-----------------------"
+ ----------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="text" type="Label" parent="."]
 layout_mode = 2
 text = "Images:
-	- INSERT
+    - Krishna Palacio
+    - Deep-Fold
 Fonts:
-	- INSERT
+    - Nimble Beasts Collective
 Audio
-	- INSERT"
+    - DOS-88"
 
-[node name="redirect" type="LinkButton" parent="."]
+[node name="redirect" type="Button" parent="."]
 layout_mode = 2
-text = "License link redirect     "
-underline = 1
+text = "License link redirect"
 
 [node name="back" type="Button" parent="."]
 layout_mode = 2

@@ -13,9 +13,11 @@ layout_mode = 2
 
 [node name="yes" type="Button" parent="hBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="no" type="Button" parent="hBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="pressed" from="hBox/yes" to="." method="_on_yes_pressed"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgkryfmd4torj"]
+
+[ext_resource type="Script" path="res://src/entity/bullet/bullet.gd" id="1_mbkpk"]
+[ext_resource type="Material" uid="uid://dv6cyd4ncj2br" path="res://resource/laser_color.tres" id="2_4jlfh"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vlsoc"]
+radius = 0.025
+height = 0.5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5m2so"]
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_el5sp"]
+size = Vector3(0.04, 0.04, 0.04)
+
+[node name="bullet" type="Node3D"]
+script = ExtResource("1_mbkpk")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="timer_hit" type="Timer" parent="."]
+one_shot = true
+
+[node name="meshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_vlsoc")
+surface_material_override/0 = ExtResource("2_4jlfh")
+
+[node name="rayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.25)
+target_position = Vector3(0, 0.55, 0)
+collision_mask = 3
+
+[node name="gpuParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.259296)
+material_override = ExtResource("2_4jlfh")
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5m2so")
+draw_pass_1 = SubResource("BoxMesh_el5sp")
+
+[node name="audioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+autoplay = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="timer_hit" to="." method="_on_timer_timeout"]

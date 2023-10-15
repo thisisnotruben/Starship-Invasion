@@ -8,7 +8,9 @@ script = ExtResource("1_cixev")
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 text = "Overmind Credits
---------------------------"
+------------------"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="text" type="Label" parent="."]
 layout_mode = 2
@@ -18,10 +20,9 @@ Authors:
     - Ruben Alvarez Reyes
     - qinru"
 
-[node name="redirect" type="LinkButton" parent="."]
+[node name="redirect" type="Button" parent="."]
 layout_mode = 2
 text = "<Github repo redirect>"
-underline = 1
 
 [node name="back" type="Button" parent="."]
 layout_mode = 2

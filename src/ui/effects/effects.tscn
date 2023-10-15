@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://davqs3425w0qk"]
+
+[ext_resource type="Shader" path="res://resource/shaders/screen/LensDistortion.gdshader" id="1_a6ahe"]
+[ext_resource type="Shader" path="res://resource/shaders/screen/Grain.gdshader" id="2_lm34n"]
+[ext_resource type="Shader" path="res://resource/shaders/screen/TV.gdshader" id="3_8x0hw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdadx"]
+shader = ExtResource("1_a6ahe")
+shader_parameter/strength = 0.015
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a0ayo"]
+shader = ExtResource("2_lm34n")
+shader_parameter/colored = false
+shader_parameter/color_amount = 0.6
+shader_parameter/grain_amount = 0.025
+shader_parameter/grain_size = 2.0
+shader_parameter/lum_amount = 1.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u8fp5"]
+shader = ExtResource("3_8x0hw")
+shader_parameter/vertJerkOpt = 0.0
+shader_parameter/vertMovementOpt = 0.0
+shader_parameter/bottomStaticOpt = 0.0
+shader_parameter/bottomStaticStrenth = 0.7
+shader_parameter/scalinesOpt = 0.432
+shader_parameter/rgbOffsetOpt = 0.2
+shader_parameter/horzFuzzOpt = 0.15
+
+[node name="effects" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="lens_distortion" type="BackBufferCopy" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(6.4, 3.6)
+copy_mode = 2
+
+[node name="colorRect" type="ColorRect" parent="lens_distortion"]
+material = SubResource("ShaderMaterial_bdadx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="grain" type="BackBufferCopy" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(6.4, 3.6)
+copy_mode = 2
+
+[node name="colorRect" type="ColorRect" parent="grain"]
+material = SubResource("ShaderMaterial_a0ayo")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="tv" type="BackBufferCopy" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(6.4, 3.6)
+copy_mode = 2
+
+[node name="colorRect" type="ColorRect" parent="tv"]
+material = SubResource("ShaderMaterial_u8fp5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb00ockuyiia4"]
+
+[ext_resource type="PackedScene" uid="uid://bonktdsothgwv" path="res://src/entity/trap/_trap.tscn" id="1_mndgl"]
+[ext_resource type="Script" path="res://src/entity/trap/trap_projectile.gd" id="2_udoxa"]
+[ext_resource type="PackedScene" uid="uid://cgkryfmd4torj" path="res://src/entity/bullet/bullet.tscn" id="3_gx6q1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mde4o"]
+
+[node name="trap_projectile" instance=ExtResource("1_mndgl")]
+script = ExtResource("2_udoxa")
+bullet_scene = ExtResource("3_gx6q1")
+shoot_interval_sec = 7.5
+speed = 20.0
+
+[node name="img" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_mde4o")
+
+[node name="timer_shoot" type="Timer" parent="." index="6"]
+
+[connection signal="timeout" from="timer_shoot" to="." method="_on_timer_shoot_timeout"]

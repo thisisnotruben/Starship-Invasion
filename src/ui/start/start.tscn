@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cm6lrl0cgaejr"]
 
 [ext_resource type="Script" path="res://src/ui/start/start.gd" id="1_pxw42"]
-[ext_resource type="PackedScene" uid="uid://ck2an14jilmcn" path="res://src/ui/loader/loader.tscn" id="2_6btv7"]
 [ext_resource type="AudioStream" uid="uid://cii7ar0yom6l3" path="res://asset/snd/dos88-paid/Waves.mp3" id="2_vea38"]
 [ext_resource type="PackedScene" uid="uid://v51siikiuxu0" path="res://src/ui/license/license.tscn" id="3_stmor"]
 [ext_resource type="PackedScene" uid="uid://b2q8kep108aib" path="res://src/ui/credits/credits.tscn" id="4_gjr5u"]
-[ext_resource type="PackedScene" uid="uid://c2hkvxhmydyt7" path="res://src/ui/progress_bar/progress.tscn" id="6_e6vpc"]
+[ext_resource type="PackedScene" uid="uid://cdgdcmr8nn7t" path="res://src/ui/controls/controls.tscn" id="5_jv6p1"]
+[ext_resource type="PackedScene" uid="uid://davqs3425w0qk" path="res://src/ui/effect/effect.tscn" id="6_qo541"]
 
 [node name="start" type="Control"]
 layout_mode = 3
@@ -15,9 +15,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pxw42")
-
-[node name="loader" parent="." instance=ExtResource("2_6btv7")]
-progress_bar_path = NodePath("../center/panel/margin/tabs/progress/progressBar")
 
 [node name="snd" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_vea38")
@@ -55,7 +52,12 @@ text = "Overmind"
 
 [node name="start" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../exit")
 text = "Start"
+
+[node name="controls" type="Button" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+text = "Controls"
 
 [node name="license" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
@@ -67,6 +69,7 @@ text = "Credits"
 
 [node name="exit" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../start")
 text = "Exit"
 
 [node name="difficulty" type="VBoxContainer" parent="center/panel/margin/tabs"]
@@ -101,12 +104,15 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="progress" parent="center/panel/margin/tabs" instance=ExtResource("6_e6vpc")]
+[node name="controls" parent="center/panel/margin/tabs" instance=ExtResource("5_jv6p1")]
+visible = false
 layout_mode = 2
 
-[connection signal="done_loading" from="loader" to="." method="_on_loader_done_loading"]
+[node name="effects" parent="." instance=ExtResource("6_qo541")]
+
 [connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/license" to="." method="_on_license_pressed"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/exit" to="." method="_on_exit_pressed"]
@@ -117,3 +123,4 @@ layout_mode = 2
 [connection signal="pressed" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_back_pressed"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/license" to="." method="_on_back_pressed"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/credits" to="." method="_on_back_pressed"]
+[connection signal="back_pressed" from="center/panel/margin/tabs/controls" to="." method="_on_back_pressed"]

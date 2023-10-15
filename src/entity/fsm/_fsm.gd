@@ -9,20 +9,23 @@ var states := {}
 signal state_changed(_statee)
 
 
-func init(_states := [], _state_args := {}) -> Fsm:
-	for _state in _states:
-		var _state_init = states[_state].init(_state_args)
+func init(_states := {}, _state_args := {}) -> Fsm:
+	for _state_type in _states:
+		_states[_state_type].init(_state_args) \
+			.connect("change_state", Callable(self, "_set_state"))
+	states = _states
 	return self
 
-func _set_state(_state_type):
+func _set_state(_state_type) -> bool:
 	if  _state_type == null or (_curr["state"] != null \
 	and _curr["type"] == _state_type):
-		return
+		return false
 	if _curr["state"] != null:
 		_curr["state"].exit()
 	states[_state_type].enter()
-	_curr = {"state": states[state], "type": _state_type}
+	_curr = {"state": states[_state_type], "type": _state_type}
 	emit_signal("state_changed", _state_type)
+	return true
 	
 func _get_state():
 	return _curr["type"]

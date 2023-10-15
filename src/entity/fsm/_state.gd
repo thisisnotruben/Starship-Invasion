@@ -1,23 +1,25 @@
 extends Node
 class_name IState
 
+var active: bool = false
+
 signal change_state(_state)
 
 
-func init(args := {}) -> IState:
+func init(_args := {}) -> IState:
 	return self
 
 func enter():
-	pass
+	active = true
 
 func exit():
+	active = false
+
+func physics_process(_delta: float):
 	pass
 
-func physics_process(delta: float):
-	pass
-
-func process(delta: float):
+func process(_delta: float):
 	pass
 	
-func input(event: InputEvent):
+func input(_event: InputEvent):
 	pass

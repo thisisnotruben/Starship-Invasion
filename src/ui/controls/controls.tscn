@@ -1,0 +1,238 @@
+[gd_scene load_steps=20 format=3 uid="uid://cdgdcmr8nn7t"]
+
+[ext_resource type="Script" path="res://src/ui/controls/controls.gd" id="1_ytrkn"]
+[ext_resource type="Texture2D" uid="uid://5jf7ix0cpkoa" path="res://asset/img/Minifantasy_UserInterface_v1.0/Minifantasy_Userinterface_Assets/Controls/Controllers/Minifantasy_GuiControllers.png" id="2_1k4n4"]
+[ext_resource type="Texture2D" uid="uid://7xwfgii6qis4" path="res://asset/img/Minifantasy_UserInterface_v1.0/Minifantasy_Userinterface_Assets/Controls/Keyboard Mouse/Minifantasy_GuiKeyboardMouse.png" id="3_qo7oo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cpcr"]
+atlas = ExtResource("3_qo7oo")
+region = Rect2(120, 32, 23, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct6h8"]
+atlas = ExtResource("2_1k4n4")
+region = Rect2(34, 82, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro5pd"]
+atlas = ExtResource("3_qo7oo")
+region = Rect2(120, 16, 23, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voqx0"]
+atlas = ExtResource("2_1k4n4")
+region = Rect2(98, 82, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60pab"]
+atlas = ExtResource("3_qo7oo")
+region = Rect2(8, 40, 15, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5psj"]
+atlas = ExtResource("2_1k4n4")
+region = Rect2(288, 48, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk8sd"]
+atlas = ExtResource("3_qo7oo")
+region = Rect2(40, 16, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf584"]
+atlas = ExtResource("2_1k4n4")
+region = Rect2(280, 40, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y33n4"]
+atlas = ExtResource("3_qo7oo")
+region = Rect2(26, 224, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx1be"]
+atlas = ExtResource("2_1k4n4")
+region = Rect2(432, 28, 11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfeki"]
+atlas = ExtResource("3_qo7oo")
+region = Rect2(42, 224, 12, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swbdk"]
+atlas = ExtResource("2_1k4n4")
+region = Rect2(413, 28, 11, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1vbe"]
+atlas = ExtResource("3_qo7oo")
+region = Rect2(128, 8, 15, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl7ty"]
+atlas = ExtResource("2_1k4n4")
+region = Rect2(360, 40, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tlhq"]
+atlas = ExtResource("3_qo7oo")
+region = Rect2(128, 8, 15, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nyjl"]
+atlas = ExtResource("2_1k4n4")
+region = Rect2(296, 40, 7, 8)
+
+[node name="controls" type="VBoxContainer"]
+script = ExtResource("1_ytrkn")
+
+[node name="gridContainer" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 3
+
+[node name="control" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Control"
+
+[node name="control_key" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = " Keyboard  "
+
+[node name="control_joy" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Joystick"
+
+[node name="padding1" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "---------"
+clip_text = true
+
+[node name="padding2" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "-------------"
+clip_text = true
+
+[node name="padding3" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "---------"
+clip_text = true
+
+[node name="move5" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Move"
+
+[node name="move_key" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8cpcr")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="move_joy" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ct6h8")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="look" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Look"
+
+[node name="look_key" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ro5pd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="look_joy" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_voqx0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="jump" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Jump"
+
+[node name="jump_key" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_60pab")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="jump_joy" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_e5psj")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="interact" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Interact"
+
+[node name="interact_key" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xk8sd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="interact_joy" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xf584")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="shoot" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Shoot"
+
+[node name="shoot_key" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_y33n4")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="shoot_joy" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_mx1be")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="melee" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Melee"
+
+[node name="melee_key" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hfeki")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="melee_joy" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_swbdk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="pause" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Pause"
+
+[node name="pause_key" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_l1vbe")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="pause_joy" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tl7ty")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="back" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="back_key" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2tlhq")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="back_joy" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4nyjl")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="back" type="Button" parent="."]
+layout_mode = 2
+text = "Back"
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

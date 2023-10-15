@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://igfkkdo1d51q"]
+
+[ext_resource type="PackedScene" uid="uid://bonktdsothgwv" path="res://src/entity/trap/_trap.tscn" id="1_fplth"]
+[ext_resource type="Script" path="res://src/entity/trap/trap_fire.gd" id="2_idpmo"]
+[ext_resource type="Texture2D" uid="uid://c74g6dia70d8c" path="res://asset/img/Scifi_SpaceDerelict/Props/Fire Trap/FireTrap.png" id="2_iki83"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r8sa"]
+atlas = ExtResource("2_iki83")
+region = Rect2(16, 3, 8, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wkw3"]
+atlas = ExtResource("2_iki83")
+region = Rect2(24, 3, 8, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws1j6"]
+atlas = ExtResource("2_iki83")
+region = Rect2(0, 3, 8, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dire8"]
+atlas = ExtResource("2_iki83")
+region = Rect2(8, 3, 8, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ynqj"]
+atlas = ExtResource("2_iki83")
+region = Rect2(16, 3, 8, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng2di"]
+atlas = ExtResource("2_iki83")
+region = Rect2(24, 3, 8, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_057tl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r8sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wkw3")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws1j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dire8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ynqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng2di")
+}],
+"loop": false,
+"name": &"start",
+"speed": 5.0
+}]
+
+[node name="trap_fire" instance=ExtResource("1_fplth")]
+script = ExtResource("2_idpmo")
+activate_type = 0
+
+[node name="img" parent="." index="3"]
+offset = Vector2(0, 6.5)
+sprite_frames = SubResource("SpriteFrames_057tl")
+animation = &"fire"

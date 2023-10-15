@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1s8kv22433lg"]
+
+[ext_resource type="PackedScene" uid="uid://bonktdsothgwv" path="res://src/entity/trap/_trap.tscn" id="1_8g8nu"]
+[ext_resource type="Script" path="res://src/entity/trap/trap_open_wire.gd" id="1_p4tgx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xivhk"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5r0o5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7a4tj"]
+
+[node name="trap" instance=ExtResource("1_8g8nu")]
+script = ExtResource("1_p4tgx")
+
+[node name="img" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_xivhk")
+
+[node name="gPUParticles3D" type="GPUParticles3D" parent="." index="4"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_5r0o5")
+draw_pass_1 = SubResource("BoxMesh_7a4tj")

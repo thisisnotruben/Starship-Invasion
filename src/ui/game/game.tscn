@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc8j412lenuw0"]
+[gd_scene load_steps=6 format=3 uid="uid://bc8j412lenuw0"]
 
 [ext_resource type="Script" path="res://src/ui/game/game.gd" id="1_4fj3j"]
-[ext_resource type="PackedScene" uid="uid://ck2an14jilmcn" path="res://src/ui/loader/loader.tscn" id="2_1q1oi"]
 [ext_resource type="PackedScene" uid="uid://v51siikiuxu0" path="res://src/ui/license/license.tscn" id="3_r171v"]
 [ext_resource type="PackedScene" uid="uid://b2q8kep108aib" path="res://src/ui/credits/credits.tscn" id="4_g5u5e"]
 [ext_resource type="PackedScene" uid="uid://cffj2cxc154f2" path="res://src/ui/popup/popup.tscn" id="5_j631h"]
-[ext_resource type="PackedScene" uid="uid://c2hkvxhmydyt7" path="res://src/ui/progress_bar/progress.tscn" id="6_nlg3i"]
+[ext_resource type="PackedScene" uid="uid://cdgdcmr8nn7t" path="res://src/ui/controls/controls.tscn" id="5_t107v"]
 
 [node name="game" type="Control"]
 process_mode = 3
@@ -17,19 +16,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4fj3j")
 
-[node name="loader" parent="." instance=ExtResource("2_1q1oi")]
-progress_bar_path = NodePath("../center/panel/margin/tabs/progress/progressBar")
-
 [node name="snd" type="AudioStreamPlayer" parent="."]
 
 [node name="background" type="ColorRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.03, 0.04, 0.04, 0.5)
 
 [node name="center" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -55,14 +51,21 @@ layout_mode = 2
 [node name="label" type="Label" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
 text = "Overmind"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="resume_game" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../exit")
 text = "Resume Game"
 
 [node name="start_menu" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
 text = "Start Menu"
+
+[node name="controls" type="Button" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+text = "Controls"
 
 [node name="license" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
@@ -74,6 +77,7 @@ text = "Credits"
 
 [node name="exit" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../resume_game")
 text = "Exit"
 
 [node name="license" parent="center/panel/margin/tabs" instance=ExtResource("3_r171v")]
@@ -88,16 +92,17 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="progress" parent="center/panel/margin/tabs" instance=ExtResource("6_nlg3i")]
+[node name="controls" parent="center/panel/margin/tabs" instance=ExtResource("5_t107v")]
+visible = false
 layout_mode = 2
 
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="done_loading" from="loader" to="." method="_on_loader_done_loading"]
 [connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/resume_game" to="." method="_on_resume_game_pressed"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/start_menu" to="." method="_on_start_menu_pressed"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/license" to="." method="_on_license_pressed"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/exit" to="." method="_on_exit_pressed"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/license" to="." method="_on_back_pressed"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/credits" to="." method="_on_back_pressed"]
+[connection signal="back_pressed" from="center/panel/margin/tabs/controls" to="." method="_on_back_pressed"]

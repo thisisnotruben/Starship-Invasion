@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://04jypdjif3cb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wd5o"]
+bg_color = Color(0.0745098, 0.0941176, 0.0941176, 0.74902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh10k"]
+bg_color = Color(0.0745098, 0.0941176, 0.0941176, 0.74902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpx0s"]
+bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrjr0"]
+bg_color = Color(0.121569, 0.14902, 0.14902, 0.74902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptw75"]
+bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.403922, 1, 0.564706, 1)
+
+[resource]
+Button/colors/font_color = Color(0.403922, 1, 0.564706, 1)
+Button/colors/font_disabled_color = Color(1, 0.403922, 0.541176, 1)
+Button/colors/font_focus_color = Color(0.862745, 0.403922, 1, 1)
+Button/colors/font_hover_color = Color(0.862745, 0.403922, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0.403922, 1, 0.862745, 1)
+Button/colors/font_pressed_color = Color(0.403922, 1, 0.862745, 1)
+Button/font_sizes/font_size = 32
+Button/styles/focus = SubResource("StyleBoxFlat_5wd5o")
+Button/styles/hover = SubResource("StyleBoxFlat_fh10k")
+Button/styles/normal = SubResource("StyleBoxFlat_tpx0s")
+Button/styles/pressed = SubResource("StyleBoxFlat_rrjr0")
+Label/colors/font_color = Color(0.839216, 1, 0.403922, 1)
+Label/font_sizes/font_size = 32
+LinkButton/colors/font_color = Color(0.403922, 1, 0.564706, 1)
+LinkButton/colors/font_focus_color = Color(0.403922, 1, 0.862745, 1)
+LinkButton/colors/font_hover_color = Color(0.403922, 1, 0.862745, 1)
+LinkButton/colors/font_outline_color = Color(0.862745, 0.403922, 1, 1)
+LinkButton/font_sizes/font_size = 32
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 16
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ptw75")
+VBoxContainer/constants/separation = 6
