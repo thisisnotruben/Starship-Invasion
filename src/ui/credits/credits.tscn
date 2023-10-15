@@ -22,7 +22,7 @@ Authors:
 
 [node name="redirect" type="Button" parent="."]
 layout_mode = 2
-text = "<Github repo redirect>"
+text = "Source code link redirect"
 
 [node name="back" type="Button" parent="."]
 layout_mode = 2

@@ -10,4 +10,4 @@ func _on_draw():
 	$back.grab_focus()
 
 func _on_redirect_pressed():
-	pass # Replace with function body.
+	OS.shell_open("https://github.com/thisisnotruben/Overmind/blob/main/LICENSE.md")

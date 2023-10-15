@@ -1,6 +1,7 @@
 extends IToggleable
+class_name Spawn
 
-enum Type { INTERVAL, TRIGGER }
+enum Type { INTERVAL, ACTIVATE }
 
 @export var _spawn: PackedScene = null
 @export_range(0.0, 1.0) var spawn_chance := 0.5
@@ -11,5 +12,5 @@ enum Type { INTERVAL, TRIGGER }
 func toggle(activate: bool):
 	var spawn: Node3D = _spawn.instantiate()
 	spawn.global_transform.origin = global_transform.origin
-	if action_trigger != null
+	if action_trigger != null:
 		action_trigger.trigger(spawn)

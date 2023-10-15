@@ -4,5 +4,3 @@
 
 [node name="spawn" type="Node3D" groups=["spawn"]]
 script = ExtResource("1_mxy50")
-spawn_chance = null
-spawn_interval_sec = null

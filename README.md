@@ -3,8 +3,6 @@
 ## TODO
 
 - Program
-	- npc
-		- spawning
 	- doors
 		- https://www.youtube.com/watch?v=lOS2SptNiBM
 - Gather/record audio
