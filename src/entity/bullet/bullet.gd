@@ -10,6 +10,7 @@ func spawn_shot(args := {}):
 	
 	if args.has("character"):
 		node = args["character"]
+		node.snd_shoot.play()
 		var shoot_dir := Vector2.UP if node.npc else Vector2.DOWN
 		node.anim_tree["parameters/shoot/blend_position"] = shoot_dir
 		node.anim_tree["parameters/move-shoot/blend_position"] = shoot_dir
@@ -27,6 +28,8 @@ func spawn_shot(args := {}):
 		
 	elif args.has_all(["trap", "target"]):
 		node = args["trap"]
+		node.snd_shoot.play()
+		damage = node.damage
 		transform.origin = node.global_transform.origin
 		look_at(args["target"].global_transform.origin)
 		
@@ -42,6 +45,7 @@ func _physics_process(delta: float):
 			hit_scan.health -= damage
 		ray.enabled = false
 		
+		$snd.play()
 		$meshInstance3D.hide()
 		$gpuParticles3D.emitting = true
 		$timer_hit.start()

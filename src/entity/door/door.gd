@@ -27,7 +27,12 @@ func _can_access(body: Node3D) -> bool:
 	return type == Type.PROXIMITY and body is Character and not body.npc
 
 func toggle(open: bool):
-	$snd.play()
-	$img.play("default", 1.0, not open)
-	if not open:
+	if open:
+		$snd_close.stop()
+		$snd_open.play()
+		$img.play()
+	else:
+		$snd_open.stop()
+		$snd_close.play()
+		$img.play_backwards()
 		$collisionShape3D.set_deferred("disabled", false)

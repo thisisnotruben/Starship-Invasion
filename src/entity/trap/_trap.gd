@@ -41,4 +41,7 @@ func hurt(body: Node3D):
 
 func toggle(activate: bool):
 	$area3D/collisionShape3D.set_deferred("disabled", not activate)
-	$snd.play()
+	if activate:
+		$snd.play()
+	else:
+		$snd.stop()

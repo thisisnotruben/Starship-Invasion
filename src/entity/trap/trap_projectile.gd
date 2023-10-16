@@ -7,6 +7,8 @@ extends Trap
 @export var path_follow: PathFollow3D = null
 @export_range(0.0, 40.0) var speed: float = 20.0
 
+@onready var snd_shoot := $snd_shoot
+
 
 func _ready():
 	super._ready()

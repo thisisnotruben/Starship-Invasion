@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpxtrahkuddhh"]
+[gd_scene load_steps=6 format=3 uid="uid://bpxtrahkuddhh"]
 
 [ext_resource type="Script" path="res://src/entity/toggle/toggle.gd" id="1_lit2o"]
+[ext_resource type="AudioStream" uid="uid://d3tcd64qv6qtt" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Intense Server Computer Telemetry Loop 1-shortened.wav" id="2_chsch"]
+[ext_resource type="AudioStream" uid="uid://c1qebdasscc66" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Computer Telemetry 3-shortened.wav" id="3_c6ene"]
+[ext_resource type="AudioStream" uid="uid://um22uejlalgu" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Quantum Computer Telemetry Loop 2.wav" id="4_jfs6b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aatbq"]
 size = Vector3(4, 4, 4)
 
 [node name="toggle" type="Node3D"]
 script = ExtResource("1_lit2o")
+sfx_door = ExtResource("2_chsch")
+sfx_trap = ExtResource("3_c6ene")
+sfx_spawn = ExtResource("4_jfs6b")
 
 [node name="snd" type="AudioStreamPlayer3D" parent="."]
 

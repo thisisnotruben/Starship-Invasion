@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm6lrl0cgaejr"]
+[gd_scene load_steps=15 format=3 uid="uid://cm6lrl0cgaejr"]
 
 [ext_resource type="Script" path="res://src/ui/start/start.gd" id="1_pxw42"]
-[ext_resource type="AudioStream" uid="uid://cii7ar0yom6l3" path="res://asset/snd/dos88-paid/Waves.mp3" id="2_vea38"]
+[ext_resource type="AudioStream" uid="uid://b1tmf6dh3f8bg" path="res://asset/snd/DOS-88/DOS-88 - Dream Electro - 09 Summer Forever.ogg" id="2_6hujg"]
+[ext_resource type="AudioStream" uid="uid://dpftmeufvcwmn" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Transition Sound 2.wav" id="2_s5o14"]
+[ext_resource type="AudioStream" uid="uid://b28p215bebbx2" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 6.wav" id="2_wtbf0"]
+[ext_resource type="AudioStream" uid="uid://doasgi164mq1g" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 4.wav" id="3_j5n5w"]
 [ext_resource type="PackedScene" uid="uid://v51siikiuxu0" path="res://src/ui/license/license.tscn" id="3_stmor"]
 [ext_resource type="PackedScene" uid="uid://b2q8kep108aib" path="res://src/ui/credits/credits.tscn" id="4_gjr5u"]
+[ext_resource type="AudioStream" uid="uid://cul2ek767wy42" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 2.wav" id="4_vxyq2"]
 [ext_resource type="PackedScene" uid="uid://cdgdcmr8nn7t" path="res://src/ui/controls/controls.tscn" id="5_jv6p1"]
-[ext_resource type="PackedScene" uid="uid://davqs3425w0qk" path="res://src/ui/effect/effect.tscn" id="6_qo541"]
+[ext_resource type="AudioStream" uid="uid://do82ontdbe1it" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Transition Sound 1.wav" id="5_wvo8w"]
+[ext_resource type="PackedScene" uid="uid://davqs3425w0qk" path="res://src/ui/effects/effects.tscn" id="6_qo541"]
+[ext_resource type="AudioStream" uid="uid://cdljqjsm5lot5" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Error Sound 3.wav" id="7_2pwke"]
+[ext_resource type="AudioStream" uid="uid://deq57glwxblhk" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Pop-Up Sound 2.wav" id="9_vqq1o"]
+[ext_resource type="PackedScene" uid="uid://cffj2cxc154f2" path="res://src/ui/popup/popup.tscn" id="12_lp0hd"]
 
 [node name="start" type="Control"]
 layout_mode = 3
@@ -16,14 +24,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pxw42")
 
-[node name="snd" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_vea38")
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6hujg")
 autoplay = true
 
-[node name="background" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wtbf0")
+
+[node name="snd_nav" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j5n5w")
+
+[node name="snd_start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wvo8w")
+
+[node name="snd_game" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s5o14")
+
+[node name="snd_back" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vxyq2")
+
+[node name="snd_exit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2pwke")
+
+[node name="snd_popup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_vqq1o")
 
 [node name="center" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -82,6 +106,7 @@ text = "Overmind"
 
 [node name="easy" type="Button" parent="center/panel/margin/tabs/difficulty"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../back")
 text = "Easy"
 
 [node name="medium" type="Button" parent="center/panel/margin/tabs/difficulty"]
@@ -94,6 +119,7 @@ text = "Hard"
 
 [node name="back" type="Button" parent="center/panel/margin/tabs/difficulty"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../easy")
 text = "Back"
 
 [node name="license" parent="center/panel/margin/tabs" instance=ExtResource("3_stmor")]
@@ -105,6 +131,10 @@ visible = false
 layout_mode = 2
 
 [node name="controls" parent="center/panel/margin/tabs" instance=ExtResource("5_jv6p1")]
+visible = false
+layout_mode = 2
+
+[node name="popup" parent="center/panel/margin/tabs" instance=ExtResource("12_lp0hd")]
 visible = false
 layout_mode = 2
 

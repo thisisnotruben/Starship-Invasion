@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://v51siikiuxu0"]
+[gd_scene load_steps=3 format=3 uid="uid://v51siikiuxu0"]
 
 [ext_resource type="Script" path="res://src/ui/license/license.gd" id="1_cc1lc"]
+[ext_resource type="AudioStream" uid="uid://ds1ubtvv8d0m1" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 7.wav" id="2_sutsu"]
 
 [node name="license" type="VBoxContainer"]
 script = ExtResource("1_cc1lc")
+
+[node name="snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_sutsu")
 
 [node name="label" type="Label" parent="."]
 layout_mode = 2
@@ -19,15 +23,22 @@ text = "Images:
     - Deep-Fold
 Fonts:
     - Nimble Beasts Collective
-Audio
-    - DOS-88"
+Music:
+    - DOS-88
+    - Goose Ninja
+Sfx:
+    - Stormwave Audio
+    - Stefan Ruxandra
+    - ReadeOnly"
 
 [node name="redirect" type="Button" parent="."]
 layout_mode = 2
+focus_neighbor_top = NodePath("../back")
 text = "License link redirect"
 
 [node name="back" type="Button" parent="."]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../redirect")
 text = "Back"
 
 [connection signal="draw" from="." to="." method="_on_draw"]

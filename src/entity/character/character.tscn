@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://d3m1ci2db7oss"]
+[gd_scene load_steps=74 format=3 uid="uid://d3m1ci2db7oss"]
 
 [ext_resource type="Script" path="res://src/entity/character/character.gd" id="1_ehf32"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/character_fsm.gd" id="2_jgwyj"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://src/entity/fsm/_fsm.gd" id="13_vknas"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/behavior/attack.gd" id="14_a08bn"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/behavior/rest.gd" id="15_q5611"]
+[ext_resource type="AudioStream" uid="uid://ccbgujfvxyabt" path="res://asset/snd/8881 - Sci-Fi Energy Weapon Sound Effects Pack/Sci-Fi Energy Weapon Shot 4.wav" id="17_3aye0"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jxg5c"]
 animation = &"character/die"
@@ -352,7 +353,10 @@ parameters/shoot/blend_position = Vector2(-0.00199205, 0.193548)
 
 [node name="navigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="audioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="snd" type="AudioStreamPlayer3D" parent="."]
+
+[node name="snd_shoot" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_3aye0")
 
 [node name="body" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999999, -0.00117205, 0.00101281, 0.0011749, 0.999995, -0.00283243, -0.00100951, 0.00283361, 0.999995, 0, 0.53, 0)

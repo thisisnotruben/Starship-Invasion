@@ -6,7 +6,7 @@ func enter():
 	character.anim_tree["parameters/melee/blend_position"] = \
 		Vector2.UP if character.npc else Vector2.DOWN
 
-func _on_animation_tree_animation_finished(anim_name: String):
+func _on_animation_tree_animation_finished(_anim_name: String):
 	if active:
 		
 		var hit_scan := character.hit_spawn.get_collider()

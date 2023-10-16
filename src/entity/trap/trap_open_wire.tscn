@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1s8kv22433lg"]
+[gd_scene load_steps=7 format=3 uid="uid://c1s8kv22433lg"]
 
 [ext_resource type="PackedScene" uid="uid://bonktdsothgwv" path="res://src/entity/trap/_trap.tscn" id="1_8g8nu"]
 [ext_resource type="Script" path="res://src/entity/trap/trap_open_wire.gd" id="1_p4tgx"]
+[ext_resource type="AudioStream" uid="uid://b6rohngeh54q" path="res://asset/snd/6730 - Sci-Fi Electricity SFX Pack/Sci-Fi Malfunctioning Electrical Machine Loop 1.wav" id="3_x63nk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xivhk"]
 
@@ -11,6 +12,9 @@
 
 [node name="trap" instance=ExtResource("1_8g8nu")]
 script = ExtResource("1_p4tgx")
+
+[node name="snd" parent="." index="2"]
+stream = ExtResource("3_x63nk")
 
 [node name="img" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_xivhk")

@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc8j412lenuw0"]
+[gd_scene load_steps=13 format=3 uid="uid://bc8j412lenuw0"]
 
 [ext_resource type="Script" path="res://src/ui/game/game.gd" id="1_4fj3j"]
+[ext_resource type="AudioStream" uid="uid://b28p215bebbx2" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 6.wav" id="2_0nhrr"]
+[ext_resource type="AudioStream" uid="uid://doasgi164mq1g" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 4.wav" id="3_iskgl"]
 [ext_resource type="PackedScene" uid="uid://v51siikiuxu0" path="res://src/ui/license/license.tscn" id="3_r171v"]
 [ext_resource type="PackedScene" uid="uid://b2q8kep108aib" path="res://src/ui/credits/credits.tscn" id="4_g5u5e"]
+[ext_resource type="AudioStream" uid="uid://cul2ek767wy42" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 2.wav" id="4_otrha"]
 [ext_resource type="PackedScene" uid="uid://cffj2cxc154f2" path="res://src/ui/popup/popup.tscn" id="5_j631h"]
+[ext_resource type="AudioStream" uid="uid://katl4w3kf0fl" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Notification Sound 1.wav" id="5_o2lyx"]
 [ext_resource type="PackedScene" uid="uid://cdgdcmr8nn7t" path="res://src/ui/controls/controls.tscn" id="5_t107v"]
+[ext_resource type="AudioStream" uid="uid://dpftmeufvcwmn" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Transition Sound 2.wav" id="6_muqe5"]
+[ext_resource type="AudioStream" uid="uid://deq57glwxblhk" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Pop-Up Sound 2.wav" id="6_vicle"]
+[ext_resource type="AudioStream" uid="uid://cdljqjsm5lot5" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Error Sound 3.wav" id="7_rft3u"]
 
 [node name="game" type="Control"]
 process_mode = 3
@@ -17,6 +24,28 @@ grow_vertical = 2
 script = ExtResource("1_4fj3j")
 
 [node name="snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0nhrr")
+
+[node name="snd_nav" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_iskgl")
+
+[node name="snd_pause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_otrha")
+
+[node name="snd_resume" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_o2lyx")
+
+[node name="snd_start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_muqe5")
+
+[node name="snd_popup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vicle")
+
+[node name="snd_back" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_otrha")
+
+[node name="snd_exit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rft3u")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1

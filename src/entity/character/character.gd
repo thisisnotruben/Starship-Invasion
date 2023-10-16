@@ -2,7 +2,8 @@ extends CharacterBody3D
 class_name Character
 
 @onready var img: AnimatedSprite3D = $img
-@onready var snd: AudioStreamPlayer3D = $audioStreamPlayer3D
+@onready var snd: AudioStreamPlayer3D = $snd
+@onready var snd_shoot: AudioStreamPlayer3D = $snd_shoot
 @onready var hit_spawn: RayCast3D = $img/rayCast3D
 @onready var camera: Camera3D = $img/pivot/springArm3D/camera3D
 @onready var anim_tree: AnimationTree = $animationTree

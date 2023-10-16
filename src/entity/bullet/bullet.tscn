@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgkryfmd4torj"]
+[gd_scene load_steps=7 format=3 uid="uid://cgkryfmd4torj"]
 
 [ext_resource type="Script" path="res://src/entity/bullet/bullet.gd" id="1_mbkpk"]
 [ext_resource type="Material" uid="uid://dv6cyd4ncj2br" path="res://resource/laser_color.tres" id="2_4jlfh"]
+[ext_resource type="AudioStream" uid="uid://x7mwo3o88ycw" path="res://asset/snd/8881 - Sci-Fi Energy Weapon Sound Effects Pack/Sci-Fi Energy Projectile Impact 8.wav" id="2_jnuy5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vlsoc"]
 radius = 0.025
@@ -17,6 +18,10 @@ size = Vector3(0.04, 0.04, 0.04)
 
 [node name="bullet" type="Node3D"]
 script = ExtResource("1_mbkpk")
+
+[node name="snd" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_jnuy5")
+autoplay = true
 
 [node name="timer" type="Timer" parent="."]
 wait_time = 10.0
@@ -45,9 +50,6 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_5m2so")
 draw_pass_1 = SubResource("BoxMesh_el5sp")
-
-[node name="audioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-autoplay = true
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="timer_hit" to="." method="_on_timer_timeout"]

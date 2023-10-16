@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2q8kep108aib"]
+[gd_scene load_steps=3 format=3 uid="uid://b2q8kep108aib"]
 
 [ext_resource type="Script" path="res://src/ui/credits/credits.gd" id="1_cixev"]
+[ext_resource type="AudioStream" uid="uid://ds1ubtvv8d0m1" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 7.wav" id="2_58adf"]
 
 [node name="credits" type="VBoxContainer"]
 script = ExtResource("1_cixev")
+
+[node name="snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_58adf")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
@@ -22,10 +26,12 @@ Authors:
 
 [node name="redirect" type="Button" parent="."]
 layout_mode = 2
+focus_neighbor_top = NodePath("../back")
 text = "Source code link redirect"
 
 [node name="back" type="Button" parent="."]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../redirect")
 text = "Back"
 
 [connection signal="draw" from="." to="." method="_on_draw"]
