@@ -3,11 +3,11 @@
 This Game [(Overmind)](https://github.com/thisisnotruben/Overmind) is multi-licensed:
 
 Art assets not specified in ([images](#images), [fonts](#fonts), [audio](#audio)) are:
-
+```
 All Rights Reserved
 
 Copyright (c) 2023 Ruben Alvarez Reyes
-
+```
 ___
 
 ## Images
@@ -67,7 +67,9 @@ Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
 
 - [Stefan Ruxandra](https://fanestelaru.itch.io/)
 	- [Robotic Voices](https://fanestelaru.itch.io/robotic-voices)
-		- TODO: no license posted
+```
+U can use it as you please. Thank you!
+```
 
 - [Stormwave Audio](https://www.stormwave-audio.com/)
 	- [Sci-Fi Alien Interface SFX Pack](https://stormwave-audio.itch.io/sci-fi-alien-interface-sfx-pack)
