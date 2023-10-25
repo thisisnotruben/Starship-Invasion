@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bn54fyns3jxxq"]
+
+[node name="_prop" type="StaticBody3D"]
+
+[node name="sprite3D" type="AnimatedSprite3D" parent="."]
+pixel_size = 0.125
+billboard = 2
+shaded = true
+texture_filter = 0
+
+[node name="collisionShape3D" type="CollisionShape3D" parent="."]

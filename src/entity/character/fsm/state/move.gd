@@ -20,7 +20,7 @@ func init(args := {}) -> IState:
 	pivot = args["character"].get_node("img/pivot")
 	pivot_offset = pivot.position
 	return self
-	
+
 func exit():
 	super.exit()
 	velocity = Vector3(0.0, velocity.y, 0.0)

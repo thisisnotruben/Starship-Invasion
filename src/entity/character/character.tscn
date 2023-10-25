@@ -1,19 +1,26 @@
-[gd_scene load_steps=74 format=3 uid="uid://d3m1ci2db7oss"]
+[gd_scene load_steps=81 format=3 uid="uid://d3m1ci2db7oss"]
 
 [ext_resource type="Script" path="res://src/entity/character/character.gd" id="1_ehf32"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/character_fsm.gd" id="2_jgwyj"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/idle.gd" id="3_wpu87"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/move.gd" id="4_41aet"]
+[ext_resource type="AudioStream" uid="uid://b5g35hl20mcbk" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 1.wav" id="4_d87sa"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/die.gd" id="4_kibar"]
 [ext_resource type="PackedScene" uid="uid://b655k0iv8mey3" path="res://src/entity/character/fsm/state/move_player.tscn" id="5_ft54i"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/shoot.gd" id="5_htvxk"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/move_shoot.gd" id="5_ljr7x"]
+[ext_resource type="AudioStream" uid="uid://ve4ykdk2umr7" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 7.wav" id="5_n0rev"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/melee.gd" id="5_ne6x3"]
+[ext_resource type="AudioStream" uid="uid://bo073rcxici5b" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 8.wav" id="6_b6d6m"]
 [ext_resource type="PackedScene" uid="uid://d8ko5jjqcpdm" path="res://src/entity/character/fsm/state/move_npc.tscn" id="6_cnhsh"]
-[ext_resource type="Script" path="res://src/entity/character/fsm/state/hurt.gd" id="6_k7kw3"]
+[ext_resource type="AudioStream" uid="uid://c1fvoyde41jlp" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 9.wav" id="7_j4qcj"]
 [ext_resource type="PackedScene" uid="uid://cgkryfmd4torj" path="res://src/entity/bullet/bullet.tscn" id="8_gxqps"]
+[ext_resource type="AudioStream" uid="uid://c5ao5gojjap1h" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Voice 1.wav" id="10_3idqd"]
+[ext_resource type="AudioStream" uid="uid://ciav57csq6o5c" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Voice 2.wav" id="11_k1aml"]
+[ext_resource type="AudioStream" uid="uid://lxrxprix1r6q" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Voice 6.wav" id="12_tigal"]
 [ext_resource type="AnimationLibrary" uid="uid://dm8ve6q8hsmqt" path="res://resource/character_anim.tres" id="13_c30pa"]
 [ext_resource type="SpriteFrames" uid="uid://ybsqrkdfor0r" path="res://resource/character_0.tres" id="13_jlygo"]
+[ext_resource type="AudioStream" uid="uid://1sxsos4l36tq" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Screaming Voice 1.wav" id="13_khco6"]
 [ext_resource type="Script" path="res://src/entity/fsm/_fsm.gd" id="13_vknas"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/behavior/attack.gd" id="14_a08bn"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/behavior/rest.gd" id="15_q5611"]
@@ -281,6 +288,9 @@ character = NodePath("..")
 
 [node name="idle" type="Node" parent="fsm"]
 script = ExtResource("3_wpu87")
+quip_min_time = 5.0
+quip_max_time = 30.0
+quips = Array[AudioStream]([ExtResource("4_d87sa"), ExtResource("5_n0rev"), ExtResource("6_b6d6m"), ExtResource("7_j4qcj")])
 quip_play_chance = 0.2
 
 [node name="quip_timer" type="Timer" parent="fsm/idle"]
@@ -288,7 +298,9 @@ one_shot = true
 
 [node name="move" type="Node" parent="fsm"]
 script = ExtResource("4_41aet")
-BOB_AMP = 0.114
+speed = 8.0
+BOB_FREQ = 2.0
+quips = Array[AudioStream]([ExtResource("4_d87sa"), ExtResource("5_n0rev"), ExtResource("6_b6d6m"), ExtResource("7_j4qcj")])
 quip_play_chance = 0.2
 
 [node name="player" parent="fsm/move" instance=ExtResource("5_ft54i")]
@@ -299,7 +311,8 @@ nav_agent = NodePath("../../../navigationAgent3D")
 [node name="move_shoot" type="Node" parent="fsm"]
 script = ExtResource("5_ljr7x")
 bullet_scene = ExtResource("8_gxqps")
-quip_play_chance = 0.4
+quips = Array[AudioStream]([ExtResource("10_3idqd"), ExtResource("11_k1aml"), ExtResource("12_tigal")])
+quip_play_chance = 0.125
 
 [node name="player" parent="fsm/move_shoot" instance=ExtResource("5_ft54i")]
 
@@ -309,16 +322,17 @@ nav_agent = NodePath("../../../navigationAgent3D")
 [node name="shoot" type="Node" parent="fsm"]
 script = ExtResource("5_htvxk")
 bullet_scene = ExtResource("8_gxqps")
-quip_play_chance = 0.4
+quips = Array[AudioStream]([ExtResource("10_3idqd"), ExtResource("11_k1aml"), ExtResource("12_tigal")])
+quip_play_chance = 0.125
 
 [node name="melee" type="Node" parent="fsm"]
 script = ExtResource("5_ne6x3")
-
-[node name="hurt" type="Node" parent="fsm"]
-script = ExtResource("6_k7kw3")
+quips = Array[AudioStream]([ExtResource("10_3idqd"), ExtResource("11_k1aml"), ExtResource("12_tigal")])
+quip_play_chance = 0.125
 
 [node name="die" type="Node" parent="fsm"]
 script = ExtResource("4_kibar")
+quips = Array[AudioStream]([ExtResource("13_khco6")])
 
 [node name="fsm_behavior" type="Node" parent="."]
 script = ExtResource("13_vknas")
@@ -354,6 +368,7 @@ parameters/shoot/blend_position = Vector2(-0.00199205, 0.193548)
 [node name="navigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="snd" type="AudioStreamPlayer3D" parent="."]
+autoplay = true
 
 [node name="snd_shoot" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("17_3aye0")

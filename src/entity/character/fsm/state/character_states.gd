@@ -5,13 +5,7 @@ enum Type{
 	IDLE,
 	MOVE,
 	MOVE_SHOOT,
-	HURT,
 	MELEE,
 	SHOOT,
 	DIE
-}
-
-enum MoveType{
-	NPC,
-	PLAYER
 }

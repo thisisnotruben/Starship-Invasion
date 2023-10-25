@@ -4,6 +4,11 @@ extends CharacterState
 @export_range(5.0, 120.0) var quip_max_time := 120.0
 
 
+func init(args := {}) -> IState:
+	super.init(args)
+	play_quip(true, 0)
+	return self
+
 func enter():
 	super.enter()
 	$quip_timer.start(randf_range(quip_min_time, quip_max_time))

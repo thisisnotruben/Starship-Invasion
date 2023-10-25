@@ -79,6 +79,7 @@ U can use it as you please. Thank you!
 	- [Sci-Fi Robotics SFX Pack](https://stormwave-audio.itch.io/sci-fi-robotics-sfx-pack)
 	- [Sci-Fi Electricity SFX Pack](https://stormwave-audio.itch.io/sci-fi-electricity-sfx-pack)
 	- [Sci-Fi Radiation SFX Pack](https://stormwave-audio.itch.io/sci-fi-radiation-sfx-pack)
+	- [Unintelligible Male Radio Voice Pack](https://stormwave-audio.com/product/unintelligible-male-radio-voice-pack-1/)
 
 ```
 All audio content included in this download is licensed to the original 

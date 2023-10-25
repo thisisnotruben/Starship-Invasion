@@ -15,7 +15,6 @@ class_name Character
 	CharacterStates.Type.MOVE_SHOOT: [$fsm/move_shoot, "move-shoot"],
 	CharacterStates.Type.SHOOT: [$fsm/shoot, "shoot"],
 	CharacterStates.Type.MELEE: [$fsm/melee, "melee"],
-	CharacterStates.Type.HURT: [$fsm/hurt, "hurt"],
 	CharacterStates.Type.DIE: [$fsm/die, "die"]}
 	, {"character": self})
 @onready var behavior: Fsm = $fsm_behavior.init({

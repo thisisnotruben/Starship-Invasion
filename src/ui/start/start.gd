@@ -9,6 +9,7 @@ var tabs := {"main": 0, "difficulty": 1, \
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	randomize()
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel") \

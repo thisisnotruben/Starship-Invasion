@@ -3,6 +3,7 @@ extends CharacterState
 
 func enter():
 	super.enter()
+	play_quip()
 	character.anim_tree["parameters/melee/blend_position"] = \
 		Vector2.UP if character.npc else Vector2.DOWN
 
