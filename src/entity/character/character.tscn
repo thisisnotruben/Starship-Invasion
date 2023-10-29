@@ -6,15 +6,15 @@
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/move.gd" id="4_41aet"]
 [ext_resource type="AudioStream" uid="uid://b5g35hl20mcbk" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 1.wav" id="4_d87sa"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/die.gd" id="4_kibar"]
-[ext_resource type="PackedScene" uid="uid://b655k0iv8mey3" path="res://src/entity/character/fsm/state/move_player.tscn" id="5_ft54i"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/shoot.gd" id="5_htvxk"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/move_shoot.gd" id="5_ljr7x"]
 [ext_resource type="AudioStream" uid="uid://ve4ykdk2umr7" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 7.wav" id="5_n0rev"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/melee.gd" id="5_ne6x3"]
 [ext_resource type="AudioStream" uid="uid://bo073rcxici5b" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 8.wav" id="6_b6d6m"]
-[ext_resource type="PackedScene" uid="uid://d8ko5jjqcpdm" path="res://src/entity/character/fsm/state/move_npc.tscn" id="6_cnhsh"]
 [ext_resource type="AudioStream" uid="uid://c1fvoyde41jlp" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 9.wav" id="7_j4qcj"]
 [ext_resource type="PackedScene" uid="uid://cgkryfmd4torj" path="res://src/entity/bullet/bullet.tscn" id="8_gxqps"]
+[ext_resource type="Script" path="res://src/entity/character/fsm/state/move_player.gd" id="9_r4jia"]
+[ext_resource type="Script" path="res://src/entity/character/fsm/state/move_npc.gd" id="10_0x4nc"]
 [ext_resource type="AudioStream" uid="uid://c5ao5gojjap1h" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Voice 1.wav" id="10_3idqd"]
 [ext_resource type="AudioStream" uid="uid://ciav57csq6o5c" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Voice 2.wav" id="11_k1aml"]
 [ext_resource type="AudioStream" uid="uid://lxrxprix1r6q" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Voice 6.wav" id="12_tigal"]
@@ -73,7 +73,7 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_iwfii")
 blend_point_2/pos = Vector2(-0.2, -0.3)
 blend_point_3/node = SubResource("AnimationNodeAnimation_x8ay8")
 blend_point_3/pos = Vector2(0.2, -0.3)
-blend_mode = 1
+sync = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j7w4y"]
 animation = &"character/move_shoot_n"
@@ -219,6 +219,7 @@ advance_mode = 2
 advance_condition = &"die"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l2erx"]
+switch_mode = 2
 advance_mode = 2
 advance_condition = &"idle"
 
@@ -230,6 +231,7 @@ advance_condition = &"melee"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_08oec"]
+switch_mode = 2
 advance_mode = 2
 advance_condition = &"move-shoot"
 
@@ -238,6 +240,7 @@ advance_mode = 2
 advance_condition = &"melee"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_13gp4"]
+switch_mode = 2
 advance_mode = 2
 advance_condition = &"shoot"
 
@@ -246,6 +249,7 @@ advance_mode = 2
 advance_condition = &"melee"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o27ik"]
+switch_mode = 2
 advance_mode = 2
 advance_condition = &"move"
 
@@ -260,7 +264,7 @@ states/die/position = Vector2(545, 363)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_8g122")
 states/idle/position = Vector2(464, 245)
 states/melee/node = SubResource("AnimationNodeBlendSpace2D_41cjk")
-states/melee/position = Vector2(359, 363)
+states/melee/position = Vector2(321, 363)
 states/move/node = SubResource("AnimationNodeBlendSpace2D_1wf4q")
 states/move/position = Vector2(650, 100)
 states/move-shoot/node = SubResource("AnimationNodeBlendSpace2D_xqy64")
@@ -268,6 +272,7 @@ states/move-shoot/position = Vector2(464, 100)
 states/shoot/node = SubResource("AnimationNodeBlendSpace2D_y538s")
 states/shoot/position = Vector2(650, 245)
 transitions = ["idle", "die", SubResource("AnimationNodeStateMachineTransition_boeuo"), "idle", "shoot", SubResource("AnimationNodeStateMachineTransition_r7hii"), "shoot", "idle", SubResource("AnimationNodeStateMachineTransition_qv3q1"), "move-shoot", "idle", SubResource("AnimationNodeStateMachineTransition_tre8a"), "idle", "move-shoot", SubResource("AnimationNodeStateMachineTransition_4t47u"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_tgvsq"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_ua3n7"), "move", "move-shoot", SubResource("AnimationNodeStateMachineTransition_mvbcd"), "move-shoot", "move", SubResource("AnimationNodeStateMachineTransition_m2ou7"), "move", "shoot", SubResource("AnimationNodeStateMachineTransition_smuoq"), "shoot", "move", SubResource("AnimationNodeStateMachineTransition_0f138"), "move-shoot", "shoot", SubResource("AnimationNodeStateMachineTransition_egy04"), "shoot", "move-shoot", SubResource("AnimationNodeStateMachineTransition_mr3xr"), "move-shoot", "die", SubResource("AnimationNodeStateMachineTransition_cimtu"), "shoot", "die", SubResource("AnimationNodeStateMachineTransition_13wvu"), "move", "die", SubResource("AnimationNodeStateMachineTransition_gnjgm"), "melee", "die", SubResource("AnimationNodeStateMachineTransition_at3ep"), "melee", "idle", SubResource("AnimationNodeStateMachineTransition_l2erx"), "idle", "melee", SubResource("AnimationNodeStateMachineTransition_7va2r"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_7nsd6"), "melee", "move-shoot", SubResource("AnimationNodeStateMachineTransition_08oec"), "move-shoot", "melee", SubResource("AnimationNodeStateMachineTransition_ad35f"), "melee", "shoot", SubResource("AnimationNodeStateMachineTransition_13gp4"), "shoot", "melee", SubResource("AnimationNodeStateMachineTransition_wk6b2"), "melee", "move", SubResource("AnimationNodeStateMachineTransition_o27ik"), "move", "melee", SubResource("AnimationNodeStateMachineTransition_xx8k4")]
+graph_offset = Vector2(59, 34)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fro8x"]
 margin = 1.0
@@ -292,6 +297,7 @@ quip_min_time = 5.0
 quip_max_time = 30.0
 quips = Array[AudioStream]([ExtResource("4_d87sa"), ExtResource("5_n0rev"), ExtResource("6_b6d6m"), ExtResource("7_j4qcj")])
 quip_play_chance = 0.2
+wait = null
 
 [node name="quip_timer" type="Timer" parent="fsm/idle"]
 one_shot = true
@@ -302,11 +308,16 @@ speed = 8.0
 BOB_FREQ = 2.0
 quips = Array[AudioStream]([ExtResource("4_d87sa"), ExtResource("5_n0rev"), ExtResource("6_b6d6m"), ExtResource("7_j4qcj")])
 quip_play_chance = 0.2
+wait = null
 
-[node name="player" parent="fsm/move" instance=ExtResource("5_ft54i")]
+[node name="player" type="Node" parent="fsm/move"]
+script = ExtResource("9_r4jia")
+wait = null
 
-[node name="npc" parent="fsm/move" node_paths=PackedStringArray("nav_agent") instance=ExtResource("6_cnhsh")]
+[node name="npc" type="Node" parent="fsm/move" node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("10_0x4nc")
 nav_agent = NodePath("../../../navigationAgent3D")
+wait = null
 
 [node name="move_shoot" type="Node" parent="fsm"]
 script = ExtResource("5_ljr7x")
@@ -314,10 +325,14 @@ bullet_scene = ExtResource("8_gxqps")
 quips = Array[AudioStream]([ExtResource("10_3idqd"), ExtResource("11_k1aml"), ExtResource("12_tigal")])
 quip_play_chance = 0.125
 
-[node name="player" parent="fsm/move_shoot" instance=ExtResource("5_ft54i")]
+[node name="player" type="Node" parent="fsm/move_shoot"]
+script = ExtResource("9_r4jia")
+wait = null
 
-[node name="npc" parent="fsm/move_shoot" node_paths=PackedStringArray("nav_agent") instance=ExtResource("6_cnhsh")]
+[node name="npc" type="Node" parent="fsm/move_shoot" node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("10_0x4nc")
 nav_agent = NodePath("../../../navigationAgent3D")
+wait = null
 
 [node name="shoot" type="Node" parent="fsm"]
 script = ExtResource("5_htvxk")
@@ -330,6 +345,10 @@ script = ExtResource("5_ne6x3")
 quips = Array[AudioStream]([ExtResource("10_3idqd"), ExtResource("11_k1aml"), ExtResource("12_tigal")])
 quip_play_chance = 0.125
 
+[node name="timer" type="Timer" parent="fsm/melee"]
+wait_time = 0.5
+one_shot = true
+
 [node name="die" type="Node" parent="fsm"]
 script = ExtResource("4_kibar")
 quips = Array[AudioStream]([ExtResource("13_khco6")])
@@ -340,9 +359,11 @@ script = ExtResource("13_vknas")
 [node name="attack" type="Node" parent="fsm_behavior" node_paths=PackedStringArray("nav_agent")]
 script = ExtResource("14_a08bn")
 nav_agent = NodePath("../../navigationAgent3D")
+wait = null
 
 [node name="rest" type="Node" parent="fsm_behavior"]
 script = ExtResource("15_q5611")
+wait = null
 
 [node name="animationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -360,10 +381,10 @@ parameters/conditions/move = false
 parameters/conditions/move-shoot = false
 parameters/conditions/shoot = false
 parameters/idle/blend_position = Vector2(0, 0)
-parameters/melee/blend_position = Vector2(-0.207171, 0.300578)
+parameters/melee/blend_position = Vector2(0, 0)
 parameters/move/blend_position = Vector2(0, 0)
 parameters/move-shoot/blend_position = Vector2(0, 0)
-parameters/shoot/blend_position = Vector2(-0.00199205, 0.193548)
+parameters/shoot/blend_position = Vector2(0, 0)
 
 [node name="navigationAgent3D" type="NavigationAgent3D" parent="."]
 
@@ -384,7 +405,7 @@ billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = ExtResource("13_jlygo")
-animation = &"idle_w"
+animation = &"melee_nw"
 
 [node name="pivot" type="Node3D" parent="img"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46404, 0)
@@ -399,7 +420,7 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 
 
 [node name="rayCast3D" type="RayCast3D" parent="img"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.3, -0.514542)
-target_position = Vector3(0, 0.5, 0)
+target_position = Vector3(0, 0.75, 0)
 collision_mask = 2
 
 [node name="area3D" type="Area3D" parent="."]
@@ -413,6 +434,5 @@ shape = SubResource("CylinderShape3D_8f501")
 [connection signal="timeout" from="fsm/idle/quip_timer" to="fsm/idle" method="_on_quip_timer_timeout"]
 [connection signal="animation_finished" from="animationTree" to="fsm/move_shoot" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="animationTree" to="fsm/shoot" method="_on_animation_tree_animation_finished"]
-[connection signal="animation_finished" from="animationTree" to="fsm/melee" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="animationTree" to="fsm/die" method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="area3D" to="." method="_on_area_3d_body_entered"]

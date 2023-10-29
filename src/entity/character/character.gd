@@ -37,7 +37,7 @@ class_name Character
 @export_subgroup("Npc")
 @export_range(0.0, 50.0) var shoot_range: float = 5.0
 
-var health: int = 1: set = _set_health
+var health: int = health_max: set = _set_health
 var target: Character = null
 
 
@@ -69,31 +69,23 @@ func _set_npc(_npc: bool):
 	npc = _npc
 	$img/pivot/springArm3D/camera3D.current = !_npc
 	if _npc:
-		if is_in_group("player"):
-			remove_from_group("player")
-		if not is_in_group("npc"):
-			add_to_group("npc")
+		remove_from_group("player")
+		add_to_group("npc")
 	else:
-		if is_in_group("npc"):
-			remove_from_group("npc")
-		if not is_in_group("player"):
-			add_to_group("player")
+		remove_from_group("npc")
+		add_to_group("player")
 	_set_friendly(friendly)
 
 func _set_friendly(_friendly: bool):
 	friendly = _friendly
 	if npc:
 		if _friendly:
-			if is_in_group("foe"):
-				remove_from_group("foe")
-			if not is_in_group("friendly"):
-				add_to_group("friendly")
+			remove_from_group("foe")
+			add_to_group("friendly")
 		else:
-			if is_in_group("friendly"):
-				remove_from_group("friendly")
-			if not is_in_group("foe"):
-				add_to_group("foe")
-	elif not is_in_group("friendly"):
+			remove_from_group("friendly")
+			add_to_group("foe")
+	else:
 		add_to_group("friendly")
 
 func _handle_input():

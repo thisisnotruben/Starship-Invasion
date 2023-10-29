@@ -5,6 +5,8 @@ class_name CharacterState
 @export_range(0.0, 1.0) var quip_play_chance := 1.0
 var character: Character = null
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var locked := false
+
 
 func init(args := {}) -> IState:
 	character = args["character"]

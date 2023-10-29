@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgxf7pwl3d3bl"]
+
+[ext_resource type="PackedScene" uid="uid://qo7snti20jaa" path="res://src/entity/character/swarm_alien.tscn" id="1_ryail"]
+[ext_resource type="SpriteFrames" uid="uid://c4u75an26rlwc" path="res://resource/character_3.1.tres" id="2_l6u13"]
+
+[node name="SwarmAlienRed" instance=ExtResource("1_ryail")]
+
+[node name="img" parent="." index="8"]
+sprite_frames = ExtResource("2_l6u13")

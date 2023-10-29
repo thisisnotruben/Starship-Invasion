@@ -14,8 +14,10 @@ func init(_states := {}, _state_args := {}) -> Fsm:
 
 func _set_state(_state_type):
 	var prev_state_type = _curr["type"]
-	if prev_state_type != CharacterStates.Type.DIE \
+	
+	if (_curr["state"] == null or not _curr["state"].locked) \
 	and super._set_state(_state_type):
+		
 		if prev_state_type != -1:
 			character.anim_tree["parameters/conditions/%s" \
 				% anim_state_map[prev_state_type]] = false

@@ -7,6 +7,4 @@
 
 [node name="img" parent="." index="8"]
 sprite_frames = ExtResource("2_3gopm")
-
-[node name="camera3D" parent="img/pivot/springArm3D" index="0"]
-current = true
+animation = &"idle_w"
