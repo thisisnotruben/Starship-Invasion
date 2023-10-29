@@ -8,7 +8,6 @@ enum Type { ACTIVATE, PROXIMITY, TIME }
 
 
 func _ready():
-	super._ready()
 	if activate_type == Type.TIME:
 		$timer_chance.start(time_to_activate)
 

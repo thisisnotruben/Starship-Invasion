@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtkhwgtj5lu2w"
-path="res://.godot/imported/bluenoise128x128.png-6f0eaef1c4f8240ae9097f7c4ee0e9f1.ctex"
+uid="uid://bqkp2ol4x12xm"
+path="res://.godot/imported/1.png-1d60e8737afc17a0c6aaae42f0fd5c5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resource/shaders/other/Images/bluenoise128x128.png"
-dest_files=["res://.godot/imported/bluenoise128x128.png-6f0eaef1c4f8240ae9097f7c4ee0e9f1.ctex"]
+source_file="res://asset/crocotile3d/map1/1.png"
+dest_files=["res://.godot/imported/1.png-1d60e8737afc17a0c6aaae42f0fd5c5d.ctex"]
 
 [params]
 

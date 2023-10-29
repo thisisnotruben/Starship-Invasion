@@ -35,4 +35,6 @@ collision_mask = 2
 shape = SubResource("CylinderShape3D_mtqmn")
 disabled = true
 
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="timer_chance" to="." method="_on_timer_chance_timeout"]
 [connection signal="body_entered" from="area3D" to="." method="_on_area_3d_body_entered"]

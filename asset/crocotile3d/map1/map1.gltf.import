@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://g6005ie2xur"
-path="res://.godot/imported/map1.glb-60bf1041293d842b3cb8891c6bcd6eb5.scn"
+uid="uid://d1qvdk6hsakqu"
+path="res://.godot/imported/map1.gltf-f3ae69a0c7668991fb544c02c49c9087.scn"
 
 [deps]
 
-source_file="res://asset/crocotile3d/map1/map1.glb"
-dest_files=["res://.godot/imported/map1.glb-60bf1041293d842b3cb8891c6bcd6eb5.scn"]
+source_file="res://asset/crocotile3d/map1/map1.gltf"
+dest_files=["res://.godot/imported/map1.gltf-f3ae69a0c7668991fb544c02c49c9087.scn"]
 
 [params]
 
@@ -22,11 +22,11 @@ meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
-skins/use_named_skins=true
+skins/use_named_skins=false
 animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={}
-gltf/embedded_image_handling=1
+gltf/embedded_image_handling=3

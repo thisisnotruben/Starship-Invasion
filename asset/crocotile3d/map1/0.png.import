@@ -2,22 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp6jmu220338o"
-path.s3tc="res://.godot/imported/map1_0.png-8059dbb963ea6b541f2e0d3112dbb415.s3tc.ctex"
+uid="uid://dxvkyxedkv1ip"
+path="res://.godot/imported/0.png-c8489b6c8acf48d8baf06c9679d70196.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
-generator_parameters={}
 
 [deps]
 
-source_file="res://asset/crocotile3d/map1/map1_0.png"
-dest_files=["res://.godot/imported/map1_0.png-8059dbb963ea6b541f2e0d3112dbb415.s3tc.ctex"]
+source_file="res://asset/crocotile3d/map1/0.png"
+dest_files=["res://.godot/imported/0.png-c8489b6c8acf48d8baf06c9679d70196.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

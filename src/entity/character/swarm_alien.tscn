@@ -5,6 +5,8 @@
 
 [node name="SwarmAlien" instance=ExtResource("1_0cfur")]
 
-[node name="img" parent="." index="6"]
+[node name="img" parent="." index="8"]
 sprite_frames = ExtResource("2_3gopm")
-animation = &"spawn"
+
+[node name="camera3D" parent="img/pivot/springArm3D" index="0"]
+current = true

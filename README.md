@@ -34,7 +34,8 @@
 			- DOS-88 - Lost Signal
 - Create
 	- maps
-		- 1-10 
+		- 1-5 
 
-## Specs
+## Exporting
+
 - maps scaled up to: 4x
