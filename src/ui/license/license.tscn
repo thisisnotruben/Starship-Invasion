@@ -42,5 +42,7 @@ focus_neighbor_bottom = NodePath("../redirect")
 text = "Back"
 
 [connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="focus_entered" from="redirect" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="redirect" to="." method="_on_redirect_pressed"]
+[connection signal="focus_entered" from="back" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

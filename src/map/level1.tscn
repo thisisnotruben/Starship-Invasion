@@ -1,15 +1,13 @@
-[gd_scene load_steps=46 format=3 uid="uid://dbwsdg4frpi15"]
+[gd_scene load_steps=47 format=3 uid="uid://dbwsdg4frpi15"]
 
 [ext_resource type="AudioStream" uid="uid://cybtj1ouq743o" path="res://asset/snd/DOS-88/DOS-88 - Dark Ascent.mp3" id="1_6qqfq"]
 [ext_resource type="Texture2D" uid="uid://ddr6ajxd3m0fm" path="res://asset/img/Space Background.png" id="1_wt6rs"]
 [ext_resource type="PackedScene" uid="uid://d3m1ci2db7oss" path="res://src/entity/character/character.tscn" id="4_avjbd"]
-[ext_resource type="PackedScene" uid="uid://bc8j412lenuw0" path="res://src/ui/game/game.tscn" id="4_l367j"]
 [ext_resource type="PackedScene" uid="uid://dntypl5iv1qsw" path="res://src/map/props/computer/computer_1.tscn" id="5_8fxv1"]
 [ext_resource type="PackedScene" uid="uid://ca37jkluxvjp6" path="res://src/entity/door/door.tscn" id="5_a7iwe"]
 [ext_resource type="PackedScene" uid="uid://d07v76u0ymnne" path="res://src/map/props/boxes/box_gray_3.tscn" id="5_ga8rp"]
 [ext_resource type="PackedScene" uid="uid://biwvlbyxt56yb" path="res://src/map/props/boxes/box_gray_1.tscn" id="6_xj3kc"]
 [ext_resource type="PackedScene" uid="uid://des2ke677y68u" path="res://asset/crocotile3d/map1/map_1.tscn" id="7_05krw"]
-[ext_resource type="PackedScene" uid="uid://davqs3425w0qk" path="res://src/ui/effects/effects.tscn" id="7_xxbim"]
 [ext_resource type="PackedScene" uid="uid://blkotc2fues3o" path="res://src/map/props/boxes/box_gray_2.tscn" id="9_cmelv"]
 [ext_resource type="PackedScene" uid="uid://cr8lub20r2ccm" path="res://src/map/props/tanks/tank_blue_intact.tscn" id="11_77x6w"]
 [ext_resource type="PackedScene" uid="uid://cdc8k7531h34n" path="res://src/map/props/boxes/box_gray_6.tscn" id="11_wwkl7"]
@@ -41,6 +39,9 @@
 [ext_resource type="PackedScene" uid="uid://caygose7ahttw" path="res://src/map/props/boxes/box_green_small.tscn" id="40_wq575"]
 [ext_resource type="PackedScene" uid="uid://b03nc51jl2fk1" path="res://src/entity/character/swarm_alien_green.tscn" id="41_4c40r"]
 [ext_resource type="PackedScene" uid="uid://cgxf7pwl3d3bl" path="res://src/entity/character/swarm_alien_red.tscn" id="42_4v5r4"]
+[ext_resource type="PackedScene" uid="uid://igfkkdo1d51q" path="res://src/entity/trap/trap_fire.tscn" id="42_hg3up"]
+[ext_resource type="PackedScene" uid="uid://d3bnjjdsas4ei" path="res://src/ui/game_interface.tscn" id="42_hjd26"]
+[ext_resource type="PackedScene" uid="uid://c1s8kv22433lg" path="res://src/entity/trap/trap_open_wire.tscn" id="43_qmtm6"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w80h5"]
 panorama = ExtResource("1_wt6rs")
@@ -58,7 +59,7 @@ volumetric_fog_ambient_inject = 0.14
 
 [sub_resource type="Curve3D" id="Curve3D_dtqoh"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4, 1, -78, 0, 0, 0, 0, 0, 0, -4, 1, -70),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2, 1, -88, 0, 0, 0, 0, 0, 0, -2, 1, -68),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -73,398 +74,7 @@ autoplay = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cddn4")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.999999, -0.00125537, 4.19769e-05, -4.70436e-07, 0.0330449, 0.999454, -0.00125607, -0.999453, 0.0330449, 37.614, 15.2506, 6.60356)
-
 [node name="map1" parent="." instance=ExtResource("7_05krw")]
-
-[node name="characters" type="Node3D" parent="."]
-
-[node name="player" parent="characters" instance=ExtResource("4_avjbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2891, 0.00260931, -2.11566)
-npc = false
-friendly = true
-
-[node name="SwarmAlien" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9306, 0.00320053, -31.9926)
-
-[node name="SwarmAlien3" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93061, 0.00320053, -27.9926)
-
-[node name="SwarmAlien9" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93061, 0.00320053, -96.9926)
-
-[node name="SwarmAlien10" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9306, 0.00320053, -91.9926)
-
-[node name="SwarmAlien5" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9306, 0.00320053, -47.9926)
-
-[node name="SwarmAlien13" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -109)
-
-[node name="SwarmAlien21" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -111)
-
-[node name="SwarmAlien24" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -117)
-
-[node name="SwarmAlien15" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -103)
-
-[node name="SwarmAlien16" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -120)
-
-[node name="SwarmAlienGreen" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -32)
-
-[node name="SwarmAlienRed" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -51)
-
-[node name="SwarmAlienRed2" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -46)
-
-[node name="SwarmAlienGreen2" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -78)
-
-[node name="SwarmAlienGreen3" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -69)
-
-[node name="SwarmAlienRed3" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -93)
-
-[node name="SwarmAlienGreen4" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -115)
-
-[node name="SwarmAlienRed4" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -100)
-
-[node name="SwarmAlienGreen5" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -116)
-
-[node name="SwarmAlienRed5" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -110)
-
-[node name="SwarmAlien2" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34335, 0.0118656, -121.352)
-
-[node name="SwarmAlienGreen6" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -111)
-
-[node name="SwarmAlienRed6" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -104)
-
-[node name="SwarmAlienGreen7" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -121)
-
-[node name="SwarmAlienGreen8" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -123)
-
-[node name="SwarmAlienRed7" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.1127, 0.0123749, -123.35)
-
-[node name="SwarmAlien4" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.1449, 0.0122566, -123.558)
-
-[node name="SwarmAlienRed8" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -111)
-
-[node name="SwarmAlienRed9" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 0, -103)
-
-[node name="SwarmAlienGreen9" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, -111)
-
-[node name="SwarmAlien6" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -115)
-
-[node name="SwarmAlienRed10" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, -108)
-
-[node name="SwarmAlien7" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, -97)
-
-[node name="SwarmAlienGreen10" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -121)
-
-[node name="SwarmAlienRed11" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -122)
-
-[node name="SwarmAlienGreen11" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 1, -84)
-
-[node name="SwarmAlienGreen12" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, -87)
-
-[node name="SwarmAlien8" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -87)
-
-[node name="SwarmAlienRed12" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, -82)
-
-[node name="SwarmAlienGreen13" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -51)
-
-[node name="SwarmAlienGreen14" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, -54)
-
-[node name="SwarmAlien11" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, -42)
-
-[node name="SwarmAlienRed13" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, -35)
-
-[node name="SwarmAlien12" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 0, -38)
-
-[node name="SwarmAlienGreen15" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -42)
-
-[node name="SwarmAlienRed14" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, -34)
-
-[node name="SwarmAlienGreen16" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -54)
-
-[node name="SwarmAlienRed15" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -70)
-
-[node name="SwarmAlienGreen17" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -41)
-
-[node name="SwarmAlien14" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, -43)
-
-[node name="SwarmAlienRed16" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -48)
-
-[node name="SwarmAlien17" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -58)
-
-[node name="SwarmAlienGreen18" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -73)
-
-[node name="SwarmAlienGreen19" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -80)
-
-[node name="SwarmAlien18" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6633, 0.00864029, -86.9678)
-
-[node name="SwarmAlienGreen20" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3189, 7.24792e-05, -56.3604)
-
-[node name="SwarmAlien19" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -84)
-
-[node name="SwarmAlienRed17" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01824, 0.0019207, -70.6873)
-
-[node name="SwarmAlien20" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.14164, -0.000623703, -45.5304)
-
-[node name="SwarmAlien22" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, -33)
-
-[node name="SwarmAlien23" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -35)
-
-[node name="SwarmAlienRed18" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -22)
-
-[node name="SwarmAlienRed19" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -19)
-
-[node name="SwarmAlienGreen21" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -15)
-
-[node name="SwarmAlien25" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -10)
-
-[node name="SwarmAlienGreen22" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -13)
-
-[node name="SwarmAlienRed20" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
-
-[node name="SwarmAlien26" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -5)
-
-[node name="SwarmAlien27" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -26)
-
-[node name="SwarmAlien28" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -17)
-
-[node name="SwarmAlienRed21" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -3)
-
-[node name="SwarmAlienRed22" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -10)
-
-[node name="SwarmAlienRed23" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7328, 0, -15)
-
-[node name="SwarmAlienRed24" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -25)
-
-[node name="SwarmAlien29" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, -23)
-
-[node name="SwarmAlienGreen23" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -1)
-
-[node name="SwarmAlienGreen24" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -2)
-
-[node name="SwarmAlien30" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, -3)
-
-[node name="SwarmAlienRed25" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, -1)
-
-[node name="SwarmAlien31" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 0, -21)
-
-[node name="SwarmAlien32" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -13.0169)
-
-[node name="SwarmAlienRed26" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 0, -23)
-
-[node name="SwarmAlienGreen25" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, -3)
-
-[node name="SwarmAlienRed27" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 0, -5)
-
-[node name="SwarmAlien33" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, 0, -16)
-
-[node name="SwarmAlienGreen26" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117, 0, -6)
-
-[node name="SwarmAlienRed28" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114, 0, -26)
-
-[node name="SwarmAlien34" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109, 0, -12)
-
-[node name="SwarmAlienGreen27" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, 0, -20)
-
-[node name="SwarmAlienRed29" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.404, 0.000270844, -2.85607)
-
-[node name="SwarmAlien35" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130, 0, -25)
-
-[node name="SwarmAlien36" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.116, 0.00332069, -33.1003)
-
-[node name="SwarmAlien37" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.116, 0.00332069, -25.1003)
-
-[node name="SwarmAlienRed30" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.931, 0.0031395, -31.8803)
-
-[node name="SwarmAlienGreen28" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.937, 0, -35)
-
-[node name="SwarmAlien38" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136, 0, -46)
-
-[node name="SwarmAlien39" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, -46)
-
-[node name="SwarmAlienRed31" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.896, 0.00535774, -53.4373)
-
-[node name="SwarmAlienGreen29" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143, 0, -50)
-
-[node name="SwarmAlien40" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141, 2, -57)
-
-[node name="SwarmAlienGreen30" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141, 0, -68)
-
-[node name="SwarmAlienRed32" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135, 0, -74)
-
-[node name="SwarmAlien41" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.958, 0.00764656, -78.1407)
-
-[node name="SwarmAlienGreen31" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.445, 0.00816345, -82.6007)
-
-[node name="SwarmAlien42" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.737, 0.00738716, -75.8824)
-
-[node name="SwarmAlien43" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -66.8824)
-
-[node name="SwarmAlien44" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.737, 0.00738716, -60.8824)
-
-[node name="SwarmAlien45" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -53.8824)
-
-[node name="SwarmAlien46" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -53.8824)
-
-[node name="SwarmAlienRed33" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, -45)
-
-[node name="SwarmAlienRed34" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, -97)
-
-[node name="SwarmAlienRed35" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132, 0, -91)
-
-[node name="SwarmAlienRed36" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133, 0, -98)
-
-[node name="SwarmAlienRed37" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127, 0, -91)
-
-[node name="SwarmAlien47" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103, 0, -108)
-
-[node name="SwarmAlienGreen32" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, 0, -117)
-
-[node name="SwarmAlien48" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119, 0, -119)
-
-[node name="SwarmAlienGreen33" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114, 0, -99)
-
-[node name="SwarmAlienRed38" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 0, -115)
-
-[node name="SwarmAlien49" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.771, 0.0103016, -104.839)
-
-[node name="SwarmAlienRed39" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.235, 2, -106.35)
-
-[node name="SwarmAlienGreen34" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, -103)
-
-[node name="SwarmAlien50" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, -121)
-
-[node name="SwarmAlienGreen35" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.2878, 0.0119896, -118.658)
-
-[node name="SwarmAlienRed40" parent="characters" instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.8207, 0.0112286, -112.222)
-
-[node name="SwarmAlien51" parent="characters" instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.0633, 0.0111008, -109.005)
-
-[node name="SwarmAlienGreen36" parent="characters" instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.5332, 0.0102768, -103.777)
 
 [node name="props" type="Node3D" parent="."]
 
@@ -1457,26 +1067,576 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -82)
 [node name="door32" parent="doors" instance=ExtResource("5_a7iwe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -94)
 
+[node name="characters" type="Node3D" parent="."]
+
+[node name="player" parent="characters" instance=ExtResource("4_avjbd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35991, 0.00260931, -75.759)
+npc = false
+friendly = true
+
+[node name="SwarmAlien" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9306, 0.00320053, -31.9926)
+
+[node name="SwarmAlien3" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93061, 0.00320053, -27.9926)
+
+[node name="SwarmAlien9" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93061, 0.00320053, -96.9926)
+
+[node name="SwarmAlien10" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9306, 0.00320053, -91.9926)
+
+[node name="SwarmAlien5" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9306, 0.00320053, -47.9926)
+
+[node name="SwarmAlien13" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -109)
+
+[node name="SwarmAlien21" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -111)
+
+[node name="SwarmAlien24" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -117)
+
+[node name="SwarmAlien15" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -103)
+
+[node name="SwarmAlien16" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -120)
+
+[node name="SwarmAlienGreen" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -32)
+
+[node name="SwarmAlienRed" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -51)
+
+[node name="SwarmAlienRed2" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -46)
+
+[node name="SwarmAlienGreen2" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -78)
+
+[node name="SwarmAlienGreen3" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -69)
+
+[node name="SwarmAlienRed3" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -93)
+
+[node name="SwarmAlienGreen4" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -115)
+
+[node name="SwarmAlienRed4" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -100)
+
+[node name="SwarmAlienGreen5" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -116)
+
+[node name="SwarmAlienRed5" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -110)
+
+[node name="SwarmAlien2" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34335, 0.0118656, -121.352)
+
+[node name="SwarmAlienGreen6" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -111)
+
+[node name="SwarmAlienRed6" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -104)
+
+[node name="SwarmAlienGreen7" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -121)
+
+[node name="SwarmAlienGreen8" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -123)
+
+[node name="SwarmAlienRed7" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.1127, 0.0123749, -123.35)
+
+[node name="SwarmAlien4" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.1449, 0.0122566, -123.558)
+
+[node name="SwarmAlienRed8" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -111)
+
+[node name="SwarmAlienRed9" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 0, -103)
+
+[node name="SwarmAlienGreen9" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, -111)
+
+[node name="SwarmAlien6" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -115)
+
+[node name="SwarmAlienRed10" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, -108)
+
+[node name="SwarmAlien7" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, -97)
+
+[node name="SwarmAlienGreen10" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -121)
+
+[node name="SwarmAlienRed11" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -122)
+
+[node name="SwarmAlienGreen11" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 1, -84)
+
+[node name="SwarmAlienGreen12" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, -87)
+
+[node name="SwarmAlien8" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -87)
+
+[node name="SwarmAlienRed12" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, -82)
+
+[node name="SwarmAlienGreen13" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -51)
+
+[node name="SwarmAlienGreen14" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, -54)
+
+[node name="SwarmAlien11" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, -42)
+
+[node name="SwarmAlienRed13" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, -35)
+
+[node name="SwarmAlien12" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 0, -38)
+
+[node name="SwarmAlienGreen15" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -42)
+
+[node name="SwarmAlienRed14" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, -34)
+
+[node name="SwarmAlienGreen16" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -54)
+
+[node name="SwarmAlienRed15" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -70)
+
+[node name="SwarmAlienGreen17" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -41)
+
+[node name="SwarmAlien14" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, -43)
+
+[node name="SwarmAlienRed16" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -48)
+
+[node name="SwarmAlien17" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -58)
+
+[node name="SwarmAlienGreen18" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -73)
+
+[node name="SwarmAlienGreen19" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -80)
+
+[node name="SwarmAlien18" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6633, 0.00864029, -86.9678)
+
+[node name="SwarmAlienGreen20" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3189, 7.24792e-05, -56.3604)
+
+[node name="SwarmAlien19" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -84)
+
+[node name="SwarmAlienRed17" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01824, 0.0019207, -70.6873)
+
+[node name="SwarmAlien20" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.14164, -0.000623703, -45.5304)
+
+[node name="SwarmAlien22" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, -33)
+
+[node name="SwarmAlien23" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -35)
+
+[node name="SwarmAlienRed18" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -22)
+
+[node name="SwarmAlienRed19" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -19)
+
+[node name="SwarmAlienGreen21" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -15)
+
+[node name="SwarmAlien25" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -10)
+
+[node name="SwarmAlienGreen22" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -13)
+
+[node name="SwarmAlienRed20" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+
+[node name="SwarmAlien26" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -5)
+
+[node name="SwarmAlien27" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -26)
+
+[node name="SwarmAlien28" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -17)
+
+[node name="SwarmAlienRed21" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -3)
+
+[node name="SwarmAlienRed22" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -10)
+
+[node name="SwarmAlienRed23" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7328, 0, -15)
+
+[node name="SwarmAlienRed24" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -25)
+
+[node name="SwarmAlien29" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, -23)
+
+[node name="SwarmAlienGreen23" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -1)
+
+[node name="SwarmAlienGreen24" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -2)
+
+[node name="SwarmAlien30" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, -3)
+
+[node name="SwarmAlienRed25" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, -1)
+
+[node name="SwarmAlien31" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 0, -21)
+
+[node name="SwarmAlien32" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -13.0169)
+
+[node name="SwarmAlienRed26" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 0, -23)
+
+[node name="SwarmAlienGreen25" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, -3)
+
+[node name="SwarmAlienRed27" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 0, -5)
+
+[node name="SwarmAlien33" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, 0, -16)
+
+[node name="SwarmAlienGreen26" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117, 0, -6)
+
+[node name="SwarmAlienRed28" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114, 0, -26)
+
+[node name="SwarmAlien34" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109, 0, -12)
+
+[node name="SwarmAlienGreen27" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, 0, -20)
+
+[node name="SwarmAlienRed29" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.404, 0.000270844, -2.85607)
+
+[node name="SwarmAlien35" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130, 0, -25)
+
+[node name="SwarmAlien36" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.116, 0.00332069, -33.1003)
+
+[node name="SwarmAlien37" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.116, 0.00332069, -25.1003)
+
+[node name="SwarmAlienRed30" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.931, 0.0031395, -31.8803)
+
+[node name="SwarmAlienGreen28" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.937, 0, -35)
+
+[node name="SwarmAlien38" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136, 0, -46)
+
+[node name="SwarmAlien39" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, -46)
+
+[node name="SwarmAlienRed31" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.896, 0.00535774, -53.4373)
+
+[node name="SwarmAlienGreen29" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143, 0, -50)
+
+[node name="SwarmAlien40" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141, 2, -57)
+
+[node name="SwarmAlienGreen30" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141, 0, -68)
+
+[node name="SwarmAlienRed32" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135, 0, -74)
+
+[node name="SwarmAlien41" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.958, 0.00764656, -78.1407)
+
+[node name="SwarmAlienGreen31" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.445, 0.00816345, -82.6007)
+
+[node name="SwarmAlien42" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.737, 0.00738716, -75.8824)
+
+[node name="SwarmAlien43" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -66.8824)
+
+[node name="SwarmAlien44" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.737, 0.00738716, -60.8824)
+
+[node name="SwarmAlien45" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -53.8824)
+
+[node name="SwarmAlien46" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -53.8824)
+
+[node name="SwarmAlienRed33" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, -45)
+
+[node name="SwarmAlienRed34" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, -97)
+
+[node name="SwarmAlienRed35" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132, 0, -91)
+
+[node name="SwarmAlienRed36" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133, 0, -98)
+
+[node name="SwarmAlienRed37" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127, 0, -91)
+
+[node name="SwarmAlien47" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103, 0, -108)
+
+[node name="SwarmAlienGreen32" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, 0, -117)
+
+[node name="SwarmAlien48" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119, 0, -119)
+
+[node name="SwarmAlienGreen33" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114, 0, -99)
+
+[node name="SwarmAlienRed38" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 0, -115)
+
+[node name="SwarmAlien49" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.771, 0.0103016, -104.839)
+
+[node name="SwarmAlienRed39" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.235, 2, -106.35)
+
+[node name="SwarmAlienGreen34" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, -103)
+
+[node name="SwarmAlien50" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, -121)
+
+[node name="SwarmAlienGreen35" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.2878, 0.0119896, -118.658)
+
+[node name="SwarmAlienRed40" parent="characters" instance=ExtResource("42_4v5r4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.8207, 0.0112286, -112.222)
+
+[node name="SwarmAlien51" parent="characters" instance=ExtResource("26_w2eeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.0633, 0.0111008, -109.005)
+
+[node name="SwarmAlienGreen36" parent="characters" instance=ExtResource("41_4c40r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.5332, 0.0102768, -103.777)
+
 [node name="traps" type="Node3D" parent="."]
 
 [node name="Path3D" type="Path3D" parent="traps"]
 curve = SubResource("Curve3D_dtqoh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="traps/Path3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 1, -78)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -88)
+rotation_mode = 0
 
 [node name="trap_projectile" parent="traps/Path3D/PathFollow3D" node_paths=PackedStringArray("target", "path_follow") instance=ExtResource("32_lqtic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0, 0)
 target = NodePath("Marker3D")
-shoot_interval_sec = 1.25
 path_follow = NodePath("..")
 time_to_activate = 10.0
 
 [node name="Marker3D" type="Marker3D" parent="traps/Path3D/PathFollow3D/trap_projectile"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 0)
 
-[node name="canvasLayer" type="CanvasLayer" parent="."]
+[node name="trap_fire" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.905, 0.0120945, -120.956)
 
-[node name="game" parent="canvasLayer" instance=ExtResource("4_l367j")]
-visible = false
+[node name="trap_fire2" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.905, 0.0120945, -122.956)
 
-[node name="effects" parent="canvasLayer" instance=ExtResource("7_xxbim")]
+[node name="trap_fire3" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.905, 0.0120945, -122.956)
+
+[node name="trap_fire4" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.905, 0.0120945, -122.956)
+
+[node name="trap_fire5" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.905, 0.0120945, -120.956)
+
+[node name="trap_fire6" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.905, 0.0120945, -116.956)
+
+[node name="trap_fire7" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.905, 0.0120945, -110.956)
+
+[node name="trap_fire8" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.905, 0.0120945, -110.956)
+
+[node name="trap_fire9" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.905, 0.0120945, -104.956)
+
+[node name="trap_fire10" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.905, 0.0120945, -104.956)
+
+[node name="trap_fire12" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.905, 0.0120945, -104.956)
+
+[node name="trap_fire13" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.905, 0.0120945, -104.956)
+
+[node name="trap_fire14" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.905, 0.0120945, -106.956)
+
+[node name="trap_fire15" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.905, 0.0120945, -108.956)
+
+[node name="trap_fire16" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.905, 0.0120945, -115.023)
+
+[node name="trap_fire17" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.905, 0.0120945, -113.023)
+
+[node name="trap_fire11" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.905, 0.0120945, -106.956)
+
+[node name="trap_fire18" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 0, -41)
+
+[node name="trap_fire19" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 0, -43)
+
+[node name="trap_fire20" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109, 0, -43)
+
+[node name="trap_fire21" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105, 0, -41)
+
+[node name="trap_fire22" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.0467, 0.0101585, -103.36)
+
+[node name="trap_fire23" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.0467, 0.0101585, -109.36)
+
+[node name="trap_fire24" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.0467, 0.0101585, -113.36)
+
+[node name="trap_fire25" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.0467, 0.0101585, -117.36)
+
+[node name="trap_fire26" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67, 0, -3)
+
+[node name="trap_fire27" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67, 0, -0.8)
+
+[node name="trap_fire28" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 0, -0.8)
+
+[node name="trap_fire29" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0, -3)
+
+[node name="trap_fire30" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -3)
+
+[node name="trap_fire31" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, -0.8)
+
+[node name="trap_fire32" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, -3)
+
+[node name="trap_fire33" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, -43)
+
+[node name="trap_fire34" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -41)
+
+[node name="trap_fire35" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 0, -43)
+
+[node name="trap_fire36" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -47)
+
+[node name="trap_fire37" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -55)
+
+[node name="trap_fire38" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -63)
+
+[node name="trap_fire39" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -71)
+
+[node name="trap_fire40" parent="traps" instance=ExtResource("42_hg3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -77)
+
+[node name="trap_open_wire" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0455006, -57)
+
+[node name="trap_open_wire2" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.0450004, -51)
+
+[node name="trap_open_wire3" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0.00340044, -35)
+
+[node name="trap_open_wire4" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0.00320065, -33)
+
+[node name="trap_open_wire5" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 0.00501668, -69)
+
+[node name="trap_open_wire9" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0.0121011, -121)
+
+[node name="trap_open_wire10" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 0.0123011, -123)
+
+[node name="trap_open_wire11" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 0.0122012, -121)
+
+[node name="trap_open_wire12" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0.0121011, -121)
+
+[node name="trap_open_wire6" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 0.00560045, -57)
+
+[node name="trap_open_wire7" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97, 0.00350046, -35)
+
+[node name="trap_open_wire8" parent="traps" instance=ExtResource("43_qmtm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113, 0.00349987, -35)
+
+[node name="lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="lights"]
+transform = Transform3D(0.999999, -0.00125537, 4.19769e-05, -4.70436e-07, 0.0330449, 0.999454, -0.00125607, -0.999453, 0.0330449, 37.614, 15.2506, 6.60356)
+
+[node name="game_interface" parent="." instance=ExtResource("42_hjd26")]
+
+[node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
+
+[editable path="game_interface"]

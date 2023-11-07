@@ -297,7 +297,6 @@ quip_min_time = 5.0
 quip_max_time = 30.0
 quips = Array[AudioStream]([ExtResource("4_d87sa"), ExtResource("5_n0rev"), ExtResource("6_b6d6m"), ExtResource("7_j4qcj")])
 quip_play_chance = 0.2
-wait = null
 
 [node name="quip_timer" type="Timer" parent="fsm/idle"]
 one_shot = true
@@ -308,16 +307,13 @@ speed = 8.0
 BOB_FREQ = 2.0
 quips = Array[AudioStream]([ExtResource("4_d87sa"), ExtResource("5_n0rev"), ExtResource("6_b6d6m"), ExtResource("7_j4qcj")])
 quip_play_chance = 0.2
-wait = null
 
 [node name="player" type="Node" parent="fsm/move"]
 script = ExtResource("9_r4jia")
-wait = null
 
 [node name="npc" type="Node" parent="fsm/move" node_paths=PackedStringArray("nav_agent")]
 script = ExtResource("10_0x4nc")
 nav_agent = NodePath("../../../navigationAgent3D")
-wait = null
 
 [node name="move_shoot" type="Node" parent="fsm"]
 script = ExtResource("5_ljr7x")
@@ -327,12 +323,10 @@ quip_play_chance = 0.125
 
 [node name="player" type="Node" parent="fsm/move_shoot"]
 script = ExtResource("9_r4jia")
-wait = null
 
 [node name="npc" type="Node" parent="fsm/move_shoot" node_paths=PackedStringArray("nav_agent")]
 script = ExtResource("10_0x4nc")
 nav_agent = NodePath("../../../navigationAgent3D")
-wait = null
 
 [node name="shoot" type="Node" parent="fsm"]
 script = ExtResource("5_htvxk")
@@ -359,11 +353,9 @@ script = ExtResource("13_vknas")
 [node name="attack" type="Node" parent="fsm_behavior" node_paths=PackedStringArray("nav_agent")]
 script = ExtResource("14_a08bn")
 nav_agent = NodePath("../../navigationAgent3D")
-wait = null
 
 [node name="rest" type="Node" parent="fsm_behavior"]
 script = ExtResource("15_q5611")
-wait = null
 
 [node name="animationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -389,10 +381,11 @@ parameters/shoot/blend_position = Vector2(0, 0)
 [node name="navigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="snd" type="AudioStreamPlayer3D" parent="."]
-autoplay = true
+max_distance = 125.0
 
 [node name="snd_shoot" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("17_3aye0")
+max_distance = 125.0
 
 [node name="body" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999999, -0.00117205, 0.00101281, 0.0011749, 0.999995, -0.00283243, -0.00100951, 0.00283361, 0.999995, 0, 0.53, 0)
@@ -405,7 +398,7 @@ billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = ExtResource("13_jlygo")
-animation = &"melee_nw"
+animation = &"idle_w"
 
 [node name="pivot" type="Node3D" parent="img"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46404, 0)

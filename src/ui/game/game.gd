@@ -3,8 +3,8 @@ extends Control
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
 @onready var prev_tab: Control = $center/panel/margin/tabs/main/resume_game
-var tabs := {"main": 0, "license": 1, \
-"credits": 2, "popup": 3, "controls": 4}
+var tabs := {"main": 0, "license": 1, "credits": 2, \
+"popup": 3, "controls": 4, "settings": 5}
 
 
 func _ready():
@@ -20,14 +20,12 @@ func _input(event: InputEvent):
 		else:
 			$snd_resume.play()
 	elif event.is_action_pressed("ui_cancel") \
-	and tab.current_tab in [tabs["license"], \
-	tabs["credits"], tabs["popup"], tabs["controls"]]:
+	and [tabs["license"], tabs["credits"], tabs["popup"], \
+	tabs["controls"], tabs["settings"]].has(tab.current_tab):
 		_on_back_pressed()
-	elif visible and (((event.is_action_pressed("ui_up") \
-	or event.is_action_pressed("ui_down")) and not popup.visible) \
-	or ((event.is_action_pressed("ui_left") \
-	or event.is_action_pressed("ui_right")) and popup.visible)):
-		$snd_nav.play()
+
+func _on_focus_entered():
+	$snd_nav.play()
 
 func _on_resume_game_pressed():
 	$snd_resume.play()
@@ -49,17 +47,22 @@ func _on_start_menu_pressed():
 
 func _on_controls_pressed():
 	$snd.play()
-	prev_tab = $center/panel/margin/tabs/main/controls
+	prev_tab = $center/panel/margin/tabs/main/grid/controls
 	tab.current_tab = tabs["controls"]
+
+func _on_settings_pressed():
+	$snd.play()
+	prev_tab = $center/panel/margin/tabs/main/grid/settings
+	tab.current_tab = tabs["settings"]
 
 func _on_license_pressed():
 	$snd.play()
-	prev_tab = $center/panel/margin/tabs/main/license
+	prev_tab = $center/panel/margin/tabs/main/grid/license
 	tab.current_tab = tabs["license"]
 
 func _on_credits_pressed():
 	$snd.play()
-	prev_tab = $center/panel/margin/tabs/main/credits
+	prev_tab = $center/panel/margin/tabs/main/grid/credits
 	tab.current_tab = tabs["credits"]
 
 func _on_exit_pressed():
@@ -99,3 +102,5 @@ func next_level(prompt: bool, next_level_scene: PackedScene):
 		else:
 			$snd_back.play()
 			hide()
+
+

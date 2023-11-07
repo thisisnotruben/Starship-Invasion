@@ -7,21 +7,22 @@ extends Trap
 @export var path_follow: PathFollow3D = null
 @export_range(0.0, 40.0) var speed: float = 20.0
 
-@onready var snd_shoot := $snd_shoot
+@onready var snd_shoot: AudioStreamPlayer3D = $snd_shoot
 
 
 func _ready():
+	set_physics_process(false)
 	super._ready()
 	if target == null:
 		print_debug("[%s] doesn't have set vale 'target'." % get_path())
 
+func _physics_process(delta: float):
+	if path_follow != null and speed > 0.0:
+		path_follow.progress += speed * delta
+
 func toggle(activate: bool):
 	super.toggle(activate)
-	
-	if path_follow != null and speed > 0.0:
-		get_tree().create_tween().tween_property( \
-			path_follow, "progress_ratio", 1.0, speed)
-	
+	set_physics_process(activate)
 	if activate:
 		$timer_shoot.start(shoot_interval_sec)
 	else:

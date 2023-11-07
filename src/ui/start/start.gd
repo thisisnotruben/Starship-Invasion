@@ -3,8 +3,8 @@ extends Control
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
 @onready var prev_tab: Control = $center/panel/margin/tabs/main/start
-var tabs := {"main": 0, "difficulty": 1, \
-"license": 2, "credits": 3, "controls": 4, "popup": 5}
+var tabs := {"main": 0, "difficulty": 1, "license": 2, \
+"credits": 3, "controls": 4, "popup": 5, "settings": 6}
 
 
 func _ready():
@@ -13,14 +13,12 @@ func _ready():
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel") \
-	and [tabs["difficulty"], tabs["license"], \
-	tabs["credits"], tabs["controls"], tabs["popup"]].has(tab.current_tab):
+	and [tabs["difficulty"], tabs["license"], tabs["credits"], \
+	tabs["controls"], tabs["popup"], tabs["settings"]].has(tab.current_tab):
 		_on_back_pressed()
-	elif ((event.is_action_pressed("ui_up") \
-	or event.is_action_pressed("ui_down")) and not popup.visible) \
-	or ((event.is_action_pressed("ui_left") \
-	or event.is_action_pressed("ui_right")) and popup.visible):
-		$snd_nav.play()
+
+func _on_focus_entered():
+	$snd_nav.play()
 
 func _on_start_pressed():
 	$snd_start.play()
@@ -29,17 +27,22 @@ func _on_start_pressed():
 
 func _on_controls_pressed():
 	$snd.play()
-	prev_tab = $center/panel/margin/tabs/main/controls
+	prev_tab = $center/panel/margin/tabs/main/grid/controls
 	tab.current_tab = tabs["controls"]
+
+func _on_settings_pressed():
+	$snd.play()
+	prev_tab = $center/panel/margin/tabs/main/grid/settings
+	tab.current_tab = tabs["settings"]
 
 func _on_license_pressed():
 	$snd.play()
-	prev_tab = $center/panel/margin/tabs/main/license
+	prev_tab = $center/panel/margin/tabs/main/grid/license
 	tab.current_tab = tabs["license"]
 
 func _on_credits_pressed():
 	$snd.play()
-	prev_tab = $center/panel/margin/tabs/main/credits
+	prev_tab = $center/panel/margin/tabs/main/grid/credits
 	tab.current_tab = tabs["credits"]
 
 func _on_exit_pressed():

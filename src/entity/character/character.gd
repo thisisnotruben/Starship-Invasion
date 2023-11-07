@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Character
 
 @onready var img: AnimatedSprite3D = $img
+@onready var body: CollisionShape3D = $body
 @onready var snd: AudioStreamPlayer3D = $snd
 @onready var snd_shoot: AudioStreamPlayer3D = $snd_shoot
 @onready var hit_spawn: RayCast3D = $img/rayCast3D
@@ -40,6 +41,8 @@ class_name Character
 var health: int = health_max: set = _set_health
 var target: Character = null
 
+signal health_changed(_health)
+
 
 func _ready():
 	behavior.state = BehaviorStates.Type.REST
@@ -62,6 +65,9 @@ func _input(event: InputEvent):
 func _set_health(_health: int):
 	health = _health
 	health = clampi(health, 0, health_max)
+	
+	if health != _health:
+		emit_signal("health_changed", health)
 	if health == 0:
 		fsm.state = CharacterStates.Type.DIE
 
@@ -110,10 +116,10 @@ func _handle_input():
 		
 	fsm.state = state
 
-func _on_area_3d_body_entered(body: Node3D):
-	if npc and body is Character and is_foe(body) \
-	and body.fsm.state != CharacterStates.Type.DIE:
-		target = body
+func _on_area_3d_body_entered(_body: Node3D):
+	if npc and _body is Character and is_foe(_body) \
+	and _body.fsm.state != CharacterStates.Type.DIE:
+		target = _body
 		behavior.state = BehaviorStates.Type.ATTACK
 
 func is_foe(character: Character) -> bool:

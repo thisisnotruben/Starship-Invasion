@@ -1,6 +1,7 @@
 extends VBoxContainer
 
 signal back_pressed
+signal subcontrol_focused
 
 
 func _on_back_pressed():
@@ -13,3 +14,6 @@ func _on_redirect_pressed():
 	$snd.play()
 	await $snd.finished
 	OS.shell_open("https://github.com/thisisnotruben/Overmind/tree/main")
+
+func _on_focus_entered():
+	emit_signal("subcontrol_focused")

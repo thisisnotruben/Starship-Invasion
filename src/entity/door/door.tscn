@@ -1,101 +1,171 @@
-[gd_scene load_steps=20 format=3 uid="uid://ca37jkluxvjp6"]
+[gd_scene load_steps=11 format=3 uid="uid://ca37jkluxvjp6"]
 
 [ext_resource type="Script" path="res://src/entity/door/door.gd" id="1_771i4"]
 [ext_resource type="AudioStream" uid="uid://b6qrqxwiw0l7x" path="res://asset/snd/2896 - Sci-Fi Door Pack/Sci-Fi Doors Open 5-extended.wav" id="2_2x3pt"]
-[ext_resource type="Texture2D" uid="uid://cq0523s5x1gsu" path="res://asset/img/Scifi_SpaceDerelict/Props/Doors/Door1.png" id="2_n0qe7"]
 [ext_resource type="AudioStream" uid="uid://blok46kfprfgi" path="res://asset/snd/2896 - Sci-Fi Door Pack/Sci-Fi Doors Close 5-extended.wav" id="3_bl3ml"]
+[ext_resource type="Texture2D" uid="uid://c1mfgdhcloywh" path="res://asset/img/Scifi_SpaceDerelict/Props/Doors/Door1-Sheet.png" id="5_c1753"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6hgx"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(0, 16, 16, 16)
+[sub_resource type="Animation" id="Animation_044vt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("snd_open:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("snd_close:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mym5f"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(16, 16, 16, 16)
+[sub_resource type="Animation" id="Animation_6utw2"]
+resource_name = "close"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [11, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("snd_open:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("snd_close:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xfmtj"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(32, 16, 16, 16)
+[sub_resource type="Animation" id="Animation_8eoqp"]
+resource_name = "open"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("snd_open:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("snd_close:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_relwo"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(48, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8f1fw"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(128, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rouce"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(144, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c3vt5"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(160, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_emndt"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(176, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qfgyo"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(192, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6jxtl"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(208, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w6qy1"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(224, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1p2a4"]
-atlas = ExtResource("2_n0qe7")
-region = Rect2(240, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k2lh2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j6hgx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mym5f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xfmtj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_relwo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8f1fw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rouce")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c3vt5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_emndt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qfgyo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6jxtl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w6qy1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1p2a4")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rx1s4"]
+_data = {
+"RESET": SubResource("Animation_044vt"),
+"close": SubResource("Animation_6utw2"),
+"open": SubResource("Animation_8eoqp")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bulbr"]
 size = Vector3(4, 4, 0.25)
@@ -106,22 +176,33 @@ size = Vector3(4, 4, 5)
 [node name="door" type="StaticBody3D"]
 script = ExtResource("1_771i4")
 
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rx1s4")
+}
+
 [node name="snd_open" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_2x3pt")
+max_distance = 125.0
 
 [node name="snd_close" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_bl3ml")
+max_distance = 125.0
 
-[node name="img" type="AnimatedSprite3D" parent="."]
+[node name="img" type="Sprite3D" parent="."]
 offset = Vector2(0, 8)
 pixel_size = 0.25
 shaded = true
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_k2lh2")
+texture = ExtResource("5_c1753")
+hframes = 12
+region_enabled = true
+region_rect = Rect2(0, 16, 192, 16)
 
 [node name="collisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_bulbr")
+disabled = true
 
 [node name="area3D" type="Area3D" parent="."]
 collision_layer = 0
@@ -131,6 +212,5 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("BoxShape3D_5l6oq")
 
-[connection signal="animation_finished" from="img" to="." method="_on_animated_sprite_3d_animation_finished"]
 [connection signal="body_entered" from="area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="area3D" to="." method="_on_area_3d_body_exited"]

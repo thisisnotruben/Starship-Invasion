@@ -3,8 +3,8 @@
 ## TODO
 
 - Program
+	- audio pos
 	- doors
-		- rework to animation player
 		- https://www.youtube.com/watch?v=lOS2SptNiBM
 - Gather/record audio
 	- music

@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu0ekcdh24es1"]
+
+[ext_resource type="Script" path="res://src/ui/settings/settings.gd" id="1_wy11p"]
+
+[node name="settings" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wy11p")
+
+[node name="header" type="Label" parent="."]
+layout_mode = 2
+text = "Settings
+---------"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="volume" type="Label" parent="."]
+layout_mode = 2
+text = "Volume"
+vertical_alignment = 1
+
+[node name="margin1" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="vBox" type="VBoxContainer" parent="margin1"]
+layout_mode = 2
+
+[node name="music" type="Label" parent="margin1/vBox"]
+layout_mode = 2
+text = "Music"
+vertical_alignment = 1
+
+[node name="music_volume" type="ProgressBar" parent="margin1/vBox"]
+layout_mode = 2
+
+[node name="sfx" type="Label" parent="margin1/vBox"]
+layout_mode = 2
+text = "Sfx"
+vertical_alignment = 1
+
+[node name="sfx_volume" type="ProgressBar" parent="margin1/vBox"]
+layout_mode = 2
+
+[node name="shaders" type="Label" parent="."]
+layout_mode = 2
+text = "Shaders"
+vertical_alignment = 1
+
+[node name="margin2" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="grid" type="GridContainer" parent="margin2"]
+layout_mode = 2
+columns = 2
+
+[node name="lens_distortion" type="Label" parent="margin2/grid"]
+layout_mode = 2
+text = "Lens Distortion"
+vertical_alignment = 1
+
+[node name="lens_distortion_check" type="CheckBox" parent="margin2/grid"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="grain" type="Label" parent="margin2/grid"]
+layout_mode = 2
+text = "Grain"
+vertical_alignment = 1
+
+[node name="grain_check" type="CheckBox" parent="margin2/grid"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="tv" type="Label" parent="margin2/grid"]
+layout_mode = 2
+text = "TV"
+vertical_alignment = 1
+
+[node name="tv_check" type="CheckBox" parent="margin2/grid"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="save" type="Button" parent="."]
+layout_mode = 2
+text = "Save"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 2
+text = "Back"
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="pressed" from="save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

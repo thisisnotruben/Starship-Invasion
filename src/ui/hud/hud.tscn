@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwm6s58v1ngu"]
+[gd_scene load_steps=3 format=3 uid="uid://dwm6s58v1ngu"]
 
 [ext_resource type="Script" path="res://src/ui/hud/hud.gd" id="1_cw143"]
+[ext_resource type="PackedScene" uid="uid://t4o0ybipsuhj" path="res://src/ui/hud/hud_health.tscn" id="2_i5yds"]
 
 [node name="hud" type="Control"]
 layout_mode = 3
@@ -10,3 +11,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cw143")
+health_scene = ExtResource("2_i5yds")
+
+[node name="hurt" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.709804, 0.0392157, 0.0392157, 0)
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vBox" type="VBoxContainer" parent="margin"]
+layout_mode = 2
+alignment = 2
+
+[node name="hBox" type="HBoxContainer" parent="margin/vBox"]
+layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cm6lrl0cgaejr"]
+[gd_scene load_steps=16 format=3 uid="uid://cm6lrl0cgaejr"]
 
 [ext_resource type="Script" path="res://src/ui/start/start.gd" id="1_pxw42"]
 [ext_resource type="AudioStream" uid="uid://b1tmf6dh3f8bg" path="res://asset/snd/DOS-88/DOS-88 - Dream Electro - 09 Summer Forever.ogg" id="2_6hujg"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://cdljqjsm5lot5" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Error Sound 3.wav" id="7_2pwke"]
 [ext_resource type="AudioStream" uid="uid://deq57glwxblhk" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Pop-Up Sound 2.wav" id="9_vqq1o"]
 [ext_resource type="PackedScene" uid="uid://cffj2cxc154f2" path="res://src/ui/popup/popup.tscn" id="12_lp0hd"]
+[ext_resource type="PackedScene" uid="uid://cu0ekcdh24es1" path="res://src/ui/settings/settings.tscn" id="14_yqrh2"]
 
 [node name="start" type="Control"]
 layout_mode = 3
@@ -79,17 +80,25 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../exit")
 text = "Start"
 
-[node name="controls" type="Button" parent="center/panel/margin/tabs/main"]
+[node name="grid" type="GridContainer" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+columns = 2
+
+[node name="license" type="Button" parent="center/panel/margin/tabs/main/grid"]
+layout_mode = 2
+text = "  License  "
+
+[node name="credits" type="Button" parent="center/panel/margin/tabs/main/grid"]
+layout_mode = 2
+text = "  Credits  "
+
+[node name="controls" type="Button" parent="center/panel/margin/tabs/main/grid"]
 layout_mode = 2
 text = "Controls"
 
-[node name="license" type="Button" parent="center/panel/margin/tabs/main"]
+[node name="settings" type="Button" parent="center/panel/margin/tabs/main/grid"]
 layout_mode = 2
-text = "License"
-
-[node name="credits" type="Button" parent="center/panel/margin/tabs/main"]
-layout_mode = 2
-text = "Credits"
+text = "Settings"
 
 [node name="exit" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
@@ -138,19 +147,39 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="settings" parent="center/panel/margin/tabs" instance=ExtResource("14_yqrh2")]
+visible = false
+layout_mode = 2
+
 [node name="effects" parent="." instance=ExtResource("6_qo541")]
 
 [connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/start" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="center/panel/margin/tabs/main/controls" to="." method="_on_controls_pressed"]
-[connection signal="pressed" from="center/panel/margin/tabs/main/license" to="." method="_on_license_pressed"]
-[connection signal="pressed" from="center/panel/margin/tabs/main/credits" to="." method="_on_credits_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/license" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/grid/license" to="." method="_on_license_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/credits" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/grid/credits" to="." method="_on_credits_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/controls" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/grid/controls" to="." method="_on_controls_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/settings" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/grid/settings" to="." method="_on_settings_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/exit" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/exit" to="." method="_on_exit_pressed"]
 [connection signal="draw" from="center/panel/margin/tabs/difficulty" to="." method="_on_difficulty_draw"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/easy" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/difficulty/easy" to="." method="_on_difficulty_mode_pressed" binds= ["easy"]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/medium" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/difficulty/medium" to="." method="_on_difficulty_mode_pressed" binds= ["medium"]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_difficulty_mode_pressed" binds= ["hard"]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_back_pressed"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/license" to="." method="_on_back_pressed"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/license" to="." method="_on_focus_entered"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/credits" to="." method="_on_back_pressed"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/credits" to="." method="_on_focus_entered"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/controls" to="." method="_on_back_pressed"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/controls" to="." method="_on_focus_entered"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/popup" to="." method="_on_focus_entered"]
+[connection signal="back_pressed" from="center/panel/margin/tabs/settings" to="." method="_on_back_pressed"]

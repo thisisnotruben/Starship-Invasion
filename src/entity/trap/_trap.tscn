@@ -2,19 +2,27 @@
 
 [ext_resource type="Script" path="res://src/entity/trap/_trap.gd" id="1_2ixs0"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_3ayup"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_inh14"]
+radius = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mtqmn"]
+height = 4.0
+radius = 3.0
 
 [node name="trap" type="Node3D"]
 script = ExtResource("1_2ixs0")
+activate_type = 2
+time_to_activate = 3.0
+time_cooldown = 3.0
 
 [node name="timer" type="Timer" parent="."]
 
-[node name="timer_chance" type="Timer" parent="."]
+[node name="timer_interval" type="Timer" parent="."]
+
+[node name="timer_cooldown" type="Timer" parent="."]
 
 [node name="snd" type="AudioStreamPlayer3D" parent="."]
-autoplay = true
+max_distance = 125.0
 
 [node name="img" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.25
@@ -23,18 +31,23 @@ shaded = true
 texture_filter = 0
 
 [node name="area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="collisionShape3D" type="CollisionShape3D" parent="area3D"]
-shape = SubResource("SphereShape3D_3ayup")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_inh14")
 
 [node name="activate_sight" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="collisionShape3D" type="CollisionShape3D" parent="activate_sight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CylinderShape3D_mtqmn")
 disabled = true
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="timer_chance" to="." method="_on_timer_chance_timeout"]
+[connection signal="timeout" from="timer_interval" to="." method="_on_timer_interval_timeout"]
+[connection signal="timeout" from="timer_cooldown" to="." method="_on_timer_cooldown_timeout"]
 [connection signal="body_entered" from="area3D" to="." method="_on_area_3d_body_entered"]

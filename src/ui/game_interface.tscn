@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3bnjjdsas4ei"]
+
+[ext_resource type="PackedScene" uid="uid://bc8j412lenuw0" path="res://src/ui/game/game.tscn" id="1_kvwol"]
+[ext_resource type="PackedScene" uid="uid://davqs3425w0qk" path="res://src/ui/effects/effects.tscn" id="2_w7tmx"]
+[ext_resource type="PackedScene" uid="uid://dwm6s58v1ngu" path="res://src/ui/hud/hud.tscn" id="3_cm2xl"]
+
+[node name="game_interface" type="CanvasLayer"]
+
+[node name="game" parent="." instance=ExtResource("1_kvwol")]
+visible = false
+
+[node name="effects" parent="." instance=ExtResource("2_w7tmx")]
+
+[node name="hud" parent="." instance=ExtResource("3_cm2xl")]

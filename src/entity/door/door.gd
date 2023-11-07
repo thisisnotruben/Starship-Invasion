@@ -18,21 +18,11 @@ func _on_area_3d_body_exited(body: Node3D):
 	if _can_access(body):
 		toggle(false)
 
-func _on_animated_sprite_3d_animation_finished():
-	$collisionShape3D.set_deferred("disabled", bool($img.frame_progress))
-	if door_nav != null:
-		door_nav.set_deferred("enabled", not bool($img.frame_progress))
-
 func _can_access(body: Node3D) -> bool:
 	return type == Type.PROXIMITY and body is Character and not body.npc
 
 func toggle(open: bool):
 	if open:
-		$snd_close.stop()
-		$snd_open.play()
-		$img.play()
+		$anim.play("open")
 	else:
-		$snd_open.stop()
-		$snd_close.play()
-		$img.play_backwards()
-		$collisionShape3D.set_deferred("disabled", false)
+		$anim.play("close")

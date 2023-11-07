@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc8j412lenuw0"]
+[gd_scene load_steps=14 format=3 uid="uid://bc8j412lenuw0"]
 
 [ext_resource type="Script" path="res://src/ui/game/game.gd" id="1_4fj3j"]
 [ext_resource type="AudioStream" uid="uid://b28p215bebbx2" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 6.wav" id="2_0nhrr"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dpftmeufvcwmn" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Transition Sound 2.wav" id="6_muqe5"]
 [ext_resource type="AudioStream" uid="uid://deq57glwxblhk" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Pop-Up Sound 2.wav" id="6_vicle"]
 [ext_resource type="AudioStream" uid="uid://cdljqjsm5lot5" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Error Sound 3.wav" id="7_rft3u"]
+[ext_resource type="PackedScene" uid="uid://cu0ekcdh24es1" path="res://src/ui/settings/settings.tscn" id="13_rx8u8"]
 
 [node name="game" type="Control"]
 process_mode = 3
@@ -92,17 +93,25 @@ text = "Resume Game"
 layout_mode = 2
 text = "Start Menu"
 
-[node name="controls" type="Button" parent="center/panel/margin/tabs/main"]
+[node name="grid" type="GridContainer" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+columns = 2
+
+[node name="license" type="Button" parent="center/panel/margin/tabs/main/grid"]
+layout_mode = 2
+text = "  License  "
+
+[node name="credits" type="Button" parent="center/panel/margin/tabs/main/grid"]
+layout_mode = 2
+text = "  Credits "
+
+[node name="controls" type="Button" parent="center/panel/margin/tabs/main/grid"]
 layout_mode = 2
 text = "Controls"
 
-[node name="license" type="Button" parent="center/panel/margin/tabs/main"]
+[node name="settings" type="Button" parent="center/panel/margin/tabs/main/grid"]
 layout_mode = 2
-text = "License"
-
-[node name="credits" type="Button" parent="center/panel/margin/tabs/main"]
-layout_mode = 2
-text = "Credits"
+text = "Settings"
 
 [node name="exit" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
@@ -125,13 +134,30 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="settings" parent="center/panel/margin/tabs" instance=ExtResource("13_rx8u8")]
+visible = false
+layout_mode = 2
+
 [connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/resume_game" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/resume_game" to="." method="_on_resume_game_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/start_menu" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/start_menu" to="." method="_on_start_menu_pressed"]
-[connection signal="pressed" from="center/panel/margin/tabs/main/controls" to="." method="_on_controls_pressed"]
-[connection signal="pressed" from="center/panel/margin/tabs/main/license" to="." method="_on_license_pressed"]
-[connection signal="pressed" from="center/panel/margin/tabs/main/credits" to="." method="_on_credits_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/license" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/grid/license" to="." method="_on_license_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/credits" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/grid/credits" to="." method="_on_credits_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/controls" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/grid/controls" to="." method="_on_controls_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/settings" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/grid/settings" to="." method="_on_settings_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/exit" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/exit" to="." method="_on_exit_pressed"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/license" to="." method="_on_back_pressed"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/license" to="." method="_on_focus_entered"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/credits" to="." method="_on_back_pressed"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/credits" to="." method="_on_focus_entered"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/popup" to="." method="_on_focus_entered"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/controls" to="." method="_on_back_pressed"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/controls" to="." method="_on_focus_entered"]
+[connection signal="back_pressed" from="center/panel/margin/tabs/settings" to="." method="_on_back_pressed"]

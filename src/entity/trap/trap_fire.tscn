@@ -44,6 +44,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ws1j6")
 }, {
 "duration": 1.0,
@@ -62,12 +65,13 @@ animations = [{
 
 [node name="trap_fire" instance=ExtResource("1_fplth")]
 script = ExtResource("2_idpmo")
-activate_type = 0
 
-[node name="snd" parent="." index="2"]
+[node name="snd" parent="." index="3"]
 stream = ExtResource("3_51ko6")
 
-[node name="img" parent="." index="3"]
+[node name="img" parent="." index="4"]
 offset = Vector2(0, 6.5)
 sprite_frames = SubResource("SpriteFrames_057tl")
-animation = &"fire"
+animation = &"start"
+frame = 4
+frame_progress = 1.0

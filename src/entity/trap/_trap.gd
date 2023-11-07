@@ -1,19 +1,30 @@
 extends IToggleable
 class_name Trap
 
-enum Type { ACTIVATE, PROXIMITY, TIME }
+enum Type { ACTIVATE, PROXIMITY, TIME_INTERVAL, AUTOSTART }
 @export var activate_type := Type.PROXIMITY
-@export_range(10.0, 60.0) var time_to_activate := 15.0
 @export_range(1, 20) var damage: int = 1
+@export_category("Time Interval")
+@export_range(3.0, 60.0) var time_to_activate := 15.0
+@export_range(3.0, 60.0) var time_cooldown := 5.0
 
 
 func _ready():
-	if activate_type == Type.TIME:
-		$timer_chance.start(time_to_activate)
+	match activate_type:
+		Type.AUTOSTART:
+			toggle(true)
+		Type.TIME_INTERVAL:
+			$timer_interval.start(time_to_activate)
+			await $timer_interval.timeout
+			$timer_cooldown.start(time_cooldown)
 
-func _on_timer_chance_timeout():
-	if activate_type == Type.TIME:
+func _on_timer_interval_timeout():
+	if activate_type == Type.TIME_INTERVAL:
 		toggle(true)
+
+func _on_timer_cooldown_timeout():
+	if activate_type == Type.TIME_INTERVAL:
+		toggle(false)
 
 func _on_timer_timeout():
 	var bodies: Array[Node3D] = $area3D.get_overlapping_bodies()

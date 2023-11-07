@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://t4o0ybipsuhj"]
+
+[ext_resource type="Texture2D" uid="uid://dlg5r0j1ljskt" path="res://asset/img/Minifantasy_UserInterface_v1.0/Minifantasy_Userinterface_Assets/Icons/Minifantasy_GuiIcons.png" id="1_v4fh1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbjnx"]
+atlas = ExtResource("1_v4fh1")
+region = Rect2(41, 57, 7, 7)
+
+[node name="health" type="TextureRect"]
+custom_minimum_size = Vector2(49, 49)
+texture = SubResource("AtlasTexture_wbjnx")
+stretch_mode = 5

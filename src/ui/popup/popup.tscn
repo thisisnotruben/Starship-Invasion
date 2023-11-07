@@ -20,5 +20,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="focus_entered" from="hBox/yes" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="hBox/yes" to="." method="_on_yes_pressed"]
+[connection signal="focus_entered" from="hBox/no" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="hBox/no" to="." method="_on_no_pressed"]

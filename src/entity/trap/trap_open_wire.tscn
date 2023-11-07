@@ -1,25 +1,68 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1s8kv22433lg"]
+[gd_scene load_steps=12 format=3 uid="uid://c1s8kv22433lg"]
 
 [ext_resource type="PackedScene" uid="uid://bonktdsothgwv" path="res://src/entity/trap/_trap.tscn" id="1_8g8nu"]
 [ext_resource type="Script" path="res://src/entity/trap/trap_open_wire.gd" id="1_p4tgx"]
 [ext_resource type="AudioStream" uid="uid://b6rohngeh54q" path="res://asset/snd/6730 - Sci-Fi Electricity SFX Pack/Sci-Fi Malfunctioning Electrical Machine Loop 1.wav" id="3_x63nk"]
+[ext_resource type="Texture2D" uid="uid://b48uw2ru25njc" path="res://asset/img/PixelEffects/Electric.png" id="4_x8coi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk00u"]
+atlas = ExtResource("4_x8coi")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybydg"]
+atlas = ExtResource("4_x8coi")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vasaq"]
+atlas = ExtResource("4_x8coi")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tn8y"]
+atlas = ExtResource("4_x8coi")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qyn7"]
+atlas = ExtResource("4_x8coi")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wchq"]
+atlas = ExtResource("4_x8coi")
+region = Rect2(40, 0, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xivhk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk00u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybydg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vasaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tn8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qyn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wchq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5r0o5"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_7a4tj"]
-
-[node name="trap" instance=ExtResource("1_8g8nu")]
+[node name="trap_open_wire" instance=ExtResource("1_8g8nu")]
 script = ExtResource("1_p4tgx")
+activate_type = 3
 
-[node name="snd" parent="." index="2"]
+[node name="snd" parent="." index="3"]
 stream = ExtResource("3_x63nk")
 
-[node name="img" parent="." index="3"]
+[node name="img" parent="." index="4"]
+offset = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_xivhk")
-
-[node name="gPUParticles3D" type="GPUParticles3D" parent="." index="4"]
-emitting = false
-process_material = SubResource("ParticleProcessMaterial_5r0o5")
-draw_pass_1 = SubResource("BoxMesh_7a4tj")
+frame_progress = 0.910624
