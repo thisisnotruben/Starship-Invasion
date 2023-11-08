@@ -31,7 +31,7 @@ layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
 
-[node name="lens_distortion" type="BackBufferCopy" parent="."]
+[node name="lens_distortion" type="BackBufferCopy" parent="." groups=["lens_dis"]]
 position = Vector2(640, 360)
 scale = Vector2(6.4, 3.6)
 copy_mode = 2
@@ -49,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="grain" type="BackBufferCopy" parent="."]
+[node name="grain" type="BackBufferCopy" parent="." groups=["grain"]]
 position = Vector2(640, 360)
 scale = Vector2(6.4, 3.6)
 copy_mode = 2
@@ -67,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="tv" type="BackBufferCopy" parent="."]
+[node name="tv" type="BackBufferCopy" parent="." groups=["tv"]]
 position = Vector2(640, 360)
 scale = Vector2(6.4, 3.6)
 copy_mode = 2

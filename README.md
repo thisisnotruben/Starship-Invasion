@@ -3,9 +3,12 @@
 ## TODO
 
 - Program
-	- audio pos
-	- doors
-		- https://www.youtube.com/watch?v=lOS2SptNiBM
+	- character
+		- wall sticky collisions
+		- combat AI
+	- audio
+		- positional
+		- saving
 - Gather/record audio
 	- music
 		- DOS-88 - Last Transmission

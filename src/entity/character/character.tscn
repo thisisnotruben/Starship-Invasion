@@ -315,16 +315,16 @@ script = ExtResource("9_r4jia")
 script = ExtResource("10_0x4nc")
 nav_agent = NodePath("../../../navigationAgent3D")
 
-[node name="move_shoot" type="Node" parent="fsm"]
+[node name="move-shoot" type="Node" parent="fsm"]
 script = ExtResource("5_ljr7x")
 bullet_scene = ExtResource("8_gxqps")
 quips = Array[AudioStream]([ExtResource("10_3idqd"), ExtResource("11_k1aml"), ExtResource("12_tigal")])
 quip_play_chance = 0.125
 
-[node name="player" type="Node" parent="fsm/move_shoot"]
+[node name="player" type="Node" parent="fsm/move-shoot"]
 script = ExtResource("9_r4jia")
 
-[node name="npc" type="Node" parent="fsm/move_shoot" node_paths=PackedStringArray("nav_agent")]
+[node name="npc" type="Node" parent="fsm/move-shoot" node_paths=PackedStringArray("nav_agent")]
 script = ExtResource("10_0x4nc")
 nav_agent = NodePath("../../../navigationAgent3D")
 
@@ -382,10 +382,12 @@ parameters/shoot/blend_position = Vector2(0, 0)
 
 [node name="snd" type="AudioStreamPlayer3D" parent="."]
 max_distance = 125.0
+bus = &"sfx"
 
 [node name="snd_shoot" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("17_3aye0")
 max_distance = 125.0
+bus = &"sfx"
 
 [node name="body" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999999, -0.00117205, 0.00101281, 0.0011749, 0.999995, -0.00283243, -0.00100951, 0.00283361, 0.999995, 0, 0.53, 0)
@@ -425,7 +427,7 @@ collision_mask = 2
 shape = SubResource("CylinderShape3D_8f501")
 
 [connection signal="timeout" from="fsm/idle/quip_timer" to="fsm/idle" method="_on_quip_timer_timeout"]
-[connection signal="animation_finished" from="animationTree" to="fsm/move_shoot" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="animationTree" to="fsm/move-shoot" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="animationTree" to="fsm/shoot" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="animationTree" to="fsm/die" method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="area3D" to="." method="_on_area_3d_body_entered"]

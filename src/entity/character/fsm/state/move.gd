@@ -15,6 +15,9 @@ var pivot: Node3D = null
 var pivot_offset := Vector3.ZERO
 
 
+func _init():
+	type = CharacterStates.Type.MOVE
+
 func init(args := {}) -> IState:
 	super.init(args)
 	pivot = args["character"].get_node("img/pivot")

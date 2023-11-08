@@ -26,27 +26,35 @@ script = ExtResource("1_4fj3j")
 
 [node name="snd" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0nhrr")
+bus = &"sfx"
 
 [node name="snd_nav" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_iskgl")
+bus = &"sfx"
 
 [node name="snd_pause" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_otrha")
+bus = &"sfx"
 
 [node name="snd_resume" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_o2lyx")
+bus = &"sfx"
 
 [node name="snd_start" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_muqe5")
+bus = &"sfx"
 
 [node name="snd_popup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_vicle")
+bus = &"sfx"
 
 [node name="snd_back" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_otrha")
+bus = &"sfx"
 
 [node name="snd_exit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_rft3u")
+bus = &"sfx"
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -161,3 +169,4 @@ layout_mode = 2
 [connection signal="back_pressed" from="center/panel/margin/tabs/controls" to="." method="_on_back_pressed"]
 [connection signal="subcontrol_focused" from="center/panel/margin/tabs/controls" to="." method="_on_focus_entered"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/settings" to="." method="_on_back_pressed"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/settings" to="." method="_on_focus_entered"]

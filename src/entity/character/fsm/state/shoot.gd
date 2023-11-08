@@ -3,6 +3,9 @@ extends CharacterState
 @export var bullet_scene: PackedScene
 
 
+func _init():
+	type = CharacterStates.Type.SHOOT
+
 func enter():
 	super.enter()
 	play_quip()

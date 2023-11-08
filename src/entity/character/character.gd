@@ -10,14 +10,7 @@ class_name Character
 @onready var anim_tree: AnimationTree = $animationTree
 @onready var anim_state_machine: AnimationNodeStateMachinePlayback \
 	= anim_tree["parameters/playback"]
-@onready var fsm: Fsm = $fsm.init({
-	CharacterStates.Type.IDLE: [$fsm/idle, "idle"],
-	CharacterStates.Type.MOVE: [$fsm/move, "move"],
-	CharacterStates.Type.MOVE_SHOOT: [$fsm/move_shoot, "move-shoot"],
-	CharacterStates.Type.SHOOT: [$fsm/shoot, "shoot"],
-	CharacterStates.Type.MELEE: [$fsm/melee, "melee"],
-	CharacterStates.Type.DIE: [$fsm/die, "die"]}
-	, {"character": self})
+@onready var fsm: Fsm = $fsm
 @onready var behavior: Fsm = $fsm_behavior.init({
 	BehaviorStates.Type.ATTACK: $fsm_behavior/attack,
 	BehaviorStates.Type.REST: $fsm_behavior/rest}
@@ -45,7 +38,13 @@ signal health_changed(_health)
 
 
 func _ready():
+	var fsm_init := {}
+	for _state in $fsm.get_children():
+		if _state.enabled:
+			fsm_init[_state.type] = [_state, _state.name]
+	$fsm.init(fsm_init, {"character": self})
 	behavior.state = BehaviorStates.Type.REST
+	_set_npc(npc)
 
 func _physics_process(delta: float):
 	behavior.physics_process(delta)
@@ -63,13 +62,14 @@ func _input(event: InputEvent):
 	fsm.input(event)
 	
 func _set_health(_health: int):
-	health = _health
-	health = clampi(health, 0, health_max)
-	
-	if health != _health:
+	health = clampi(_health, 0, health_max)
+	if health >= 0 and fsm.state != CharacterStates.Type.DIE:
 		emit_signal("health_changed", health)
 	if health == 0:
 		fsm.state = CharacterStates.Type.DIE
+		set_physics_process(false)
+		set_process_input(false)
+		set_process(false)
 
 func _set_npc(_npc: bool):
 	npc = _npc

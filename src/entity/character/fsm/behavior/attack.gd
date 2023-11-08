@@ -16,9 +16,9 @@ func process(_delta: float):
 			var distance := character.global_position.distance_to( \
 			character.target.global_position)
 			
-			if character.melee_range > distance:
+			if character.fsm.can_melee() and character.melee_range >= distance:
 				state = CharacterStates.Type.MELEE
-			elif character.shoot_range > distance:
+			elif character.fsm.can_shoot() and character.shoot_range >= distance:
 				state = CharacterStates.Type.SHOOT
 			else:
 				state = CharacterStates.Type.MOVE

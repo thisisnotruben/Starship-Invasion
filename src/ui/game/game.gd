@@ -1,5 +1,6 @@
 extends Control
 
+var play_focus_sfx := false
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
 @onready var prev_tab: Control = $center/panel/margin/tabs/main/resume_game
@@ -25,7 +26,8 @@ func _input(event: InputEvent):
 		_on_back_pressed()
 
 func _on_focus_entered():
-	$snd_nav.play()
+	if play_focus_sfx:
+		$snd_nav.play()
 
 func _on_resume_game_pressed():
 	$snd_resume.play()
@@ -90,7 +92,9 @@ func _on_visibility_changed():
 			prev_tab = $center/panel/margin/tabs/main/resume_game
 
 func _on_main_draw():
+	play_focus_sfx = false
 	prev_tab.grab_focus()
+	play_focus_sfx = true
 
 func next_level(prompt: bool, next_level_scene: PackedScene):
 	visible = prompt
@@ -102,5 +106,3 @@ func next_level(prompt: bool, next_level_scene: PackedScene):
 		else:
 			$snd_back.play()
 			hide()
-
-

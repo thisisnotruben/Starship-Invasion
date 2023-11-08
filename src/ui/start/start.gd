@@ -1,5 +1,6 @@
 extends Control
 
+var play_focus_sfx := false
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
 @onready var prev_tab: Control = $center/panel/margin/tabs/main/start
@@ -18,7 +19,8 @@ func _input(event: InputEvent):
 		_on_back_pressed()
 
 func _on_focus_entered():
-	$snd_nav.play()
+	if play_focus_sfx:
+		$snd_nav.play()
 
 func _on_start_pressed():
 	$snd_start.play()
@@ -77,7 +79,11 @@ func _on_back_pressed():
 	tab.current_tab = tabs["main"]
 
 func _on_main_draw():
+	play_focus_sfx = false
 	prev_tab.grab_focus()
+	play_focus_sfx = true
 
 func _on_difficulty_draw():
+	play_focus_sfx = false
 	$center/panel/margin/tabs/difficulty/easy.grab_focus()
+	play_focus_sfx = true

@@ -15,9 +15,6 @@ func spawn_shot(args := {}):
 	if args.has("character"):
 		node = args["character"]
 		node.snd_shoot.play()
-		var shoot_dir := Vector2.UP if node.npc else Vector2.DOWN
-		node.anim_tree["parameters/shoot/blend_position"] = shoot_dir
-		node.anim_tree["parameters/move-shoot/blend_position"] = shoot_dir
 		
 		var exceptions := []
 		if node.is_in_group("friendly"):

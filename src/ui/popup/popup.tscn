@@ -7,6 +7,8 @@ script = ExtResource("1_x2vlc")
 
 [node name="label" type="Label" parent="."]
 layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="hBox" type="HBoxContainer" parent="."]
 layout_mode = 2

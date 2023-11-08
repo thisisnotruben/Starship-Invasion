@@ -4,6 +4,9 @@ extends CharacterState
 @export_range(5.0, 120.0) var quip_max_time := 120.0
 
 
+func _init():
+	type = CharacterStates.Type.IDLE
+
 func init(args := {}) -> IState:
 	super.init(args)
 	if not character.npc:

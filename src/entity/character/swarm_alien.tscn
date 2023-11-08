@@ -23,10 +23,12 @@ quip_play_chance = 0.5
 [node name="move" parent="fsm" index="1"]
 quips = Array[AudioStream]([ExtResource("2_rlkkj"), ExtResource("3_i48kp"), ExtResource("4_v2c7y"), ExtResource("5_vkrdc"), ExtResource("2_aa5e7"), ExtResource("7_lhc1m"), ExtResource("2_e8jbc"), ExtResource("9_5qxxy"), ExtResource("10_rip60"), ExtResource("11_8u8c0")])
 
-[node name="move_shoot" parent="fsm" index="2"]
+[node name="move-shoot" parent="fsm" index="2"]
+enabled = false
 quips = Array[AudioStream]([ExtResource("2_rlkkj"), ExtResource("3_i48kp"), ExtResource("4_v2c7y"), ExtResource("5_vkrdc"), ExtResource("2_aa5e7"), ExtResource("7_lhc1m"), ExtResource("2_e8jbc"), ExtResource("9_5qxxy"), ExtResource("10_rip60"), ExtResource("11_8u8c0")])
 
 [node name="shoot" parent="fsm" index="3"]
+enabled = false
 quips = Array[AudioStream]([ExtResource("2_rlkkj"), ExtResource("3_i48kp"), ExtResource("4_v2c7y"), ExtResource("5_vkrdc"), ExtResource("2_aa5e7"), ExtResource("7_lhc1m"), ExtResource("2_e8jbc"), ExtResource("9_5qxxy"), ExtResource("10_rip60"), ExtResource("11_8u8c0")])
 
 [node name="melee" parent="fsm" index="4"]
@@ -37,4 +39,4 @@ quips = Array[AudioStream]([ExtResource("2_rlkkj"), ExtResource("3_i48kp"), ExtR
 
 [node name="img" parent="." index="8"]
 sprite_frames = ExtResource("2_3gopm")
-animation = &"idle_w"
+animation = &"melee_se"
