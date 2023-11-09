@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://04jypdjif3cb"]
+[gd_resource type="Theme" load_steps=27 format=3 uid="uid://04jypdjif3cb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wd5o"]
 bg_color = Color(0.0745098, 0.0941176, 0.0941176, 0.74902)
@@ -12,6 +12,81 @@ bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrjr0"]
 bg_color = Color(0.121569, 0.14902, 0.14902, 0.74902)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_udu0w"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s6geq"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i1de6"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gqb18"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uwuov"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e6nm3"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ug78v"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wxm1d"]
+size = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ogbqk"]
+bg_color = Color(0.862745, 0.403922, 1, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.862745, 0.403922, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k428i"]
+bg_color = Color(0.862745, 0.403922, 1, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.862745, 0.403922, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c42rp"]
+bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68xnw"]
+bg_color = Color(0.403922, 1, 0.862745, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6etd7"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gqlm6"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_848wn"]
+size = Vector2(0, 0)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mvoqc"]
+size = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytcyv"]
+bg_color = Color(0.403922, 1, 0.862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v36xy"]
+bg_color = Color(0.862745, 0.403922, 1, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_au214"]
+color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 16
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptw75"]
 bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
 border_width_left = 2
@@ -19,6 +94,12 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.403922, 1, 0.564706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d50nc"]
+bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca1pp"]
+bg_color = Color(0.862745, 0.403922, 1, 1)
 
 [resource]
 Button/colors/font_color = Color(0.403922, 1, 0.564706, 1)
@@ -32,8 +113,32 @@ Button/styles/focus = SubResource("StyleBoxFlat_5wd5o")
 Button/styles/hover = SubResource("StyleBoxFlat_fh10k")
 Button/styles/normal = SubResource("StyleBoxFlat_tpx0s")
 Button/styles/pressed = SubResource("StyleBoxFlat_rrjr0")
+CheckBox/colors/font_color = Color(0.403922, 1, 0.564706, 1)
+CheckBox/colors/font_disabled_color = Color(1, 0.403922, 0.541176, 1)
+CheckBox/colors/font_focus_color = Color(0.862745, 0.403922, 1, 1)
+CheckBox/colors/font_hover_color = Color(0.862745, 0.403922, 1, 1)
+CheckBox/colors/font_pressed_color = Color(0.403922, 1, 0.862745, 1)
+CheckBox/icons/checked = SubResource("PlaceholderTexture2D_udu0w")
+CheckBox/icons/checked_disabled = SubResource("PlaceholderTexture2D_s6geq")
+CheckBox/icons/radio_checked = SubResource("PlaceholderTexture2D_i1de6")
+CheckBox/icons/radio_checked_disabled = SubResource("PlaceholderTexture2D_gqb18")
+CheckBox/icons/radio_unchecked = SubResource("PlaceholderTexture2D_uwuov")
+CheckBox/icons/radio_unchecked_disabled = SubResource("PlaceholderTexture2D_e6nm3")
+CheckBox/icons/unchecked = SubResource("PlaceholderTexture2D_ug78v")
+CheckBox/icons/unchecked_disabled = SubResource("PlaceholderTexture2D_wxm1d")
+CheckBox/styles/focus = SubResource("StyleBoxFlat_ogbqk")
+CheckBox/styles/hover = SubResource("StyleBoxFlat_k428i")
+CheckBox/styles/normal = SubResource("StyleBoxFlat_c42rp")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_68xnw")
 GridContainer/constants/h_separation = 6
 GridContainer/constants/v_separation = 6
+HSlider/icons/grabber = SubResource("PlaceholderTexture2D_6etd7")
+HSlider/icons/grabber_disabled = SubResource("PlaceholderTexture2D_gqlm6")
+HSlider/icons/grabber_highlight = SubResource("PlaceholderTexture2D_848wn")
+HSlider/icons/tick = SubResource("PlaceholderTexture2D_mvoqc")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ytcyv")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_v36xy")
+HSlider/styles/slider = SubResource("StyleBoxLine_au214")
 Label/colors/font_color = Color(0.839216, 1, 0.403922, 1)
 Label/font_sizes/font_size = 32
 LinkButton/colors/font_color = Color(0.403922, 1, 0.564706, 1)
@@ -46,4 +151,8 @@ MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32
 MarginContainer/constants/margin_top = 16
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ptw75")
+ProgressBar/colors/font_color = Color(0.403922, 1, 0.564706, 1)
+ProgressBar/font_sizes/font_size = 32
+ProgressBar/styles/background = SubResource("StyleBoxFlat_d50nc")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ca1pp")
 VBoxContainer/constants/separation = 6

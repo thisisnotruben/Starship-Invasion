@@ -5,11 +5,12 @@ const VERSION := 1
 static var dirty := false
 
 var play_focus_sfx := false
-@onready var music: ProgressBar = $margin1/vBox/music_volume
-@onready var sfx: ProgressBar = $margin1/vBox/sfx_volume
-@onready var lens_dis: BaseButton = $margin2/grid/lens_distortion_check
-@onready var grain: BaseButton = $margin2/grid/grain_check
-@onready var tv: BaseButton = $margin2/grid/tv_check
+@onready var music: HSlider = $tabs_container/volume/music_volume
+@onready var sfx: HSlider = $tabs_container/volume/sfx_volume
+@onready var lens_dis: BaseButton = $tabs_container/shader/lens_distortion_check
+@onready var grain: BaseButton = $tabs_container/shader/grain_check
+@onready var tv: BaseButton = $tabs_container/shader/tv_check
+var tabs := {"volume": 0, "shader": 1}
 
 signal back_pressed
 signal subcontrol_focused
@@ -26,6 +27,20 @@ func _on_draw():
 func _on_focus_entered():
 	if play_focus_sfx:
 		emit_signal("subcontrol_focused")
+
+func _on_volume_toggled(button_pressed: bool):
+	$tabs/shader.button_pressed = !button_pressed
+	$tabs_container.current_tab = tabs["volume"]
+	$tabs/volume.disabled = button_pressed
+	if button_pressed:
+		$tabs_container/volume/music_volume.grab_focus()
+
+func _on_shader_toggled(button_pressed: bool):
+	$tabs/volume.button_pressed = !button_pressed
+	$tabs_container.current_tab = tabs["shader"]
+	$tabs/shader.disabled = button_pressed
+	if button_pressed:
+		$tabs_container/shader/lens_distortion_check.grab_focus()
 
 func _on_save_pressed():
 	var config := ConfigFile.new()

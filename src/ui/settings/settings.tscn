@@ -17,71 +17,90 @@ text = "Settings
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="volume" type="Label" parent="."]
+[node name="tabs" type="HBoxContainer" parent="."]
 layout_mode = 2
-text = "Volume"
-vertical_alignment = 1
+alignment = 1
 
-[node name="margin1" type="MarginContainer" parent="."]
+[node name="volume" type="Button" parent="tabs"]
 layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "  Volume  "
 
-[node name="vBox" type="VBoxContainer" parent="margin1"]
+[node name="shader" type="Button" parent="tabs"]
 layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "  Shader  "
 
-[node name="music" type="Label" parent="margin1/vBox"]
+[node name="tabs_container" type="TabContainer" parent="."]
 layout_mode = 2
-text = "Music"
-vertical_alignment = 1
+tabs_visible = false
 
-[node name="music_volume" type="ProgressBar" parent="margin1/vBox"]
-layout_mode = 2
-
-[node name="sfx" type="Label" parent="margin1/vBox"]
-layout_mode = 2
-text = "Sfx"
-vertical_alignment = 1
-
-[node name="sfx_volume" type="ProgressBar" parent="margin1/vBox"]
-layout_mode = 2
-
-[node name="shaders" type="Label" parent="."]
-layout_mode = 2
-text = "Shaders"
-vertical_alignment = 1
-
-[node name="margin2" type="MarginContainer" parent="."]
-layout_mode = 2
-
-[node name="grid" type="GridContainer" parent="margin2"]
+[node name="volume" type="GridContainer" parent="tabs_container"]
+visible = false
 layout_mode = 2
 columns = 2
 
-[node name="lens_distortion" type="Label" parent="margin2/grid"]
+[node name="music" type="Label" parent="tabs_container/volume"]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 2
+
+[node name="music_volume" type="HSlider" parent="tabs_container/volume"]
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+ticks_on_borders = true
+
+[node name="sfx" type="Label" parent="tabs_container/volume"]
+layout_mode = 2
+text = "Sfx"
+horizontal_alignment = 2
+
+[node name="sfx_volume" type="HSlider" parent="tabs_container/volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+ticks_on_borders = true
+
+[node name="shader" type="GridContainer" parent="tabs_container"]
+layout_mode = 2
+columns = 2
+
+[node name="lens_distortion" type="Label" parent="tabs_container/shader"]
 layout_mode = 2
 text = "Lens Distortion"
+horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="lens_distortion_check" type="CheckBox" parent="margin2/grid"]
+[node name="lens_distortion_check" type="CheckBox" parent="tabs_container/shader"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+button_pressed = true
 
-[node name="grain" type="Label" parent="margin2/grid"]
+[node name="grain" type="Label" parent="tabs_container/shader"]
 layout_mode = 2
 text = "Grain"
+horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="grain_check" type="CheckBox" parent="margin2/grid"]
+[node name="grain_check" type="CheckBox" parent="tabs_container/shader"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+button_pressed = true
 
-[node name="tv" type="Label" parent="margin2/grid"]
+[node name="tv" type="Label" parent="tabs_container/shader"]
 layout_mode = 2
 text = "TV"
+horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="tv_check" type="CheckBox" parent="margin2/grid"]
+[node name="tv_check" type="CheckBox" parent="tabs_container/shader"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+button_pressed = true
 
 [node name="save" type="Button" parent="."]
 layout_mode = 2
@@ -92,5 +111,16 @@ layout_mode = 2
 text = "Back"
 
 [connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="focus_entered" from="tabs/volume" to="." method="_on_focus_entered"]
+[connection signal="toggled" from="tabs/volume" to="." method="_on_volume_toggled"]
+[connection signal="focus_entered" from="tabs/shader" to="." method="_on_focus_entered"]
+[connection signal="toggled" from="tabs/shader" to="." method="_on_shader_toggled"]
+[connection signal="focus_entered" from="tabs_container/volume/music_volume" to="." method="_on_focus_entered"]
+[connection signal="focus_entered" from="tabs_container/volume/sfx_volume" to="." method="_on_focus_entered"]
+[connection signal="focus_entered" from="tabs_container/shader/lens_distortion_check" to="." method="_on_focus_entered"]
+[connection signal="focus_entered" from="tabs_container/shader/grain_check" to="." method="_on_focus_entered"]
+[connection signal="focus_entered" from="tabs_container/shader/tv_check" to="." method="_on_focus_entered"]
+[connection signal="focus_entered" from="save" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="save" to="." method="_on_save_pressed"]
+[connection signal="focus_entered" from="back" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -56,6 +56,10 @@ bus = &"sfx"
 stream = ExtResource("7_rft3u")
 bus = &"sfx"
 
+[node name="snd_game" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_muqe5")
+bus = &"sfx"
+
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -146,6 +150,31 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="dead" type="VBoxContainer" parent="center/panel/margin/tabs"]
+visible = false
+layout_mode = 2
+
+[node name="label" type="Label" parent="center/panel/margin/tabs/dead"]
+layout_mode = 2
+text = "You are Dead"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="restart" type="Button" parent="center/panel/margin/tabs/dead"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../exit")
+text = "Restart"
+
+[node name="start_menu" type="Button" parent="center/panel/margin/tabs/dead"]
+layout_mode = 2
+text = "Start Menu"
+
+[node name="exit" type="Button" parent="center/panel/margin/tabs/dead"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../restart")
+text = "Exit"
+
 [connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/resume_game" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/resume_game" to="." method="_on_resume_game_pressed"]
@@ -170,3 +199,10 @@ layout_mode = 2
 [connection signal="subcontrol_focused" from="center/panel/margin/tabs/controls" to="." method="_on_focus_entered"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/settings" to="." method="_on_back_pressed"]
 [connection signal="subcontrol_focused" from="center/panel/margin/tabs/settings" to="." method="_on_focus_entered"]
+[connection signal="draw" from="center/panel/margin/tabs/dead" to="." method="_on_main_draw"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/dead/restart" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/dead/restart" to="." method="_on_restart_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/dead/start_menu" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/dead/start_menu" to="." method="_on_start_menu_pressed" binds= [false]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/dead/exit" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/dead/exit" to="." method="_on_exit_pressed" binds= [false]]

@@ -1645,10 +1645,10 @@ transform = Transform3D(0.999999, -0.00125537, 4.19769e-05, -4.70436e-07, 0.0330
 
 [node name="game_interface" parent="." instance=ExtResource("42_hjd26")]
 
-[node name="death_screen" parent="game_interface" index="1" node_paths=PackedStringArray("player")]
+[node name="game" parent="game_interface" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../../characters/player")
 
-[node name="hud" parent="game_interface" index="3" node_paths=PackedStringArray("player")]
+[node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
 player = NodePath("../../characters/player")
 
 [editable path="game_interface"]

@@ -4,7 +4,6 @@
 
 - Program
 	- character
-		- wall sticky collisions
 		- combat AI
 	- audio
 		- positional
