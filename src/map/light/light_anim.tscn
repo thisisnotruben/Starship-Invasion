@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfaty8wftouhl"]
+
+[ext_resource type="Script" path="res://src/map/light/light_anim.gd" id="1_maa3p"]
+
+[node name="lightAnim" type="Node"]
+script = ExtResource("1_maa3p")

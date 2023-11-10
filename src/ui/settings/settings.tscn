@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu0ekcdh24es1"]
+[gd_scene load_steps=4 format=3 uid="uid://cu0ekcdh24es1"]
 
 [ext_resource type="Script" path="res://src/ui/settings/settings.gd" id="1_wy11p"]
+[ext_resource type="AudioStream" uid="uid://bvek3bl3mq7r8" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Error Sound 4.wav" id="2_a4vci"]
+[ext_resource type="AudioStream" uid="uid://dhw8nrkafeja6" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 3.wav" id="3_lkswa"]
 
 [node name="settings" type="VBoxContainer"]
 anchors_preset = 15
@@ -9,6 +11,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wy11p")
+
+[node name="snd_save" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_a4vci")
+bus = &"sfx"
+
+[node name="snd_drag" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lkswa")
+bus = &"sfx"
 
 [node name="header" type="Label" parent="."]
 layout_mode = 2
@@ -24,12 +34,16 @@ alignment = 1
 [node name="volume" type="Button" parent="tabs"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"buttonToggle"
+disabled = true
 toggle_mode = true
+button_pressed = true
 text = "  Volume  "
 
 [node name="shader" type="Button" parent="tabs"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"buttonToggle"
 toggle_mode = true
 text = "  Shader  "
 
@@ -38,7 +52,6 @@ layout_mode = 2
 tabs_visible = false
 
 [node name="volume" type="GridContainer" parent="tabs_container"]
-visible = false
 layout_mode = 2
 columns = 2
 
@@ -50,7 +63,7 @@ horizontal_alignment = 2
 [node name="music_volume" type="HSlider" parent="tabs_container/volume"]
 layout_mode = 2
 size_flags_vertical = 4
-value = 100.0
+min_value = -80.0
 ticks_on_borders = true
 
 [node name="sfx" type="Label" parent="tabs_container/volume"]
@@ -62,10 +75,11 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 100.0
+min_value = -80.0
 ticks_on_borders = true
 
 [node name="shader" type="GridContainer" parent="tabs_container"]
+visible = false
 layout_mode = 2
 columns = 2
 
@@ -110,16 +124,21 @@ text = "Save"
 layout_mode = 2
 text = "Back"
 
-[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="focus_entered" from="tabs/volume" to="." method="_on_focus_entered"]
 [connection signal="toggled" from="tabs/volume" to="." method="_on_volume_toggled"]
 [connection signal="focus_entered" from="tabs/shader" to="." method="_on_focus_entered"]
 [connection signal="toggled" from="tabs/shader" to="." method="_on_shader_toggled"]
 [connection signal="focus_entered" from="tabs_container/volume/music_volume" to="." method="_on_focus_entered"]
+[connection signal="value_changed" from="tabs_container/volume/music_volume" to="." method="_on_music_volume_value_changed"]
 [connection signal="focus_entered" from="tabs_container/volume/sfx_volume" to="." method="_on_focus_entered"]
+[connection signal="value_changed" from="tabs_container/volume/sfx_volume" to="." method="_on_sfx_volume_value_changed"]
 [connection signal="focus_entered" from="tabs_container/shader/lens_distortion_check" to="." method="_on_focus_entered"]
+[connection signal="toggled" from="tabs_container/shader/lens_distortion_check" to="." method="_on_lens_distortion_check_toggled"]
 [connection signal="focus_entered" from="tabs_container/shader/grain_check" to="." method="_on_focus_entered"]
+[connection signal="toggled" from="tabs_container/shader/grain_check" to="." method="_on_grain_check_toggled"]
 [connection signal="focus_entered" from="tabs_container/shader/tv_check" to="." method="_on_focus_entered"]
+[connection signal="toggled" from="tabs_container/shader/tv_check" to="." method="_on_tv_check_toggled"]
 [connection signal="focus_entered" from="save" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="save" to="." method="_on_save_pressed"]
 [connection signal="focus_entered" from="back" to="." method="_on_focus_entered"]

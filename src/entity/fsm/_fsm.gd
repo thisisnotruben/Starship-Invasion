@@ -2,8 +2,8 @@ extends Node
 class_name Fsm
 
 var state = null : set = _set_state, get = _get_state
-# _curr := {"state": IState, "type": enum} 
-var _curr := {"state": null, "type": -1} 
+# _curr := {"state": IState, "type": enum}
+var _curr := {"state": null, "type": -1}
 var states := {}
 
 signal state_changed(_statee)
@@ -26,7 +26,7 @@ func _set_state(_state_type) -> bool:
 	_curr = {"state": states[_state_type], "type": _state_type}
 	emit_signal("state_changed", _state_type)
 	return true
-	
+
 func _get_state():
 	return _curr["type"]
 

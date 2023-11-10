@@ -224,12 +224,12 @@ libraries = {
 
 [node name="snd_open" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_2x3pt")
-max_distance = 125.0
+max_distance = 30.0
 bus = &"sfx"
 
 [node name="snd_close" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_bl3ml")
-max_distance = 125.0
+max_distance = 30.0
 bus = &"sfx"
 
 [node name="img" type="Sprite3D" parent="."]

@@ -20,7 +20,7 @@ By acquiring this asset pack:
 
 1) You are allowed to:
 
-a) Use all the assets included in this pack in your own non-commercial or commercial videogame or audio-visual digital project an unlimited number of times. 
+a) Use all the assets included in this pack in your own non-commercial or commercial videogame or audio-visual digital project an unlimited number of times.
 
 b) Edit and alter the assets included in this pack with the purpose of including them in your own non-commercial or commercial video game or audio-visual digital project.
 
@@ -82,19 +82,19 @@ U can use it as you please. Thank you!
 	- [Unintelligible Male Radio Voice Pack](https://stormwave-audio.com/product/unintelligible-male-radio-voice-pack-1/)
 
 ```
-All audio content included in this download is licensed to the original 
-purchaser, thereby giving them a legal right to use any of this content 
-within their own commercial and non-commercial projects, musical 
-compositions, video games, animations, advertisements and television 
+All audio content included in this download is licensed to the original
+purchaser, thereby giving them a legal right to use any of this content
+within their own commercial and non-commercial projects, musical
+compositions, video games, animations, advertisements and television
 or film productions.
-Content hereby licensed may not be (individually, or collectively) re-sold 
+Content hereby licensed may not be (individually, or collectively) re-sold
 by the original purchaser, used in the creation of any new sample library,
-sample pack, virtual instrument and other competitive products in any 
+sample pack, virtual instrument and other competitive products in any
 format. All copying, duplicating, re-selling, renting, uploading, file sharing
-or unauthorized trading of any part of this content is prohibited by 
-international copyright law. 
-If you have any questions or doubts about the contents of this 
-agreement, please do not hesitate to contact Stormwave Audio at 
+or unauthorized trading of any part of this content is prohibited by
+international copyright law.
+If you have any questions or doubts about the contents of this
+agreement, please do not hesitate to contact Stormwave Audio at
 contact@stormwave-audio.com
 ```
 

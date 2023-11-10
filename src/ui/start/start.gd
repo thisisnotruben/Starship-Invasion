@@ -69,7 +69,7 @@ func _on_difficulty_mode_pressed(difficulty_mode: String):
 			pass
 		"hard":
 			pass
-	
+
 	$snd_game.play()
 	await $snd_game.finished
 	get_tree().change_scene_to_file("res://src/map/level1.tscn")

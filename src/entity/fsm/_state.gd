@@ -20,6 +20,6 @@ func physics_process(_delta: float):
 
 func process(_delta: float):
 	pass
-	
+
 func input(_event: InputEvent):
 	pass

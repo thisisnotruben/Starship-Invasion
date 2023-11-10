@@ -7,7 +7,7 @@
 shader_type canvas_item;
 
 uniform vec4 Shadows : source_color = vec4(0.0, 0.0, 0.0, 1.0);
-uniform vec4 Midtones : source_color = vec4(0.0, 0.0, 0.0, 1.0); 
+uniform vec4 Midtones : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform vec4 Hilights : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
@@ -21,7 +21,7 @@ vec3 ColorGrade( in vec3 InColor ){
 	vec3 OffShadows  = InColor + Shadows.xyz;
 	vec3 OffMidtones = InColor + Midtones.xyz;
 	vec3 OffHilights = InColor + Hilights.xyz;
-	
+
 	// Linearly interpolate between the 3 new colors, piece-wise
 	return mix(
 		// We pick which of the two control points to interpolate from based on which side of
@@ -37,6 +37,6 @@ void fragment(){
 	COLOR.a = 1.0;
 	COLOR.rgb = texture(SCREEN_TEXTURE, uv).rgb;
 	COLOR.rgb = ColorGrade(COLOR.rgb);
-	
+
 	//COLOR.rgb = pow(COLOR.rgb, vec3(2.2));
 }

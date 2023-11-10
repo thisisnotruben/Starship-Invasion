@@ -60,7 +60,7 @@ func _input(event: InputEvent):
 	if not npc and event is InputEventMouseMotion:
 		img.rotate_y(-event.relative.x * cam_sens_mouse)
 	fsm.input(event)
-	
+
 func _set_health(_health: int):
 	health = clampi(_health, 0, health_max)
 	if health >= 0 and fsm.state != CharacterStates.Type.DIE:
@@ -74,6 +74,7 @@ func _set_health(_health: int):
 func _set_npc(_npc: bool):
 	npc = _npc
 	$img/pivot/springArm3D/camera3D.current = !_npc
+	$img/spotLight3D.visible = !_npc
 	if _npc:
 		remove_from_group("player")
 		add_to_group("npc")
@@ -97,13 +98,13 @@ func _set_friendly(_friendly: bool):
 func _handle_input():
 	if npc:
 		return
-		
+
 	img.rotate_y(Input.get_axis("camera_right", "camera_left") * \
 		cam_sens_action)
-		
+
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
 		velocity.y = jump_velocity
-		
+
 	var state := CharacterStates.Type.IDLE
 	if Input.get_vector("move_e", "move_w", "move_s", "move_n").length() > 0.0:
 		state = CharacterStates.Type.MOVE
@@ -113,7 +114,7 @@ func _handle_input():
 		state = CharacterStates.Type.SHOOT
 	elif Input.is_action_just_pressed("melee"):
 		state = CharacterStates.Type.MELEE
-		
+
 	fsm.state = state
 
 func _on_area_3d_body_entered(_body: Node3D):

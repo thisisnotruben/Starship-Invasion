@@ -11,32 +11,32 @@ func _ready():
 
 func spawn_shot(args := {}):
 	var node: Node3D = null
-	
+
 	if args.has("character"):
 		node = args["character"]
 		node.snd_shoot.play()
-		
+
 		var exceptions := []
 		if node.is_in_group("friendly"):
 			exceptions = node.get_tree().get_nodes_in_group("friendly")
 		elif node.is_in_group("foe"):
 			exceptions = node.get_tree().get_nodes_in_group("foe")
 		exceptions.map(func(e): $rayCast3D.add_exception(e))
-		
+
 		damage = node.range_damage
 		transform.origin = node.hit_spawn.global_transform.origin
 		transform.basis = node.img.basis
 		node.add_sibling(self)
-		
+
 	elif args.has_all(["trap", "target"]):
 		node = args["trap"]
 		node.snd_shoot.play()
 		damage = node.damage
-		
+
 		spawn_call = func():
 			look_at_from_position(node.global_position, \
 				args["target"].global_position)
-		
+
 		if node.path_follow == null:
 			node.add_sibling(self)
 		else:
@@ -44,13 +44,13 @@ func spawn_shot(args := {}):
 
 func _physics_process(delta: float):
 	global_position += -transform.basis.z * speed * delta
-	
+
 	if ray.is_colliding():
 		var hit_scan = ray.get_collider()
 		if hit_scan is Character:
 			hit_scan.health -= damage
 		ray.enabled = false
-		
+
 		$snd.play()
 		$meshInstance3D.hide()
 		$gpuParticles3D.emitting = true

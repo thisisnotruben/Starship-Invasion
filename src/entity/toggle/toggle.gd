@@ -14,7 +14,7 @@ func _ready():
 func _input(event: InputEvent):
 	if can_revert_toggle and i_toggleable != null and event.is_action("interact") \
 	and not $area3D.get_overlapping_bodies().filter(_has_player).is_empty():
-		
+
 		var stream: AudioStream = null
 		if i_toggleable is Door and i_toggleable.type == Door.Type.ACTIVATE:
 			stream = sfx_door
@@ -22,7 +22,7 @@ func _input(event: InputEvent):
 			stream = sfx_trap
 		if i_toggleable is Spawn and i_toggleable.type == Trap.Type.ACTIVATE:
 			stream = sfx_spawn
-			
+
 		if stream != null:
 			i_toggleable.toggle(trigger)
 			trigger = !trigger

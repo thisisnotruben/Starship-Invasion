@@ -5,9 +5,6 @@
 - Program
 	- character
 		- combat AI
-	- audio
-		- positional
-		- saving
 - Gather/record audio
 	- music
 		- DOS-88 - Last Transmission
@@ -16,7 +13,7 @@
 		- D0S-88 - Raging Inferno
 		- DOS-88 - Only In Dreams
 		- DOS-88 - Dark Ascent
-		
+
 		- Exploring
 			- DOS-88 - Punkers
 			- DOS-88 - The Way Home
@@ -36,7 +33,7 @@
 			- DOS-88 - Lost Signal
 - Create
 	- maps
-		- 1-5 
+		- 1-5
 
 ## Exporting
 

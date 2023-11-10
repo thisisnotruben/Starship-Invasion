@@ -7,7 +7,7 @@ func toggle(activate: bool):
 		$img.play("start")
 	else:
 		$img.play_backwards("start")
-	
+
 	await $img.animation_finished
 	if activate:
 		$img.play("fire")

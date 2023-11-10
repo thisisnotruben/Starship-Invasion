@@ -1,0 +1,24 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://lgpdmt1bb81o"]
+
+[ext_resource type="Texture2D" uid="uid://ddr6ajxd3m0fm" path="res://asset/img/Space Background.png" id="1_dqy7m"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w80h5"]
+panorama = ExtResource("1_dqy7m")
+
+[sub_resource type="Sky" id="Sky_jnki3"]
+sky_material = SubResource("PanoramaSkyMaterial_w80h5")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_jnki3")
+ssao_enabled = true
+ssao_radius = 7.3
+ssao_intensity = 2.31
+ssil_enabled = true
+ssil_radius = 9.61
+ssil_intensity = 1.62
+glow_blend_mode = 0
+fog_light_color = Color(0.403922, 0.576471, 0.670588, 1)
+fog_light_energy = 0.38
+adjustment_enabled = true
+adjustment_brightness = 1.5

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://doiw2582y7qp2"]
+
+[node name="floor_light" type="OmniLight3D"]
+light_color = Color(0.568627, 0.745098, 0.878431, 1)
+light_energy = 0.25
+shadow_enabled = true

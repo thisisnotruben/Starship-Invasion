@@ -17,13 +17,13 @@ func _ready():
 
 func _on_player_health_changed(health: int):
 	var amount := health - health_container.get_child_count()
-	
+
 	if amount < 0:
 		$hurt.color = hurt_color[0]
 		var tween_hurt := get_tree().create_tween()
 		tween_hurt.tween_property($hurt, "color", hurt_color[1], 0.5) \
 			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BOUNCE)
-		
+
 	for i in abs(amount):
 		if amount > 0:
 			health_level.append(health_scene.instantiate())
