@@ -47,6 +47,7 @@ func _on_start_menu_pressed(main := true):
 	tab.current_tab = tabs["popup"]
 	if await popup.popup_return == "yes":
 		$snd_start.play()
+		$center/panel/margin/tabs/popup/hBox/yes.release_focus()
 		await $snd_start.finished
 		get_tree().paused = false
 		get_tree().change_scene_to_file("res://src/ui/start/start.tscn")
@@ -82,6 +83,7 @@ func _on_exit_pressed(main := true):
 		else $center/panel/margin/tabs/dead/exit
 	if await popup.popup_return == "yes":
 		$snd_exit.play()
+		$center/panel/margin/tabs/popup/hBox/yes.release_focus()
 		await $snd_exit.finished
 		get_tree().quit()
 	else:

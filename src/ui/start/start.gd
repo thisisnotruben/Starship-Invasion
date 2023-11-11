@@ -4,8 +4,8 @@ var play_focus_sfx := false
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
 @onready var prev_tab: Control = $center/panel/margin/tabs/main/start
-var tabs := {"main": 0, "difficulty": 1, "license": 2, \
-"credits": 3, "controls": 4, "popup": 5, "settings": 6}
+var tabs := {"main": 0, "license": 1, \
+"credits": 2, "controls": 3, "popup": 4, "settings": 5}
 
 
 func _ready():
@@ -14,8 +14,8 @@ func _ready():
 
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel") \
-	and [tabs["difficulty"], tabs["license"], tabs["credits"], \
-	tabs["controls"], tabs["popup"], tabs["settings"]].has(tab.current_tab):
+	and [tabs["license"], tabs["credits"], tabs["controls"], \
+	tabs["popup"], tabs["settings"]].has(tab.current_tab):
 		_on_back_pressed()
 
 func _on_focus_entered():
@@ -23,9 +23,10 @@ func _on_focus_entered():
 		$snd_nav.play()
 
 func _on_start_pressed():
-	$snd_start.play()
-	prev_tab = $center/panel/margin/tabs/main/start
-	tab.current_tab = tabs["difficulty"]
+	$snd_game.play()
+	$center/panel/margin/tabs/main/start.release_focus()
+	await $snd_game.finished
+	get_tree().change_scene_to_file("res://src/map/level1.tscn")
 
 func _on_controls_pressed():
 	$snd.play()
@@ -54,25 +55,12 @@ func _on_exit_pressed():
 	prev_tab = $center/panel/margin/tabs/main/exit
 	if await popup.popup_return == "yes":
 		$snd_exit.play()
+		$center/panel/margin/tabs/popup/hBox/yes.release_focus()
 		await $snd_exit.finished
 		get_tree().quit()
 	else:
 		$snd_back.play()
 		tab.current_tab = tabs["main"]
-
-func _on_difficulty_mode_pressed(difficulty_mode: String):
-	var _payload := {}
-	match difficulty_mode:
-		"easy":
-			pass
-		"medium":
-			pass
-		"hard":
-			pass
-
-	$snd_game.play()
-	await $snd_game.finished
-	get_tree().change_scene_to_file("res://src/map/level1.tscn")
 
 func _on_back_pressed():
 	$snd_back.play()
@@ -81,9 +69,4 @@ func _on_back_pressed():
 func _on_main_draw():
 	play_focus_sfx = false
 	prev_tab.grab_focus()
-	play_focus_sfx = true
-
-func _on_difficulty_draw():
-	play_focus_sfx = false
-	$center/panel/margin/tabs/difficulty/easy.grab_focus()
 	play_focus_sfx = true

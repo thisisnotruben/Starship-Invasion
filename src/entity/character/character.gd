@@ -5,7 +5,7 @@ class_name Character
 @onready var body: CollisionShape3D = $body
 @onready var snd: AudioStreamPlayer3D = $snd
 @onready var snd_shoot: AudioStreamPlayer3D = $snd_shoot
-@onready var hit_spawn: RayCast3D = $img/rayCast3D
+@onready var hit_spawn: RayCast3D = $img/hit_cast
 @onready var camera: Camera3D = $img/pivot/springArm3D/camera3D
 @onready var anim_tree: AnimationTree = $animationTree
 @onready var anim_state_machine: AnimationNodeStateMachinePlayback \
@@ -19,11 +19,14 @@ class_name Character
 @export_range(1, 10) var health_max: int = 2
 @export var npc = true: set = _set_npc
 @export var friendly := false: set = _set_friendly
+
 @export_subgroup("Melee")
 @export_range(1, 10) var melee_damage: int = 1
-@export_range(0.0, 50.0) var melee_range: float = 2.5
+@export_range(0.0, 50.0) var melee_range: float = 1.0
+
 @export_subgroup("Shoot")
 @export_range(1, 10) var range_damage: int = 1
+
 @export_subgroup("Player")
 @export_range(0.0, 1.0) var cam_sens_mouse := 0.004
 @export_range(0.0, 5.0) var cam_sens_action := 0.04
@@ -31,7 +34,7 @@ class_name Character
 @export_subgroup("Npc")
 @export_range(0.0, 50.0) var shoot_range: float = 5.0
 
-var health: int = health_max: set = _set_health
+var health: int : set = _set_health
 var target: Character = null
 
 signal health_changed(_health)
@@ -44,7 +47,16 @@ func _ready():
 			fsm_init[_state.type] = [_state, _state.name]
 	$fsm.init(fsm_init, {"character": self})
 	behavior.state = BehaviorStates.Type.REST
+	hit_spawn.target_position.y = melee_range
+	health = health_max
+	get_tree().get_nodes_in_group("npc" if npc else "player") \
+		.map(func(c): hit_spawn.add_exception(c))
+	get_tree().get_nodes_in_group("player" if npc else "npc") \
+		.map(func(c): hit_spawn.remove_exception(c))
 	_set_npc(npc)
+
+func _on_nav_velocity_computed(safe_velocity: Vector3):
+	velocity = safe_velocity
 
 func _physics_process(delta: float):
 	behavior.physics_process(delta)
@@ -75,12 +87,9 @@ func _set_npc(_npc: bool):
 	npc = _npc
 	$img/pivot/springArm3D/camera3D.current = !_npc
 	$img/spotLight3D.visible = !_npc
-	if _npc:
-		remove_from_group("player")
-		add_to_group("npc")
-	else:
-		remove_from_group("npc")
-		add_to_group("player")
+	$navigationAgent3D.avoidance_enabled = _npc
+	remove_from_group("player" if _npc else "npc")
+	add_to_group("npc" if _npc else "player")
 	_set_friendly(friendly)
 
 func _set_friendly(_friendly: bool):
@@ -94,6 +103,12 @@ func _set_friendly(_friendly: bool):
 			add_to_group("foe")
 	else:
 		add_to_group("friendly")
+
+func is_foe(_body: Node3D) -> bool:
+	return _body is Character and _body.fsm.state != CharacterStates.Type.DIE \
+	and (_body.friendly != friendly or (not _body.npc and not friendly))
+
+# player behavior
 
 func _handle_input():
 	if npc:
@@ -117,12 +132,26 @@ func _handle_input():
 
 	fsm.state = state
 
-func _on_area_3d_body_entered(_body: Node3D):
-	if npc and _body is Character and is_foe(_body) \
-	and _body.fsm.state != CharacterStates.Type.DIE:
+# npc behavior
+
+func _on_sight_body_entered(_body: Node3D):
+	if not aggro(_body) \
+	and $fsm_behavior.state == BehaviorStates.Type.ATTACK \
+	and _body.target == null:
+		_body.aggro(target)
+
+func _on_sight_area_entered(area: Node3D):
+	if npc and target == null and area.owner is Bullet \
+	and area.owner.from_character != null:
+		aggro(area.owner.from_character)
+
+func aggro(_body: Node3D) -> bool:
+	if npc and is_foe(_body):
 		target = _body
 		behavior.state = BehaviorStates.Type.ATTACK
-
-func is_foe(character: Character) -> bool:
-	return character.friendly != friendly \
-	or (not character.npc and not friendly)
+		$sight.get_overlapping_bodies() \
+			.filter(func(b): return \
+				b != self and not is_foe(b) and b.target == null) \
+			.map(func(c): c.aggro(target))
+		return true
+	return false

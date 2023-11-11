@@ -1,9 +1,11 @@
 extends Node3D
+class_name Bullet
 
 @onready var ray := $rayCast3D
 @export_range(0.0, 50.0) var speed = 10.0
 var damage: int = 0
 var spawn_call: Callable = func(): pass
+var from_character: Character = null
 
 
 func _ready():
@@ -14,6 +16,7 @@ func spawn_shot(args := {}):
 
 	if args.has("character"):
 		node = args["character"]
+		from_character = node
 		node.snd_shoot.play()
 
 		var exceptions := []
@@ -49,6 +52,8 @@ func _physics_process(delta: float):
 		var hit_scan = ray.get_collider()
 		if hit_scan is Character:
 			hit_scan.health -= damage
+			if from_character != null:
+				hit_scan.aggro(from_character)
 		ray.enabled = false
 
 		$snd.play()

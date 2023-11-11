@@ -136,6 +136,7 @@ melee={
 
 3d_physics/layer_1="world"
 3d_physics/layer_2="character"
+3d_physics/layer_3="bullet"
 
 [rendering]
 

@@ -4,7 +4,8 @@
 
 - Program
 	- character
-		- combat AI
+		- spotting sight
+
 - Gather/record audio
 	- music
 		- DOS-88 - Last Transmission

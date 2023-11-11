@@ -280,12 +280,13 @@ height = 1.06
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8f501"]
 height = 1.5
-radius = 3.0
+radius = 4.0
 
 [node name="character" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_ehf32")
+melee_range = 1.1
 
 [node name="fsm" type="Node" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("2_jgwyj")
@@ -339,10 +340,6 @@ script = ExtResource("5_ne6x3")
 quips = Array[AudioStream]([ExtResource("10_3idqd"), ExtResource("11_k1aml"), ExtResource("12_tigal")])
 quip_play_chance = 0.125
 
-[node name="timer" type="Timer" parent="fsm/melee"]
-wait_time = 0.5
-one_shot = true
-
 [node name="die" type="Node" parent="fsm"]
 script = ExtResource("4_kibar")
 quips = Array[AudioStream]([ExtResource("13_khco6")])
@@ -353,6 +350,14 @@ script = ExtResource("13_vknas")
 [node name="attack" type="Node" parent="fsm_behavior" node_paths=PackedStringArray("nav_agent")]
 script = ExtResource("14_a08bn")
 nav_agent = NodePath("../../navigationAgent3D")
+
+[node name="melee_cooldown" type="Timer" parent="fsm_behavior/attack"]
+wait_time = 2.0
+one_shot = true
+
+[node name="shoot_cooldown" type="Timer" parent="fsm_behavior/attack"]
+wait_time = 2.0
+one_shot = true
 
 [node name="rest" type="Node" parent="fsm_behavior"]
 script = ExtResource("15_q5611")
@@ -379,6 +384,9 @@ parameters/move-shoot/blend_position = Vector2(0, 0)
 parameters/shoot/blend_position = Vector2(0, 0)
 
 [node name="navigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 0.55
+neighbor_distance = 10.0
 
 [node name="snd" type="AudioStreamPlayer3D" parent="."]
 max_distance = 30.0
@@ -413,9 +421,9 @@ margin = 0.2
 [node name="camera3D" type="Camera3D" parent="img/pivot/springArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 1.75)
 
-[node name="rayCast3D" type="RayCast3D" parent="img"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.3, -0.514542)
-target_position = Vector3(0, 0.75, 0)
+[node name="hit_cast" type="RayCast3D" parent="img"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.3, -0.5)
+target_position = Vector3(0, 0.8, 0)
 collision_mask = 2
 
 [node name="spotLight3D" type="SpotLight3D" parent="img"]
@@ -426,16 +434,18 @@ light_energy = 2.5
 shadow_enabled = true
 spot_angle = 60.0
 
-[node name="area3D" type="Area3D" parent="."]
+[node name="sight" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 collision_layer = 0
-collision_mask = 2
+collision_mask = 6
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sight"]
 shape = SubResource("CylinderShape3D_8f501")
 
 [connection signal="timeout" from="fsm/idle/quip_timer" to="fsm/idle" method="_on_quip_timer_timeout"]
 [connection signal="animation_finished" from="animationTree" to="fsm/move-shoot" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="animationTree" to="fsm/shoot" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="animationTree" to="fsm/die" method="_on_animation_tree_animation_finished"]
-[connection signal="body_entered" from="area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="velocity_computed" from="navigationAgent3D" to="." method="_on_nav_velocity_computed"]
+[connection signal="area_entered" from="sight" to="." method="_on_sight_area_entered"]
+[connection signal="body_entered" from="sight" to="." method="_on_sight_body_entered"]

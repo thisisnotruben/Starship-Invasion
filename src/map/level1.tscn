@@ -1133,390 +1133,517 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, 0)
 [node name="characters" type="Node3D" parent="."]
 
 [node name="player" parent="characters" instance=ExtResource("4_avjbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35991, 0.00260931, -29.759)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3599, 0.00260931, -38.759)
+health_max = 10
 npc = false
 friendly = true
 
 [node name="SwarmAlien" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9306, 0.00320053, -31.9926)
+melee_range = 1.0
 
 [node name="SwarmAlien3" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93061, 0.00320053, -27.9926)
 
 [node name="SwarmAlien9" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93061, 0.00320053, -96.9926)
+melee_range = 1.0
 
 [node name="SwarmAlien10" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9306, 0.00320053, -91.9926)
+melee_range = 1.0
 
 [node name="SwarmAlien5" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9306, 0.00320053, -47.9926)
+melee_range = 1.0
 
 [node name="SwarmAlien13" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -109)
+melee_range = 1.0
 
 [node name="SwarmAlien21" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -111)
+melee_range = 1.0
 
 [node name="SwarmAlien24" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -117)
+melee_range = 1.0
 
 [node name="SwarmAlien15" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -103)
+melee_range = 1.0
 
 [node name="SwarmAlien16" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -120)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -32)
+melee_range = 1.0
 
 [node name="SwarmAlienRed" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -51)
+melee_range = 1.0
 
 [node name="SwarmAlienRed2" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -46)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen2" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -78)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen3" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -69)
+melee_range = 1.0
 
 [node name="SwarmAlienRed3" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -93)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen4" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, -115)
+melee_range = 1.0
 
 [node name="SwarmAlienRed4" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -100)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen5" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -116)
+melee_range = 1.0
 
 [node name="SwarmAlienRed5" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -110)
+melee_range = 1.0
 
 [node name="SwarmAlien2" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.34335, 0.0118656, -121.352)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen6" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -111)
+melee_range = 1.0
 
 [node name="SwarmAlienRed6" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -104)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen7" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -121)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen8" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -123)
+melee_range = 1.0
 
 [node name="SwarmAlienRed7" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.1127, 0.0123749, -123.35)
+melee_range = 1.0
 
 [node name="SwarmAlien4" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.1449, 0.0122566, -123.558)
+melee_range = 1.0
 
 [node name="SwarmAlienRed8" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -111)
+melee_range = 1.0
 
 [node name="SwarmAlienRed9" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 0, -103)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen9" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, -111)
+melee_range = 1.0
 
 [node name="SwarmAlien6" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -115)
+melee_range = 1.0
 
 [node name="SwarmAlienRed10" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, -108)
+melee_range = 1.0
 
 [node name="SwarmAlien7" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56, 0, -97)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen10" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -121)
+melee_range = 1.0
 
 [node name="SwarmAlienRed11" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -122)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen11" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 1, -84)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen12" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, -87)
+melee_range = 1.0
 
 [node name="SwarmAlien8" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, -87)
+melee_range = 1.0
 
 [node name="SwarmAlienRed12" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, -82)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen13" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -51)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen14" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 0, -54)
+melee_range = 1.0
 
 [node name="SwarmAlien11" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, -42)
+melee_range = 1.0
 
 [node name="SwarmAlienRed13" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, -35)
+melee_range = 1.0
 
 [node name="SwarmAlien12" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62, 0, -38)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen15" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -42)
+melee_range = 1.0
 
 [node name="SwarmAlienRed14" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, -34)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen16" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -54)
+melee_range = 1.0
 
 [node name="SwarmAlienRed15" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -70)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen17" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -41)
+melee_range = 1.0
 
 [node name="SwarmAlien14" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, -43)
+melee_range = 1.0
 
 [node name="SwarmAlienRed16" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -48)
+melee_range = 1.0
 
 [node name="SwarmAlien17" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -58)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen18" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -73)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen19" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, -80)
+melee_range = 1.0
 
 [node name="SwarmAlien18" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.6633, 0.00864029, -86.9678)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen20" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3189, 7.24792e-05, -56.3604)
+melee_range = 1.0
 
 [node name="SwarmAlien19" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -84)
+melee_range = 1.0
 
 [node name="SwarmAlienRed17" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01824, 0.0019207, -70.6873)
+melee_range = 1.0
 
 [node name="SwarmAlien20" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.14164, -0.000623703, -45.5304)
+melee_range = 1.0
 
 [node name="SwarmAlien22" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, -33)
+melee_range = 1.0
 
 [node name="SwarmAlien23" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -35)
+melee_range = 1.0
 
 [node name="SwarmAlienRed18" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -22)
+melee_range = 1.0
 
 [node name="SwarmAlienRed19" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, -19)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen21" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -15)
+melee_range = 1.0
 
 [node name="SwarmAlien25" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -10)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen22" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, -13)
+melee_range = 1.0
 
 [node name="SwarmAlienRed20" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3)
+melee_range = 1.0
 
 [node name="SwarmAlien26" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -5)
+melee_range = 1.0
 
 [node name="SwarmAlien27" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -26)
+melee_range = 1.0
 
 [node name="SwarmAlien28" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -17)
+melee_range = 1.0
 
 [node name="SwarmAlienRed21" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -3)
+melee_range = 1.0
 
 [node name="SwarmAlienRed22" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -10)
+melee_range = 1.0
 
 [node name="SwarmAlienRed23" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7328, 0, -15)
+melee_range = 1.0
 
 [node name="SwarmAlienRed24" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -25)
+melee_range = 1.0
 
 [node name="SwarmAlien29" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, -23)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen23" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, -1)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen24" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -2)
+melee_range = 1.0
 
 [node name="SwarmAlien30" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, -3)
+melee_range = 1.0
 
 [node name="SwarmAlienRed25" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, -1)
+melee_range = 1.0
 
 [node name="SwarmAlien31" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79, 0, -21)
+melee_range = 1.0
 
 [node name="SwarmAlien32" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, -13.0169)
+melee_range = 1.0
 
 [node name="SwarmAlienRed26" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 0, -23)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen25" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, -3)
+melee_range = 1.0
 
 [node name="SwarmAlienRed27" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95, 0, -5)
+melee_range = 1.0
 
 [node name="SwarmAlien33" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88, 0, -16)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen26" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117, 0, -6)
+melee_range = 1.0
 
 [node name="SwarmAlienRed28" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114, 0, -26)
+melee_range = 1.0
 
 [node name="SwarmAlien34" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109, 0, -12)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen27" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, 0, -20)
+melee_range = 1.0
 
 [node name="SwarmAlienRed29" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.404, 0.000270844, -2.85607)
+melee_range = 1.0
 
 [node name="SwarmAlien35" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130, 0, -25)
+melee_range = 1.0
 
 [node name="SwarmAlien36" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.116, 0.00332069, -33.1003)
+melee_range = 1.0
 
 [node name="SwarmAlien37" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 139.116, 0.00332069, -25.1003)
+melee_range = 1.0
 
 [node name="SwarmAlienRed30" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.931, 0.0031395, -31.8803)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen28" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.937, 0, -35)
+melee_range = 1.0
 
 [node name="SwarmAlien38" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136, 0, -46)
+melee_range = 1.0
 
 [node name="SwarmAlien39" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, -46)
+melee_range = 1.0
 
 [node name="SwarmAlienRed31" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132.896, 0.00535774, -53.4373)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen29" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143, 0, -50)
+melee_range = 1.0
 
 [node name="SwarmAlien40" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141, 2, -57)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen30" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141, 0, -68)
+melee_range = 1.0
 
 [node name="SwarmAlienRed32" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135, 0, -74)
+melee_range = 1.0
 
 [node name="SwarmAlien41" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 142.958, 0.00764656, -78.1407)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen31" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.445, 0.00816345, -82.6007)
+melee_range = 1.0
 
 [node name="SwarmAlien42" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.737, 0.00738716, -75.8824)
+melee_range = 1.0
 
 [node name="SwarmAlien43" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -66.8824)
+melee_range = 1.0
 
 [node name="SwarmAlien44" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.737, 0.00738716, -60.8824)
+melee_range = 1.0
 
 [node name="SwarmAlien45" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -53.8824)
+melee_range = 1.0
 
 [node name="SwarmAlien46" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -53.8824)
+melee_range = 1.0
 
 [node name="SwarmAlienRed33" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, -45)
+melee_range = 1.0
 
 [node name="SwarmAlienRed34" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, -97)
+melee_range = 1.0
 
 [node name="SwarmAlienRed35" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132, 0, -91)
+melee_range = 1.0
 
 [node name="SwarmAlienRed36" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133, 0, -98)
+melee_range = 1.0
 
 [node name="SwarmAlienRed37" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127, 0, -91)
+melee_range = 1.0
 
 [node name="SwarmAlien47" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103, 0, -108)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen32" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104, 0, -117)
+melee_range = 1.0
 
 [node name="SwarmAlien48" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119, 0, -119)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen33" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114, 0, -99)
+melee_range = 1.0
 
 [node name="SwarmAlienRed38" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111, 0, -115)
+melee_range = 1.0
 
 [node name="SwarmAlien49" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 117.771, 0.0103016, -104.839)
+melee_range = 1.0
 
 [node name="SwarmAlienRed39" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.235, 2, -106.35)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen34" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102, 0, -103)
+melee_range = 1.0
 
 [node name="SwarmAlien50" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, -121)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen35" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.2878, 0.0119896, -118.658)
+melee_range = 1.0
 
 [node name="SwarmAlienRed40" parent="characters" instance=ExtResource("42_4v5r4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.8207, 0.0112286, -112.222)
+melee_range = 1.0
 
 [node name="SwarmAlien51" parent="characters" instance=ExtResource("26_w2eeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94.0633, 0.0111008, -109.005)
+melee_range = 1.0
 
 [node name="SwarmAlienGreen36" parent="characters" instance=ExtResource("41_4c40r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.5332, 0.0102768, -103.777)
+melee_range = 1.0
 
 [node name="traps" type="Node3D" parent="."]
 

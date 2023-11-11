@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cm6lrl0cgaejr"]
+[gd_scene load_steps=15 format=3 uid="uid://cm6lrl0cgaejr"]
 
 [ext_resource type="Script" path="res://src/ui/start/start.gd" id="1_pxw42"]
 [ext_resource type="AudioStream" uid="uid://b1tmf6dh3f8bg" path="res://asset/snd/DOS-88/DOS-88 - Dream Electro - 09 Summer Forever.ogg" id="2_6hujg"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://b2q8kep108aib" path="res://src/ui/credits/credits.tscn" id="4_gjr5u"]
 [ext_resource type="AudioStream" uid="uid://cul2ek767wy42" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 2.wav" id="4_vxyq2"]
 [ext_resource type="PackedScene" uid="uid://cdgdcmr8nn7t" path="res://src/ui/controls/controls.tscn" id="5_jv6p1"]
-[ext_resource type="AudioStream" uid="uid://do82ontdbe1it" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Transition Sound 1.wav" id="5_wvo8w"]
 [ext_resource type="PackedScene" uid="uid://davqs3425w0qk" path="res://src/ui/effects/effects.tscn" id="6_qo541"]
 [ext_resource type="AudioStream" uid="uid://cdljqjsm5lot5" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Error Sound 3.wav" id="7_2pwke"]
 [ext_resource type="AudioStream" uid="uid://deq57glwxblhk" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Pop-Up Sound 2.wav" id="9_vqq1o"]
@@ -36,10 +35,6 @@ bus = &"sfx"
 
 [node name="snd_nav" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_j5n5w")
-bus = &"sfx"
-
-[node name="snd_start" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_wvo8w")
 bus = &"sfx"
 
 [node name="snd_game" type="AudioStreamPlayer" parent="."]
@@ -115,32 +110,6 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../start")
 text = "Exit"
 
-[node name="difficulty" type="VBoxContainer" parent="center/panel/margin/tabs"]
-visible = false
-layout_mode = 2
-
-[node name="label" type="Label" parent="center/panel/margin/tabs/difficulty"]
-layout_mode = 2
-text = "Overmind"
-
-[node name="easy" type="Button" parent="center/panel/margin/tabs/difficulty"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../back")
-text = "Easy"
-
-[node name="medium" type="Button" parent="center/panel/margin/tabs/difficulty"]
-layout_mode = 2
-text = "Medium"
-
-[node name="hard" type="Button" parent="center/panel/margin/tabs/difficulty"]
-layout_mode = 2
-text = "Hard"
-
-[node name="back" type="Button" parent="center/panel/margin/tabs/difficulty"]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../easy")
-text = "Back"
-
 [node name="license" parent="center/panel/margin/tabs" instance=ExtResource("3_stmor")]
 visible = false
 layout_mode = 2
@@ -176,15 +145,6 @@ layout_mode = 2
 [connection signal="pressed" from="center/panel/margin/tabs/main/grid/settings" to="." method="_on_settings_pressed"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/exit" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/exit" to="." method="_on_exit_pressed"]
-[connection signal="draw" from="center/panel/margin/tabs/difficulty" to="." method="_on_difficulty_draw"]
-[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/easy" to="." method="_on_focus_entered"]
-[connection signal="pressed" from="center/panel/margin/tabs/difficulty/easy" to="." method="_on_difficulty_mode_pressed" binds= ["easy"]]
-[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/medium" to="." method="_on_focus_entered"]
-[connection signal="pressed" from="center/panel/margin/tabs/difficulty/medium" to="." method="_on_difficulty_mode_pressed" binds= ["medium"]]
-[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_focus_entered"]
-[connection signal="pressed" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_difficulty_mode_pressed" binds= ["hard"]]
-[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_focus_entered"]
-[connection signal="pressed" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_back_pressed"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/license" to="." method="_on_back_pressed"]
 [connection signal="subcontrol_focused" from="center/panel/margin/tabs/license" to="." method="_on_focus_entered"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/credits" to="." method="_on_back_pressed"]

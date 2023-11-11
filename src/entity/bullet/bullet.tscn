@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgkryfmd4torj"]
+[gd_scene load_steps=8 format=3 uid="uid://cgkryfmd4torj"]
 
 [ext_resource type="Script" path="res://src/entity/bullet/bullet.gd" id="1_mbkpk"]
 [ext_resource type="Material" uid="uid://dv6cyd4ncj2br" path="res://resource/laser_color.tres" id="2_4jlfh"]
@@ -15,6 +15,10 @@ initial_velocity_max = 5.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_el5sp"]
 size = Vector3(0.04, 0.04, 0.04)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jb5ow"]
+radius = 0.025
+height = 0.5
 
 [node name="bullet" type="Node3D"]
 script = ExtResource("1_mbkpk")
@@ -52,6 +56,14 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_5m2so")
 draw_pass_1 = SubResource("BoxMesh_el5sp")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_jb5ow")
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="timer_hit" to="." method="_on_timer_timeout"]

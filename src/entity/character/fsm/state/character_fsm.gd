@@ -12,7 +12,7 @@ func init(_states := {}, _state_args := {}) -> Fsm:
 	super.init(init_args, _state_args)
 	return self
 
-func _set_state(_state_type):
+func _set_state(_state_type) -> bool:
 	var prev_state_type = _curr["type"]
 
 	if (_curr["state"] == null or not _curr["state"].locked) \
@@ -40,6 +40,8 @@ func _set_state(_state_type):
 
 		if not character.img.is_playing():
 			character.img.play()
+		return true
+	return false
 
 func can_melee() -> bool:
 	return states.has(CharacterStates.Type.MELEE)

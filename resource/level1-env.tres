@@ -20,5 +20,6 @@ ssil_intensity = 1.62
 glow_blend_mode = 0
 fog_light_color = Color(0.403922, 0.576471, 0.670588, 1)
 fog_light_energy = 0.38
+volumetric_fog_enabled = true
 adjustment_enabled = true
 adjustment_brightness = 1.5
