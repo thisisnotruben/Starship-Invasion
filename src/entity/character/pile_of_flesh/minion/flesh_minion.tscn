@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://k2okwt6hosn8"]
+
+[ext_resource type="PackedScene" uid="uid://d3m1ci2db7oss" path="res://src/entity/character/character.tscn" id="1_rpecu"]
+[ext_resource type="SpriteFrames" uid="uid://bbg85t2cbh61d" path="res://resource/character/pile_of_flesh/minions/character_5.tres" id="2_y78oj"]
+
+[node name="flesh_minion" instance=ExtResource("1_rpecu")]
+
+[node name="move-shoot" parent="fsm" index="2"]
+enabled = false
+
+[node name="shoot" parent="fsm" index="3"]
+enabled = false
+
+[node name="img" parent="." index="8"]
+sprite_frames = ExtResource("2_y78oj")

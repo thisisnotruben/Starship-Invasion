@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://de1eactrmk4au"]
+
+[ext_resource type="PackedScene" uid="uid://k2okwt6hosn8" path="res://src/entity/character/pile_of_flesh/minion/flesh_minion.tscn" id="1_dhgy3"]
+[ext_resource type="SpriteFrames" uid="uid://diid1ligpuudd" path="res://resource/character/pile_of_flesh/minions/character_5.2.tres" id="2_0eajk"]
+
+[node name="flesh_minion_green" instance=ExtResource("1_dhgy3")]
+
+[node name="img" parent="." index="8"]
+sprite_frames = ExtResource("2_0eajk")

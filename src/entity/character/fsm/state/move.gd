@@ -47,8 +47,10 @@ func apply_animation(input_dir: Vector2):
 	if input_dir.length() > 0.0:
 		var anim_direction = input_dir.normalized()
 		anim_direction.y *= -1.0
-		for anim in ["idle", "move", "melee"]: # "move-shoot", "shoot"
-			character.anim_tree["parameters/%s/blend_position" % anim] = anim_direction
+		for anim in ["idle", "move", "melee"]:
+			var anim_path: String = "parameters/%s/blend_position" % anim
+			if character.anim_tree.get(anim_path) != null:
+				character.anim_tree[anim_path] = anim_direction
 
 # camera
 func apply_camera_movement(delta: float):

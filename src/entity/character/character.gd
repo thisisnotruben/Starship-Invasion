@@ -8,8 +8,6 @@ class_name Character
 @onready var hit_spawn: RayCast3D = $img/hit_cast
 @onready var camera: Camera3D = $img/pivot/springArm3D/camera3D
 @onready var anim_tree: AnimationTree = $animationTree
-@onready var anim_state_machine: AnimationNodeStateMachinePlayback \
-	= anim_tree["parameters/playback"]
 @onready var fsm: Fsm = $fsm
 @onready var behavior: Fsm = $fsm_behavior.init({
 	BehaviorStates.Type.ATTACK: $fsm_behavior/attack,

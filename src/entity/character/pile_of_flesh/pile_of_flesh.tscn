@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctmi65hjnbamu"]
+
+[ext_resource type="PackedScene" uid="uid://d3m1ci2db7oss" path="res://src/entity/character/character.tscn" id="1_1b3yq"]
+[ext_resource type="SpriteFrames" uid="uid://bkjrdy5p24vd0" path="res://resource/character/pile_of_flesh/character_4.tres" id="2_nv1rl"]
+
+[node name="pile_of_flesh_red" instance=ExtResource("1_1b3yq")]
+
+[node name="img" parent="." index="8"]
+sprite_frames = ExtResource("2_nv1rl")

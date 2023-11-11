@@ -1,0 +1,345 @@
+[gd_resource type="AnimationLibrary" load_steps=23 format=3 uid="uid://dm8ve6q8hsmqt"]
+
+[sub_resource type="Animation" id="Animation_2p2db"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_gliuw"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"die"]
+}
+
+[sub_resource type="Animation" id="Animation_oh8bg"]
+resource_name = "idle_e"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_e"]
+}
+
+[sub_resource type="Animation" id="Animation_g31is"]
+resource_name = "idle_ne"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_ne"]
+}
+
+[sub_resource type="Animation" id="Animation_dgfur"]
+resource_name = "idle_nw"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_nw"]
+}
+
+[sub_resource type="Animation" id="Animation_ol54s"]
+resource_name = "idle_w"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_w"]
+}
+
+[sub_resource type="Animation" id="Animation_33dlj"]
+resource_name = "melee_ne"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"melee_ne"]
+}
+
+[sub_resource type="Animation" id="Animation_agwlm"]
+resource_name = "melee_nw"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"melee_nw"]
+}
+
+[sub_resource type="Animation" id="Animation_71djs"]
+resource_name = "melee_se"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"melee_se"]
+}
+
+[sub_resource type="Animation" id="Animation_ke4cl"]
+resource_name = "melee_sw"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"melee_sw"]
+}
+
+[sub_resource type="Animation" id="Animation_v4lmn"]
+resource_name = "move_e"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"move_e"]
+}
+
+[sub_resource type="Animation" id="Animation_ikj5o"]
+resource_name = "move_ne"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"move_ne"]
+}
+
+[sub_resource type="Animation" id="Animation_7q2yj"]
+resource_name = "move_nw"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"move_nw"]
+}
+
+[sub_resource type="Animation" id="Animation_05lw2"]
+resource_name = "move_shoot_e"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"move_shoot_e"]
+}
+
+[sub_resource type="Animation" id="Animation_uxifx"]
+resource_name = "move_shoot_n"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"move_shoot_n"]
+}
+
+[sub_resource type="Animation" id="Animation_ofadk"]
+resource_name = "move_shoot_s"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"move_shoot_s"]
+}
+
+[sub_resource type="Animation" id="Animation_xvwcd"]
+resource_name = "move_shoot_w"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"move_shoot_w"]
+}
+
+[sub_resource type="Animation" id="Animation_saxkk"]
+resource_name = "move_w"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"move_w"]
+}
+
+[sub_resource type="Animation" id="Animation_6pegf"]
+resource_name = "shoot_e"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"shoot_e"]
+}
+
+[sub_resource type="Animation" id="Animation_ubel4"]
+resource_name = "shoot_n"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"shoot_n"]
+}
+
+[sub_resource type="Animation" id="Animation_brqq7"]
+resource_name = "shoot_s"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"shoot_s"]
+}
+
+[sub_resource type="Animation" id="Animation_a64yl"]
+resource_name = "shoot_w"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("img:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"shoot_w"]
+}
+
+[resource]
+_data = {
+"RESET": SubResource("Animation_2p2db"),
+"die": SubResource("Animation_gliuw"),
+"idle_e": SubResource("Animation_oh8bg"),
+"idle_ne": SubResource("Animation_g31is"),
+"idle_nw": SubResource("Animation_dgfur"),
+"idle_w": SubResource("Animation_ol54s"),
+"melee_ne": SubResource("Animation_33dlj"),
+"melee_nw": SubResource("Animation_agwlm"),
+"melee_se": SubResource("Animation_71djs"),
+"melee_sw": SubResource("Animation_ke4cl"),
+"move_e": SubResource("Animation_v4lmn"),
+"move_ne": SubResource("Animation_ikj5o"),
+"move_nw": SubResource("Animation_7q2yj"),
+"move_shoot_e": SubResource("Animation_05lw2"),
+"move_shoot_n": SubResource("Animation_uxifx"),
+"move_shoot_s": SubResource("Animation_ofadk"),
+"move_shoot_w": SubResource("Animation_xvwcd"),
+"move_w": SubResource("Animation_saxkk"),
+"shoot_e": SubResource("Animation_6pegf"),
+"shoot_n": SubResource("Animation_ubel4"),
+"shoot_s": SubResource("Animation_brqq7"),
+"shoot_w": SubResource("Animation_a64yl")
+}

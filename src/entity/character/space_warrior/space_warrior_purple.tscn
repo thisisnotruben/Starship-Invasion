@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://33fcv04ubs3b"]
+
+[ext_resource type="PackedScene" uid="uid://cei5p7vxygc7n" path="res://src/entity/character/space_warrior/space_warrior.tscn" id="1_gh8mq"]
+[ext_resource type="SpriteFrames" uid="uid://wevqcccjjux" path="res://resource/character/space_warrior/character_1.2.tres" id="2_q1h68"]
+
+[node name="Space Warrior Purple" instance=ExtResource("1_gh8mq")]
+
+[node name="img" parent="." index="8"]
+sprite_frames = ExtResource("2_q1h68")
+animation = &"shoot_s"
