@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://62evgjbnjupa"
-path="res://.godot/imported/map1.png-285f4c5fbd5db9dd89c789d92cd55ac0.ctex"
+uid="uid://bbvbd6bm0oux8"
+path="res://.godot/imported/2.png-057077157bc29b1ff4534cbf62ebea22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/img/layout/map1.png"
-dest_files=["res://.godot/imported/map1.png-285f4c5fbd5db9dd89c789d92cd55ac0.ctex"]
+source_file="res://asset/crocotile3d/map4/2.png"
+dest_files=["res://.godot/imported/2.png-057077157bc29b1ff4534cbf62ebea22.ctex"]
 
 [params]
 

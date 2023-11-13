@@ -1,6 +1,7 @@
 [gd_scene load_steps=50 format=3 uid="uid://dbwsdg4frpi15"]
 
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_xjonf"]
+[ext_resource type="PackedScene" uid="uid://chd1pdoqyjbpx" path="res://asset/crocotile3d/map1/object_64627.tscn" id="2_f3bij"]
 [ext_resource type="Environment" uid="uid://lgpdmt1bb81o" path="res://resource/level1-env.tres" id="2_q236e"]
 [ext_resource type="PackedScene" uid="uid://d3m1ci2db7oss" path="res://src/entity/character/character.tscn" id="4_avjbd"]
 [ext_resource type="PackedScene" uid="uid://dntypl5iv1qsw" path="res://src/map/props/computer/computer_1.tscn" id="5_8fxv1"]
@@ -32,7 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://cb00ockuyiia4" path="res://src/entity/trap/trap_projectile.tscn" id="32_lqtic"]
 [ext_resource type="PackedScene" uid="uid://d3xmso4t3kkj5" path="res://src/map/props/computer/computer_4.tscn" id="32_yaove"]
 [ext_resource type="PackedScene" uid="uid://d4es1m1skgrbc" path="res://src/map/props/boxes/box_red_large.tscn" id="33_ubebw"]
-[ext_resource type="PackedScene" uid="uid://dglv360o1gl76" path="res://asset/crocotile3d/map1/map_1-ceiling.tscn" id="35_2ne67"]
 [ext_resource type="PackedScene" uid="uid://7lxxqwx4jjw6" path="res://src/map/props/tanks/tank_green_broken.tscn" id="36_xb2b7"]
 [ext_resource type="PackedScene" uid="uid://dp8ulapfa6sne" path="res://src/map/props/tanks/tank_green_broken_half.tscn" id="37_45u75"]
 [ext_resource type="PackedScene" uid="uid://b6bifgvbc6eb4" path="res://src/map/props/machine/machine_1.tscn" id="38_pi8l8"]
@@ -130,6 +130,9 @@ bus = &"music"
 
 [node name="worldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_q236e")
+
+[node name="Object_64627" parent="." instance=ExtResource("2_f3bij")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 2)
 
 [node name="nav" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_5adjt")
@@ -1126,9 +1129,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -82)
 
 [node name="door32" parent="nav/doors" instance=ExtResource("5_a7iwe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -94)
-
-[node name="map_1-ceiling" parent="." instance=ExtResource("35_2ne67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, 0)
 
 [node name="characters" type="Node3D" parent="."]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cvep5wgssvfys"
-path="res://.godot/imported/Object_31475.gltf-062c9a7516738df5a50e96c5904d7f48.scn"
+uid="uid://dit7clu0gw00h"
+path="res://.godot/imported/map3.gltf-45b41b7892861994017adf328e22858c.scn"
 
 [deps]
 
-source_file="res://asset/crocotile3d/map1/Object_31475.gltf"
-dest_files=["res://.godot/imported/Object_31475.gltf-062c9a7516738df5a50e96c5904d7f48.scn"]
+source_file="res://asset/crocotile3d/map3/map3.gltf"
+dest_files=["res://.godot/imported/map3.gltf-45b41b7892861994017adf328e22858c.scn"]
 
 [params]
 

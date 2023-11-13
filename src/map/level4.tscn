@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://5oj7n5mqy7ne"]
+
+[ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_8csrw"]
+[ext_resource type="PackedScene" uid="uid://qu7ldcchypxa" path="res://asset/crocotile3d/map4/object_24121.tscn" id="2_f5pm1"]
+[ext_resource type="PackedScene" uid="uid://d3bnjjdsas4ei" path="res://src/ui/game_interface.tscn" id="3_hpude"]
+[ext_resource type="PackedScene" uid="uid://c4hi0ie8sw4sa" path="res://asset/crocotile3d/map4/map_4.tscn" id="3_ww1ik"]
+
+[node name="level4" type="Node3D"]
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("1_8csrw")
+autoplay = true
+bus = &"music"
+
+[node name="worldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="Object_24121" parent="." instance=ExtResource("2_f5pm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252, 4, 76)
+
+[node name="nav" type="NavigationRegion3D" parent="."]
+
+[node name="map4" parent="nav" instance=ExtResource("3_ww1ik")]
+
+[node name="props" type="Node3D" parent="nav"]
+
+[node name="doors" type="Node3D" parent="nav"]
+
+[node name="characters" type="Node3D" parent="."]
+
+[node name="traps" type="Node3D" parent="."]
+
+[node name="lights" type="Node3D" parent="."]
+
+[node name="game_interface" parent="." instance=ExtResource("3_hpude")]
