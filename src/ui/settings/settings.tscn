@@ -47,6 +47,13 @@ theme_type_variation = &"buttonToggle"
 toggle_mode = true
 text = "  Shader  "
 
+[node name="sensitivity" type="Button" parent="tabs"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"buttonToggle"
+toggle_mode = true
+text = "Sensitivity"
+
 [node name="tabs_container" type="TabContainer" parent="."]
 layout_mode = 2
 tabs_visible = false
@@ -129,6 +136,7 @@ text = "Back"
 [connection signal="toggled" from="tabs/volume" to="." method="_on_volume_toggled"]
 [connection signal="focus_entered" from="tabs/shader" to="." method="_on_focus_entered"]
 [connection signal="toggled" from="tabs/shader" to="." method="_on_shader_toggled"]
+[connection signal="focus_entered" from="tabs/sensitivity" to="." method="_on_focus_entered"]
 [connection signal="focus_entered" from="tabs_container/volume/music_volume" to="." method="_on_focus_entered"]
 [connection signal="value_changed" from="tabs_container/volume/music_volume" to="." method="_on_music_volume_value_changed"]
 [connection signal="focus_entered" from="tabs_container/volume/sfx_volume" to="." method="_on_focus_entered"]

@@ -72,6 +72,7 @@ layout_mode = 2
 tabs_visible = false
 
 [node name="main" type="VBoxContainer" parent="center/panel/margin/tabs"]
+visible = false
 layout_mode = 2
 
 [node name="label" type="Label" parent="center/panel/margin/tabs/main"]
@@ -130,6 +131,37 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="level" type="VBoxContainer" parent="center/panel/margin/tabs"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="center/panel/margin/tabs/level"]
+layout_mode = 2
+text = "Overmind"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="level1" type="Button" parent="center/panel/margin/tabs/level"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../back")
+text = "Level 1"
+
+[node name="level2" type="Button" parent="center/panel/margin/tabs/level"]
+layout_mode = 2
+text = "Level 2"
+
+[node name="level3" type="Button" parent="center/panel/margin/tabs/level"]
+layout_mode = 2
+text = "Level 3"
+
+[node name="level4" type="Button" parent="center/panel/margin/tabs/level"]
+layout_mode = 2
+text = "Level 4"
+
+[node name="back" type="Button" parent="center/panel/margin/tabs/level"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../level1")
+text = "Back"
+
 [node name="effects" parent="." instance=ExtResource("6_qo541")]
 
 [connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
@@ -154,3 +186,14 @@ layout_mode = 2
 [connection signal="subcontrol_focused" from="center/panel/margin/tabs/popup" to="." method="_on_focus_entered"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/settings" to="." method="_on_back_pressed"]
 [connection signal="subcontrol_focused" from="center/panel/margin/tabs/settings" to="." method="_on_focus_entered"]
+[connection signal="draw" from="center/panel/margin/tabs/level" to="." method="_on_level_draw"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/level/level1" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/level/level1" to="." method="_on_level_pressed" binds= [1]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/level/level2" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/level/level2" to="." method="_on_level_pressed" binds= [2]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/level/level3" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/level/level3" to="." method="_on_level_pressed" binds= [3]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/level/level4" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/level/level4" to="." method="_on_level_pressed" binds= [4]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/level/back" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/level/back" to="." method="_on_back_pressed"]

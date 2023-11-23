@@ -4,8 +4,8 @@ var play_focus_sfx := false
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
 @onready var prev_tab: Control = $center/panel/margin/tabs/main/start
-var tabs := {"main": 0, "license": 1, \
-"credits": 2, "controls": 3, "popup": 4, "settings": 5}
+var tabs := {"main": 0, "license": 1, "credits": 2, \
+"controls": 3, "popup": 4, "settings": 5, "level": 6}
 
 
 func _ready():
@@ -15,7 +15,8 @@ func _ready():
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel") \
 	and [tabs["license"], tabs["credits"], tabs["controls"], \
-	tabs["popup"], tabs["settings"]].has(tab.current_tab):
+	tabs["popup"], tabs["settings"], tabs["level"]] \
+	.has(tab.current_tab):
 		_on_back_pressed()
 
 func _on_focus_entered():
@@ -23,10 +24,9 @@ func _on_focus_entered():
 		$snd_nav.play()
 
 func _on_start_pressed():
-	$snd_game.play()
-	$center/panel/margin/tabs/main/start.release_focus()
-	await $snd_game.finished
-	get_tree().change_scene_to_file("res://src/map/level1.tscn")
+	$snd.play()
+	prev_tab = $center/panel/margin/tabs/main/start
+	tab.current_tab = tabs["level"]
 
 func _on_controls_pressed():
 	$snd.play()
@@ -70,3 +70,13 @@ func _on_main_draw():
 	play_focus_sfx = false
 	prev_tab.grab_focus()
 	play_focus_sfx = true
+
+func _on_level_draw():
+	play_focus_sfx = false
+	$center/panel/margin/tabs/level/level1.grab_focus()
+	play_focus_sfx = true
+
+func _on_level_pressed(level: int):
+	$snd_game.play()
+	await $snd_game.finished
+	get_tree().change_scene_to_file("res://src/map/level%s.tscn" % level)

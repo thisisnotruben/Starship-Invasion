@@ -15,23 +15,19 @@ func _ready():
 			toggle(true)
 		Type.TIME_INTERVAL:
 			$timer_interval.start(time_to_activate)
-			await $timer_interval.timeout
-			$timer_cooldown.start(time_cooldown)
 
 func _on_timer_interval_timeout():
 	if activate_type == Type.TIME_INTERVAL:
+		$timer_cooldown.start(time_cooldown)
 		toggle(true)
 
 func _on_timer_cooldown_timeout():
 	if activate_type == Type.TIME_INTERVAL:
+		$timer_interval.start(time_to_activate)
 		toggle(false)
 
 func _on_timer_timeout():
-	var bodies: Array[Node3D] = $area3D.get_overlapping_bodies()
-	if bodies.is_empty():
-		$timer.stop()
-	else:
-		bodies.map(hurt)
+	$area3D.get_overlapping_bodies().map(hurt)
 
 func _on_activate_sight_body_entered(body: Node3D):
 	if activate_type == Type.PROXIMITY and body is Character:
@@ -47,11 +43,13 @@ func _on_area_3d_body_entered(body: Node3D):
 func hurt(body: Node3D):
 	if body is Character:
 		body.health -= damage
-		$timer.start()
 
 func toggle(activate: bool):
+	super.toggle(activate)
 	$area3D/collisionShape3D.set_deferred("disabled", not activate)
 	if activate:
 		$snd.play()
+		$timer.start()
 	else:
 		$snd.stop()
+		$timer.stop()

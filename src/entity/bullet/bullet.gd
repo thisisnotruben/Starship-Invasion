@@ -31,10 +31,11 @@ func spawn_shot(args := {}):
 		transform.basis = node.img.basis
 		node.add_sibling(self)
 
-	elif args.has_all(["trap", "target"]):
+	elif args.has_all(["trap", "target", "exclude"]):
 		node = args["trap"]
 		node.snd_shoot.play()
 		damage = node.damage
+		args["exclude"].map(func(e): $rayCast3D.add_exception(e))
 
 		spawn_call = func():
 			look_at_from_position(node.global_position, \

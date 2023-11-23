@@ -36,3 +36,12 @@ alignment = 2
 
 [node name="hBox" type="HBoxContainer" parent="margin/vBox"]
 layout_mode = 2
+
+[node name="health" type="HBoxContainer" parent="margin/vBox/hBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="inventory" type="HBoxContainer" parent="margin/vBox/hBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2

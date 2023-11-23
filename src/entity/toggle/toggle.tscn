@@ -1,24 +1,28 @@
 [gd_scene load_steps=6 format=3 uid="uid://bpxtrahkuddhh"]
 
 [ext_resource type="Script" path="res://src/entity/toggle/toggle.gd" id="1_lit2o"]
-[ext_resource type="AudioStream" uid="uid://d3tcd64qv6qtt" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Intense Server Computer Telemetry Loop 1-shortened.wav" id="2_chsch"]
-[ext_resource type="AudioStream" uid="uid://c1qebdasscc66" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Computer Telemetry 3-shortened.wav" id="3_c6ene"]
-[ext_resource type="AudioStream" uid="uid://um22uejlalgu" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Quantum Computer Telemetry Loop 2.wav" id="4_jfs6b"]
+[ext_resource type="AudioStream" uid="uid://fxhab184wd8f" path="res://asset/snd/8145 - Sci-Fi Robotics Sound Effects Pack/Sci-Fi Robotic Servo 3.wav" id="2_obj4n"]
+[ext_resource type="AudioStream" uid="uid://b7xs5jbxb8dnp" path="res://asset/snd/8145 - Sci-Fi Robotics Sound Effects Pack/Sci-Fi Robotic Servo Spin Down 2.wav" id="3_nyywy"]
+[ext_resource type="AudioStream" uid="uid://cv8280ewrlrud" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Acces_denied.wav" id="4_vi2y0"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_aatbq"]
-size = Vector3(4, 4, 4)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5w5js"]
 
 [node name="toggle" type="Node3D"]
 script = ExtResource("1_lit2o")
-sfx_door = ExtResource("2_chsch")
-sfx_trap = ExtResource("3_c6ene")
-sfx_spawn = ExtResource("4_jfs6b")
+sfx_activate = ExtResource("2_obj4n")
+sfx_deactivate = ExtResource("3_nyywy")
+sfx_denied = ExtResource("4_vi2y0")
 
 [node name="snd" type="AudioStreamPlayer3D" parent="."]
+max_distance = 30.0
+bus = &"sfx"
 
-[node name="area3D" type="Area3D" parent="."]
+[node name="sight" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="area3D"]
-shape = SubResource("BoxShape3D_aatbq")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sight"]
+shape = SubResource("CylinderShape3D_5w5js")
+
+[connection signal="body_entered" from="sight" to="." method="_on_sight_body_entered"]
+[connection signal="body_exited" from="sight" to="." method="_on_sight_body_exited"]

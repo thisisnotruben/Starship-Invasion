@@ -1,5 +1,8 @@
 extends Node3D
 class_name IToggleable
 
-func toggle(_activate: bool):
-	pass
+signal toggled(_toggled)
+
+
+func toggle(activate: bool):
+	emit_signal("toggled", activate)

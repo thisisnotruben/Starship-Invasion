@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpv4ehdmmigx3"
+path="res://.godot/imported/red-keycard-0-red-keycard.obj-f8688a90b30fc8a74cd590649ccd1ba3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/red-keycard-0-red-keycard.obj-f8688a90b30fc8a74cd590649ccd1ba3.mesh"]
+
+source_file="res://asset/3d/keycard/red/red-keycard-0-red-keycard.obj"
+dest_files=["res://.godot/imported/red-keycard-0-red-keycard.obj-f8688a90b30fc8a74cd590649ccd1ba3.mesh", "res://.godot/imported/red-keycard-0-red-keycard.obj-f8688a90b30fc8a74cd590649ccd1ba3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

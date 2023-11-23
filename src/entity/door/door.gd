@@ -16,6 +16,7 @@ func _can_access(body: Node3D) -> bool:
 	return type == Type.PROXIMITY and body is Character and not body.npc
 
 func toggle(open: bool):
+	super.toggle(open)
 	if open:
 		$anim.play("open")
 	else:

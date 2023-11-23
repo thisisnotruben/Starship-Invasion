@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://calloatp3oguy"
+path="res://.godot/imported/green-keycard-0-green-keycard.obj-78535d556637f38a4d75142d94721023.mesh"
+
+[deps]
+
+files=["res://.godot/imported/green-keycard-0-green-keycard.obj-78535d556637f38a4d75142d94721023.mesh"]
+
+source_file="res://asset/3d/keycard/green/green-keycard-0-green-keycard.obj"
+dest_files=["res://.godot/imported/green-keycard-0-green-keycard.obj-78535d556637f38a4d75142d94721023.mesh", "res://.godot/imported/green-keycard-0-green-keycard.obj-78535d556637f38a4d75142d94721023.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

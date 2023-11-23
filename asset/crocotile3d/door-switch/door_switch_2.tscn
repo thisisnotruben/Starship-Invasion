@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://kvtxy5xtmkxg"]
+
+[ext_resource type="PackedScene" uid="uid://bwdwlc5y8xdw4" path="res://asset/crocotile3d/door-switch/door-switch-2.gltf" id="1_5fiom"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bmct3"]
+data = PackedVector3Array(0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 2, 1, -1, 1, 0, 0, 2, 1, -1, 2, 0, -1, -1, 0, -1, -1, 1, -1, 0, 1, 0, -1, 0, -1, 0, 1, 0, 0, 0, 0, -1, 1, -1, 0, 2, -1, 0, 1, 0, 1, 1, 0, 1, 2, -1, 2, 1, -1, 0, 1, 0, 0, 2, -1, 1, 2, -1, 0, 1, 0, 1, 2, -1, 1, 1, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0, -1, 0, 1, 0, 0, 1, -1, 0, -1, -1, -1, -1, 0, -1, 0, 0, 0, -1, -1, -1, 0, 0, 0, 0, -1, 0, 1, -1, 0, 1, 0, 0, 2, 0, -1, 1, -1, 0, 2, 0, -1, 2, -1, -1, 0, 0, 0.02, 0, 1, 0.02, 1, 1, 0.02, 0, 0, 0.02, 1, 1, 0.02, 1, 0, 0.02)
+backface_collision = true
+
+[node name="door-switch-2" instance=ExtResource("1_5fiom")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesh2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh2/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_bmct3")

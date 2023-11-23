@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnukcmbie022t"]
+[gd_scene load_steps=7 format=3 uid="uid://cnukcmbie022t"]
 
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_pmdae"]
+[ext_resource type="Environment" uid="uid://lgpdmt1bb81o" path="res://resource/level1-env.tres" id="2_vabjt"]
 [ext_resource type="PackedScene" uid="uid://dt37dbnm4h4wo" path="res://asset/crocotile3d/map2/object_26225.tscn" id="2_wfc37"]
 [ext_resource type="PackedScene" uid="uid://b7xjy28ah2oxu" path="res://asset/crocotile3d/map2/map_2.tscn" id="2_xhxcd"]
 [ext_resource type="PackedScene" uid="uid://d3bnjjdsas4ei" path="res://src/ui/game_interface.tscn" id="3_w2e33"]
@@ -15,6 +16,7 @@ autoplay = true
 bus = &"music"
 
 [node name="worldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_vabjt")
 
 [node name="Object_26225" parent="." instance=ExtResource("2_wfc37")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, -4, 240)

@@ -3,31 +3,41 @@ extends Node3D
 @export var i_toggleable: IToggleable = null
 @export var can_revert_toggle = true
 var trigger: bool = true
-@export var sfx_door: AudioStream = null
-@export var sfx_trap: AudioStream = null
-@export var sfx_spawn: AudioStream = null
+
+@export var sfx_activate: AudioStream = null
+@export var sfx_deactivate: AudioStream = null
+
+@export_group("Item")
+@export var need_item := false
+@export var item_needed := Item.Type.HEALTH
+@export var sfx_denied: AudioStream = null
+
+var _player: Character = null
 
 
 func _ready():
-	set_process_input(i_toggleable != null)
+	if i_toggleable == null:
+		set_process_input(false)
+	else:
+		i_toggleable.toggled.connect(func(t): trigger = not t)
 
 func _input(event: InputEvent):
-	if can_revert_toggle and i_toggleable != null and event.is_action("interact") \
-	and not $area3D.get_overlapping_bodies().filter(_has_player).is_empty():
-
-		var stream: AudioStream = null
-		if i_toggleable is Door and i_toggleable.type == Door.Type.ACTIVATE:
-			stream = sfx_door
-		if i_toggleable is Trap and i_toggleable.type == Trap.Type.ACTIVATE:
-			stream = sfx_trap
-		if i_toggleable is Spawn and i_toggleable.type == Trap.Type.ACTIVATE:
-			stream = sfx_spawn
-
-		if stream != null:
+	if _player != null and (can_revert_toggle or trigger) \
+	and event.is_action_pressed("interact"):
+		$snd.stream = sfx_activate if trigger else sfx_deactivate
+		if need_item:
+			if _player.inventory.has(item_needed):
+				i_toggleable.toggle(trigger)
+			else:
+				$snd.stream = sfx_denied
+		else:
 			i_toggleable.toggle(trigger)
-			trigger = !trigger
-			$snd.stream = stream
-			$snd.play()
+		$snd.play()
 
-func _has_player(body: Node3D):
-	return body is Character and !body.npc
+func _on_sight_body_entered(body: Node3D):
+	if body is Character and not body.npc:
+		_player = body
+
+func _on_sight_body_exited(body: Node3D):
+	if body == _player:
+		_player = null

@@ -10,6 +10,7 @@ enum Type { INTERVAL, ACTIVATE }
 
 
 func toggle(activate: bool):
+	super.toggle(activate)
 	var spawn: Node3D = _spawn.instantiate()
 	spawn.global_transform.origin = global_transform.origin
 	if action_trigger != null:

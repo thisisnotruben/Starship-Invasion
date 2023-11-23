@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://8f0fgqy1encr"]
+[gd_scene load_steps=6 format=3 uid="uid://8f0fgqy1encr"]
 
 [ext_resource type="PackedScene" uid="uid://bn54fyns3jxxq" path="res://src/map/props/_prop.tscn" id="1_6ht8r"]
 [ext_resource type="Texture2D" uid="uid://b8o8pif3fum2l" path="res://asset/img/Scifi_SpaceDerelict/Props/Props.png" id="2_yy8w6"]
@@ -18,8 +18,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_reb2v"]
+
 [node name="ladder" instance=ExtResource("1_6ht8r")]
 
 [node name="sprite3D" parent="." index="0"]
 offset = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_tcxqk")
+
+[node name="collisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_reb2v")

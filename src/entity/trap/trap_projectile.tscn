@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb00ockuyiia4"]
+[gd_scene load_steps=9 format=3 uid="uid://cb00ockuyiia4"]
 
 [ext_resource type="PackedScene" uid="uid://bonktdsothgwv" path="res://src/entity/trap/_trap.tscn" id="1_mndgl"]
 [ext_resource type="Script" path="res://src/entity/trap/trap_projectile.gd" id="2_udoxa"]
@@ -8,10 +8,18 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mde4o"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h6cyc"]
+albedo_color = Color(0.305882, 0.415686, 0.482353, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_x5wtj"]
+radius = 0.25
+height = 0.5
+
 [node name="trap_projectile" instance=ExtResource("1_mndgl")]
 script = ExtResource("2_udoxa")
 bullet_scene = ExtResource("3_gx6q1")
 shoot_interval_sec = 1.0
+exclude_group = 0
 speed = 1.0
 activate_type = 3
 
@@ -19,6 +27,7 @@ activate_type = 3
 stream = ExtResource("4_cml0a")
 
 [node name="img" parent="." index="4"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 sprite_frames = SubResource("SpriteFrames_mde4o")
 
 [node name="timer_shoot" type="Timer" parent="." index="7"]
@@ -26,5 +35,9 @@ sprite_frames = SubResource("SpriteFrames_mde4o")
 [node name="snd_shoot" type="AudioStreamPlayer3D" parent="." index="8"]
 stream = ExtResource("5_nyoh1")
 max_distance = 5.0
+
+[node name="mesh" type="MeshInstance3D" parent="." index="9"]
+material_override = SubResource("StandardMaterial3D_h6cyc")
+mesh = SubResource("SphereMesh_x5wtj")
 
 [connection signal="timeout" from="timer_shoot" to="." method="_on_timer_shoot_timeout"]

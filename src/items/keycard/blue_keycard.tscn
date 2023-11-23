@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://drxbmrgrcd1ol"]
+
+[ext_resource type="PackedScene" uid="uid://cy0njjhnujhfx" path="res://src/items/_item.tscn" id="1_si4ai"]
+[ext_resource type="ArrayMesh" uid="uid://idx3400fs5ej" path="res://asset/3d/keycard/blue/blue-keycard-0-blue-keycard.obj" id="2_5nnjk"]
+[ext_resource type="Texture2D" uid="uid://d3ien02qs8xoy" path="res://asset/img/icons/blue-keycard.png" id="2_68krp"]
+
+[node name="blue-keycard" instance=ExtResource("1_si4ai")]
+type = 2
+hud_image = ExtResource("2_68krp")
+
+[node name="Blue-keycard-0-blue-keycard" type="MeshInstance3D" parent="marker3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.05, 0, -0.05)
+mesh = ExtResource("2_5nnjk")
+skeleton = NodePath("../..")

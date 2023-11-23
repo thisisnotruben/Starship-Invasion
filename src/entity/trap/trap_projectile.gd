@@ -1,8 +1,12 @@
 extends Trap
 
+enum ExcludeGroup{ NONE, FRIENDLY, FOE }
+
 @export var bullet_scene: PackedScene
 @export var target: Marker3D = null
-@export_range(1.0, 15.0) var shoot_interval_sec := 7.5
+@export_range(0.25, 15.0) var shoot_interval_sec := 7.5
+@export var exclude_group := ExcludeGroup.NONE
+
 @export_subgroup("movement")
 @export var path_follow: PathFollow3D = null
 @export_range(0.0, 40.0) var speed: float = 20.0
@@ -29,4 +33,12 @@ func toggle(activate: bool):
 		$timer_shoot.stop()
 
 func _on_timer_shoot_timeout():
-	bullet_scene.instantiate().spawn_shot({"trap": self, "target": target})
+	var exclude := []
+	match exclude_group:
+		ExcludeGroup.FRIENDLY:
+			exclude = get_tree().get_nodes_in_group("friendly")
+		ExcludeGroup.FOE:
+			exclude = get_tree().get_nodes_in_group("foe")
+
+	bullet_scene.instantiate().spawn_shot( \
+		{"trap": self, "target": target, "exclude": exclude})

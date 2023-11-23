@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi61oskjlnpg7"]
+
+[ext_resource type="PackedScene" uid="uid://cy0njjhnujhfx" path="res://src/items/_item.tscn" id="1_wdkx8"]
+[ext_resource type="Texture2D" uid="uid://jqvlutnvhswi" path="res://asset/img/icons/yellow-keycard.png" id="2_c0can"]
+[ext_resource type="ArrayMesh" uid="uid://dadomngom7i4c" path="res://asset/3d/keycard/yellow/yellow-keycard-0-yellow-keycard.obj" id="2_h7s64"]
+
+[node name="yellow-keycard" instance=ExtResource("1_wdkx8")]
+type = 5
+hud_image = ExtResource("2_c0can")
+
+[node name="Yellow-keycard-0-yellow-keycard" type="MeshInstance3D" parent="marker3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.05, 0, -0.05)
+mesh = ExtResource("2_h7s64")
+skeleton = NodePath("../..")

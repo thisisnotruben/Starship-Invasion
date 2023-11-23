@@ -32,10 +32,16 @@ class_name Character
 @export_subgroup("Npc")
 @export_range(0.0, 50.0) var shoot_range: float = 5.0
 
+@export_subgroup("Items")
+@export var inventory: Array[Item.Type] = []
+@export var drop: PackedScene # `Item`
+@export_range(0.0, 1.0, 0.05) var drop_percent := 0.2
+
 var health: int : set = _set_health
 var target: Character = null
 
 signal health_changed(_health)
+signal inventory_added(_item)
 
 
 func _ready():
@@ -101,6 +107,16 @@ func _set_friendly(_friendly: bool):
 			add_to_group("foe")
 	else:
 		add_to_group("friendly")
+
+func inventory_add(data: Dictionary):
+	if data["add"]:
+		if not inventory.has(data["type"]):
+			inventory.append(data["type"])
+			emit_signal("inventory_added", data)
+	else:
+		if inventory.has(data["type"]):
+			inventory.erase(data["type"])
+			emit_signal("inventory_added", data)
 
 func is_foe(_body: Node3D) -> bool:
 	return _body is Character and _body.fsm.state != CharacterStates.Type.DIE \
