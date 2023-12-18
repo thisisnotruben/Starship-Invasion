@@ -72,7 +72,6 @@ layout_mode = 2
 tabs_visible = false
 
 [node name="main" type="VBoxContainer" parent="center/panel/margin/tabs"]
-visible = false
 layout_mode = 2
 
 [node name="label" type="Label" parent="center/panel/margin/tabs/main"]
@@ -132,6 +131,7 @@ visible = false
 layout_mode = 2
 
 [node name="level" type="VBoxContainer" parent="center/panel/margin/tabs"]
+visible = false
 layout_mode = 2
 
 [node name="label" type="Label" parent="center/panel/margin/tabs/level"]

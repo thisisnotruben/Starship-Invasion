@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://qo7snti20jaa"]
 
 [ext_resource type="PackedScene" uid="uid://d3m1ci2db7oss" path="res://src/entity/character/character.tscn" id="1_0cfur"]
-[ext_resource type="SpriteFrames" uid="uid://ydjbblpk6w6" path="res://resource/character_3.tres" id="2_3gopm"]
+[ext_resource type="SpriteFrames" uid="uid://ydjbblpk6w6" path="res://resource/character/alien/character_3.tres" id="2_3gopm"]
 [ext_resource type="AudioStream" uid="uid://dsof2oix1fsnr" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 5.wav" id="2_aa5e7"]
 [ext_resource type="AudioStream" uid="uid://bmvc2mtt2ivoe" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 7.wav" id="2_e8jbc"]
 [ext_resource type="AudioStream" uid="uid://ym4vhuypu7yg" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 1.wav" id="2_rlkkj"]
@@ -39,4 +39,4 @@ quips = Array[AudioStream]([ExtResource("2_rlkkj"), ExtResource("3_i48kp"), ExtR
 
 [node name="img" parent="." index="8"]
 sprite_frames = ExtResource("2_3gopm")
-animation = &"melee_se"
+animation = &"move_nw"

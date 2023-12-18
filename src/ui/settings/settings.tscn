@@ -123,6 +123,34 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 button_pressed = true
 
+[node name="sensitivity" type="GridContainer" parent="tabs_container"]
+visible = false
+layout_mode = 2
+columns = 2
+
+[node name="keyboard" type="Label" parent="tabs_container/sensitivity"]
+layout_mode = 2
+text = "Keyboard"
+horizontal_alignment = 2
+
+[node name="keyboard_sens" type="HSlider" parent="tabs_container/sensitivity"]
+layout_mode = 2
+size_flags_vertical = 4
+min_value = -80.0
+ticks_on_borders = true
+
+[node name="joystick" type="Label" parent="tabs_container/sensitivity"]
+layout_mode = 2
+text = "Joystick"
+horizontal_alignment = 2
+
+[node name="joystick_sens" type="HSlider" parent="tabs_container/sensitivity"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -80.0
+ticks_on_borders = true
+
 [node name="save" type="Button" parent="."]
 layout_mode = 2
 text = "Save"
@@ -137,6 +165,7 @@ text = "Back"
 [connection signal="focus_entered" from="tabs/shader" to="." method="_on_focus_entered"]
 [connection signal="toggled" from="tabs/shader" to="." method="_on_shader_toggled"]
 [connection signal="focus_entered" from="tabs/sensitivity" to="." method="_on_focus_entered"]
+[connection signal="toggled" from="tabs/sensitivity" to="." method="_on_sensitivity_toggled"]
 [connection signal="focus_entered" from="tabs_container/volume/music_volume" to="." method="_on_focus_entered"]
 [connection signal="value_changed" from="tabs_container/volume/music_volume" to="." method="_on_music_volume_value_changed"]
 [connection signal="focus_entered" from="tabs_container/volume/sfx_volume" to="." method="_on_focus_entered"]
@@ -147,6 +176,10 @@ text = "Back"
 [connection signal="toggled" from="tabs_container/shader/grain_check" to="." method="_on_grain_check_toggled"]
 [connection signal="focus_entered" from="tabs_container/shader/tv_check" to="." method="_on_focus_entered"]
 [connection signal="toggled" from="tabs_container/shader/tv_check" to="." method="_on_tv_check_toggled"]
+[connection signal="focus_entered" from="tabs_container/sensitivity/keyboard_sens" to="." method="_on_focus_entered"]
+[connection signal="value_changed" from="tabs_container/sensitivity/keyboard_sens" to="." method="_on_keyboard_sens_value_changed"]
+[connection signal="focus_entered" from="tabs_container/sensitivity/joystick_sens" to="." method="_on_focus_entered"]
+[connection signal="value_changed" from="tabs_container/sensitivity/joystick_sens" to="." method="_on_joystick_sens_value_changed"]
 [connection signal="focus_entered" from="save" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="save" to="." method="_on_save_pressed"]
 [connection signal="focus_entered" from="back" to="." method="_on_focus_entered"]

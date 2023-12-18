@@ -4,6 +4,7 @@ var play_focus_sfx := false
 
 @export var player: Character = null
 var dead := false
+var level_transition := false
 
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
@@ -13,17 +14,21 @@ var tabs := {"main": 0, "license": 1, "credits": 2, \
 
 
 func _ready():
-	connect("visibility_changed", _on_visibility_changed)
+	visibility_changed.connect(_on_visibility_changed)
 	if player != null:
-		player.connect("health_changed", show_death_screen)
+		player.health_changed.connect(show_death_screen)
+#	get_tree().get_nodes_in_group("level_transition") \
+#		.map(func(n): n.query_transiition.connect(next_level))
 
 func _input(event: InputEvent):
 	if not dead and event.is_action_pressed("pause") \
 	or (visible and event.is_action_pressed("ui_cancel")) \
-	and tab.current_tab == tabs["main"]:
+	and (tab.current_tab == tabs["main"] or level_transition):
 		visible = !visible
 		if visible:
 			$snd_pause.play()
+		elif level_transition:
+			$snd_back.play()
 		else:
 			$snd_resume.play()
 	elif event.is_action_pressed("ui_cancel") \
@@ -120,6 +125,7 @@ func show_death_screen(player_health: int):
 		show()
 
 func next_level(prompt: bool, next_level_scene: PackedScene):
+	level_transition = prompt
 	visible = prompt
 	if prompt:
 		popup.display("Go Next Level?!", "Go", "Stay")

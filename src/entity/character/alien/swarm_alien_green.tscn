@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b03nc51jl2fk1"]
 
 [ext_resource type="PackedScene" uid="uid://qo7snti20jaa" path="res://src/entity/character/alien/swarm_alien.tscn" id="1_pqufv"]
-[ext_resource type="SpriteFrames" uid="uid://b0y3y155dm7k8" path="res://resource/character_3.2.tres" id="2_cutpq"]
+[ext_resource type="SpriteFrames" uid="uid://b0y3y155dm7k8" path="res://resource/character/alien/character_3.2.tres" id="2_cutpq"]
 
 [node name="SwarmAlienGreen" instance=ExtResource("1_pqufv")]
 

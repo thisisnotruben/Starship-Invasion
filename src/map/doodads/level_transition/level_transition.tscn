@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ru51a25t7uk4"]
+
+[ext_resource type="Script" path="res://src/map/doodads/level_transition/level_transition.gd" id="1_a3xly"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vc51l"]
+height = 1.5
+radius = 2.0
+
+[node name="level_transition" type="Node3D" groups=["level_transition"]]
+script = ExtResource("1_a3xly")
+
+[node name="area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_vc51l")
+
+[connection signal="body_entered" from="area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="area3D" to="." method="_on_area_3d_body_exited"]

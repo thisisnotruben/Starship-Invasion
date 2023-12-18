@@ -77,6 +77,7 @@ func _on_level_draw():
 	play_focus_sfx = true
 
 func _on_level_pressed(level: int):
+	get_node("center/panel/margin/tabs/level/level%s" % level).release_focus()
 	$snd_game.play()
 	await $snd_game.finished
 	get_tree().change_scene_to_file("res://src/map/level%s.tscn" % level)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://5oj7n5mqy7ne"]
+[gd_scene load_steps=7 format=3 uid="uid://5oj7n5mqy7ne"]
 
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_8csrw"]
 [ext_resource type="Environment" uid="uid://lgpdmt1bb81o" path="res://resource/level1-env.tres" id="2_6oy2q"]
 [ext_resource type="PackedScene" uid="uid://qu7ldcchypxa" path="res://asset/crocotile3d/map4/object_24121.tscn" id="2_f5pm1"]
 [ext_resource type="PackedScene" uid="uid://d3bnjjdsas4ei" path="res://src/ui/game_interface.tscn" id="3_hpude"]
 [ext_resource type="PackedScene" uid="uid://c4hi0ie8sw4sa" path="res://asset/crocotile3d/map4/map_4.tscn" id="3_ww1ik"]
+[ext_resource type="PackedScene" uid="uid://ca37jkluxvjp6" path="res://src/entity/door/door.tscn" id="5_18rak"]
 
 [node name="level4" type="Node3D"]
 
@@ -19,6 +20,7 @@ environment = ExtResource("2_6oy2q")
 
 [node name="Object_24121" parent="." instance=ExtResource("2_f5pm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252, 4, 76)
+visible = false
 
 [node name="nav" type="NavigationRegion3D" parent="."]
 
@@ -28,6 +30,168 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252, 4, 76)
 
 [node name="doors" type="Node3D" parent="nav"]
 
+[node name="door" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 22)
+
+[node name="door2" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, 22)
+
+[node name="door3" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 22)
+
+[node name="door6" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 30)
+
+[node name="door7" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 46)
+
+[node name="door8" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 46)
+
+[node name="door9" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 46)
+
+[node name="door10" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, 46)
+
+[node name="door11" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 70)
+
+[node name="door12" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 86)
+
+[node name="door13" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 94)
+
+[node name="door14" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, 86)
+
+[node name="door16" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22, 0, 98)
+
+[node name="door17" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 46, 0, 98)
+
+[node name="door18" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 38, 0, 66)
+
+[node name="door19" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22, 0, 42)
+
+[node name="door20" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 0, 58)
+
+[node name="door21" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, 50)
+
+[node name="door22" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28, 0, 50)
+
+[node name="door23" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -120, 0, 50)
+
+[node name="door24" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122, 0, 54)
+
+[node name="door25" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122, 0, 42)
+
+[node name="door37" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -174, 0, 30)
+
+[node name="door38" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -182, 0, 30)
+
+[node name="door39" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -190, 0, 30)
+
+[node name="door40" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -234, 0, 14)
+
+[node name="door41" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -242, 0, 22)
+
+[node name="door42" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 0, 38)
+
+[node name="door43" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -218, 0, 62)
+
+[node name="door44" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -242, 0, 70)
+
+[node name="door45" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -250, 0, 78)
+
+[node name="door46" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -234, 0, 94)
+
+[node name="door47" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -210, 0, 102)
+
+[node name="door48" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -242, 0, 126)
+
+[node name="door49" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -242, 0, 110)
+
+[node name="door50" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -238, 0, 130)
+
+[node name="door51" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -150, 0, 82)
+
+[node name="door52" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -162, 0, 18)
+
+[node name="door53" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -134, 0, 38)
+
+[node name="door54" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -194, 0, 54)
+
+[node name="door26" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, 94)
+
+[node name="door27" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, 110)
+
+[node name="door28" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 0, 126)
+
+[node name="door29" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122, 0, 126)
+
+[node name="door30" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -186, 0, 118)
+
+[node name="door31" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202, 0, 110)
+
+[node name="door32" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -206, 0, 122)
+
+[node name="door33" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -166, 0, 106)
+
+[node name="door34" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -166, 0, 98)
+
+[node name="door35" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -174, 0, 66)
+
+[node name="door36" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -198, 0, 66)
+
+[node name="door15" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 62)
+
+[node name="door4" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22, 0, 2)
+
+[node name="door5" parent="nav/doors" instance=ExtResource("5_18rak")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 0, 2)
+
 [node name="characters" type="Node3D" parent="."]
 
 [node name="traps" type="Node3D" parent="."]
@@ -35,3 +199,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252, 4, 76)
 [node name="lights" type="Node3D" parent="."]
 
 [node name="game_interface" parent="." instance=ExtResource("3_hpude")]
+
+[editable path="game_interface"]

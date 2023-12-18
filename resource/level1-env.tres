@@ -17,7 +17,6 @@ ssao_intensity = 2.31
 ssil_enabled = true
 ssil_radius = 9.61
 ssil_intensity = 1.62
-glow_enabled = true
 glow_blend_mode = 0
 adjustment_enabled = true
 adjustment_brightness = 1.5

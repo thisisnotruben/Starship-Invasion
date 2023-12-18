@@ -53,3 +53,9 @@ func toggle(activate: bool):
 	else:
 		$snd.stop()
 		$timer.stop()
+
+func _on_visibility_screen_entered():
+	pass # Replace with function body.
+
+func _on_visibility_screen_exited():
+	pass # Replace with function body.

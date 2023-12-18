@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpi0n0lxabdnr"]
+
+[ext_resource type="PackedScene" uid="uid://bn54fyns3jxxq" path="res://src/map/doodads/props/_prop.tscn" id="1_n1tko"]
+[ext_resource type="Texture2D" uid="uid://b8o8pif3fum2l" path="res://asset/img/Scifi_SpaceDerelict/Props/Props.png" id="2_w8vyv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yajlf"]
+atlas = ExtResource("2_w8vyv")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gcee"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yajlf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gan2t"]
+radius = 1.0
+
+[node name="computer_3" instance=ExtResource("1_n1tko")]
+
+[node name="sprite3D" parent="." index="0"]
+offset = Vector2(4, 11)
+sprite_frames = SubResource("SpriteFrames_0gcee")
+
+[node name="collisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_gan2t")

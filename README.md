@@ -5,6 +5,11 @@
 - Program
 	- character
 		- spotting sight
+		- space warriors walking backwards (anim-wise)
+	- ui
+		- interact indicator
+		- start_menu level rejection (not unlocked yet)
+		- add sensitivty settings option
 
 - Gather/record audio
 	- music

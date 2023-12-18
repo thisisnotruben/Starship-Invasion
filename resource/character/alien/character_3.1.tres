@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=169 format=3 uid="uid://c4u75an26rlwc"]
+[gd_resource type="SpriteFrames" load_steps=160 format=3 uid="uid://c4u75an26rlwc"]
 
 [ext_resource type="Texture2D" uid="uid://22031jpytg12" path="res://asset/img/Scifi_SpaceDerelict/Creatures/SwarmAlien2/SwarmAlienDie.png" id="1_1qmju"]
 [ext_resource type="Texture2D" uid="uid://dp30ee1mv6h2v" path="res://asset/img/Scifi_SpaceDerelict/Creatures/SwarmAlien2/SwarmAlienDmg.png" id="2_k5f8l"]
@@ -622,42 +622,6 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("5_71ey7")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1iunn"]
-atlas = ExtResource("5_71ey7")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ikpg0"]
-atlas = ExtResource("5_71ey7")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qqpco"]
-atlas = ExtResource("5_71ey7")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gep5b"]
-atlas = ExtResource("5_71ey7")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rp6ij"]
-atlas = ExtResource("5_71ey7")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvibu"]
-atlas = ExtResource("5_71ey7")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_umw6u"]
-atlas = ExtResource("5_71ey7")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i5kjt"]
-atlas = ExtResource("5_71ey7")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2sk4e"]
-atlas = ExtResource("5_71ey7")
-region = Rect2(352, 0, 32, 32)
-
 [resource]
 animations = [{
 "frames": [{
@@ -1207,33 +1171,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t82m6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1iunn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ikpg0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qqpco")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gep5b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rp6ij")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nvibu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_umw6u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i5kjt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2sk4e")
 }],
 "loop": false,
 "name": &"spawn",

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://wjbtmejqevko"]
+
+[ext_resource type="PackedScene" uid="uid://bn54fyns3jxxq" path="res://src/map/doodads/props/_prop.tscn" id="1_xg8vc"]
+[ext_resource type="Texture2D" uid="uid://b8o8pif3fum2l" path="res://asset/img/Scifi_SpaceDerelict/Props/Props.png" id="2_2ehic"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kmel"]
+atlas = ExtResource("2_2ehic")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j17d"]
+atlas = ExtResource("2_2ehic")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ih1xa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kmel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j17d")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_lydt8"]
+height = 1.0
+radius = 1.0
+
+[node name="box_green_large" instance=ExtResource("1_xg8vc")]
+
+[node name="sprite3D" parent="." index="0"]
+offset = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_ih1xa")
+frame_progress = 0.432359
+
+[node name="collisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_lydt8")

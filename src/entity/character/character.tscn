@@ -368,9 +368,11 @@ libraries = {
 }
 
 [node name="animationTree" type="AnimationTree" parent="."]
+libraries = {
+"character": ExtResource("13_c30pa")
+}
 tree_root = SubResource("AnimationNodeStateMachine_ervpj")
 anim_player = NodePath("../animationPlayer")
-active = true
 parameters/conditions/die = false
 parameters/conditions/idle = false
 parameters/conditions/melee = false

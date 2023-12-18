@@ -14,7 +14,9 @@ var on_init_volume := true
 @onready var lens_dis: BaseButton = $tabs_container/shader/lens_distortion_check
 @onready var grain: BaseButton = $tabs_container/shader/grain_check
 @onready var tv: BaseButton = $tabs_container/shader/tv_check
-var tabs := {"volume": 0, "shader": 1}
+@onready var keyboard_sens : HSlider = $tabs_container/sensitivity/keyboard_sens
+@onready var joystick_sens : HSlider = $tabs_container/sensitivity/joystick_sens
+var tabs := {"volume": 0, "shader": 1, "sensitivity": 2}
 
 static var dirty_values := {}
 
@@ -46,23 +48,38 @@ func _on_focus_entered():
 		emit_signal("subcontrol_focused")
 
 func _on_volume_toggled(button_pressed: bool):
-	$tabs/shader.button_pressed = !button_pressed
+	#var other_tabs := [$tabs/shader, $tabs/sensitivity]
+	#other_tabs.map(func(b): b.set_block_signals(true))
+	#other_tabs.map(func(b): b.button_pressed = !button_pressed)
 	$tabs/shader.grab_focus()
 	$tabs_container.current_tab = tabs["volume"]
 	$tabs/volume.disabled = button_pressed
+	#other_tabs.map(func(b): b.set_block_signals(false))
 
 func _on_shader_toggled(button_pressed: bool):
-	$tabs/volume.button_pressed = !button_pressed
-	$tabs/volume.grab_focus()
+	#var other_tabs := [$tabs/volume, $tabs/sensitivity]
+	#other_tabs.map(func(b): b.set_block_signals(true))
+	#other_tabs.map(func(b): b.button_pressed = !button_pressed)
+	$tabs/sensitivity.grab_focus()
 	$tabs_container.current_tab = tabs["shader"]
 	$tabs/shader.disabled = button_pressed
+	#other_tabs.map(func(b): b.set_block_signals(false))
+
+func _on_sensitivity_toggled(button_pressed: bool):
+	#var other_tabs := [$tabs/volume, $tabs/shader]
+	#other_tabs.map(func(b): b.set_block_signals(true))
+	#other_tabs.map(func(b): b.button_pressed = !button_pressed)
+	$tabs/volume.grab_focus()
+	$tabs_container.current_tab = tabs["sensitivity"]
+	$tabs/sensitivity.disabled = button_pressed
+	#other_tabs.map(func(b): b.set_block_signals(false))
 
 func _on_music_volume_value_changed(value: float):
 	if not on_init_volume:
 		AudioServer.set_bus_volume_db(bus_layout["music"], value)
 		dirty_values["music"] = value
 
-func _on_sfx_volume_value_changed(value):
+func _on_sfx_volume_value_changed(value: float):
 	if not on_init_volume:
 		AudioServer.set_bus_volume_db(bus_layout["sfx"], value)
 		dirty_values["sfx"] = value
@@ -76,6 +93,12 @@ func _on_grain_check_toggled(button_pressed: bool):
 func _on_tv_check_toggled(button_pressed: bool):
 	_toggle("tv", button_pressed)
 
+func _on_keyboard_sens_value_changed(value: float):
+	dirty_values["keyboard_sens"] = value
+
+func _on_joystick_sens_value_changed(value: float):
+	dirty_values["joystick_sens"] = value
+
 func _on_save_pressed():
 	$snd_save.play()
 	var config := ConfigFile.new()
@@ -85,6 +108,8 @@ func _on_save_pressed():
 	config.set_value("settings", "lens_dis", lens_dis.button_pressed)
 	config.set_value("settings", "grain", grain.button_pressed)
 	config.set_value("settings", "tv", tv.button_pressed)
+	config.set_value("settings", "keyboard_sens", keyboard_sens.value)
+	config.set_value("settings", "joystick_sens", joystick_sens.value)
 	config.save(SAVE_PATH)
 
 func _load_settings():
@@ -112,3 +137,7 @@ func _set_settings(payload: Dictionary):
 				grain.button_pressed = payload[key]
 			"tv":
 				tv.button_pressed = payload[key]
+			"keyboard_sens":
+				keyboard_sens.value = payload[key]
+			"joystick_sens":
+				joystick_sens.value = payload[key]
