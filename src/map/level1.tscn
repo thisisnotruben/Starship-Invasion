@@ -175,6 +175,7 @@ visible = false
 navigation_mesh = SubResource("NavigationMesh_5adjt")
 
 [node name="map1" parent="nav" instance=ExtResource("7_05krw")]
+metadata/_edit_lock_ = true
 
 [node name="props" type="Node3D" parent="nav"]
 

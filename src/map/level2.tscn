@@ -88,12 +88,14 @@ environment = ExtResource("2_vabjt")
 
 [node name="Object_39703" parent="." instance=ExtResource("12_87hlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112, 0, 64)
+visible = false
 
 [node name="nav" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_1ksd2")
 
 [node name="map2" parent="nav" instance=ExtResource("2_xhxcd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+metadata/_edit_lock_ = true
 
 [node name="props" type="Node3D" parent="nav"]
 
@@ -2783,10 +2785,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 388)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 385)
 
 [node name="traps" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="lights" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="toggles" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="toggle-computer-blue-keycard" parent="toggles" node_paths=PackedStringArray("i_toggleable") instance=ExtResource("16_t7nc8")]
 transform = Transform3D(-0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152, 44, 0, 8)
@@ -2869,6 +2877,8 @@ need_item = true
 item_needed = 5
 
 [node name="items" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="blue-keycard" parent="items" instance=ExtResource("16_aycnv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.0058012, 22)
