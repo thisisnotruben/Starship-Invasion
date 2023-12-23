@@ -34,6 +34,45 @@ grow_vertical = 2
 layout_mode = 2
 alignment = 2
 
+[node name="tabs" type="TabContainer" parent="margin/vBox"]
+visible = false
+layout_mode = 2
+tabs_visible = false
+
+[node name="o2" type="HBoxContainer" parent="margin/vBox/tabs"]
+layout_mode = 2
+alignment = 1
+
+[node name="label" type="Label" parent="margin/vBox/tabs/o2"]
+layout_mode = 2
+text = "O2"
+
+[node name="progressBar" type="ProgressBar" parent="margin/vBox/tabs/o2"]
+custom_minimum_size = Vector2(320, 24)
+layout_mode = 2
+max_value = 1.0
+show_percentage = false
+
+[node name="hull_integrity" type="HBoxContainer" parent="margin/vBox/tabs"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="label" type="Label" parent="margin/vBox/tabs/hull_integrity"]
+layout_mode = 2
+text = "Hull Integrity"
+
+[node name="progressBar" type="ProgressBar" parent="margin/vBox/tabs/hull_integrity"]
+custom_minimum_size = Vector2(320, 24)
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="padding" type="Control" parent="margin/vBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="hBox" type="HBoxContainer" parent="margin/vBox"]
 layout_mode = 2
 

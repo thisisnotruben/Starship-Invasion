@@ -282,7 +282,7 @@ height = 1.06
 height = 1.5
 radius = 4.0
 
-[node name="character" type="CharacterBody3D"]
+[node name="character" type="CharacterBody3D" groups=["character"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_ehf32")
@@ -410,7 +410,7 @@ billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = ExtResource("13_jlygo")
-animation = &"idle_w"
+animation = &"move_nw"
 
 [node name="pivot" type="Node3D" parent="img"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46404, 0)
@@ -443,6 +443,10 @@ collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sight"]
 shape = SubResource("CylinderShape3D_8f501")
+
+[node name="visibility" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+aabb = AABB(-6, -1, -6, 12, 2, 12)
 
 [connection signal="timeout" from="fsm/idle/quip_timer" to="fsm/idle" method="_on_quip_timer_timeout"]
 [connection signal="animation_finished" from="animationTree" to="fsm/move-shoot" method="_on_animation_tree_animation_finished"]

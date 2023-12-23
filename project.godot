@@ -15,6 +15,10 @@ run/main_scene="res://src/ui/start/start.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+LevelUnlocker="*res://src/ui/level_query/level_query.gd"
+
 [display]
 
 window/size/viewport_width=1280

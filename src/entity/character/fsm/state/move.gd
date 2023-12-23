@@ -45,7 +45,7 @@ func physics_process(delta: float):
 # animation
 func apply_animation(input_dir: Vector2):
 	if input_dir.length() > 0.0:
-		var anim_direction = input_dir.normalized()
+		var anim_direction := input_dir.normalized()
 		anim_direction.y *= -1.0
 		for anim in ["idle", "move", "melee"]:
 			var anim_path: String = "parameters/%s/blend_position" % anim

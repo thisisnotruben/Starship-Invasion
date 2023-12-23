@@ -24,5 +24,9 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sight"]
 shape = SubResource("CylinderShape3D_5w5js")
 
+[node name="visibility" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+aabb = AABB(-6, -1, -6, 12, 2, 12)
+
 [connection signal="body_entered" from="sight" to="." method="_on_sight_body_entered"]
 [connection signal="body_exited" from="sight" to="." method="_on_sight_body_exited"]

@@ -257,7 +257,6 @@ shape = SubResource("BoxShape3D_5l6oq")
 [node name="nav" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 navigation_mesh = SubResource("NavigationMesh_t0tug")
-enabled = false
 
 [connection signal="body_entered" from="area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="area3D" to="." method="_on_area_3d_body_exited"]

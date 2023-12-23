@@ -2,45 +2,25 @@
 
 ## TODO
 
-- Program
-	- character
-		- spotting sight
-		- space warriors walking backwards (anim-wise)
-	- ui
-		- interact indicator
-		- start_menu level rejection (not unlocked yet)
-		- add sensitivty settings option
-
-- Gather/record audio
-	- music
-		- DOS-88 - Last Transmission
-		- DOS-88 - Fight To Win
-		- BERSERK DOS-88 - DEMON SLAYER
-		- D0S-88 - Raging Inferno
-		- DOS-88 - Only In Dreams
-		- DOS-88 - Dark Ascent
-
-		- Exploring
-			- DOS-88 - Punkers
-			- DOS-88 - The Way Home
-			- DOS-88 - HOME BASE
-		- Hopeful
-			- DOS-88 - Summer Forever
-			- DOS-88 - Summer Vibes
-		- Fight type slow:
-			- DOS-88 - Prepare To Fight
-			- DOS-88 - Underground
-			- DOS-88 - Liquid Metal
-		- Fight type:
-			- DOS-88 - Automata
-			- DOS-88 - Initiate Destruction
-			- DOS-88 - Main Objective
-			- DOS-88 - Double Tap
-			- DOS-88 - Lost Signal
-- Create
-	- maps
-		- 1-5
+- Gameplay
+	- space walk
+		- oxygen timer
+			- progress bar on top that shows depleting O2
+		- asteroid timer
+			- sporadic timer with asteroid impact
+		- spawn timer
+			- timer that spawns enemies and triggers them to attack you
+		- oxygen refill tanks
+			- placed around the space walk
+	- asteroid shooter
+		- asteroid gun in map, animation plays where it lifts you up to the roof
+			in a turret-like thing
+		- switches view to the gun nozzle with aiming lasers
+		- asteroids come and you have to shoot them or they hit you
+		- health level of ship appears
+			- if drops to zero, then ship explodes
+			- if win then, it lowers you down and a ladder appears guiding you to
+				the next level
 
 ## Exporting
-
 - maps scaled up to: 4x

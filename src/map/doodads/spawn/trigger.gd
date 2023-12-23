@@ -2,5 +2,5 @@ extends Node
 class_name ITriggerable
 
 
-func trigger(node: Node3D):
+func trigger(_node: Node3D):
 	pass

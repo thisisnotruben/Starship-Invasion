@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5rrq4jjy8lvd"]
+
+[ext_resource type="Script" path="res://src/map/level2/oxygen/oxygen_tank.gd" id="1_ygdxt"]
+
+[node name="oxygen_tank" type="Node3D"]
+script = ExtResource("1_ygdxt")
+
+[node name="cooldown_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

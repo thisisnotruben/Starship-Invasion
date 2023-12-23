@@ -18,5 +18,3 @@ func physics_process(_delta: float):
 
 	move.character.img.look_at(Vector3(next_point.x, \
 		move.character.global_position.y, next_point.z), Vector3.UP)
-
-	move.apply_animation(Vector2(direction.x, direction.z))

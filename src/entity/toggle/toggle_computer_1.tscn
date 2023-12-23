@@ -1,7 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://bea4f7qu4pjne"]
+[gd_scene load_steps=10 format=3 uid="uid://bea4f7qu4pjne"]
 
 [ext_resource type="PackedScene" uid="uid://bpxtrahkuddhh" path="res://src/entity/toggle/toggle.tscn" id="1_fk435"]
 [ext_resource type="PackedScene" uid="uid://kvtxy5xtmkxg" path="res://asset/crocotile3d/door-switch/door_switch_2.tscn" id="2_4q4b7"]
+[ext_resource type="Texture2D" uid="uid://5jf7ix0cpkoa" path="res://asset/img/Minifantasy_UserInterface_v1.0/Minifantasy_Userinterface_Assets/Controls/Controllers/Minifantasy_GuiControllers.png" id="3_4t2gn"]
+[ext_resource type="Texture2D" uid="uid://7xwfgii6qis4" path="res://asset/img/Minifantasy_UserInterface_v1.0/Minifantasy_Userinterface_Assets/Controls/Keyboard Mouse/Minifantasy_GuiKeyboardMouse.png" id="4_hky3n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okyi2"]
+atlas = ExtResource("3_4t2gn")
+region = Rect2(280, 40, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahqq0"]
+atlas = ExtResource("4_hky3n")
+region = Rect2(40, 16, 7, 8)
+
+[sub_resource type="Animation" id="Animation_75vxd"]
+resource_name = "hover"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("interact:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vrabs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("interact:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y8nrd"]
+_data = {
+"RESET": SubResource("Animation_vrabs"),
+"hover": SubResource("Animation_75vxd")
+}
 
 [node name="toggle-computer-1" instance=ExtResource("1_fk435")]
 
@@ -10,3 +58,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.6)
 
 [node name="door-switch-2" parent="." index="2" instance=ExtResource("2_4q4b7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.4, 0.5)
+
+[node name="light" type="OmniLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0.9)
+light_color = Color(0.47451, 0.792157, 0.243137, 1)
+light_energy = 0.4
+omni_range = 3.0
+
+[node name="interact" type="Node3D" parent="." index="4"]
+
+[node name="controller" type="Sprite3D" parent="interact" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 0.6)
+pixel_size = 0.0625
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = SubResource("AtlasTexture_okyi2")
+
+[node name="keyboard" type="Sprite3D" parent="interact" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 0.6)
+pixel_size = 0.0625
+billboard = 1
+shaded = true
+texture_filter = 0
+texture = SubResource("AtlasTexture_ahqq0")
+
+[node name="anim" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_y8nrd")
+}
+autoplay = "hover"

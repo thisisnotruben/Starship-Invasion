@@ -4,3 +4,8 @@
 
 [node name="spawn" type="Node3D" groups=["spawn"]]
 script = ExtResource("1_mxy50")
+
+[node name="timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

@@ -33,7 +33,7 @@ func _set_state(_state_type) -> bool:
 					flip = Vector2.UP if character.npc else Vector2.DOWN
 				_:
 					if flip == Vector2.ZERO:
-						flip = Vector2.UP if not character.npc else Vector2.DOWN
+						flip = Vector2.UP if character.npc else Vector2.DOWN
 					else:
 						flip.y *= -1.0
 			character.anim_tree[blend_pos] = flip

@@ -17,8 +17,9 @@ func _ready():
 	visibility_changed.connect(_on_visibility_changed)
 	if player != null:
 		player.health_changed.connect(show_death_screen)
-#	get_tree().get_nodes_in_group("level_transition") \
-#		.map(func(n): n.query_transiition.connect(next_level))
+	# TODO
+	#get_tree().get_nodes_in_group("level_transition") \
+		#.map(func(n): n.query_transiition.connect(next_level))
 
 func _input(event: InputEvent):
 	if not dead and event.is_action_pressed("pause") \
@@ -124,13 +125,14 @@ func show_death_screen(player_health: int):
 		tab.current_tab = tabs["dead"]
 		show()
 
-func next_level(prompt: bool, next_level_scene: PackedScene):
+func next_level(prompt: bool, next_level_scene: PackedScene, level_name: String):
 	level_transition = prompt
 	visible = prompt
 	if prompt:
 		popup.display("Go Next Level?!", "Go", "Stay")
 		tab.current_tab = tabs["popup"]
 		if await popup.popup_return == "yes":
+			# TODO
 			get_tree().change_scene_to_packed(next_level_scene)
 		else:
 			$snd_back.play()

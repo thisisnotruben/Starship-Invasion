@@ -99,7 +99,7 @@ border_color = Color(0.403922, 1, 0.564706, 1)
 bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca1pp"]
-bg_color = Color(0.862745, 0.403922, 1, 1)
+bg_color = Color(0.403922, 1, 0.862745, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc1c4"]
 

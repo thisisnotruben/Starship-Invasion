@@ -20,10 +20,7 @@ vertical_alignment = 1
 [node name="text" type="Label" parent="."]
 layout_mode = 2
 text = "Developer:
-    - Ruben Alvarez Reyes
-Authors:
-    - Ruben Alvarez Reyes
-    - qinru"
+    - Ruben Alvarez Reyes"
 
 [node name="redirect" type="Button" parent="."]
 layout_mode = 2

@@ -26,8 +26,6 @@ class_name Character
 @export_range(1, 10) var range_damage: int = 1
 
 @export_subgroup("Player")
-@export_range(0.0, 1.0) var cam_sens_mouse := 0.004
-@export_range(0.0, 5.0) var cam_sens_action := 0.04
 @export_range(0.0, 10.0) var jump_velocity: float = 5.0
 @export_subgroup("Npc")
 @export_range(0.0, 50.0) var shoot_range: float = 5.0
@@ -74,7 +72,7 @@ func _process(delta: float):
 
 func _input(event: InputEvent):
 	if not npc and event is InputEventMouseMotion:
-		img.rotate_y(-event.relative.x * cam_sens_mouse)
+		img.rotate_y(-event.relative.x * Settings.mouse_sens)
 	fsm.input(event)
 
 func _set_health(_health: int):
@@ -128,8 +126,7 @@ func _handle_input():
 	if npc:
 		return
 
-	img.rotate_y(Input.get_axis("camera_right", "camera_left") * \
-		cam_sens_action)
+	img.rotate_y(Input.get_axis("camera_right", "camera_left") * Settings.joy_sens)
 
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
 		velocity.y = jump_velocity

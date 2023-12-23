@@ -3,6 +3,9 @@ extends Control
 @export var player: Character = null
 @export var health_scene: PackedScene = null
 
+@onready var tab: TabContainer = $margin/vBox/tabs
+var tabs := {"o2": 0, "hull_integrity": 1}
+
 @onready var health_container: Control = $margin/vBox/hBox/health
 @onready var inventory_container: Control = $margin/vBox/hBox/inventory
 var health_level := []
@@ -47,3 +50,11 @@ func _on_player_inventory_changed(data: Dictionary):
 		var item := inventory_container.get_node_or_null(data["type"])
 		if item != null:
 			item.queue_free()
+
+func _on_show_o2_timer(_visible: bool):
+	tab.current_tab = tabs["o2"]
+	tab.visible = _visible
+
+func _on_show_hull_integrity(_visible: bool):
+	tab.current_tab = tabs["hull_integrity"]
+	tab.visible = _visible

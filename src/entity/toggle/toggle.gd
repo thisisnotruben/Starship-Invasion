@@ -19,7 +19,7 @@ func _ready():
 	if i_toggleable == null:
 		set_process_input(false)
 	else:
-		i_toggleable.toggled.connect(func(t): trigger = not t)
+				i_toggleable.toggled.connect(func(t): trigger = not t)
 
 func _input(event: InputEvent):
 	if _player != null and (can_revert_toggle or trigger) \
