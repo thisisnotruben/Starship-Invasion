@@ -62,8 +62,11 @@ LICENSE: You may use this asset both in free and commercial projects. You can mo
 
 - [ReadeOnly](https://freesound.org/people/ReadeOnly/)
 	- [Fire (186924__readeonly__fire_loop.wav)](https://freesound.org/people/ReadeOnly/sounds/186924/)
-		- [CC0 1.0 Universal (CC0 1.0)
-Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
+		- [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
+
+- [Robinhood76](https://freesound.org/people/Robinhood76/)
+	- [Computer toggle (182422__robinhood76__04297-computer-turning-on.wav)](https://freesound.org/people/Robinhood76/sounds/182422/)
+		- [CC BY-NC 4.0 DEED Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/)
 
 - [Stefan Ruxandra](https://fanestelaru.itch.io/)
 	- [Robotic Voices](https://fanestelaru.itch.io/robotic-voices)

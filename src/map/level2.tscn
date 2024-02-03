@@ -111,7 +111,6 @@ environment = ExtResource("2_vabjt")
 
 [node name="Object_39703" parent="." instance=ExtResource("12_87hlp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112, 0, 64)
-visible = false
 
 [node name="nav" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_1ksd2")
@@ -127,6 +126,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 382)
 
 [node name="level_transition" parent="nav/props/ladder" instance=ExtResource("15_psi51")]
 next_level = ExtResource("16_4tpjg")
+level = 3
 
 [node name="ladder2" parent="nav/props" instance=ExtResource("14_irkok")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 1, 382)
@@ -2285,9 +2285,8 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0.002, 83.907)
 npc = false
 
-[node name="img" parent="characters/player" index="8"]
+[node name="img" parent="characters/player" index="10"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-animation = &"idle_w"
 
 [node name="Space Warrior" parent="characters" instance=ExtResource("56_mh4ds")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.00127554, -29)

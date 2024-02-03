@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1s8kv22433lg"]
+[gd_scene load_steps=15 format=3 uid="uid://c1s8kv22433lg"]
 
 [ext_resource type="PackedScene" uid="uid://bonktdsothgwv" path="res://src/entity/trap/_trap.tscn" id="1_8g8nu"]
 [ext_resource type="Script" path="res://src/entity/trap/trap_open_wire.gd" id="1_p4tgx"]
@@ -55,6 +55,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_w7xbn"]
+resource_name = "light_shift"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("light:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.4, 0.25, 0.6, 0.1]
+}
+
+[sub_resource type="Animation" id="Animation_ywssq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("light:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kpwph"]
+_data = {
+"RESET": SubResource("Animation_ywssq"),
+"light_shift": SubResource("Animation_w7xbn")
+}
+
 [node name="trap_open_wire" instance=ExtResource("1_8g8nu")]
 script = ExtResource("1_p4tgx")
 activate_type = 3
@@ -66,3 +103,16 @@ stream = ExtResource("3_x63nk")
 offset = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_xivhk")
 frame_progress = 0.910624
+
+[node name="light" type="OmniLight3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+light_color = Color(0.545098, 0.854902, 1, 1)
+light_energy = 0.4
+omni_range = 2.5
+
+[node name="anim" type="AnimationPlayer" parent="light" index="0"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_kpwph")
+}
+autoplay = "light_shift"

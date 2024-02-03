@@ -55,6 +55,8 @@ func _physics_process(delta: float):
 			hit_scan.health -= damage
 			if from_character != null:
 				hit_scan.aggro(from_character)
+		elif hit_scan is Asteroid:
+			hit_scan.destroy()
 		ray.enabled = false
 
 		$snd.play()

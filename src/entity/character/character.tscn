@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://d3m1ci2db7oss"]
+[gd_scene load_steps=91 format=3 uid="uid://d3m1ci2db7oss"]
 
 [ext_resource type="Script" path="res://src/entity/character/character.gd" id="1_ehf32"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/character_fsm.gd" id="2_jgwyj"]
@@ -25,6 +25,16 @@
 [ext_resource type="Script" path="res://src/entity/character/fsm/behavior/attack.gd" id="14_a08bn"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/behavior/rest.gd" id="15_q5611"]
 [ext_resource type="AudioStream" uid="uid://ccbgujfvxyabt" path="res://asset/snd/8881 - Sci-Fi Energy Weapon Sound Effects Pack/Sci-Fi Energy Weapon Shot 4.wav" id="17_3aye0"]
+[ext_resource type="AudioStream" uid="uid://dym4f5ub4xfmi" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_01.wav" id="18_8wyc4"]
+[ext_resource type="AudioStream" uid="uid://b7hidhdckmrfd" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_02.wav" id="19_bl6ma"]
+[ext_resource type="AudioStream" uid="uid://cl7vyuvomkgop" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_03.wav" id="20_pglmj"]
+[ext_resource type="AudioStream" uid="uid://c1s756f0dl28p" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_04.wav" id="21_7mym1"]
+[ext_resource type="AudioStream" uid="uid://dhfwvebjwfwch" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_05.wav" id="22_qodsh"]
+[ext_resource type="AudioStream" uid="uid://dwp22c8jyk5am" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_06.wav" id="23_xy3qv"]
+[ext_resource type="AudioStream" uid="uid://dhahcfqugh85m" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_07.wav" id="24_ifeqn"]
+[ext_resource type="AudioStream" uid="uid://d3m87hk2d5rrr" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_08.wav" id="25_0ii2a"]
+[ext_resource type="AudioStream" uid="uid://bxij0fikjikr7" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_09.wav" id="26_b13vc"]
+[ext_resource type="AudioStream" uid="uid://bh2a3e87mck6l" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_10.wav" id="27_1v5ju"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jxg5c"]
 animation = &"character/die"
@@ -282,11 +292,12 @@ height = 1.06
 height = 1.5
 radius = 4.0
 
-[node name="character" type="CharacterBody3D" groups=["character"]]
+[node name="character" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent") groups=["character"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_ehf32")
 melee_range = 1.1
+nav_agent = NodePath("navigationAgent3DObjective")
 
 [node name="fsm" type="Node" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("2_jgwyj")
@@ -335,8 +346,10 @@ bullet_scene = ExtResource("8_gxqps")
 quips = Array[AudioStream]([ExtResource("10_3idqd"), ExtResource("11_k1aml"), ExtResource("12_tigal")])
 quip_play_chance = 0.125
 
-[node name="melee" type="Node" parent="fsm"]
+[node name="melee" type="Node" parent="fsm" node_paths=PackedStringArray("snd")]
 script = ExtResource("5_ne6x3")
+melee_snd = Array[AudioStream]([ExtResource("18_8wyc4"), ExtResource("19_bl6ma"), ExtResource("20_pglmj"), ExtResource("21_7mym1"), ExtResource("22_qodsh"), ExtResource("23_xy3qv"), ExtResource("24_ifeqn"), ExtResource("25_0ii2a"), ExtResource("26_b13vc"), ExtResource("27_1v5ju")])
+snd = NodePath("../../snd_melee")
 quips = Array[AudioStream]([ExtResource("10_3idqd"), ExtResource("11_k1aml"), ExtResource("12_tigal")])
 quip_play_chance = 0.125
 
@@ -390,12 +403,19 @@ avoidance_enabled = true
 radius = 0.55
 neighbor_distance = 10.0
 
+[node name="navigationAgent3DObjective" type="NavigationAgent3D" parent="."]
+navigation_layers = 2
+
 [node name="snd" type="AudioStreamPlayer3D" parent="."]
 max_distance = 30.0
 bus = &"sfx"
 
 [node name="snd_shoot" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("17_3aye0")
+max_distance = 30.0
+bus = &"sfx"
+
+[node name="snd_melee" type="AudioStreamPlayer3D" parent="."]
 max_distance = 30.0
 bus = &"sfx"
 
@@ -410,7 +430,7 @@ billboard = 1
 shaded = true
 texture_filter = 0
 sprite_frames = ExtResource("13_jlygo")
-animation = &"move_nw"
+animation = &"idle_w"
 
 [node name="pivot" type="Node3D" parent="img"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46404, 0)
@@ -431,7 +451,7 @@ collision_mask = 2
 [node name="spotLight3D" type="SpotLight3D" parent="img"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
 visible = false
-light_color = Color(0.568627, 0.745098, 0.878431, 1)
+light_color = Color(0.568627, 0.745098, 0.87451, 1)
 light_energy = 2.5
 shadow_enabled = true
 spot_angle = 60.0

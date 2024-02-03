@@ -19,7 +19,7 @@ func _ready():
 	if i_toggleable == null:
 		set_process_input(false)
 	else:
-				i_toggleable.toggled.connect(func(t): trigger = not t)
+		i_toggleable.toggled.connect(func(t): trigger = not t)
 
 func _input(event: InputEvent):
 	if _player != null and (can_revert_toggle or trigger) \
@@ -28,10 +28,12 @@ func _input(event: InputEvent):
 		if need_item:
 			if _player.inventory.has(item_needed):
 				i_toggleable.toggle(trigger)
+				_player.on_interacted(name)
 			else:
 				$snd.stream = sfx_denied
 		else:
 			i_toggleable.toggle(trigger)
+			_player.on_interacted(name)
 		$snd.play()
 
 func _on_sight_body_entered(body: Node3D):

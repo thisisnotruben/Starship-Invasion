@@ -15,5 +15,6 @@ func _on_animation_tree_animation_finished(_anim_name: String):
 		and character.drop_percent > randf():
 			var item: Node3D = character.drop.instantiate()
 			character.add_sibling(item)
+			item.name = str(Item.Type.keys()[item.type])
 			item.global_transform.origin = character.global_transform.origin
 		character.queue_free()

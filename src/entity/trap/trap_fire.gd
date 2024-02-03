@@ -3,6 +3,7 @@ extends Trap
 
 func toggle(activate: bool):
 	super.toggle(activate)
+	$light.visible = activate
 	if activate:
 		$img.play("start")
 	else:

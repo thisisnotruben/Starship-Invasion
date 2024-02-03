@@ -25,4 +25,5 @@ func _on_area_3d_body_entered(body: Node3D):
 				body.inventory_add({"type": type,
 					"icon": hud_image, "add": true})
 		$snd.play()
+		await $snd.finished
 		queue_free()

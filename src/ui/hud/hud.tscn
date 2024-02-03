@@ -13,6 +13,9 @@ grow_vertical = 2
 script = ExtResource("1_cw143")
 health_scene = ExtResource("2_i5yds")
 
+[node name="shoot_timer" type="Timer" parent="."]
+one_shot = true
+
 [node name="hurt" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -69,9 +72,27 @@ max_value = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="padding" type="Control" parent="margin/vBox"]
+[node name="padding" type="HBoxContainer" parent="margin/vBox"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="hbox" type="VBoxContainer" parent="margin/vBox/padding"]
+visible = false
+layout_mode = 2
+alignment = 2
+
+[node name="progressBar" type="ProgressBar" parent="margin/vBox/padding/hbox"]
+custom_minimum_size = Vector2(16, 192)
+layout_mode = 2
+max_value = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="center" type="CenterContainer" parent="margin/vBox"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="margin/vBox/center"]
+layout_mode = 2
 
 [node name="hBox" type="HBoxContainer" parent="margin/vBox"]
 layout_mode = 2

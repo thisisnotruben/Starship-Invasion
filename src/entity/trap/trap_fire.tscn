@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://igfkkdo1d51q"]
+[gd_scene load_steps=15 format=3 uid="uid://igfkkdo1d51q"]
 
 [ext_resource type="PackedScene" uid="uid://bonktdsothgwv" path="res://src/entity/trap/_trap.tscn" id="1_fplth"]
 [ext_resource type="Script" path="res://src/entity/trap/trap_fire.gd" id="2_idpmo"]
@@ -63,6 +63,43 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_3go4j"]
+resource_name = "fire_light_shift"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.909804, 0.494118, 0.145098, 1), Color(0.956863, 0.0588235, 0.0196078, 1), Color(0.909804, 0.843137, 0.145098, 1), Color(0.909804, 0.494118, 0.145098, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_awcka"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.909804, 0.494118, 0.145098, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s7igq"]
+_data = {
+"RESET": SubResource("Animation_awcka"),
+"fire_light_shift": SubResource("Animation_3go4j")
+}
+
 [node name="trap_fire" instance=ExtResource("1_fplth")]
 script = ExtResource("2_idpmo")
 time_cooldown = 7.0
@@ -77,3 +114,15 @@ stream = ExtResource("3_51ko6")
 offset = Vector2(0, 6.5)
 sprite_frames = SubResource("SpriteFrames_057tl")
 animation = &"start"
+
+[node name="light" type="OmniLight3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+visible = false
+light_color = Color(0.909804, 0.494118, 0.145098, 1)
+light_energy = 0.4
+omni_range = 3.0
+
+[node name="anim" type="AnimationPlayer" parent="light" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_s7igq")
+}

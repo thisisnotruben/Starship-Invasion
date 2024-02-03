@@ -27,6 +27,13 @@ class_name Character
 
 @export_subgroup("Player")
 @export_range(0.0, 10.0) var jump_velocity: float = 5.0
+@export_range(0.0, 1.0, 0.01) var shoot_overheat_per: float = 0.1
+@export_range(0.0, 30.0, 0.5) var shoot_cooldown_sec: float = 5.0
+@export_range(0.0, 3.0, 0.5) var shoot_cooldown_timer: float = 1.5
+var can_shoot := true
+@export var nav_agent: NavigationAgent3D = null
+@export var objective_map: ObjectiveMap = null
+var objective_path := {"lines": [], "points": []}
 @export_subgroup("Npc")
 @export_range(0.0, 50.0) var shoot_range: float = 5.0
 
@@ -40,6 +47,8 @@ var target: Character = null
 
 signal health_changed(_health)
 signal inventory_added(_item)
+signal show_objective(show, blurb)
+signal on_shoot(_shoot_overheat_per, _shoot_cooldown_sec, _shoot_cooldown_timer)
 
 
 func _ready():
@@ -111,10 +120,21 @@ func inventory_add(data: Dictionary):
 		if not inventory.has(data["type"]):
 			inventory.append(data["type"])
 			emit_signal("inventory_added", data)
+		for objective in objective_map.objectives:
+			match objective["type"]:
+				ObjectiveMap.Type.COLLECT, ObjectiveMap.Type.KILL_COLLECT:
+					if objective["name"] == data["type"]:
+						objective["completed"] = true
 	else:
 		if inventory.has(data["type"]):
 			inventory.erase(data["type"])
 			emit_signal("inventory_added", data)
+
+func on_interacted(interacted_name: String):
+	for objective in objective_map.objectives:
+		if objective["type"] == ObjectiveMap.Type.INTERACT \
+		and objective["name"] == interacted_name:
+			objective["completed"] = true
 
 func is_foe(_body: Node3D) -> bool:
 	return _body is Character and _body.fsm.state != CharacterStates.Type.DIE \
@@ -137,11 +157,62 @@ func _handle_input():
 		if Input.is_action_just_pressed("shoot"):
 			state = CharacterStates.Type.MOVE_SHOOT
 	elif Input.is_action_just_pressed("shoot"):
-		state = CharacterStates.Type.SHOOT
+		if can_shoot:
+			state = CharacterStates.Type.SHOOT
+			emit_signal("on_shoot", shoot_overheat_per, \
+				shoot_cooldown_sec, shoot_cooldown_timer)
+		else:
+			pass
 	elif Input.is_action_just_pressed("melee"):
 		state = CharacterStates.Type.MELEE
+	elif Input.is_action_just_pressed("show_objective"):
+		draw_objective_path(true)
+	elif Input.is_action_just_released("show_objective"):
+		draw_objective_path(false)
+
+	if state != CharacterStates.Type.IDLE:
+		draw_objective_path(false)
 
 	fsm.state = state
+
+func draw_objective_path(show: bool):
+	if show:
+		var objective_vector := Vector3.ZERO
+		if objective_map == null:
+			return
+
+		for objective in objective_map.objectives:
+			if not objective["completed"]:
+				var objective_node: Node3D = get_node_or_null("../../" + objective["path"])
+				if objective_node == null and objective.has("path2"):
+					objective_node = get_node_or_null("../../" + objective["path2"])
+				if objective_node != null:
+					objective_vector = objective_node.global_position
+					emit_signal("show_objective", show, objective["blurb"])
+					break
+
+		if objective_vector == Vector3.ZERO:
+			return
+		nav_agent.target_position = objective_vector
+		if not nav_agent.is_target_reachable():
+			return
+
+		var path = nav_agent.get_current_navigation_path()
+		var drawed_item: Node3D = null
+		for i in path.size():
+			path[i] = Vector3(path[i].x, 0.5, path[i].z)
+			drawed_item = Draw.point(path[i], 0.05, Color.TURQUOISE)
+			objective_path["points"].append(drawed_item)
+			add_sibling(drawed_item)
+			if i > 0:
+				drawed_item = Draw.line(path[i - 1], path[i], Color.TURQUOISE)
+				objective_path["lines"].append(drawed_item)
+				add_sibling(drawed_item)
+	else:
+		emit_signal("show_objective", show, "")
+		for key in objective_path.keys():
+			objective_path[key].map(func(d): d.queue_free())
+			objective_path[key].clear()
 
 # npc behavior
 

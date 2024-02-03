@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cdgdcmr8nn7t"]
+[gd_scene load_steps=22 format=3 uid="uid://cdgdcmr8nn7t"]
 
 [ext_resource type="Script" path="res://src/ui/controls/controls.gd" id="1_ytrkn"]
 [ext_resource type="Texture2D" uid="uid://5jf7ix0cpkoa" path="res://asset/img/Minifantasy_UserInterface_v1.0/Minifantasy_Userinterface_Assets/Controls/Controllers/Minifantasy_GuiControllers.png" id="2_1k4n4"]
@@ -35,6 +35,14 @@ region = Rect2(40, 16, 7, 8)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xf584"]
 atlas = ExtResource("2_1k4n4")
 region = Rect2(280, 40, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6yss"]
+atlas = ExtResource("3_qo7oo")
+region = Rect2(24, 16, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2rxa"]
+atlas = ExtResource("2_1k4n4")
+region = Rect2(288, 32, 7, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y33n4"]
 atlas = ExtResource("3_qo7oo")
@@ -89,7 +97,7 @@ text = "Joystick"
 
 [node name="padding1" type="Label" parent="gridContainer"]
 layout_mode = 2
-text = "---------"
+text = "----------------"
 clip_text = true
 
 [node name="padding2" type="Label" parent="gridContainer"]
@@ -163,6 +171,22 @@ stretch_mode = 5
 [node name="interact_joy" type="TextureRect" parent="gridContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_xf584")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="show_objective" type="Label" parent="gridContainer"]
+layout_mode = 2
+text = "Show Objective"
+
+[node name="show_objective_key" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_c6yss")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="show_objective_joy" type="TextureRect" parent="gridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_s2rxa")
 expand_mode = 3
 stretch_mode = 5
 

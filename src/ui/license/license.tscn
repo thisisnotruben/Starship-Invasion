@@ -30,7 +30,8 @@ Music:
 Sfx:
     - Stormwave Audio
     - Stefan Ruxandra
-    - ReadeOnly"
+    - ReadeOnly
+    - Robinhood76"
 
 [node name="redirect" type="Button" parent="."]
 layout_mode = 2
