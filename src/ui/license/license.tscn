@@ -31,7 +31,8 @@ Sfx:
     - Stormwave Audio
     - Stefan Ruxandra
     - ReadeOnly
-    - Robinhood76"
+    - Robinhood76
+    - Breviceps"
 
 [node name="redirect" type="Button" parent="."]
 layout_mode = 2

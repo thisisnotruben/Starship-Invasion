@@ -13,7 +13,7 @@ func enter():
 	await get_tree().create_timer(0.5).timeout
 
 	if active:
-		var hit_scan := character.hit_spawn.get_collider()
+		var hit_scan := character.hit_scan_melee.get_collider()
 		if character.is_foe(hit_scan):
 			hit_scan.health -= character.melee_damage
 			if not melee_snd.is_empty():

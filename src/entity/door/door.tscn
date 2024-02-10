@@ -21,7 +21,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("collisionShape3D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -215,6 +215,7 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 agent_radius = 0.25
 
 [node name="door" type="StaticBody3D"]
+collision_mask = 3
 script = ExtResource("1_771i4")
 
 [node name="anim" type="AnimationPlayer" parent="."]

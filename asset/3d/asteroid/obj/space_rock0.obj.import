@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cpp1gl4vr87hg"
+path="res://.godot/imported/space_rock0.obj-c9572629bf0045631e3107e24273a8a3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/space_rock0.obj-c9572629bf0045631e3107e24273a8a3.mesh"]
+
+source_file="res://asset/3d/asteroid/obj/space_rock0.obj"
+dest_files=["res://.godot/imported/space_rock0.obj-c9572629bf0045631e3107e24273a8a3.mesh", "res://.godot/imported/space_rock0.obj-c9572629bf0045631e3107e24273a8a3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -58,9 +58,9 @@
 [ext_resource type="PackedScene" uid="uid://be45w0kcyp6va" path="res://src/entity/character/pile_of_flesh/minion/flesh_minion_blue.tscn" id="55_i4brk"]
 [ext_resource type="PackedScene" uid="uid://ctmi65hjnbamu" path="res://src/entity/character/pile_of_flesh/pile_of_flesh.tscn" id="56_ub2ql"]
 [ext_resource type="PackedScene" uid="uid://k2okwt6hosn8" path="res://src/entity/character/pile_of_flesh/minion/flesh_minion.tscn" id="57_p8qa5"]
-[ext_resource type="PackedScene" uid="uid://btn7sb2ek2a1l" path="res://src/map/level2/space_walk.tscn" id="59_mk7gx"]
+[ext_resource type="PackedScene" uid="uid://btn7sb2ek2a1l" path="res://src/map/level2/space_walk/space_walk.tscn" id="59_mk7gx"]
 [ext_resource type="PackedScene" uid="uid://dv8d4kmkslthv" path="res://src/map/doodads/spawn/spawn.tscn" id="60_a33sh"]
-[ext_resource type="Script" path="res://src/map/level2/level2-space_trigger.gd" id="61_a72jn"]
+[ext_resource type="Script" path="res://src/map/level2/space_walk/level2-space_trigger.gd" id="61_a72jn"]
 [ext_resource type="PackedScene" uid="uid://darncsxa3f6ed" path="res://src/map/level2/asteroid.tscn" id="62_kv63f"]
 [ext_resource type="PackedScene" uid="uid://bea4f7qu4pjne" path="res://src/entity/toggle/toggle_computer_1.tscn" id="63_wcpvg"]
 [ext_resource type="PackedScene" uid="uid://b5rrq4jjy8lvd" path="res://src/map/level2/oxygen/oxygen_tank.tscn" id="64_tu22n"]
@@ -92,7 +92,7 @@ bus = &"music"
 script = ExtResource("1_im8xg")
 music_list = Array[AudioStream]([ExtResource("2_ca233"), ExtResource("3_wlnpp"), ExtResource("4_4e1lh"), ExtResource("5_1y7f0"), ExtResource("6_rnu75"), ExtResource("1_8csrw"), ExtResource("8_7318r"), ExtResource("9_lb3n3"), ExtResource("10_jj5n5")])
 
-[node name="worldEnvironment" type="WorldEnvironment" parent="."]
+[node name="worldEnvironment" type="WorldEnvironment" parent="." groups=["world_env"]]
 environment = ExtResource("2_6oy2q")
 
 [node name="Object_24121" parent="." instance=ExtResource("12_0o3pd")]
@@ -2173,7 +2173,7 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -6)
 npc = false
 
-[node name="img" parent="characters/player" index="8"]
+[node name="img" parent="characters/player" index="10"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="camera3D" parent="characters/player/img/pivot/springArm3D" index="0"]

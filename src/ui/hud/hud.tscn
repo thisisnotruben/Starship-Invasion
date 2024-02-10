@@ -1,7 +1,61 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwm6s58v1ngu"]
+[gd_scene load_steps=7 format=3 uid="uid://dwm6s58v1ngu"]
 
 [ext_resource type="Script" path="res://src/ui/hud/hud.gd" id="1_cw143"]
 [ext_resource type="PackedScene" uid="uid://t4o0ybipsuhj" path="res://src/ui/hud/hud_health.tscn" id="2_i5yds"]
+
+[sub_resource type="Animation" id="Animation_3unfq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.709804, 0.709804, 0.0392157, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rtr5d"]
+resource_name = "alert"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.709804, 0.709804, 0.0392157, 0), Color(0.71, 0.71, 0.039, 0.125), Color(0.709804, 0.709804, 0.0392157, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l2ryi"]
+resource_name = "impact"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.709804, 0.0392157, 0.0392157, 0), Color(0.71, 0.039, 0.039, 0.125), Color(0.709804, 0.0392157, 0.0392157, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwase"]
+_data = {
+"RESET": SubResource("Animation_3unfq"),
+"alert": SubResource("Animation_rtr5d"),
+"impact": SubResource("Animation_l2ryi")
+}
 
 [node name="hud" type="Control"]
 layout_mode = 3
@@ -25,6 +79,34 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.709804, 0.0392157, 0.0392157, 0)
 
+[node name="alert" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.709804, 0.709804, 0.0392157, 0)
+
+[node name="anim" type="AnimationPlayer" parent="alert"]
+libraries = {
+"": SubResource("AnimationLibrary_uwase")
+}
+
+[node name="impact" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.709804, 0.709804, 0.0392157, 0)
+
+[node name="anim" type="AnimationPlayer" parent="impact"]
+libraries = {
+"": SubResource("AnimationLibrary_uwase")
+}
+
 [node name="margin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -38,23 +120,11 @@ layout_mode = 2
 alignment = 2
 
 [node name="tabs" type="TabContainer" parent="margin/vBox"]
-visible = false
 layout_mode = 2
 tabs_visible = false
 
-[node name="o2" type="HBoxContainer" parent="margin/vBox/tabs"]
+[node name="space_walk" type="HBoxContainer" parent="margin/vBox/tabs"]
 layout_mode = 2
-alignment = 1
-
-[node name="label" type="Label" parent="margin/vBox/tabs/o2"]
-layout_mode = 2
-text = "O2"
-
-[node name="progressBar" type="ProgressBar" parent="margin/vBox/tabs/o2"]
-custom_minimum_size = Vector2(320, 24)
-layout_mode = 2
-max_value = 1.0
-show_percentage = false
 
 [node name="hull_integrity" type="HBoxContainer" parent="margin/vBox/tabs"]
 visible = false

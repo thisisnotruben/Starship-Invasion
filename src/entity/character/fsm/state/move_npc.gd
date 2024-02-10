@@ -4,6 +4,10 @@ extends IState
 @export var nav_agent: NavigationAgent3D = null
 
 
+func _ready():
+	if nav_agent != null:
+		nav_agent.max_speed = move.speed
+
 func physics_process(_delta: float):
 	if not nav_agent.is_target_reachable() \
 	or nav_agent.is_target_reached():

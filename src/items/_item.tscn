@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy0njjhnujhfx"]
+[gd_scene load_steps=7 format=3 uid="uid://cy0njjhnujhfx"]
 
 [ext_resource type="Script" path="res://src/items/_item.gd" id="1_1j6r1"]
+[ext_resource type="AudioStream" uid="uid://dyq1fo6fkkrxd" path="res://asset/snd/450614__breviceps__8-bit-collect-sound-timer-countdown.wav" id="2_uolme"]
 
 [sub_resource type="Animation" id="Animation_moy20"]
 length = 0.001
@@ -47,6 +48,9 @@ height = 1.0
 script = ExtResource("1_1j6r1")
 
 [node name="snd" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_uolme")
+max_distance = 30.0
+bus = &"sfx"
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {

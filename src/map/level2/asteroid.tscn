@@ -1,57 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://darncsxa3f6ed"]
+[gd_scene load_steps=4 format=3 uid="uid://darncsxa3f6ed"]
 
-[ext_resource type="ArrayMesh" uid="uid://ccp13hiw31r0e" path="res://asset/3d/asteroid/asteroid1.obj" id="1_au4xn"]
-[ext_resource type="ArrayMesh" uid="uid://dr04sbf7lj3ew" path="res://asset/3d/asteroid/asteroid3.obj" id="1_ymfx8"]
-[ext_resource type="ArrayMesh" uid="uid://begvpqc2yvn1j" path="res://asset/3d/asteroid/asteroid2.obj" id="2_phkjo"]
-[ext_resource type="ArrayMesh" uid="uid://qw8i3mi5xy6b" path="res://asset/3d/asteroid/asteroid4.obj" id="4_6qmvi"]
+[ext_resource type="ArrayMesh" uid="uid://cpp1gl4vr87hg" path="res://asset/3d/asteroid/obj/space_rock0.obj" id="1_s1bqq"]
+[ext_resource type="ArrayMesh" uid="uid://7f3w20wp70tf" path="res://asset/3d/asteroid/obj/space_rock1.obj" id="2_nrbkf"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d52q1"]
 emission_shape = 3
-emission_box_extents = Vector3(6, 1, 6)
+emission_box_extents = Vector3(10, 62, 16)
 direction = Vector3(0, 0, 0)
 spread = 22.5
-initial_velocity_min = 8.0
-initial_velocity_max = 8.0
-collision_mode = 2
+initial_velocity_min = 12.0
+initial_velocity_max = 12.0
+scale_min = 2.0
+scale_max = 3.0
+collision_mode = 1
+collision_friction = 0.1
+collision_bounce = 0.15
 
 [node name="asteroid" type="Node3D"]
 
-[node name="1" type="GPUParticles3D" parent="."]
+[node name="asteroids" type="GPUParticles3D" parent="."]
 transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 0, 0, 0)
 emitting = false
-amount = 1
+amount = 200
+lifetime = 3.0
 one_shot = true
-preprocess = 1.0
-explosiveness = 1.0
+explosiveness = 0.7
+collision_base_size = 0.5
+visibility_aabb = AABB(-10, -62, -4, 20, 124, 8)
 process_material = SubResource("ParticleProcessMaterial_d52q1")
-draw_pass_1 = ExtResource("1_au4xn")
-
-[node name="2" type="GPUParticles3D" parent="."]
-transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 0, 0, 0)
-emitting = false
-amount = 1
-one_shot = true
-preprocess = 1.0
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_d52q1")
-draw_pass_1 = ExtResource("2_phkjo")
-
-[node name="3" type="GPUParticles3D" parent="."]
-transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 0, 0, 0)
-emitting = false
-amount = 1
-one_shot = true
-preprocess = 1.0
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_d52q1")
-draw_pass_1 = ExtResource("1_ymfx8")
-
-[node name="4" type="GPUParticles3D" parent="."]
-transform = Transform3D(-1, -3.82137e-15, 8.74228e-08, -8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 0, 0, 0)
-emitting = false
-amount = 1
-one_shot = true
-preprocess = 1.0
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_d52q1")
-draw_pass_1 = ExtResource("4_6qmvi")
+draw_passes = 2
+draw_pass_1 = ExtResource("1_s1bqq")
+draw_pass_2 = ExtResource("2_nrbkf")

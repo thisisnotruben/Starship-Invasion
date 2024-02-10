@@ -31,5 +31,5 @@ func _init():
 			"blurb": "Exit and complete level.",
 			"type": Type.INTERACT,
 			"name": "level_transition"
-		},
+		}
 	]

@@ -27,7 +27,7 @@ func spawn_shot(args := {}):
 		exceptions.map(func(e): $rayCast3D.add_exception(e))
 
 		damage = node.range_damage
-		transform.origin = node.hit_spawn.global_transform.origin
+		transform.origin = node.hit_scan_shoot.global_transform.origin
 		transform.basis = node.img.basis
 		node.add_sibling(self)
 

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ta03pyor5x5q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wcklc"]
+albedo_color = Color(0.2, 0.223529, 0.278431, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eyl7a"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[node name="SpaceRock1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_wcklc")
+mesh = SubResource("BoxMesh_eyl7a")

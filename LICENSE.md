@@ -68,6 +68,10 @@ LICENSE: You may use this asset both in free and commercial projects. You can mo
 	- [Computer toggle (182422__robinhood76__04297-computer-turning-on.wav)](https://freesound.org/people/Robinhood76/sounds/182422/)
 		- [CC BY-NC 4.0 DEED Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/)
 
+- [Breviceps](https://freesound.org/people/Breviceps/)
+	- [Item pickup (450614__breviceps__8-bit-collect-sound-timer-countdown.wav)](https://freesound.org/people/Breviceps/sounds/450614/)
+		- [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
+
 - [Stefan Ruxandra](https://fanestelaru.itch.io/)
 	- [Robotic Voices](https://fanestelaru.itch.io/robotic-voices)
 ```

@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://d3m1ci2db7oss"]
+[gd_scene load_steps=92 format=3 uid="uid://d3m1ci2db7oss"]
 
 [ext_resource type="Script" path="res://src/entity/character/character.gd" id="1_ehf32"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/character_fsm.gd" id="2_jgwyj"]
@@ -35,6 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://d3m87hk2d5rrr" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_08.wav" id="25_0ii2a"]
 [ext_resource type="AudioStream" uid="uid://bxij0fikjikr7" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_09.wav" id="26_b13vc"]
 [ext_resource type="AudioStream" uid="uid://bh2a3e87mck6l" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_10.wav" id="27_1v5ju"]
+[ext_resource type="Script" path="res://src/entity/character/fsm/behavior/move.gd" id="33_p5j20"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jxg5c"]
 animation = &"character/die"
@@ -375,6 +376,10 @@ one_shot = true
 [node name="rest" type="Node" parent="fsm_behavior"]
 script = ExtResource("15_q5611")
 
+[node name="move" type="Node" parent="fsm_behavior" node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("33_p5j20")
+nav_agent = NodePath("../../navigationAgent3D")
+
 [node name="animationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "character": ExtResource("13_c30pa")
@@ -399,12 +404,15 @@ parameters/move-shoot/blend_position = Vector2(0, 0)
 parameters/shoot/blend_position = Vector2(0, 0)
 
 [node name="navigationAgent3D" type="NavigationAgent3D" parent="."]
+path_max_distance = 3.01
 avoidance_enabled = true
 radius = 0.55
-neighbor_distance = 10.0
+neighbor_distance = 12.0
+time_horizon_obstacles = 1.0
 
 [node name="navigationAgent3DObjective" type="NavigationAgent3D" parent="."]
 navigation_layers = 2
+path_postprocessing = 1
 
 [node name="snd" type="AudioStreamPlayer3D" parent="."]
 max_distance = 30.0
@@ -443,9 +451,14 @@ margin = 0.2
 [node name="camera3D" type="Camera3D" parent="img/pivot/springArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 1.75)
 
-[node name="hit_cast" type="RayCast3D" parent="img"]
+[node name="hit_cast_melee" type="RayCast3D" parent="img"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.3, -0.5)
 target_position = Vector3(0, 0.8, 0)
+collision_mask = 2
+
+[node name="hit_cast_shoot" type="RayCast3D" parent="img"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.3, -0.5)
+target_position = Vector3(0, 24, 0)
 collision_mask = 2
 
 [node name="spotLight3D" type="SpotLight3D" parent="img"]

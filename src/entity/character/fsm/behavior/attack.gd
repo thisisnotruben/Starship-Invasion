@@ -25,11 +25,12 @@ func process(_delta: float):
 		character.target.global_position), 0.01)
 
 	if character.fsm.can_melee() and (character.melee_range >= distance \
-	or character.hit_spawn.get_collider() == character.target):
+	or character.hit_scan_melee.get_collider() == character.target):
 		if melee_timer.time_left == 0:
 			state = CharacterStates.Type.MELEE
 			look_at_target()
-	elif character.fsm.can_shoot() and character.shoot_range >= distance:
+	elif character.fsm.can_shoot() and (character.shoot_range >= distance \
+		and character.hit_scan_shoot.get_collider() == character.target):
 		if shoot_timer.time_left == 0:
 			state = CharacterStates.Type.SHOOT
 			look_at_target()

@@ -102,6 +102,7 @@ func _on_back_pressed(main := true):
 
 func _on_restart_pressed():
 	$snd_game.play()
+	$center/panel/margin/tabs/dead/restart.release_focus()
 	await $snd_game.finished
 	get_tree().reload_current_scene()
 

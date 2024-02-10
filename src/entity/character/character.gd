@@ -5,7 +5,8 @@ class_name Character
 @onready var body: CollisionShape3D = $body
 @onready var snd: AudioStreamPlayer3D = $snd
 @onready var snd_shoot: AudioStreamPlayer3D = $snd_shoot
-@onready var hit_spawn: RayCast3D = $img/hit_cast
+@onready var hit_scan_melee: RayCast3D = $img/hit_cast_melee
+@onready var hit_scan_shoot: RayCast3D = $img/hit_cast_shoot
 @onready var camera: Camera3D = $img/pivot/springArm3D/camera3D
 @onready var anim_tree: AnimationTree = $animationTree
 @onready var fsm: Fsm = $fsm
@@ -47,7 +48,7 @@ var target: Character = null
 
 signal health_changed(_health)
 signal inventory_added(_item)
-signal show_objective(show, blurb)
+signal show_objective(_show, blurb)
 signal on_shoot(_shoot_overheat_per, _shoot_cooldown_sec, _shoot_cooldown_timer)
 
 
@@ -58,12 +59,14 @@ func _ready():
 			fsm_init[_state.type] = [_state, _state.name]
 	$fsm.init(fsm_init, {"character": self})
 	behavior.state = BehaviorStates.Type.REST
-	hit_spawn.target_position.y = melee_range
+	hit_scan_melee.target_position.y = melee_range
 	health = health_max
 	get_tree().get_nodes_in_group("npc" if npc else "player") \
-		.map(func(c): hit_spawn.add_exception(c))
+		.map(func(c): hit_scan_melee.add_exception(c); \
+			hit_scan_shoot.add_exception(c))
 	get_tree().get_nodes_in_group("player" if npc else "npc") \
-		.map(func(c): hit_spawn.remove_exception(c))
+		.map(func(c): hit_scan_melee.remove_exception(c); \
+			hit_scan_shoot.remove_exception(c))
 	_set_npc(npc)
 
 func _on_nav_velocity_computed(safe_velocity: Vector3):
@@ -101,6 +104,8 @@ func _set_npc(_npc: bool):
 	$navigationAgent3D.avoidance_enabled = _npc
 	remove_from_group("player" if _npc else "npc")
 	add_to_group("npc" if _npc else "player")
+	if not npc:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_set_friendly(friendly)
 
 func _set_friendly(_friendly: bool):
@@ -175,8 +180,8 @@ func _handle_input():
 
 	fsm.state = state
 
-func draw_objective_path(show: bool):
-	if show:
+func draw_objective_path(_show: bool):
+	if _show:
 		var objective_vector := Vector3.ZERO
 		if objective_map == null:
 			return
@@ -188,7 +193,7 @@ func draw_objective_path(show: bool):
 					objective_node = get_node_or_null("../../" + objective["path2"])
 				if objective_node != null:
 					objective_vector = objective_node.global_position
-					emit_signal("show_objective", show, objective["blurb"])
+					emit_signal("show_objective", _show, objective["blurb"])
 					break
 
 		if objective_vector == Vector3.ZERO:
@@ -209,7 +214,7 @@ func draw_objective_path(show: bool):
 				objective_path["lines"].append(drawed_item)
 				add_sibling(drawed_item)
 	else:
-		emit_signal("show_objective", show, "")
+		emit_signal("show_objective", _show, "")
 		for key in objective_path.keys():
 			objective_path[key].map(func(d): d.queue_free())
 			objective_path[key].clear()

@@ -7,6 +7,9 @@ enum Type { ACTIVATE, PROXIMITY, TIME_INTERVAL, AUTOSTART }
 @export_category("Time Interval")
 @export_range(3.0, 60.0) var time_to_activate := 15.0
 @export_range(3.0, 60.0) var time_cooldown := 5.0
+@export_category("Time Interval Random")
+@export var time_int_ran := false
+@export_range(0.0, 0.5) var rand_amount := 0.25
 
 
 func _ready():
@@ -14,7 +17,7 @@ func _ready():
 		Type.AUTOSTART:
 			toggle(true)
 		Type.TIME_INTERVAL:
-			$timer_interval.start(time_to_activate)
+			$timer_interval.start(_get_rand_amount())
 
 func _on_timer_interval_timeout():
 	if activate_type == Type.TIME_INTERVAL:
@@ -23,7 +26,7 @@ func _on_timer_interval_timeout():
 
 func _on_timer_cooldown_timeout():
 	if activate_type == Type.TIME_INTERVAL:
-		$timer_interval.start(time_to_activate)
+		$timer_interval.start(_get_rand_amount())
 		toggle(false)
 
 func _on_timer_timeout():
@@ -59,3 +62,12 @@ func _on_visibility_screen_entered():
 
 func _on_visibility_screen_exited():
 	pass # Replace with function body.
+
+func _get_rand_amount() -> float:
+	var timer_sec := time_to_activate
+	if time_int_ran:
+		if randi_range(0, 1) == 1:
+			timer_sec *= (1.0 + rand_amount)
+		else:
+			timer_sec *= (1.0 - rand_amount)
+	return timer_sec

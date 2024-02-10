@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://btn7sb2ek2a1l"]
+
+[ext_resource type="Script" path="res://src/map/level2/space_walk/space_walk.gd" id="1_e1ifc"]
+[ext_resource type="Script" path="res://src/entity/character/shakeable_camera.gd" id="2_8emrd"]
+[ext_resource type="AudioStream" uid="uid://bhahtbhn1b6cb" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Destruction_Imminent.wav" id="2_yo2mw"]
+[ext_resource type="PackedScene" uid="uid://darncsxa3f6ed" path="res://src/map/level2/asteroid.tscn" id="16_l8mpl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efuhw"]
+
+[node name="space_walk" type="Node3D"]
+script = ExtResource("1_e1ifc")
+
+[node name="camera_shake" type="Node" parent="."]
+script = ExtResource("2_8emrd")
+
+[node name="snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yo2mw")
+bus = &"sfx"
+
+[node name="asteroid_indicator_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="asteroid_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="coll" type="CollisionShape3D" parent="area3D"]
+shape = SubResource("BoxShape3D_efuhw")
+
+[node name="safe_zone" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="spawns" type="Node3D" parent="."]
+
+[node name="safe_zone_coll" type="Node3D" parent="."]
+
+[node name="asteroid" parent="." instance=ExtResource("16_l8mpl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 2, 178)
+
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+size = Vector3(20, 5, 124)
+
+[connection signal="timeout" from="asteroid_indicator_timer" to="." method="_on_asteroid_indicator_timer_timeout"]
+[connection signal="timeout" from="asteroid_timer" to="." method="_on_asteroid_timer_timeout"]
+[connection signal="body_entered" from="area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="safe_zone" to="." method="_on_safe_zone_body_entered"]
+[connection signal="body_exited" from="safe_zone" to="." method="_on_safe_zone_body_exited"]
+
+[editable path="asteroid"]

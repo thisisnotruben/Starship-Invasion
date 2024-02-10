@@ -4,7 +4,7 @@ extends Control
 @export var health_scene: PackedScene = null
 
 @onready var tab: TabContainer = $margin/vBox/tabs
-var tabs := {"o2": 0, "hull_integrity": 1}
+var tabs := {"space_walk": 0, "hull_integrity": 1}
 
 @onready var overheat_level: ProgressBar = $margin/vBox/padding/hbox/progressBar
 @onready var shoot_timer: Timer = $shoot_timer
@@ -26,8 +26,8 @@ func _ready():
 			health_level.append(health_scene.instantiate())
 			health_container.add_child(health_level[-1])
 
-func _on_show_objective(show: bool, blurb: String):
-	$margin/vBox/center.modulate = Color.WHITE if show \
+func _on_show_objective(_show: bool, blurb: String):
+	$margin/vBox/center.modulate = Color.WHITE if _show \
 		else Color.TRANSPARENT
 	$margin/vBox/center/label.text = "Objective: " + blurb
 
@@ -49,12 +49,11 @@ cooldown_sec: float, shoot_cooldown_timer: float):
 	existing_tweens.append(tween)
 
 func _on_player_health_changed(health: int):
-	var tween := get_tree().create_tween()
 	var amount := health - health_container.get_child_count()
 	if amount < 0:
 		$hurt.color = hurt_color[0]
-		var tween_hurt := get_tree().create_tween()
-		tween_hurt.tween_property($hurt, "color", hurt_color[1], 0.5) \
+		get_tree().create_tween().tween_property( \
+			$hurt, "color", hurt_color[1], 0.5) \
 			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BOUNCE)
 
 	for i in abs(amount):
@@ -79,9 +78,15 @@ func _on_player_inventory_changed(data: Dictionary):
 		if item != null:
 			item.queue_free()
 
-func _on_show_o2_timer(_visible: bool):
-	tab.current_tab = tabs["o2"]
-	tab.visible = _visible
+func show_alert(duration: float, impact: bool):
+	if impact:
+		$impact/anim.play("impact")
+		await get_tree().create_timer(duration).timeout
+		$impact/anim.stop()
+	else:
+		$alert/anim.play("alert")
+		await get_tree().create_timer(duration).timeout
+		$alert/anim.stop()
 
 func _on_show_hull_integrity(_visible: bool):
 	tab.current_tab = tabs["hull_integrity"]
