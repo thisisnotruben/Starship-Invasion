@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf0iyixpoigl0"
-path="res://.godot/imported/0.png-218761a7444f91a0c273c0ee2b04df2b.ctex"
+uid="uid://c2dq2ui5vwj7i"
+path="res://.godot/imported/turret.png-b5ea25e0a4c347d0cb3c33e54fe1db63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/crocotile3d/turret/0.png"
-dest_files=["res://.godot/imported/0.png-218761a7444f91a0c273c0ee2b04df2b.ctex"]
+source_file="res://asset/3d/turret/export/turret.png"
+dest_files=["res://.godot/imported/turret.png-b5ea25e0a4c347d0cb3c33e54fe1db63.ctex"]
 
 [params]
 

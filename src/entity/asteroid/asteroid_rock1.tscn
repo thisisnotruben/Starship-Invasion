@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6wu2smq5bqak"]
+
+[ext_resource type="PackedScene" uid="uid://dd8mjsefd1wvc" path="res://src/entity/asteroid/asteroid_rock.tscn" id="1_b0r00"]
+[ext_resource type="PackedScene" uid="uid://ta03pyor5x5q" path="res://asset/3d/asteroid/space_rock1.tscn" id="2_k81u2"]
+
+[node name="AsteroidRock" node_paths=PackedStringArray("other_asteroid_body") instance=ExtResource("1_b0r00")]
+other_asteroid_body = NodePath("SpaceRock1")
+
+[node name="SpaceRock1" parent="." index="6" instance=ExtResource("2_k81u2")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)

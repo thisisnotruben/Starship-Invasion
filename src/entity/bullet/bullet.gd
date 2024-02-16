@@ -45,6 +45,16 @@ func spawn_shot(args := {}):
 			node.add_sibling(self)
 		else:
 			node.path_follow.add_sibling(self)
+	elif args.has("asteroid_turret"):
+		node = args["asteroid_turret"]
+		node.snd_shoot.play()
+		damage = args["damage"]
+
+		spawn_call = func ():
+			look_at_from_position(node.ray.global_position, \
+				node.laser_mesh.global_position)
+
+		node.add_sibling(self)
 
 func _physics_process(delta: float):
 	global_position += -transform.basis.z * speed * delta
@@ -55,8 +65,10 @@ func _physics_process(delta: float):
 			hit_scan.health -= damage
 			if from_character != null:
 				hit_scan.aggro(from_character)
-		elif hit_scan is Asteroid:
-			hit_scan.destroy()
+		elif hit_scan is Area3D:
+			hit_scan = hit_scan.owner
+			if hit_scan is Asteroid:
+				hit_scan.destroy()
 		ray.enabled = false
 
 		$snd.play()

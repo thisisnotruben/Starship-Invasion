@@ -826,6 +826,7 @@ script = ExtResource("1_hg7ua")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
+stream = ExtResource("4_c3lkt")
 autoplay = true
 bus = &"music"
 script = ExtResource("2_jdlxv")
@@ -2369,7 +2370,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="player" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("16_dxnqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0.002, -34)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0.002, 113)
 health_max = 6
 npc = false
 objective_map = NodePath("../../objectives")
@@ -4527,14 +4528,6 @@ explosiveness = 0.0
 visibility_aabb = AABB(-10, 0, 0, 20, 25, 140)
 process_material = SubResource("ParticleProcessMaterial_se2eb")
 
-[node name="game_interface" parent="." instance=ExtResource("3_w2e33")]
-
-[node name="game" parent="game_interface" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("../../characters/player")
-
-[node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
-player = NodePath("../../characters/player")
-
 [node name="space" type="Node3D" parent="."]
 
 [node name="sun" type="AnimatedSprite3D" parent="space"]
@@ -4550,6 +4543,7 @@ autoplay = "default"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1, -9)
 light_color = Color(2, 2, 0, 1)
 light_energy = 24.0
+shadow_enabled = true
 omni_range = 64.0
 
 [node name="gas_planet" type="AnimatedSprite3D" parent="space"]
@@ -4565,6 +4559,7 @@ autoplay = "default"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -9)
 light_color = Color(2, 2, 2, 1)
 light_energy = 24.0
+shadow_enabled = true
 omni_range = 32.0
 
 [node name="planet_tundra" type="AnimatedSprite3D" parent="space"]
@@ -4580,6 +4575,7 @@ autoplay = "default"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -9)
 light_color = Color(2, 2, 2, 1)
 light_energy = 24.0
+shadow_enabled = true
 omni_range = 32.0
 
 [node name="quaser" type="Sprite3D" parent="space"]
@@ -4594,6 +4590,7 @@ texture = ExtResource("79_0g5l0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -3)
 light_color = Color(2, 2, 2, 1)
 light_energy = 24.0
+shadow_enabled = true
 omni_range = 64.0
 
 [node name="quaser2" type="Sprite3D" parent="space"]
@@ -4608,6 +4605,7 @@ texture = ExtResource("200_t5vrb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -3)
 light_color = Color(2, 2, 2, 1)
 light_energy = 24.0
+shadow_enabled = true
 omni_range = 32.0
 
 [node name="quaser4" type="Sprite3D" parent="space"]
@@ -4622,6 +4620,7 @@ texture = ExtResource("201_kic2v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -3)
 light_color = Color(2, 2, 2, 1)
 light_energy = 24.0
+shadow_enabled = true
 omni_range = 32.0
 
 [node name="quaser3" type="Sprite3D" parent="space"]
@@ -4636,6 +4635,7 @@ texture = ExtResource("202_d7chl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -3)
 light_color = Color(2, 2, 2, 1)
 light_energy = 24.0
+shadow_enabled = true
 omni_range = 32.0
 
 [node name="galexy" type="Sprite3D" parent="space"]
@@ -4650,7 +4650,16 @@ texture = ExtResource("80_w7wen")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.5, -3)
 light_color = Color(2, 2, 2, 1)
 light_energy = 24.0
+shadow_enabled = true
 omni_range = 64.0
+
+[node name="game_interface" parent="." instance=ExtResource("3_w2e33")]
+
+[node name="game" parent="game_interface" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
+
+[node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
 [connection signal="finished" from="music" to="music" method="_on_finished"]
 [connection signal="body_entered" from="toggles/space-walk/Area3D" to="toggles/space-walk" method="_on_area_3d_body_entered"]

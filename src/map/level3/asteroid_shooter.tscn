@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://dl4dor7dfiunt"]
+
+[ext_resource type="Script" path="res://src/map/level3/asteroid_shooter.gd" id="1_7mei6"]
+[ext_resource type="PackedScene" uid="uid://dd8mjsefd1wvc" path="res://src/entity/asteroid/asteroid_rock.tscn" id="3_186np"]
+[ext_resource type="PackedScene" uid="uid://6wu2smq5bqak" path="res://src/entity/asteroid/asteroid_rock1.tscn" id="3_vx3ft"]
+[ext_resource type="Script" path="res://src/entity/character/shakeable_camera.gd" id="5_1tp18"]
+
+[sub_resource type="Curve" id="Curve_6uo8r"]
+min_value = 1.0
+max_value = 5.0
+_data = [Vector2(0, 1), 0.0, 4.0, 0, 0, Vector2(0.75, 4), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vgngs"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4hmeb"]
+size = Vector2(40, 24)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3gq6j"]
+size = Vector3(9, 6, 1)
+
+[node name="AsteroidShooter" type="Node3D"]
+script = ExtResource("1_7mei6")
+asteroids = Array[PackedScene]([ExtResource("3_186np"), ExtResource("3_vx3ft")])
+difficulty = SubResource("Curve_6uo8r")
+
+[node name="shake_cam" type="Node" parent="."]
+script = ExtResource("5_1tp18")
+noise = SubResource("FastNoiseLite_vgngs")
+
+[node name="asteroid_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="game_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="spawn_point_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -31.5)
+visible = false
+mesh = SubResource("QuadMesh_4hmeb")
+
+[node name="space_hull" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="space_hull"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_3gq6j")
+
+[connection signal="timeout" from="asteroid_timer" to="." method="_on_asteroid_timer_timeout"]
+[connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]
+[connection signal="area_entered" from="space_hull" to="." method="_on_space_hull_area_entered"]

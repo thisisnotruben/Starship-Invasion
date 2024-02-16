@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dovot82hos3n8"
+path="res://.godot/imported/turret.obj-8cd29610f44f4ef9d9985578f1cb639f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/turret.obj-8cd29610f44f4ef9d9985578f1cb639f.mesh"]
+
+source_file="res://asset/3d/turret/export/turret.obj"
+dest_files=["res://.godot/imported/turret.obj-8cd29610f44f4ef9d9985578f1cb639f.mesh", "res://.godot/imported/turret.obj-8cd29610f44f4ef9d9985578f1cb639f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

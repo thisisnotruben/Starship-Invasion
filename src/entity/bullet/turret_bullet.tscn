@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bocimopxl5cwo"]
+
+[ext_resource type="PackedScene" uid="uid://cgkryfmd4torj" path="res://src/entity/bullet/bullet.tscn" id="1_wttus"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sdkq0"]
+radius = 0.075
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vciu"]
+albedo_color = Color(1, 0.741176, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.741176, 0, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gahka"]
+radius = 0.075
+height = 1.0
+
+[node name="turret_bullet" instance=ExtResource("1_wttus")]
+speed = 30.0
+
+[node name="meshInstance3D" parent="." index="3"]
+mesh = SubResource("CapsuleMesh_sdkq0")
+surface_material_override/0 = SubResource("StandardMaterial3D_1vciu")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("CapsuleShape3D_gahka")

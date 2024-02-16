@@ -3,13 +3,6 @@ extends Control
 @export var player: Character = null
 @export var health_scene: PackedScene = null
 
-@onready var tab: TabContainer = $margin/vBox/tabs
-var tabs := {"space_walk": 0, "hull_integrity": 1}
-
-@onready var overheat_level: ProgressBar = $margin/vBox/padding/hbox/progressBar
-@onready var shoot_timer: Timer = $shoot_timer
-var existing_tweens := []
-
 @onready var health_container: Control = $margin/vBox/hBox/health
 @onready var inventory_container: Control = $margin/vBox/hBox/inventory
 var health_level := []
@@ -19,7 +12,6 @@ const hurt_color := [Color("#b50a0a80"), Color("#b50a0a00")]
 func _ready():
 	if player != null:
 		player.show_objective.connect(_on_show_objective)
-		player.on_shoot.connect(_on_shoot)
 		player.health_changed.connect(_on_player_health_changed)
 		player.inventory_added.connect(_on_player_inventory_changed)
 		for i in player.health:
@@ -30,23 +22,6 @@ func _on_show_objective(_show: bool, blurb: String):
 	$margin/vBox/center.modulate = Color.WHITE if _show \
 		else Color.TRANSPARENT
 	$margin/vBox/center/label.text = "Objective: " + blurb
-
-func _on_shoot(overheat_per: float, \
-cooldown_sec: float, shoot_cooldown_timer: float):
-	existing_tweens.map(func(t): t.kill())
-	existing_tweens.clear()
-	overheat_level.value += overheat_per
-	player.can_shoot = not is_equal_approx( \
-		overheat_level.value, overheat_level.max_value)
-
-	shoot_timer.start(shoot_cooldown_timer)
-	await shoot_timer.timeout
-
-	player.can_shoot = true
-	var tween := get_tree().create_tween()
-	tween.tween_property(overheat_level, "value", \
-		0.0, cooldown_sec)
-	existing_tweens.append(tween)
 
 func _on_player_health_changed(health: int):
 	var amount := health - health_container.get_child_count()
@@ -89,5 +64,4 @@ func show_alert(duration: float, impact: bool):
 		$alert/anim.stop()
 
 func _on_show_hull_integrity(_visible: bool):
-	tab.current_tab = tabs["hull_integrity"]
-	tab.visible = _visible
+	$margin/vBox/hull_integrity.visible = _visible
