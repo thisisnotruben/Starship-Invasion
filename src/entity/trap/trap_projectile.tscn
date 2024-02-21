@@ -17,11 +17,12 @@ height = 0.5
 
 [node name="trap_projectile" instance=ExtResource("1_mndgl")]
 script = ExtResource("2_udoxa")
+shoot_audio = ExtResource("5_nyoh1")
 bullet_scene = ExtResource("3_gx6q1")
 shoot_interval_sec = 1.0
 exclude_group = 0
 speed = 1.0
-activate_type = 3
+activate_type = 0
 
 [node name="snd" parent="." index="3"]
 stream = ExtResource("4_cml0a")
@@ -30,14 +31,10 @@ stream = ExtResource("4_cml0a")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 sprite_frames = SubResource("SpriteFrames_mde4o")
 
-[node name="timer_shoot" type="Timer" parent="." index="7"]
-
-[node name="snd_shoot" type="AudioStreamPlayer3D" parent="." index="8"]
-stream = ExtResource("5_nyoh1")
-max_distance = 5.0
-
-[node name="mesh" type="MeshInstance3D" parent="." index="9"]
+[node name="mesh" type="MeshInstance3D" parent="." index="8"]
 material_override = SubResource("StandardMaterial3D_h6cyc")
 mesh = SubResource("SphereMesh_x5wtj")
+
+[node name="timer_shoot" type="Timer" parent="." index="9"]
 
 [connection signal="timeout" from="timer_shoot" to="." method="_on_timer_shoot_timeout"]

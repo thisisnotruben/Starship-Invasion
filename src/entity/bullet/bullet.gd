@@ -24,11 +24,13 @@ func spawn_shot(args := {}):
 			exceptions = node.get_tree().get_nodes_in_group("friendly")
 		elif node.is_in_group("foe"):
 			exceptions = node.get_tree().get_nodes_in_group("foe")
-		exceptions.map(func(e): $rayCast3D.add_exception(e))
+
+		spawn_call = func():
+			transform.origin = node.hit_scan_shoot.global_position; \
+			transform.basis = node.img.basis; \
+			exceptions.map(func(e): $rayCast3D.add_exception(e))
 
 		damage = node.range_damage
-		transform.origin = node.hit_scan_shoot.global_transform.origin
-		transform.basis = node.img.basis
 		node.add_sibling(self)
 
 	elif args.has_all(["trap", "target", "exclude"]):

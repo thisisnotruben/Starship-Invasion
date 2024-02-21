@@ -50,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 shape = SubResource("CylinderShape3D_mtqmn")
 disabled = true
 
-[node name="visibility" type="VisibleOnScreenEnabler3D" parent="."]
+[node name="visibility" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 aabb = AABB(-6, -1, -6, 12, 2, 12)
 
@@ -58,3 +58,5 @@ aabb = AABB(-6, -1, -6, 12, 2, 12)
 [connection signal="timeout" from="timer_interval" to="." method="_on_timer_interval_timeout"]
 [connection signal="timeout" from="timer_cooldown" to="." method="_on_timer_cooldown_timeout"]
 [connection signal="body_entered" from="area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="screen_entered" from="visibility" to="." method="_on_visibility_screen_entered"]
+[connection signal="screen_exited" from="visibility" to="." method="_on_visibility_screen_exited"]

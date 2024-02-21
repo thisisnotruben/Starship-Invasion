@@ -2,6 +2,9 @@ extends Trap
 
 enum ExcludeGroup{ NONE, FRIENDLY, FOE }
 
+@export var shoot_audio: AudioStream = null
+var snd_shoot := AudioStreamPlayer3D.new()
+
 @export var bullet_scene: PackedScene
 @export var target: Marker3D = null
 @export_range(0.25, 15.0) var shoot_interval_sec := 7.5
@@ -11,12 +14,16 @@ enum ExcludeGroup{ NONE, FRIENDLY, FOE }
 @export var path_follow: PathFollow3D = null
 @export_range(0.0, 40.0) var speed: float = 20.0
 
-@onready var snd_shoot: AudioStreamPlayer3D = $snd_shoot
-
 
 func _ready():
+	# Bug: done like this or error
+	add_child(snd_shoot)
+	snd_shoot.name = "snd_shoot"
+	snd_shoot.bus = "sfx"
+	snd_shoot.max_distance = 30.0
+	snd_shoot.stream = shoot_audio
+
 	set_physics_process(false)
-	super._ready()
 	if target == null:
 		print_debug("[%s] doesn't have set vale 'target'." % get_path())
 

@@ -1,15 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://k2okwt6hosn8"]
+[gd_scene load_steps=13 format=3 uid="uid://k2okwt6hosn8"]
 
 [ext_resource type="PackedScene" uid="uid://d3m1ci2db7oss" path="res://src/entity/character/character.tscn" id="1_rpecu"]
+[ext_resource type="AudioStream" uid="uid://ym4vhuypu7yg" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 1.wav" id="2_fxcps"]
 [ext_resource type="SpriteFrames" uid="uid://bbg85t2cbh61d" path="res://resource/character/pile_of_flesh/minions/character_5.tres" id="2_y78oj"]
+[ext_resource type="AudioStream" uid="uid://b8f01fod1t23a" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 2.wav" id="3_tabwp"]
+[ext_resource type="AudioStream" uid="uid://bv01erwjtm04x" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 3.wav" id="4_ifsob"]
+[ext_resource type="AudioStream" uid="uid://52yyt74s1dbm" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 4.wav" id="5_ldfso"]
+[ext_resource type="AudioStream" uid="uid://dsof2oix1fsnr" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 5.wav" id="6_58mte"]
+[ext_resource type="AudioStream" uid="uid://kkn6bs3u67mp" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 6.wav" id="7_g8yoq"]
+[ext_resource type="AudioStream" uid="uid://bmvc2mtt2ivoe" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 7.wav" id="8_cepat"]
+[ext_resource type="AudioStream" uid="uid://wwcm80v67hja" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 8.wav" id="9_tjq7f"]
+[ext_resource type="AudioStream" uid="uid://i5bmapl5g8w8" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 9.wav" id="10_pvnv6"]
+[ext_resource type="AudioStream" uid="uid://ca2c18fyewmsc" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 10.wav" id="11_37bq0"]
 
 [node name="flesh_minion" instance=ExtResource("1_rpecu")]
 
+[node name="idle" parent="fsm" index="0"]
+quips = Array[AudioStream]([ExtResource("2_fxcps"), ExtResource("3_tabwp"), ExtResource("4_ifsob"), ExtResource("5_ldfso"), ExtResource("6_58mte"), ExtResource("7_g8yoq"), ExtResource("8_cepat"), ExtResource("9_tjq7f"), ExtResource("10_pvnv6"), ExtResource("11_37bq0")])
+quip_play_chance = 0.5
+
+[node name="move" parent="fsm" index="1"]
+quips = Array[AudioStream]([ExtResource("2_fxcps"), ExtResource("3_tabwp"), ExtResource("4_ifsob"), ExtResource("5_ldfso"), ExtResource("6_58mte"), ExtResource("7_g8yoq"), ExtResource("8_cepat"), ExtResource("9_tjq7f"), ExtResource("10_pvnv6"), ExtResource("11_37bq0")])
+
 [node name="move-shoot" parent="fsm" index="2"]
 enabled = false
+quips = Array[AudioStream]([ExtResource("2_fxcps"), ExtResource("3_tabwp"), ExtResource("4_ifsob"), ExtResource("5_ldfso"), ExtResource("6_58mte"), ExtResource("7_g8yoq"), ExtResource("8_cepat"), ExtResource("9_tjq7f"), ExtResource("10_pvnv6"), ExtResource("11_37bq0")])
 
 [node name="shoot" parent="fsm" index="3"]
 enabled = false
+quips = Array[AudioStream]([ExtResource("2_fxcps"), ExtResource("3_tabwp"), ExtResource("4_ifsob"), ExtResource("5_ldfso"), ExtResource("6_58mte"), ExtResource("7_g8yoq"), ExtResource("8_cepat"), ExtResource("9_tjq7f"), ExtResource("10_pvnv6"), ExtResource("11_37bq0")])
 
-[node name="img" parent="." index="8"]
+[node name="melee" parent="fsm" index="4"]
+quips = Array[AudioStream]([ExtResource("2_fxcps"), ExtResource("3_tabwp"), ExtResource("4_ifsob"), ExtResource("5_ldfso"), ExtResource("6_58mte"), ExtResource("7_g8yoq"), ExtResource("8_cepat"), ExtResource("9_tjq7f"), ExtResource("10_pvnv6"), ExtResource("11_37bq0")])
+
+[node name="die" parent="fsm" index="5"]
+quips = Array[AudioStream]([ExtResource("2_fxcps"), ExtResource("3_tabwp"), ExtResource("4_ifsob"), ExtResource("5_ldfso"), ExtResource("6_58mte"), ExtResource("7_g8yoq"), ExtResource("8_cepat"), ExtResource("9_tjq7f"), ExtResource("10_pvnv6"), ExtResource("11_37bq0")])
+
+[node name="img" parent="." index="10"]
 sprite_frames = ExtResource("2_y78oj")

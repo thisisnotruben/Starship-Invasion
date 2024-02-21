@@ -4,6 +4,9 @@ extends Area3D
 var target: Character = null
 
 
+func _ready():
+	set_process(false)
+
 func _on_body_entered(body: Node3D):
 	if body is Character and not body.npc:
 		target = body

@@ -1,13 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7eg7d7hlso3w"]
 
-[ext_resource type="ArrayMesh" uid="uid://co06npojecurg" path="res://asset/3d/heart/heart.obj" id="1_8uv3c"]
 [ext_resource type="PackedScene" uid="uid://cy0njjhnujhfx" path="res://src/items/_item.tscn" id="1_rhgu4"]
 [ext_resource type="Texture2D" uid="uid://66cj2m14tr10" path="res://asset/img/icons/heart.png" id="2_vflkl"]
+[ext_resource type="PackedScene" uid="uid://cmsb0ldv7ekln" path="res://asset/3d/heart/heart.glb" id="3_8odsp"]
 
 [node name="heart" instance=ExtResource("1_rhgu4")]
 hud_image = ExtResource("2_vflkl")
 
-[node name="Heart" type="MeshInstance3D" parent="marker3D" index="0"]
+[node name="heart" parent="marker3D" index="0" instance=ExtResource("3_8odsp")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.05, 0, -0.05)
-mesh = ExtResource("1_8uv3c")
-skeleton = NodePath("../..")

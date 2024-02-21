@@ -11,13 +11,10 @@ enum Type { ACTIVATE, PROXIMITY, TIME_INTERVAL, AUTOSTART }
 @export var time_int_ran := false
 @export_range(0.0, 0.5) var rand_amount := 0.25
 
+@onready var img: AnimatedSprite3D = $img
+@onready var timer: Timer = $timer
+@onready var visibility: VisibleOnScreenNotifier3D = $visibility
 
-func _ready():
-	match activate_type:
-		Type.AUTOSTART:
-			toggle(true)
-		Type.TIME_INTERVAL:
-			$timer_interval.start(_get_rand_amount())
 
 func _on_timer_interval_timeout():
 	if activate_type == Type.TIME_INTERVAL:
@@ -32,12 +29,27 @@ func _on_timer_cooldown_timeout():
 func _on_timer_timeout():
 	$area3D.get_overlapping_bodies().map(hurt)
 
+func _on_visibility_screen_entered():
+	set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
+	match activate_type:
+		Type.AUTOSTART:
+			toggle(true)
+		Type.TIME_INTERVAL:
+			$timer_interval.start(_get_rand_amount())
+
+func _on_visibility_screen_exited():
+	set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	if activated:
+		toggle(false)
+
 func _on_activate_sight_body_entered(body: Node3D):
-	if activate_type == Type.PROXIMITY and body is Character:
+	if activate_type == Type.PROXIMITY \
+	and body is Character and visibility.is_on_screen():
 		toggle(true)
 
 func _on_activate_sight_body_exited(body: Node3D):
-	if activate_type == Type.PROXIMITY and body is Character:
+	if activate_type == Type.PROXIMITY \
+	and body is Character and activated:
 		toggle(false)
 
 func _on_area_3d_body_entered(body: Node3D):
@@ -52,16 +64,10 @@ func toggle(activate: bool):
 	$area3D/collisionShape3D.set_deferred("disabled", not activate)
 	if activate:
 		$snd.play()
-		$timer.start()
+		timer.start()
 	else:
 		$snd.stop()
-		$timer.stop()
-
-func _on_visibility_screen_entered():
-	pass # Replace with function body.
-
-func _on_visibility_screen_exited():
-	pass # Replace with function body.
+		timer.stop()
 
 func _get_rand_amount() -> float:
 	var timer_sec := time_to_activate

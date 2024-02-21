@@ -5,5 +5,5 @@
 
 [node name="flesh_minion_blue" instance=ExtResource("1_mh1b6")]
 
-[node name="img" parent="." index="8"]
+[node name="img" parent="." index="10"]
 sprite_frames = ExtResource("2_o7e4c")

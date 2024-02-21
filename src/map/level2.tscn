@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/map/level2/level2_objectives.gd" id="1_hg7ua"]
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_pmdae"]
 [ext_resource type="Script" path="res://src/map/doodads/music.gd" id="2_jdlxv"]
-[ext_resource type="Environment" uid="uid://lgpdmt1bb81o" path="res://resource/level1-env.tres" id="2_vabjt"]
+[ext_resource type="Environment" uid="uid://lgpdmt1bb81o" path="res://resource/env.tres" id="2_vabjt"]
 [ext_resource type="PackedScene" uid="uid://b7xjy28ah2oxu" path="res://asset/crocotile3d/map2/map_2.tscn" id="2_xhxcd"]
 [ext_resource type="AudioStream" uid="uid://cqkmcwl1fmjsd" path="res://asset/snd/DOS-88/DOS-88 - Retrograde Motion - 10 Automata.ogg" id="3_og8ey"]
 [ext_resource type="PackedScene" uid="uid://d3bnjjdsas4ei" path="res://src/ui/game_interface.tscn" id="3_w2e33"]
@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://d3m1ci2db7oss" path="res://src/entity/character/character.tscn" id="16_dxnqj"]
 [ext_resource type="PackedScene" uid="uid://b5vxomps66lun" path="res://src/entity/toggle/toggle_computer.tscn" id="16_t7nc8"]
 [ext_resource type="PackedScene" uid="uid://bea4f7qu4pjne" path="res://src/entity/toggle/toggle_computer_1.tscn" id="17_5mgq1"]
-[ext_resource type="Script" path="res://src/map/level2/space_door.gd" id="18_iyltg"]
+[ext_resource type="Script" path="res://src/entity/door/space_door.gd" id="18_iyltg"]
 [ext_resource type="PackedScene" uid="uid://cjo1wq7vk6ti6" path="res://src/items/keycard/green_keycard.tscn" id="19_d5w8i"]
 [ext_resource type="PackedScene" uid="uid://b1nulm34iph50" path="res://src/items/keycard/red_keycard.tscn" id="20_l6iwr"]
 [ext_resource type="PackedScene" uid="uid://bi61oskjlnpg7" path="res://src/items/keycard/yellow_keycard.tscn" id="22_kulc0"]
@@ -64,7 +64,7 @@
 [ext_resource type="PackedScene" uid="uid://33fcv04ubs3b" path="res://src/entity/character/space_warrior/space_warrior_purple.tscn" id="60_k1l6f"]
 [ext_resource type="PackedScene" uid="uid://ctmi65hjnbamu" path="res://src/entity/character/pile_of_flesh/pile_of_flesh.tscn" id="61_io8jv"]
 [ext_resource type="PackedScene" uid="uid://bkhmtbd3xan4u" path="res://src/entity/character/pile_of_flesh/pile_of_flesh_blue.tscn" id="62_06i6p"]
-[ext_resource type="PackedScene" uid="uid://doiw2582y7qp2" path="res://src/map/doodads/light/floor_light.tscn" id="62_uyu2j"]
+[ext_resource type="PackedScene" uid="uid://doiw2582y7qp2" path="res://src/map/doodads/floor_light.tscn" id="62_uyu2j"]
 [ext_resource type="PackedScene" uid="uid://k2okwt6hosn8" path="res://src/entity/character/pile_of_flesh/minion/flesh_minion.tscn" id="63_jdxvj"]
 [ext_resource type="PackedScene" uid="uid://de1eactrmk4au" path="res://src/entity/character/pile_of_flesh/minion/flesh_minion_green.tscn" id="64_rsdlf"]
 [ext_resource type="Script" path="res://src/map/level2/space_walk/space_walk_objective.gd" id="64_yd673"]
@@ -2370,7 +2370,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="player" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("16_dxnqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0.002, 113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0.002, -34)
 health_max = 6
 npc = false
 objective_map = NodePath("../../objectives")
@@ -4072,8 +4072,6 @@ spot_attenuation = 0.406126
 spot_angle = 38.6
 
 [node name="toggles" type="Node3D" parent="."]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="toggle-computer-blue-keycard" parent="toggles" node_paths=PackedStringArray("i_toggleable") instance=ExtResource("16_t7nc8")]
 transform = Transform3D(-0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152, 44, 0, 8)
@@ -4161,8 +4159,8 @@ script = ExtResource("64_yd673")
 objective_map = NodePath("../../objectives")
 
 [node name="Area3D" type="Area3D" parent="toggles/space-walk"]
-collision_layer = 2
-collision_mask = 0
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="toggles/space-walk/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

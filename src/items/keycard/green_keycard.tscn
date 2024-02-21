@@ -1,14 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjo1wq7vk6ti6"]
 
 [ext_resource type="PackedScene" uid="uid://cy0njjhnujhfx" path="res://src/items/_item.tscn" id="1_pce76"]
-[ext_resource type="ArrayMesh" uid="uid://calloatp3oguy" path="res://asset/3d/keycard/green/green-keycard-0-green-keycard.obj" id="2_bag2j"]
 [ext_resource type="Texture2D" uid="uid://bwmer52wlwclo" path="res://asset/img/icons/green-keycard.png" id="2_l26ms"]
+[ext_resource type="PackedScene" uid="uid://b3flhd1101c55" path="res://asset/3d/keycard/green/green-keycard.glb" id="3_3w3o1"]
 
 [node name="green-keycard" instance=ExtResource("1_pce76")]
 type = 3
 hud_image = ExtResource("2_l26ms")
 
-[node name="Green-keycard-0-green-keycard" type="MeshInstance3D" parent="marker3D" index="0"]
+[node name="green-keycard" parent="marker3D" index="0" instance=ExtResource("3_3w3o1")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.05, 0, -0.05)
-mesh = ExtResource("2_bag2j")
-skeleton = NodePath("../..")

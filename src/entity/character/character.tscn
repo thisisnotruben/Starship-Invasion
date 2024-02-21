@@ -297,7 +297,6 @@ radius = 4.0
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_ehf32")
-melee_range = 1.1
 nav_agent = NodePath("navigationAgent3DObjective")
 
 [node name="fsm" type="Node" parent="." node_paths=PackedStringArray("character")]
@@ -366,11 +365,11 @@ script = ExtResource("14_a08bn")
 nav_agent = NodePath("../../navigationAgent3D")
 
 [node name="melee_cooldown" type="Timer" parent="fsm_behavior/attack"]
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 
 [node name="shoot_cooldown" type="Timer" parent="fsm_behavior/attack"]
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 
 [node name="rest" type="Node" parent="fsm_behavior"]
@@ -476,7 +475,7 @@ collision_mask = 6
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sight"]
 shape = SubResource("CylinderShape3D_8f501")
 
-[node name="visibility" type="VisibleOnScreenEnabler3D" parent="."]
+[node name="visibility" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 aabb = AABB(-6, -1, -6, 12, 2, 12)
 
@@ -487,3 +486,5 @@ aabb = AABB(-6, -1, -6, 12, 2, 12)
 [connection signal="velocity_computed" from="navigationAgent3D" to="." method="_on_nav_velocity_computed"]
 [connection signal="area_entered" from="sight" to="." method="_on_sight_area_entered"]
 [connection signal="body_entered" from="sight" to="." method="_on_sight_body_entered"]
+[connection signal="screen_entered" from="visibility" to="." method="_on_visibility_screen_entered"]
+[connection signal="screen_exited" from="visibility" to="." method="_on_visibility_screen_exited"]

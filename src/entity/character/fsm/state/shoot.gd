@@ -13,5 +13,4 @@ func enter():
 
 func _on_animation_tree_animation_finished(_anim_name: String):
 	if active:
-		if not character.npc:
-			emit_signal("change_state", CharacterStates.Type.IDLE)
+		emit_signal("change_state", CharacterStates.Type.IDLE)
