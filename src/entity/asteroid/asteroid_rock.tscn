@@ -144,8 +144,8 @@ direction = Vector3(1, 0, -1)
 spread = 180.0
 initial_velocity_min = 3.0
 initial_velocity_max = 5.0
-scale_min = 0.2
-scale_max = 0.3
+scale_min = 0.5
+scale_max = 0.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_legy5"]
 

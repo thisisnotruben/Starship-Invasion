@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://0gv1iyo7axv2"]
+
+[ext_resource type="PackedScene" uid="uid://cgkryfmd4torj" path="res://src/entity/bullet/bullet.tscn" id="1_f2gt2"]
+[ext_resource type="AudioStream" uid="uid://cpcay7xgt1okq" path="res://asset/snd/8881 - Sci-Fi Energy Weapon Sound Effects Pack/Sci-Fi Energy Projectile Impact 4.wav" id="2_08i5t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mo07q"]
+albedo_color = Color(0, 1.50196, 0, 1)
+emission_enabled = true
+emission = Color(0, 1.50196, 0, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lerfw"]
+albedo_color = Color(0, 1, 0, 1)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 10.0
+
+[node name="bullet_green" instance=ExtResource("1_f2gt2")]
+speed = 15.0
+
+[node name="snd" parent="." index="0"]
+stream = ExtResource("2_08i5t")
+
+[node name="meshInstance3D" parent="." index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mo07q")
+
+[node name="gpuParticles3D" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_lerfw")

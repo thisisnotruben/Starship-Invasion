@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://wbmw3s7h71bi"]
+[gd_scene load_steps=10 format=3 uid="uid://wbmw3s7h71bi"]
 
 [ext_resource type="PackedScene" uid="uid://bn54fyns3jxxq" path="res://src/map/doodads/props/_prop.tscn" id="1_t4k4a"]
+[ext_resource type="AudioStream" uid="uid://bcy4ve6b0i8qv" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Large Computer Telemetry 1.wav" id="2_03pfl"]
 [ext_resource type="Texture2D" uid="uid://b8o8pif3fum2l" path="res://asset/img/Scifi_SpaceDerelict/Props/Props.png" id="2_18q2u"]
+[ext_resource type="AudioStream" uid="uid://d3tcd64qv6qtt" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Intense Server Computer Telemetry Loop 1-shortened.wav" id="3_d5b4b"]
+[ext_resource type="AudioStream" uid="uid://c4j3c77crg0ko" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Intense Server Computer Telemetry Loop 1.wav" id="4_jg7qv"]
+[ext_resource type="AudioStream" uid="uid://crl43sw6acdfc" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Intense Server Computer Telemetry Loop 2.wav" id="5_ly4x6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_18x1m"]
 atlas = ExtResource("2_18q2u")
@@ -21,6 +25,7 @@ animations = [{
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5grt8"]
 
 [node name="machine_3" instance=ExtResource("1_t4k4a")]
+snd_library = Array[AudioStream]([ExtResource("2_03pfl"), ExtResource("3_d5b4b"), ExtResource("4_jg7qv"), ExtResource("5_ly4x6")])
 
 [node name="sprite3D" parent="." index="0"]
 offset = Vector2(0, 8)

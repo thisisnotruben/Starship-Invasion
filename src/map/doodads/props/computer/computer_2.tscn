@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://djlg145r3kxg6"]
+[gd_scene load_steps=11 format=3 uid="uid://djlg145r3kxg6"]
 
 [ext_resource type="PackedScene" uid="uid://bn54fyns3jxxq" path="res://src/map/doodads/props/_prop.tscn" id="1_swi87"]
+[ext_resource type="AudioStream" uid="uid://dolclrsmym8gd" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Radio Transmitter Noise Loop 1.wav" id="2_6g6yu"]
 [ext_resource type="Texture2D" uid="uid://b8o8pif3fum2l" path="res://asset/img/Scifi_SpaceDerelict/Props/Props.png" id="2_d6sqo"]
+[ext_resource type="AudioStream" uid="uid://b85nk68amigr" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Malfunctioning Computer Telemetry 1.wav" id="3_lqe2e"]
+[ext_resource type="AudioStream" uid="uid://dpfhj3w3dkipy" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Malfunctioning Computer Telemetry 2.wav" id="4_f661v"]
+[ext_resource type="Texture2D" uid="uid://isro6v1tu6px" path="res://asset/img/Scifi_SpaceDerelict/Props/props_unshaded.png" id="6_m1ev1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsl1h"]
 atlas = ExtResource("2_d6sqo")
@@ -21,7 +25,14 @@ animations = [{
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_u7daw"]
 radius = 2.0
 
-[node name="computer_2" instance=ExtResource("1_swi87")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wttcs"]
+atlas = ExtResource("6_m1ev1")
+region = Rect2(96, 0, 32, 32)
+
+[node name="computer_2" node_paths=PackedStringArray("lights") instance=ExtResource("1_swi87")]
+snd_library = Array[AudioStream]([ExtResource("2_6g6yu"), ExtResource("3_lqe2e"), ExtResource("4_f661v")])
+rand = true
+lights = [NodePath("SpotLight3D")]
 
 [node name="sprite3D" parent="." index="0"]
 offset = Vector2(0, 11)
@@ -30,3 +41,25 @@ sprite_frames = SubResource("SpriteFrames_5bokb")
 [node name="collisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_u7daw")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+offset = Vector2(0, 11)
+pixel_size = 0.125
+billboard = 2
+texture_filter = 0
+texture = SubResource("AtlasTexture_wttcs")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+offset = Vector2(0, 11)
+pixel_size = 0.125
+billboard = 2
+texture_filter = 0
+texture = SubResource("AtlasTexture_wttcs")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="6"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.5, 2, 0.5)
+light_color = Color(0.792157, 0.411765, 0.243137, 1)
+light_energy = 10.0
+shadow_enabled = true

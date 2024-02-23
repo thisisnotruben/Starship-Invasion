@@ -17,11 +17,18 @@ func _ready():
 		for i in player.health:
 			health_level.append(health_scene.instantiate())
 			health_container.add_child(health_level[-1])
+		Checkpoint.set_checkpoint_data(player)
 
 func _on_show_objective(_show: bool, blurb: String):
 	$margin/vBox/center.modulate = Color.WHITE if _show \
 		else Color.TRANSPARENT
 	$margin/vBox/center/label.text = "Objective: " + blurb
+
+func _on_show_checkpoint():
+	$margin/vBox/center.modulate = Color.WHITE
+	$margin/vBox/center/label.text = "Checkpoint Reached!"
+	await get_tree().create_timer(1.0).timeout
+	$margin/vBox/center.modulate = Color.TRANSPARENT
 
 func _on_player_health_changed(health: int):
 	var amount := health - health_container.get_child_count()

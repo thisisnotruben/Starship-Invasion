@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsdd0rem1sah7"]
+[gd_scene load_steps=13 format=3 uid="uid://bsdd0rem1sah7"]
 
 [ext_resource type="PackedScene" uid="uid://bpxtrahkuddhh" path="res://src/entity/toggle/toggle.tscn" id="1_whelh"]
 [ext_resource type="PackedScene" uid="uid://c4i3b32b0n818" path="res://asset/crocotile3d/door-switch/door_switch_3.tscn" id="2_8motm"]
 [ext_resource type="AudioStream" uid="uid://cpge2g10rke6u" path="res://asset/snd/182422__robinhood76__04297-computer-turning-on.wav" id="2_o42ln"]
 [ext_resource type="Texture2D" uid="uid://5jf7ix0cpkoa" path="res://asset/img/Minifantasy_UserInterface_v1.0/Minifantasy_Userinterface_Assets/Controls/Controllers/Minifantasy_GuiControllers.png" id="3_338v8"]
 [ext_resource type="Texture2D" uid="uid://7xwfgii6qis4" path="res://asset/img/Minifantasy_UserInterface_v1.0/Minifantasy_Userinterface_Assets/Controls/Keyboard Mouse/Minifantasy_GuiKeyboardMouse.png" id="4_ftjs8"]
+[ext_resource type="Texture2D" uid="uid://isro6v1tu6px" path="res://asset/img/Scifi_SpaceDerelict/Props/props_unshaded.png" id="6_xowlg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u0xc8"]
 atlas = ExtResource("3_338v8")
@@ -52,6 +53,10 @@ _data = {
 "hover": SubResource("Animation_75vxd")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pix17"]
+atlas = ExtResource("6_xowlg")
+region = Rect2(70, 71, 4, 2)
+
 [node name="toggle" instance=ExtResource("1_whelh")]
 sfx_activate = ExtResource("2_o42ln")
 sfx_deactivate = ExtResource("2_o42ln")
@@ -88,3 +93,9 @@ libraries = {
 "": SubResource("AnimationLibrary_y8nrd")
 }
 autoplay = "hover"
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.03)
+pixel_size = 0.125
+texture_filter = 0
+texture = SubResource("AtlasTexture_pix17")

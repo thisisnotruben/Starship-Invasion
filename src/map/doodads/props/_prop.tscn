@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bn54fyns3jxxq"]
+[gd_scene load_steps=2 format=3 uid="uid://bn54fyns3jxxq"]
+
+[ext_resource type="Script" path="res://src/map/doodads/props/_prop.gd" id="1_0ni05"]
 
 [node name="_prop" type="StaticBody3D"]
+script = ExtResource("1_0ni05")
 
 [node name="sprite3D" type="AnimatedSprite3D" parent="."]
 pixel_size = 0.125
@@ -9,3 +12,16 @@ shaded = true
 texture_filter = 0
 
 [node name="collisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="snd" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+max_distance = 6.0
+bus = &"sfx"
+
+[node name="visibility" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+aabb = AABB(-6, -1, -6, 12, 2, 12)
+
+[connection signal="finished" from="snd" to="." method="_on_snd_finished"]
+[connection signal="screen_entered" from="visibility" to="." method="_on_visibility_screen_entered"]
+[connection signal="screen_exited" from="visibility" to="." method="_on_visibility_screen_exited"]

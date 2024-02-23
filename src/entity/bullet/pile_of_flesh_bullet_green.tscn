@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://yl8nr75g50jm"]
+
+[ext_resource type="PackedScene" uid="uid://m1e0823gab5x" path="res://src/entity/bullet/pile_of_flesh_bullet.tscn" id="1_v0xyq"]
+
+[sub_resource type="Gradient" id="Gradient_gcwty"]
+offsets = PackedFloat32Array(0, 0.33, 0.66, 1)
+colors = PackedColorArray(0.419608, 0.929412, 0.321569, 1, 0.0352941, 0.705882, 0.0352941, 1, 0.141176, 0.447059, 0.027451, 1, 0.152941, 0.286275, 0.0156863, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0uvgl"]
+gradient = SubResource("Gradient_gcwty")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xy3rx"]
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_min = 2.5
+initial_velocity_max = 2.5
+scale_min = 0.15
+scale_max = 0.15
+color = Color(0.419608, 0.929412, 0.321569, 1)
+color_ramp = SubResource("GradientTexture1D_0uvgl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_opkld"]
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+scale_min = 0.15
+scale_max = 0.15
+color = Color(0.419608, 0.929412, 0.321569, 1)
+color_ramp = SubResource("GradientTexture1D_0uvgl")
+
+[node name="pileOfFleshBulletGreen" instance=ExtResource("1_v0xyq")]
+
+[node name="gpuParticles3D" parent="." index="5"]
+process_material = SubResource("ParticleProcessMaterial_xy3rx")
+
+[node name="GPUParticles3D" parent="." index="7"]
+process_material = SubResource("ParticleProcessMaterial_opkld")

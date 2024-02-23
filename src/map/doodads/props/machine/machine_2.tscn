@@ -1,7 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxexnilt4hxuw"]
+[gd_scene load_steps=12 format=3 uid="uid://cxexnilt4hxuw"]
 
 [ext_resource type="PackedScene" uid="uid://bn54fyns3jxxq" path="res://src/map/doodads/props/_prop.tscn" id="1_qq6p1"]
 [ext_resource type="Texture2D" uid="uid://b8o8pif3fum2l" path="res://asset/img/Scifi_SpaceDerelict/Props/Props.png" id="2_4yypp"]
+[ext_resource type="AudioStream" uid="uid://bcy4ve6b0i8qv" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Large Computer Telemetry 1.wav" id="2_6m4e8"]
+[ext_resource type="AudioStream" uid="uid://d3tcd64qv6qtt" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Intense Server Computer Telemetry Loop 1-shortened.wav" id="3_u0cfc"]
+[ext_resource type="AudioStream" uid="uid://c4j3c77crg0ko" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Intense Server Computer Telemetry Loop 1.wav" id="4_t2qka"]
+[ext_resource type="AudioStream" uid="uid://crl43sw6acdfc" path="res://asset/snd/8124 - Sci-Fi Telemetry Sound Effects Pack/Sci-Fi Intense Server Computer Telemetry Loop 2.wav" id="5_edw2w"]
+[ext_resource type="Texture2D" uid="uid://isro6v1tu6px" path="res://asset/img/Scifi_SpaceDerelict/Props/props_unshaded.png" id="7_1ni8l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smyam"]
 atlas = ExtResource("2_4yypp")
@@ -20,7 +25,12 @@ animations = [{
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g4x8t"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m07a8"]
+atlas = ExtResource("7_1ni8l")
+region = Rect2(144, 16, 16, 16)
+
 [node name="machine_2" instance=ExtResource("1_qq6p1")]
+snd_library = Array[AudioStream]([ExtResource("2_6m4e8"), ExtResource("3_u0cfc"), ExtResource("4_t2qka"), ExtResource("5_edw2w")])
 
 [node name="sprite3D" parent="." index="0"]
 offset = Vector2(0, 8)
@@ -29,3 +39,19 @@ sprite_frames = SubResource("SpriteFrames_cd5o2")
 [node name="collisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_g4x8t")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+offset = Vector2(0, 8)
+pixel_size = 0.125
+billboard = 2
+texture_filter = 0
+texture = SubResource("AtlasTexture_m07a8")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+offset = Vector2(0, 8)
+pixel_size = 0.125
+billboard = 2
+texture_filter = 0
+texture = SubResource("AtlasTexture_m07a8")

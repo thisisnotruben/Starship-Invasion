@@ -1,7 +1,8 @@
-[gd_scene load_steps=92 format=3 uid="uid://d3m1ci2db7oss"]
+[gd_scene load_steps=94 format=3 uid="uid://d3m1ci2db7oss"]
 
 [ext_resource type="Script" path="res://src/entity/character/character.gd" id="1_ehf32"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/character_fsm.gd" id="2_jgwyj"]
+[ext_resource type="PackedScene" uid="uid://c7eg7d7hlso3w" path="res://src/items/heart.tscn" id="2_thuhp"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/idle.gd" id="3_wpu87"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/move.gd" id="4_41aet"]
 [ext_resource type="AudioStream" uid="uid://b5g35hl20mcbk" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 1.wav" id="4_d87sa"]
@@ -35,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://d3m87hk2d5rrr" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_08.wav" id="25_0ii2a"]
 [ext_resource type="AudioStream" uid="uid://bxij0fikjikr7" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_09.wav" id="26_b13vc"]
 [ext_resource type="AudioStream" uid="uid://bh2a3e87mck6l" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_10.wav" id="27_1v5ju"]
+[ext_resource type="Script" path="res://src/entity/character/fsm/state/special.gd" id="30_2o4ms"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/behavior/move.gd" id="33_p5j20"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jxg5c"]
@@ -298,6 +300,7 @@ collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_ehf32")
 nav_agent = NodePath("navigationAgent3DObjective")
+drop = ExtResource("2_thuhp")
 
 [node name="fsm" type="Node" parent="." node_paths=PackedStringArray("character")]
 script = ExtResource("2_jgwyj")
@@ -357,12 +360,17 @@ quip_play_chance = 0.125
 script = ExtResource("4_kibar")
 quips = Array[AudioStream]([ExtResource("13_khco6")])
 
+[node name="special" type="Node" parent="fsm"]
+script = ExtResource("30_2o4ms")
+enabled = false
+
 [node name="fsm_behavior" type="Node" parent="."]
 script = ExtResource("13_vknas")
 
-[node name="attack" type="Node" parent="fsm_behavior" node_paths=PackedStringArray("nav_agent")]
+[node name="attack" type="Node" parent="fsm_behavior" node_paths=PackedStringArray("nav_agent", "special_state")]
 script = ExtResource("14_a08bn")
 nav_agent = NodePath("../../navigationAgent3D")
+special_state = NodePath("../../fsm/special")
 
 [node name="melee_cooldown" type="Timer" parent="fsm_behavior/attack"]
 wait_time = 1.5
@@ -370,6 +378,10 @@ one_shot = true
 
 [node name="shoot_cooldown" type="Timer" parent="fsm_behavior/attack"]
 wait_time = 1.5
+one_shot = true
+
+[node name="special_cooldown" type="Timer" parent="fsm_behavior/attack"]
+wait_time = 3.0
 one_shot = true
 
 [node name="rest" type="Node" parent="fsm_behavior"]

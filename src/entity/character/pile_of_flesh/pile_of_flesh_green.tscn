@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://by1gug4hm1yhk"]
+[gd_scene load_steps=5 format=3 uid="uid://by1gug4hm1yhk"]
 
 [ext_resource type="PackedScene" uid="uid://ctmi65hjnbamu" path="res://src/entity/character/pile_of_flesh/pile_of_flesh.tscn" id="1_w0qoe"]
-[ext_resource type="SpriteFrames" uid="uid://cbugdtmx2hblu" path="res://resource/character/pile_of_flesh/character_4.2.tres" id="2_78llp"]
+[ext_resource type="PackedScene" uid="uid://yl8nr75g50jm" path="res://src/entity/bullet/pile_of_flesh_bullet_green.tscn" id="2_sy02p"]
+[ext_resource type="PackedScene" uid="uid://de1eactrmk4au" path="res://src/entity/character/pile_of_flesh/minion/flesh_minion_green.tscn" id="3_83ss1"]
+[ext_resource type="SpriteFrames" uid="uid://mxaylswqjljc" path="res://resource/character/pile_of_flesh/character_4.2.tres" id="4_xll3i"]
 
 [node name="pile_of_flesh_green" instance=ExtResource("1_w0qoe")]
 
+[node name="shoot" parent="fsm" index="3"]
+bullet_scene = ExtResource("2_sy02p")
+
+[node name="special" parent="fsm" index="6"]
+minion_scene = ExtResource("3_83ss1")
+bullet_scene = ExtResource("2_sy02p")
+
+[node name="special_cooldown" parent="fsm_behavior/attack" index="2"]
+wait_time = 2.0
+
 [node name="img" parent="." index="10"]
-sprite_frames = ExtResource("2_78llp")
+sprite_frames = ExtResource("4_xll3i")

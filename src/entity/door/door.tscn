@@ -214,7 +214,7 @@ vertices = PackedVector3Array(-1.75, 1, -0.5, -1.75, 1, 0.5, 1.75, 1, 0.5, 1.75,
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 agent_radius = 0.25
 
-[node name="door" type="StaticBody3D"]
+[node name="door" type="StaticBody3D" groups=["toggle_door"]]
 collision_mask = 3
 script = ExtResource("1_771i4")
 

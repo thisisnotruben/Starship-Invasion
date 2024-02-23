@@ -211,7 +211,8 @@ func draw_objective_path(_show: bool):
 				objective_path["lines"].append(drawed_item)
 				add_sibling(drawed_item)
 	else:
-		emit_signal("show_objective", _show, "")
+		if not objective_path["points"].is_empty():
+			emit_signal("show_objective", _show, "")
 		for key in objective_path.keys():
 			objective_path[key].map(func(d): d.queue_free())
 			objective_path[key].clear()

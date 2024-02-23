@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cei5p7vxygc7n"]
+[gd_scene load_steps=4 format=3 uid="uid://cei5p7vxygc7n"]
 
 [ext_resource type="PackedScene" uid="uid://d3m1ci2db7oss" path="res://src/entity/character/character.tscn" id="1_7hgw2"]
 [ext_resource type="SpriteFrames" uid="uid://b8lkexwvdkrl6" path="res://resource/character/space_warrior/character_1.tres" id="2_1k23n"]
+[ext_resource type="AudioStream" uid="uid://bxffifmxs6wlx" path="res://asset/snd/8881 - Sci-Fi Energy Weapon Sound Effects Pack/Sci-Fi Energy Rifle Shot 1.wav" id="3_dqw8l"]
 
 [node name="Space Warrior" instance=ExtResource("1_7hgw2")]
 health_max = 5
+
+[node name="snd" parent="." index="6"]
+bus = &"sfx_2"
+
+[node name="snd_shoot" parent="." index="7"]
+stream = ExtResource("3_dqw8l")
 
 [node name="img" parent="." index="10"]
 sprite_frames = ExtResource("2_1k23n")

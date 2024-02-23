@@ -7,5 +7,6 @@ enum Type{
 	MOVE_SHOOT,
 	MELEE,
 	SHOOT,
-	DIE
+	DIE,
+	SPECIAL
 }

@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm48jcul0vcsb"]
+[gd_scene load_steps=4 format=3 uid="uid://cm48jcul0vcsb"]
 
 [ext_resource type="PackedScene" uid="uid://cei5p7vxygc7n" path="res://src/entity/character/space_warrior/space_warrior.tscn" id="1_bx403"]
 [ext_resource type="SpriteFrames" uid="uid://cnayv4u6ei6cu" path="res://resource/character/space_warrior/character_1.1.tres" id="2_6abr8"]
+[ext_resource type="PackedScene" uid="uid://0gv1iyo7axv2" path="res://src/entity/bullet/bullet_green.tscn" id="2_dbo7j"]
 
 [node name="Space Warrior Gold" instance=ExtResource("1_bx403")]
+health_max = 7
+melee_damage = 2
+range_damage = 2
+shoot_range = 20.0
+
+[node name="shoot" parent="fsm" index="3"]
+bullet_scene = ExtResource("2_dbo7j")
+
+[node name="shoot_cooldown" parent="fsm_behavior/attack" index="1"]
+wait_time = 1.25
 
 [node name="img" parent="." index="10"]
 sprite_frames = ExtResource("2_6abr8")

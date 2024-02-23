@@ -22,8 +22,11 @@ func _on_area_3d_body_entered(body: Node3D):
 			Type.ARMOR:
 				pass
 			_:
-				body.inventory_add({"type": type,
-					"icon": hud_image, "add": true})
+				add_to_inventory(body)
 		$snd.play()
 		await $snd.finished
 		queue_free()
+
+func add_to_inventory(character: Character):
+	character.inventory_add({"type": type, \
+		"icon": hud_image, "add": true})

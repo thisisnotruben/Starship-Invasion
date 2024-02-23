@@ -19,10 +19,15 @@ func _set_state(_state_type) -> bool:
 	and super._set_state(_state_type):
 
 		if prev_state_type != -1:
-			character.anim_tree["parameters/conditions/%s" \
-				% anim_state_map[prev_state_type]] = false
-		character.anim_tree["parameters/conditions/%s" \
-			% anim_state_map[_state_type]] = true
+			var prev_condition_anim: String = "parameters/conditions/%s" \
+				% anim_state_map[prev_state_type]
+			if character.anim_tree.get(prev_condition_anim) != null:
+				character.anim_tree[prev_condition_anim] = false
+
+		var condition_anim: String = "parameters/conditions/%s" \
+			% anim_state_map[_state_type]
+		if character.anim_tree.get(condition_anim) != null:
+			character.anim_tree[condition_anim] = true
 
 		var blend_pos: String = "parameters/%s/blend_position" \
 			% anim_state_map[_state_type]

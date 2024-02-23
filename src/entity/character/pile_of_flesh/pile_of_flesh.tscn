@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctmi65hjnbamu"]
+[gd_scene load_steps=18 format=3 uid="uid://ctmi65hjnbamu"]
 
 [ext_resource type="PackedScene" uid="uid://d3m1ci2db7oss" path="res://src/entity/character/character.tscn" id="1_1b3yq"]
 [ext_resource type="AudioStream" uid="uid://ym4vhuypu7yg" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 1.wav" id="2_euonk"]
@@ -12,8 +12,17 @@
 [ext_resource type="AudioStream" uid="uid://wwcm80v67hja" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 8.wav" id="9_217h1"]
 [ext_resource type="AudioStream" uid="uid://i5bmapl5g8w8" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 9.wav" id="10_3ijb4"]
 [ext_resource type="AudioStream" uid="uid://ca2c18fyewmsc" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 10.wav" id="11_ncppr"]
+[ext_resource type="PackedScene" uid="uid://m1e0823gab5x" path="res://src/entity/bullet/pile_of_flesh_bullet.tscn" id="12_hpgbr"]
+[ext_resource type="Script" path="res://src/entity/character/fsm/state/pile_of_flesh_special.gd" id="12_q36y6"]
+[ext_resource type="PackedScene" uid="uid://k2okwt6hosn8" path="res://src/entity/character/pile_of_flesh/minion/flesh_minion.tscn" id="13_2wnsb"]
+[ext_resource type="AudioStream" uid="uid://ynnf6hbg0cig" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Hit_Wound_Gore_Thud_04.wav" id="15_1yvc6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fro8x"]
+margin = 1.0
+height = 1.06
 
 [node name="pile_of_flesh_red" instance=ExtResource("1_1b3yq")]
+health_max = 4
 
 [node name="idle" parent="fsm" index="0"]
 quips = Array[AudioStream]([ExtResource("2_euonk"), ExtResource("3_7sb56"), ExtResource("4_fflcw"), ExtResource("5_natp6"), ExtResource("6_i5aqn"), ExtResource("7_ddvfl"), ExtResource("8_548ka"), ExtResource("9_217h1"), ExtResource("10_3ijb4"), ExtResource("11_ncppr")])
@@ -21,18 +30,104 @@ quip_play_chance = 0.5
 
 [node name="move" parent="fsm" index="1"]
 quips = Array[AudioStream]([ExtResource("2_euonk"), ExtResource("3_7sb56"), ExtResource("4_fflcw"), ExtResource("5_natp6"), ExtResource("6_i5aqn"), ExtResource("7_ddvfl"), ExtResource("8_548ka"), ExtResource("9_217h1"), ExtResource("10_3ijb4"), ExtResource("11_ncppr")])
+quip_play_chance = 0.5
 
 [node name="move-shoot" parent="fsm" index="2"]
 quips = Array[AudioStream]([ExtResource("2_euonk"), ExtResource("3_7sb56"), ExtResource("4_fflcw"), ExtResource("5_natp6"), ExtResource("6_i5aqn"), ExtResource("7_ddvfl"), ExtResource("8_548ka"), ExtResource("9_217h1"), ExtResource("10_3ijb4"), ExtResource("11_ncppr")])
 
 [node name="shoot" parent="fsm" index="3"]
+bullet_scene = ExtResource("12_hpgbr")
 quips = Array[AudioStream]([ExtResource("2_euonk"), ExtResource("3_7sb56"), ExtResource("4_fflcw"), ExtResource("5_natp6"), ExtResource("6_i5aqn"), ExtResource("7_ddvfl"), ExtResource("8_548ka"), ExtResource("9_217h1"), ExtResource("10_3ijb4"), ExtResource("11_ncppr")])
+quip_play_chance = 0.5
 
 [node name="melee" parent="fsm" index="4"]
+enabled = false
 quips = Array[AudioStream]([ExtResource("2_euonk"), ExtResource("3_7sb56"), ExtResource("4_fflcw"), ExtResource("5_natp6"), ExtResource("6_i5aqn"), ExtResource("7_ddvfl"), ExtResource("8_548ka"), ExtResource("9_217h1"), ExtResource("10_3ijb4"), ExtResource("11_ncppr")])
 
 [node name="die" parent="fsm" index="5"]
 quips = Array[AudioStream]([ExtResource("2_euonk"), ExtResource("3_7sb56"), ExtResource("4_fflcw"), ExtResource("5_natp6"), ExtResource("6_i5aqn"), ExtResource("7_ddvfl"), ExtResource("8_548ka"), ExtResource("9_217h1"), ExtResource("10_3ijb4"), ExtResource("11_ncppr")])
 
+[node name="special" parent="fsm" index="6" node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("12_q36y6")
+minion_scene = ExtResource("13_2wnsb")
+spawn_points = [NodePath("../../special_spawn/Marker3D/NavigationAgent3D"), NodePath("../../special_spawn/Marker3D2/NavigationAgent3D"), NodePath("../../special_spawn/Marker3D3/NavigationAgent3D"), NodePath("../../special_spawn/Marker3D4/NavigationAgent3D")]
+bullet_scene = ExtResource("12_hpgbr")
+bullet_spwan_coll = 33
+enabled = true
+quips = Array[AudioStream]([ExtResource("2_euonk"), ExtResource("3_7sb56"), ExtResource("4_fflcw"), ExtResource("5_natp6"), ExtResource("6_i5aqn"), ExtResource("7_ddvfl"), ExtResource("8_548ka"), ExtResource("9_217h1"), ExtResource("10_3ijb4"), ExtResource("11_ncppr")])
+
+[node name="attack" parent="fsm_behavior" index="0"]
+special_chance = 0.25
+
+[node name="special_cooldown" parent="fsm_behavior/attack" index="2"]
+wait_time = 3.8
+
+[node name="animationTree" parent="." index="3"]
+parameters/idle/blend_position = Vector2(-0.00811356, -0.0013423)
+
+[node name="snd" parent="." index="6"]
+bus = &"sfx_1"
+
+[node name="snd_shoot" parent="." index="7"]
+stream = ExtResource("15_1yvc6")
+
 [node name="img" parent="." index="10"]
 sprite_frames = ExtResource("2_nv1rl")
+
+[node name="special_spawn" type="Node3D" parent="." index="13"]
+
+[node name="Marker3D" type="Marker3D" parent="special_spawn" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="special_spawn/Marker3D" index="0"]
+path_max_distance = 3.01
+
+[node name="Area3D" type="Area3D" parent="special_spawn/Marker3D" index="1"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="special_spawn/Marker3D/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53, 0)
+shape = SubResource("CapsuleShape3D_fro8x")
+
+[node name="Marker3D2" type="Marker3D" parent="special_spawn" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="special_spawn/Marker3D2" index="0"]
+path_max_distance = 3.01
+
+[node name="Area3D" type="Area3D" parent="special_spawn/Marker3D2" index="1"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="special_spawn/Marker3D2/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53, 0)
+shape = SubResource("CapsuleShape3D_fro8x")
+
+[node name="Marker3D3" type="Marker3D" parent="special_spawn" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="special_spawn/Marker3D3" index="0"]
+path_max_distance = 3.01
+
+[node name="Area3D" type="Area3D" parent="special_spawn/Marker3D3" index="1"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="special_spawn/Marker3D3/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53, 0)
+shape = SubResource("CapsuleShape3D_fro8x")
+
+[node name="Marker3D4" type="Marker3D" parent="special_spawn" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="special_spawn/Marker3D4" index="0"]
+path_max_distance = 3.01
+
+[node name="Area3D" type="Area3D" parent="special_spawn/Marker3D4" index="1"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="special_spawn/Marker3D4/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53, 0)
+shape = SubResource("CapsuleShape3D_fro8x")

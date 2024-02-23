@@ -7,7 +7,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5w5js"]
 
-[node name="toggle" type="Node3D"]
+[node name="toggle" type="Node3D" groups=["toggle_computer"]]
 script = ExtResource("1_lit2o")
 sfx_activate = ExtResource("2_obj4n")
 sfx_deactivate = ExtResource("3_nyywy")

@@ -100,10 +100,17 @@ func _on_back_pressed(main := true):
 	$snd_back.play()
 	tab.current_tab = tabs["main" if main else "dead"]
 
+func _on_checkpoint_pressed():
+	$snd_game.play()
+	$center/panel/margin/tabs/dead/checkpoint.release_focus()
+	await $snd_game.finished
+	get_tree().reload_current_scene()
+
 func _on_restart_pressed():
 	$snd_game.play()
 	$center/panel/margin/tabs/dead/restart.release_focus()
 	await $snd_game.finished
+	Checkpoint.data.clear()
 	get_tree().reload_current_scene()
 
 func _on_visibility_changed():
@@ -121,9 +128,15 @@ func _on_main_draw():
 
 func show_death_screen(player_health: int):
 	if player_health == 0:
+		$snd_death.play()
 		$snd_pause.play()
 		dead = true
-		prev_tab = $center/panel/margin/tabs/dead/restart
+		prev_tab = $center/panel/margin/tabs/dead/checkpoint
+		if Checkpoint.data.is_empty():
+			prev_tab.hide()
+			prev_tab = $center/panel/margin/tabs/dead/restart
+			prev_tab.focus_neighbor_top = \
+				$center/panel/margin/tabs/dead/exit.get_path()
 		tab.current_tab = tabs["dead"]
 		show()
 

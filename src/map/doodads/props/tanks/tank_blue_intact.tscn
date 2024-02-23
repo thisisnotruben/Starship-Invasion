@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr8lub20r2ccm"]
+[gd_scene load_steps=9 format=3 uid="uid://cr8lub20r2ccm"]
 
 [ext_resource type="PackedScene" uid="uid://bn54fyns3jxxq" path="res://src/map/doodads/props/_prop.tscn" id="1_3gjxo"]
 [ext_resource type="Texture2D" uid="uid://b8o8pif3fum2l" path="res://asset/img/Scifi_SpaceDerelict/Props/Props.png" id="2_2mkbb"]
+[ext_resource type="AudioStream" uid="uid://nl1wkjtjjjd" path="res://asset/snd/7712 - Sci-Fi Radiation Sound Effects Pack/Sci-Fi Eerie Crystalline Radiation Loop 2.wav" id="2_prvyi"]
+[ext_resource type="Texture2D" uid="uid://isro6v1tu6px" path="res://asset/img/Scifi_SpaceDerelict/Props/props_unshaded.png" id="4_ib1fw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rtemn"]
 atlas = ExtResource("2_2mkbb")
@@ -20,7 +22,13 @@ animations = [{
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2mh6s"]
 
-[node name="tank_blue_intact" instance=ExtResource("1_3gjxo")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5xfx"]
+atlas = ExtResource("4_ib1fw")
+region = Rect2(32, 0, 32, 32)
+
+[node name="tank_blue_intact" node_paths=PackedStringArray("lights") instance=ExtResource("1_3gjxo")]
+snd_library = Array[AudioStream]([ExtResource("2_prvyi")])
+lights = [NodePath("OmniLight3D")]
 
 [node name="sprite3D" parent="." index="0"]
 offset = Vector2(0, 11)
@@ -29,3 +37,25 @@ sprite_frames = SubResource("SpriteFrames_ype85")
 [node name="collisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_2mh6s")
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+offset = Vector2(0, 11)
+pixel_size = 0.125
+billboard = 2
+texture_filter = 0
+texture = SubResource("AtlasTexture_w5xfx")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+offset = Vector2(0, 11)
+pixel_size = 0.125
+billboard = 2
+texture_filter = 0
+texture = SubResource("AtlasTexture_w5xfx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.05)
+light_color = Color(0.529412, 0.788235, 0.772549, 1)
+shadow_enabled = true
+omni_range = 3.0
