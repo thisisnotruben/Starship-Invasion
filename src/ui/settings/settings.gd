@@ -21,14 +21,15 @@ var on_init := true
 @onready var lens_dis: BaseButton = $tabs_container/visual/shader/hBox/lens_distortion_check
 @onready var grain: BaseButton = $tabs_container/visual/shader/hBox/grain_check
 @onready var tv: BaseButton = $tabs_container/visual/shader/hBox/tv_check
-@onready var music: HSlider = $tabs_container/audio/music_volume
-@onready var sfx: HSlider = $tabs_container/audio/sfx_volume
-@onready var mouse_sens_slider : HSlider = $tabs_container/sensitivity/mouse_sens
-@onready var joystick_sens_slider : HSlider = $tabs_container/sensitivity/joystick_sens
-@onready var disabled_tab: BaseButton = $tabs/visual
-var tabs := {"audio": 1, "visual": 0, "sensitivity": 2}
+@onready var music: HSlider = $tabs_container/visual/audio/music_volume
+@onready var sfx: HSlider = $tabs_container/visual/audio/sfx_volume
+@onready var mouse_sens_slider : HSlider = $tabs_container/visual/sensitivity/mouse_sens
+@onready var joystick_sens_slider : HSlider = $tabs_container/visual/sensitivity/joystick_sens
 
 static var dirty_values := {}
+const clean_values := {"music": -14.0, "sfx": -10.0, \
+	"lens_dis": true, "grain": true, "tv": false, \
+	"mouse_sens": 0.004, "joy_sens": 0.06, "brightness": 1.5}
 
 signal back_pressed
 signal subcontrol_focused
@@ -59,26 +60,6 @@ func _on_visibility_changed():
 func _on_focus_entered():
 	if play_focus_sfx:
 		emit_signal("subcontrol_focused")
-
-func _on_shader_pressed():
-	$tabs_container.current_tab = tabs["visual"]
-	_handle_tabs($tabs/visual)
-	$tabs/audio.grab_focus()
-
-func _on_volume_pressed():
-	$tabs_container.current_tab = tabs["audio"]
-	_handle_tabs($tabs/audio)
-	$tabs/sensitivity.grab_focus()
-
-func _on_sensitivity_pressed():
-	$tabs_container.current_tab = tabs["sensitivity"]
-	_handle_tabs($tabs/sensitivity)
-	$tabs/visual.grab_focus()
-
-func _handle_tabs(button: BaseButton):
-	button.disabled = true
-	disabled_tab.disabled = false
-	disabled_tab = button
 
 func _on_brightness_level_value_changed(value: float):
 	if not on_init:
@@ -115,9 +96,7 @@ func _on_joystick_sens_value_changed(value: float):
 
 func _on_reset_pressed():
 	$snd_save.play()
-	_set_settings({"music": 0.0, "sfx": 0.0, \
-		"lens_dis": false, "grain": false, "tv": false, \
-		"mouse_sens": 0.004, "joy_sens": 0.06, "brightness": 1.5})
+	_set_settings(clean_values)
 
 func _on_save_pressed():
 	$snd_save.play()
@@ -140,6 +119,8 @@ func _load_settings():
 		for key in config.get_section_keys("settings"):
 			load_data[key] = config.get_value("settings", key)
 		_set_settings(load_data)
+	else:
+		_set_settings(clean_values)
 
 func _toggle(effect: String, on: bool):
 	get_tree().get_nodes_in_group(effect).map(func(e): e.visible = on)

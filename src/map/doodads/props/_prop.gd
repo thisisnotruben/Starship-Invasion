@@ -7,7 +7,7 @@ extends StaticBody3D
 @export var rand := false
 @export_category("Light")
 @export var lights: Array[Light3D] = []
-@export var character: Character = null
+@export var look_at_node: Node3D = null
 
 
 func _ready():
@@ -15,11 +15,6 @@ func _ready():
 		snd.stream = snd_library.pick_random()
 	if not rand or (rand and randi_range(0, 1) == 1):
 		snd.play()
-	if character == null:
-		for unit in get_tree().get_nodes_in_group("character"):
-			if not unit.npc:
-				character = unit
-				break
 	set_process($visibility.is_on_screen() and _is_valid())
 
 func _on_snd_finished():
@@ -40,9 +35,9 @@ func _on_visibility_screen_exited():
 func _process(_delta: float):
 	if _is_valid():
 		for light in lights:
-			light.look_at(character.global_position)
+			light.look_at(look_at_node.global_position)
 	else:
 		set_process(false)
 
 func _is_valid() -> bool:
-	return character != null or not lights.is_empty()
+	return look_at_node != null and not lights.is_empty()

@@ -42,6 +42,8 @@ func add_trauma(trauma_amount : float):
 func shake(duration_sec: float):
 	set_process(true)
 	var tween := get_tree().create_tween()
+	var initial_rot := camera.rotation
 	tween.tween_method(add_trauma, 0.8, 0.8, duration_sec)
 	await tween.finished
+	camera.rotation = initial_rot
 	set_process(false)

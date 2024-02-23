@@ -32,7 +32,6 @@ anchors_preset = 0
 mouse_filter = 1
 
 [node name="lens_distortion" type="BackBufferCopy" parent="." groups=["lens_dis"]]
-visible = false
 position = Vector2(640, 360)
 scale = Vector2(6.4, 3.6)
 copy_mode = 2
@@ -51,7 +50,6 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="grain" type="BackBufferCopy" parent="." groups=["grain"]]
-visible = false
 position = Vector2(640, 360)
 scale = Vector2(6.4, 3.6)
 copy_mode = 2

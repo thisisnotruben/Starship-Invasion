@@ -3,14 +3,14 @@ extends Control
 var play_focus_sfx := false
 
 @export var player: Character = null
+@export var start_menu_scene: PackedScene = null
 var dead := false
-var level_transition := false
 
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
 @onready var prev_tab: Control = $center/panel/margin/tabs/main/resume_game
-var tabs := {"main": 0, "license": 1, "credits": 2, \
-"popup": 3, "controls": 4, "settings": 5, "dead": 6}
+var tabs := {"main": 0, "license": 1, "credits": 2, "popup": 3, \
+"controls": 4, "settings": 5, "dead": 6, "next_level": 7}
 
 
 func _ready():
@@ -24,12 +24,10 @@ func _ready():
 func _input(event: InputEvent):
 	if not dead and event.is_action_pressed("pause") \
 	or (visible and event.is_action_pressed("ui_cancel")) \
-	and (tab.current_tab == tabs["main"] or level_transition):
+	and tab.current_tab == tabs["main"]:
 		visible = !visible
 		if visible:
 			$snd_pause.play()
-		elif level_transition:
-			$snd_back.play()
 		else:
 			$snd_resume.play()
 	elif event.is_action_pressed("ui_cancel") \
@@ -56,7 +54,7 @@ func _on_start_menu_pressed(main := true):
 		$center/panel/margin/tabs/popup/hBox/yes.release_focus()
 		await $snd_start.finished
 		get_tree().paused = false
-		get_tree().change_scene_to_file("res://src/ui/start/start.tscn")
+		get_tree().change_scene_to_packed(start_menu_scene)
 	else:
 		$snd_back.play()
 		tab.current_tab = tabs["main" if main else "dead"]
@@ -128,7 +126,7 @@ func _on_main_draw():
 
 func show_death_screen(player_health: int):
 	if player_health == 0:
-		$snd_death.play()
+		$snd_death.fade(true)
 		$snd_pause.play()
 		dead = true
 		prev_tab = $center/panel/margin/tabs/dead/checkpoint
@@ -140,16 +138,8 @@ func show_death_screen(player_health: int):
 		tab.current_tab = tabs["dead"]
 		show()
 
-func next_level(prompt: bool, next_level_scene: PackedScene, level: int):
-	level_transition = prompt
-	visible = prompt
-	if prompt:
-		popup.display("Go Next Level?!", "Go", "Stay")
-		tab.current_tab = tabs["popup"]
-		if await popup.popup_return == "yes":
-			LevelQuery.unlock_level(level - 1)
-			get_tree().paused = false
-			get_tree().change_scene_to_packed(next_level_scene)
-		else:
-			$snd_back.play()
-			hide()
+func next_level(next_level_scene: PackedScene, level: int):
+	LevelQuery.unlock_level(level - 1)
+	tab.current_tab = tabs["next_level"]
+	tab.get_child(tabs["next_level"]).set("next_level", next_level_scene)
+	show()

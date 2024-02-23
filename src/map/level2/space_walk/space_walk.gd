@@ -37,12 +37,14 @@ func _on_area_3d_body_entered(body: Node3D):
 	if _is_player(body):
 		_start_asteroid_timer()
 		_toggle_spawns(true)
+		$space_sound.fade(true)
 
 func _on_area_3d_body_exited(body: Node3D):
 	if _is_player(body):
 		asteroid_indicator_timer.stop()
 		asteroid_timer.stop()
 		_toggle_spawns(false)
+		$space_sound.fade(false)
 
 func _on_safe_zone_body_entered(body: Node3D):
 	if body is Character and not in_safe_zone.has(body):

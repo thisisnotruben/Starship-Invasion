@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bc8j412lenuw0"]
+[gd_scene load_steps=18 format=3 uid="uid://bc8j412lenuw0"]
 
 [ext_resource type="Script" path="res://src/ui/game/game.gd" id="1_4fj3j"]
 [ext_resource type="AudioStream" uid="uid://b28p215bebbx2" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 6.wav" id="2_0nhrr"]
+[ext_resource type="PackedScene" uid="uid://cm6lrl0cgaejr" path="res://src/ui/start/start.tscn" id="2_y6g3y"]
 [ext_resource type="AudioStream" uid="uid://doasgi164mq1g" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 4.wav" id="3_iskgl"]
 [ext_resource type="PackedScene" uid="uid://v51siikiuxu0" path="res://src/ui/license/license.tscn" id="3_r171v"]
 [ext_resource type="PackedScene" uid="uid://b2q8kep108aib" path="res://src/ui/credits/credits.tscn" id="4_g5u5e"]
@@ -13,7 +14,9 @@
 [ext_resource type="AudioStream" uid="uid://deq57glwxblhk" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Pop-Up Sound 2.wav" id="6_vicle"]
 [ext_resource type="AudioStream" uid="uid://cdljqjsm5lot5" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Error Sound 3.wav" id="7_rft3u"]
 [ext_resource type="AudioStream" uid="uid://b7hwmgh4hd4fo" path="res://asset/snd/7712 - Sci-Fi Radiation Sound Effects Pack/Sci-Fi Eerie Crystalline Radiation Loop 3.wav" id="9_g85ga"]
+[ext_resource type="Script" path="res://src/global/snd_fader.gd" id="11_8b2mp"]
 [ext_resource type="PackedScene" uid="uid://cu0ekcdh24es1" path="res://src/ui/settings/settings.tscn" id="13_rx8u8"]
+[ext_resource type="PackedScene" uid="uid://xg0uuf5fiv5b" path="res://src/ui/level_end/level_end.tscn" id="15_a8tta"]
 
 [node name="game" type="Control"]
 process_mode = 3
@@ -24,6 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4fj3j")
+start_menu_scene = ExtResource("2_y6g3y")
 
 [node name="snd" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0nhrr")
@@ -61,9 +65,11 @@ bus = &"sfx"
 stream = ExtResource("6_muqe5")
 bus = &"sfx"
 
-[node name="snd_death" type="AudioStreamPlayer" parent="."]
+[node name="snd_death" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("snd")]
 stream = ExtResource("9_g85ga")
 bus = &"sfx"
+script = ExtResource("11_8b2mp")
+snd = NodePath(".")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -133,7 +139,7 @@ text = "Settings"
 [node name="exit" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../resume_game")
-text = "Exit"
+text = "Exit Game"
 
 [node name="license" parent="center/panel/margin/tabs" instance=ExtResource("3_r171v")]
 visible = false
@@ -183,6 +189,10 @@ text = "Start Menu"
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../checkpoint")
 text = "Exit"
+
+[node name="level_end" parent="center/panel/margin/tabs" instance=ExtResource("15_a8tta")]
+visible = false
+layout_mode = 2
 
 [connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/resume_game" to="." method="_on_focus_entered"]

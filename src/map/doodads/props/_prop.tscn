@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/map/doodads/props/_prop.gd" id="1_0ni05"]
 
-[node name="_prop" type="StaticBody3D"]
+[node name="_prop" type="StaticBody3D" groups=["prop"]]
 script = ExtResource("1_0ni05")
 
 [node name="sprite3D" type="AnimatedSprite3D" parent="."]

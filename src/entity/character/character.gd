@@ -36,6 +36,7 @@ var objective_path := {"lines": [], "points": []}
 
 @export_category("Npc")
 @export_range(0.0, 50.0) var shoot_range: float = 12.0
+@export var show_light := false
 
 @export_category("Items")
 @export var inventory: Array[Item.Type] = []
@@ -67,6 +68,9 @@ func _ready():
 		.map(func(c): hit_scan_melee.remove_exception(c); \
 			hit_scan_shoot.remove_exception(c))
 	_set_npc(npc)
+	if not npc:
+		for prop in get_tree().get_nodes_in_group("prop"):
+			prop.set("look_at_node", self)
 
 func _on_nav_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
@@ -99,7 +103,7 @@ func _set_health(_health: int):
 func _set_npc(_npc: bool):
 	npc = _npc
 	$img/pivot/springArm3D/camera3D.current = !_npc
-	$img/spotLight3D.visible = !_npc
+	$img/spotLight3D.visible = not _npc or (npc and show_light)
 	$navigationAgent3D.avoidance_enabled = _npc
 	remove_from_group("player" if _npc else "npc")
 	add_to_group("npc" if _npc else "player")

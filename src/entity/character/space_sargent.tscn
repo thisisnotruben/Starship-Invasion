@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://df6d4i7jlrp1q"]
-
-[ext_resource type="PackedScene" uid="uid://d3m1ci2db7oss" path="res://src/entity/character/character.tscn" id="1_37yaf"]
-[ext_resource type="SpriteFrames" uid="uid://dggt0delhoqnm" path="res://resource/character_2.tres" id="2_uf8vh"]
-
-[node name="Space Sargent" instance=ExtResource("1_37yaf")]
-
-[node name="img" parent="." index="6"]
-sprite_frames = ExtResource("2_uf8vh")

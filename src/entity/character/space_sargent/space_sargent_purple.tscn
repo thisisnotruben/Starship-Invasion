@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c67pgjyaq1fh6"]
+
+[ext_resource type="PackedScene" uid="uid://33fcv04ubs3b" path="res://src/entity/character/space_warrior/space_warrior_purple.tscn" id="1_yicpx"]
+[ext_resource type="SpriteFrames" uid="uid://1s4vededo4ii" path="res://resource/character/space_sargent/character_2.2.tres" id="2_y2p0x"]
+
+[node name="Space Sargent Purple" instance=ExtResource("1_yicpx")]
+health_max = 8
+
+[node name="img" parent="." index="10"]
+sprite_frames = ExtResource("2_y2p0x")

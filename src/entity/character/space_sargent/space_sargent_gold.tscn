@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfd5jjv06mdg6"]
+
+[ext_resource type="PackedScene" uid="uid://cm48jcul0vcsb" path="res://src/entity/character/space_warrior/space_warrior_gold.tscn" id="1_ma813"]
+[ext_resource type="SpriteFrames" uid="uid://cbbq76bx4wrau" path="res://resource/character/space_sargent/character_2.1.tres" id="2_e2jm6"]
+
+[node name="Space Sargent Gold" instance=ExtResource("1_ma813")]
+health_max = 10
+shoot_range = 25.0
+
+[node name="img" parent="." index="10"]
+sprite_frames = ExtResource("2_e2jm6")

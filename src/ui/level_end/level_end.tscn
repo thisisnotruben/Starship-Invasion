@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://xg0uuf5fiv5b"]
+
+[ext_resource type="Script" path="res://src/ui/level_end/level_end.gd" id="1_vl14s"]
+[ext_resource type="AudioStream" uid="uid://dpftmeufvcwmn" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Transition Sound 2.wav" id="2_dnrc2"]
+
+[node name="level_end" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vl14s")
+
+[node name="snd_start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dnrc2")
+bus = &"sfx"
+
+[node name="header" type="Label" parent="."]
+layout_mode = 2
+text = "Level Finished!
+-----------------"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="grid" type="GridContainer" parent="."]
+layout_mode = 2
+columns = 2
+
+[node name="time_header" type="Label" parent="grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Time:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="time" type="Label" parent="grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0:00"
+vertical_alignment = 1
+
+[node name="victims_header" type="Label" parent="grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Victims:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="victims" type="Label" parent="grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0/0"
+vertical_alignment = 1
+
+[node name="times_died_header" type="Label" parent="grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Times Died:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="times_died" type="Label" parent="grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+vertical_alignment = 1
+
+[node name="finish" type="Button" parent="."]
+layout_mode = 2
+text = "FINISH!"
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="focus_entered" from="finish" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="finish" to="." method="_on_finish_pressed"]

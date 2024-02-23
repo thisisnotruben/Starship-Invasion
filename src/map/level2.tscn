@@ -1,4 +1,4 @@
-[gd_scene load_steps=229 format=3 uid="uid://cnukcmbie022t"]
+[gd_scene load_steps=234 format=3 uid="uid://cnukcmbie022t"]
 
 [ext_resource type="Script" path="res://src/map/level2/level2_objectives.gd" id="1_hg7ua"]
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_pmdae"]
@@ -203,6 +203,7 @@
 [ext_resource type="Texture2D" uid="uid://c2x62njpcj5lp" path="res://asset/img/PlanetsFull/Starfield/1.png" id="200_t5vrb"]
 [ext_resource type="Texture2D" uid="uid://cpe30wc3fug7c" path="res://asset/img/PlanetsFull/Starfield/4.png" id="201_kic2v"]
 [ext_resource type="Texture2D" uid="uid://bsnwykmbfk1lm" path="res://asset/img/PlanetsFull/Starfield/3.png" id="202_d7chl"]
+[ext_resource type="Script" path="res://src/map/doodads/start_cinematic.gd" id="204_5sqli"]
 [ext_resource type="PackedScene" uid="uid://cd26og66hea18" path="res://src/map/doodads/checkpoint/chechpoint.tscn" id="204_ip7qe"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_355ev"]
@@ -819,6 +820,322 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_7hrbe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow3D/Camera3D:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../game_interface/hud/transition:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Camera3D2:current")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Camera3D3:current")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Camera3D4:current")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Camera3D5:current")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Camera3D6:current")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Camera3D7:current")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../../characters/player:npc")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../../game_interface/hud/margin:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2rby3"]
+resource_name = "start_cinematic"
+length = 15.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow3D/Camera3D:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../game_interface/hud/transition:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5, 3, 3.5, 4.5, 5, 5.5, 6.5, 7, 7.5, 8.5, 9, 9.5, 10.5, 11, 11.5, 12.5, 13, 13.5, 14.5, 15, 15.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 3, 5, 7, 9, 11, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [NodePath("Path3D/PathFollow3D/Camera3D")],
+"method": &"set_look_at"
+}, {
+"args": [NodePath("Camera3D2")],
+"method": &"set_look_at"
+}, {
+"args": [NodePath("Camera3D3")],
+"method": &"set_look_at"
+}, {
+"args": [NodePath("Camera3D4")],
+"method": &"set_look_at"
+}, {
+"args": [NodePath("Camera3D5")],
+"method": &"set_look_at"
+}, {
+"args": [NodePath("Camera3D6")],
+"method": &"set_look_at"
+}, {
+"args": [NodePath("Camera3D7")],
+"method": &"set_look_at"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Camera3D2:current")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Camera3D3:current")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Camera3D4:current")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(7, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Camera3D5:current")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(9, 11),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../Camera3D6:current")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(11, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Camera3D7:current")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(13, 14.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../../characters/player:npc")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 14.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../../game_interface/hud/margin:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 15.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kgqcq"]
+_data = {
+"RESET": SubResource("Animation_7hrbe"),
+"start_cinematic": SubResource("Animation_2rby3")
+}
+
+[sub_resource type="Curve3D" id="Curve3D_b7oil"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 25.9168, 0, -34.0141, 0, 0, 0, 0, 0, 0, 37.9692, 0, -34.0425),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
 
 [node name="level2" type="Node3D"]
 
@@ -2371,10 +2688,12 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="player" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("16_dxnqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0.002, -34)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0.002, 115.5)
 health_max = 6
 npc = false
+friendly = true
 objective_map = NodePath("../../objectives")
+show_light = true
 
 [node name="img" parent="characters/player" index="10"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -4592,7 +4911,7 @@ size = Vector3(4, 2, 4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 1, 220)
 size = Vector3(4, 2, 4)
 
-[node name="GPUParticlesCollisionHeightField3D" parent="space_walk" index="9"]
+[node name="GPUParticlesCollisionHeightField3D" parent="space_walk" index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.5, 2.25, 178)
 size = Vector3(20, 5.5, 124)
 
@@ -4785,6 +5104,45 @@ player = NodePath("../../characters/player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 2, 242.5)
 player = NodePath("../../characters/player")
 
+[node name="start_cinematic" type="Node3D" parent="." node_paths=PackedStringArray("anim")]
+script = ExtResource("204_5sqli")
+anim = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="start_cinematic"]
+root_node = NodePath("../Path3D")
+libraries = {
+"": SubResource("AnimationLibrary_kgqcq")
+}
+
+[node name="Path3D" type="Path3D" parent="start_cinematic"]
+curve = SubResource("Curve3D_b7oil")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="start_cinematic/Path3D"]
+transform = Transform3D(0.00235607, 0, -0.999871, 0, 1, 0, 0.999871, 0, 0.00235607, 25.9168, 1.5, -34.0141)
+v_offset = 1.5
+
+[node name="Camera3D" type="Camera3D" parent="start_cinematic/Path3D/PathFollow3D"]
+transform = Transform3D(1, 0, 0, 0, 0.976296, 0.21644, 0, -0.21644, 0.976296, 0, 0, 0)
+current = true
+
+[node name="Camera3D2" type="Camera3D" parent="start_cinematic"]
+transform = Transform3D(-0.642788, -0.165802, 0.747886, 0, 0.976296, 0.21644, -0.766045, 0.139125, -0.627551, 18, 2, 14)
+
+[node name="Camera3D3" type="Camera3D" parent="start_cinematic"]
+transform = Transform3D(-1, -4.80536e-08, 1.72502e-07, -9.57828e-09, 0.976296, 0.21644, -1.78814e-07, 0.21644, -0.976296, 86, 2, 30)
+
+[node name="Camera3D4" type="Camera3D" parent="start_cinematic"]
+transform = Transform3D(1, 6.69754e-08, -2.57853e-07, -9.57828e-09, 0.976296, 0.21644, 2.66237e-07, -0.21644, 0.976296, 82, 2, -22)
+
+[node name="Camera3D5" type="Camera3D" parent="start_cinematic"]
+transform = Transform3D(-3.09948e-07, 0.21644, -0.976296, -9.57829e-09, 0.976296, 0.21644, 1, 7.64363e-08, -3.00528e-07, 2, 2, 54)
+
+[node name="Camera3D6" type="Camera3D" parent="start_cinematic"]
+transform = Transform3D(-1, -8.58972e-08, 3.43203e-07, -9.57829e-09, 0.976296, 0.21644, -3.53659e-07, 0.21644, -0.976296, 82, 2, 117.5)
+
+[node name="Camera3D7" type="Camera3D" parent="start_cinematic"]
+transform = Transform3D(-1, -8.58972e-08, 3.43203e-07, -9.57829e-09, 0.976296, 0.21644, -3.53659e-07, 0.21644, -0.976296, 22, 2, 278)
+
 [node name="game_interface" parent="." instance=ExtResource("3_w2e33")]
 
 [node name="game" parent="game_interface" index="0" node_paths=PackedStringArray("player")]
@@ -4792,6 +5150,9 @@ player = NodePath("../../characters/player")
 
 [node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
 player = NodePath("../../characters/player")
+
+[node name="margin" parent="game_interface/hud" index="3"]
+visible = false
 
 [connection signal="finished" from="music" to="music" method="_on_finished"]
 [connection signal="body_entered" from="toggles/space-walk/Area3D" to="toggles/space-walk" method="_on_area_3d_body_entered"]
