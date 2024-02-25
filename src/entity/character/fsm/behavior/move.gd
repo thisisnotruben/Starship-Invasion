@@ -3,8 +3,6 @@ extends BehaviorState
 @export var nav_agent: NavigationAgent3D = null
 var move_to_pos := Vector3.ZERO
 
-signal finished
-
 
 func enter():
 	super.enter()

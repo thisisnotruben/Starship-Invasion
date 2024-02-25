@@ -13,7 +13,8 @@ class_name Character
 @onready var fsm: Fsm = $fsm
 @onready var behavior: Fsm = $fsm_behavior.init({
 	BehaviorStates.Type.ATTACK: $fsm_behavior/attack,
-	BehaviorStates.Type.REST: $fsm_behavior/rest}
+	BehaviorStates.Type.REST: $fsm_behavior/rest,
+	BehaviorStates.Type.MOVE_TO: $fsm_behavior/move_to}
 	, {"character": self})
 
 @export_range(1, 10) var health_max: int = 2
@@ -250,3 +251,7 @@ func aggro(_body: Node3D) -> bool:
 			.map(func(c): c.aggro(target))
 		return true
 	return false
+
+func move_to(pos: Vector3):
+	$fsm_behavior/move_to.move_to_pos = pos
+	behavior.state = BehaviorStates.Type.MOVE_TO

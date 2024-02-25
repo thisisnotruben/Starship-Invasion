@@ -7,5 +7,8 @@ extends ITriggerable
 func trigger(node: Node3D):
 	if node is Character and node.npc:
 		if move_to_marker != null:
-			pass
+			node.move_to(move_to_marker.global_position)
+			await get_tree().create_timer(1.0).timeout
 		node.aggro(player)
+		if node.target == null:
+			node.queue_free()

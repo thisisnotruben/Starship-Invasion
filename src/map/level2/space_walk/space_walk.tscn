@@ -24,6 +24,7 @@ stream = ExtResource("4_10yfb")
 bus = &"sfx"
 script = ExtResource("5_cf1fp")
 snd = NodePath(".")
+fade_time = 1.0
 
 [node name="asteroid_indicator_timer" type="Timer" parent="."]
 one_shot = true

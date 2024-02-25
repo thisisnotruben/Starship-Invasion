@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://rbjx38p5litc"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://rbjx38p5litc"]
 
 [sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_0hhfn"]
 resource_name = "PitchShift"
@@ -12,6 +12,19 @@ tap2_active = false
 [sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_ch6d5"]
 resource_name = "PitchShift"
 pitch_scale = 0.8
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_6n6cy"]
+resource_name = "PitchShift"
+pitch_scale = 0.6
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_rallf"]
+resource_name = "Delay"
+
+[sub_resource type="AudioEffectEQ" id="AudioEffectEQ_e0ork"]
+resource_name = "EQ"
+band_db/320_hz = 13.5
+band_db/3200_hz = -12.7
+band_db/10000_hz = 5.3
 
 [resource]
 bus/0/volume_db = 6.02
@@ -45,3 +58,15 @@ bus/4/volume_db = 0.0
 bus/4/send = &"sfx"
 bus/4/effect/0/effect = SubResource("AudioEffectPitchShift_ch6d5")
 bus/4/effect/0/enabled = true
+bus/5/name = &"sfx_3"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"sfx"
+bus/5/effect/0/effect = SubResource("AudioEffectPitchShift_6n6cy")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectDelay_rallf")
+bus/5/effect/1/enabled = true
+bus/5/effect/2/effect = SubResource("AudioEffectEQ_e0ork")
+bus/5/effect/2/enabled = true
