@@ -4,7 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://1s4vededo4ii" path="res://resource/character/space_sargent/character_2.2.tres" id="2_y2p0x"]
 
 [node name="Space Sargent Purple" instance=ExtResource("1_yicpx")]
-health_max = 8
+melee_damage = 2
+range_damage = 2
 
 [node name="img" parent="." index="10"]
 sprite_frames = ExtResource("2_y2p0x")

@@ -112,6 +112,9 @@ func _set_npc(_npc: bool):
 		set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if is_inside_tree():
+			for prop in get_tree().get_nodes_in_group("prop"):
+				prop.set("look_at_node", self)
 	_set_friendly(friendly)
 
 func _set_friendly(_friendly: bool):

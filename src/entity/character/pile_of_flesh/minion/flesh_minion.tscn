@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://ca2c18fyewmsc" path="res://asset/snd/5338 - Alien Insectoid Monster Voice Pack/Alien Insectoid Monster Voice 10.wav" id="11_37bq0"]
 
 [node name="flesh_minion" instance=ExtResource("1_rpecu")]
+health_max = 1
 
 [node name="idle" parent="fsm" index="0"]
 quips = Array[AudioStream]([ExtResource("2_fxcps"), ExtResource("3_tabwp"), ExtResource("4_ifsob"), ExtResource("5_ldfso"), ExtResource("6_58mte"), ExtResource("7_g8yoq"), ExtResource("8_cepat"), ExtResource("9_tjq7f"), ExtResource("10_pvnv6"), ExtResource("11_37bq0")])

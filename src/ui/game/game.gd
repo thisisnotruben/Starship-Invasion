@@ -5,12 +5,13 @@ var play_focus_sfx := false
 @export var player: Character = null
 @export var start_menu_scene: PackedScene = null
 var dead := false
+var checkpoint := false
 
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
 @onready var prev_tab: Control = $center/panel/margin/tabs/main/resume_game
 var tabs := {"main": 0, "license": 1, "credits": 2, "popup": 3, \
-"controls": 4, "settings": 5, "dead": 6, "next_level": 7}
+"controls": 4, "settings": 5, "dead": 6, "next_level": 7, "difficulty": 8}
 
 
 func _ready():
@@ -32,7 +33,8 @@ func _input(event: InputEvent):
 			$snd_resume.play()
 	elif event.is_action_pressed("ui_cancel") \
 	and [tabs["license"], tabs["credits"], tabs["popup"], \
-	tabs["controls"], tabs["settings"]].has(tab.current_tab):
+	tabs["controls"], tabs["settings"], tabs["difficulty"]] \
+	.has(tab.current_tab):
 		_on_back_pressed(not dead)
 
 func _on_focus_entered():
@@ -79,6 +81,17 @@ func _on_credits_pressed():
 	prev_tab = $center/panel/margin/tabs/main/grid/credits
 	tab.current_tab = tabs["credits"]
 
+func _on_checkpoint_pressed():
+	$snd.play()
+	prev_tab = $center/panel/margin/tabs/dead/checkpoint
+	checkpoint = true
+	tab.current_tab = tabs["difficulty"]
+
+func _on_restart_pressed():
+	$snd.play()
+	prev_tab = $center/panel/margin/tabs/dead/restart
+	tab.current_tab = tabs["difficulty"]
+
 func _on_exit_pressed(main := true):
 	$snd_popup.play()
 	popup.display("Exit Game?", "Exit", "Stay")
@@ -98,19 +111,6 @@ func _on_back_pressed(main := true):
 	$snd_back.play()
 	tab.current_tab = tabs["main" if main else "dead"]
 
-func _on_checkpoint_pressed():
-	$snd_game.play()
-	$center/panel/margin/tabs/dead/checkpoint.release_focus()
-	await $snd_game.finished
-	get_tree().reload_current_scene()
-
-func _on_restart_pressed():
-	$snd_game.play()
-	$center/panel/margin/tabs/dead/restart.release_focus()
-	await $snd_game.finished
-	Checkpoint.data.clear()
-	get_tree().reload_current_scene()
-
 func _on_visibility_changed():
 	if not dead and is_inside_tree() \
 	and get_tree() != null:
@@ -123,6 +123,9 @@ func _on_main_draw():
 	play_focus_sfx = false
 	prev_tab.grab_focus()
 	play_focus_sfx = true
+
+func _on_difficulty_draw():
+	$center/panel/margin/tabs/difficulty/medium.grab_focus()
 
 func show_death_screen(player_health: int):
 	if player_health == 0:
@@ -143,3 +146,24 @@ func next_level(next_level_scene: PackedScene, level: int):
 	tab.current_tab = tabs["next_level"]
 	tab.get_child(tabs["next_level"]).set("next_level", next_level_scene)
 	show()
+
+func _on_difficulty_pressed(difficulty: String):
+	var chosen_difficulty := Difficulty.Type.MEDIUM
+	match difficulty:
+		"easy":
+			chosen_difficulty = Difficulty.Type.EASY
+			$center/panel/margin/tabs/difficulty/easy.release_focus()
+		"hard":
+			chosen_difficulty = Difficulty.Type.HARD
+			$center/panel/margin/tabs/difficulty/hard.release_focus()
+		_:
+			$center/panel/margin/tabs/difficulty/medium.release_focus()
+	Difficulty.des_diff = chosen_difficulty
+	if checkpoint:
+		$center/panel/margin/tabs/dead/checkpoint.release_focus()
+	else:
+		$center/panel/margin/tabs/dead/restart.release_focus()
+		Checkpoint.data.clear()
+	$snd_game.play()
+	await $snd_game.finished
+	get_tree().reload_current_scene()

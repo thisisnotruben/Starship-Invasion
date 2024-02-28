@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://wevqcccjjux" path="res://resource/character/space_warrior/character_1.2.tres" id="2_q1h68"]
 
 [node name="Space Warrior Purple" instance=ExtResource("1_gh8mq")]
+health_max = 8
 
 [node name="img" parent="." index="10"]
 sprite_frames = ExtResource("2_q1h68")

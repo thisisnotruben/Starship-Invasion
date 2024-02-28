@@ -1,9 +1,10 @@
-[gd_scene load_steps=341 format=3 uid="uid://5oj7n5mqy7ne"]
+[gd_scene load_steps=342 format=3 uid="uid://5oj7n5mqy7ne"]
 
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_8csrw"]
 [ext_resource type="Script" path="res://src/map/doodads/music.gd" id="1_im8xg"]
 [ext_resource type="Script" path="res://src/map/level4/level4_objectives.gd" id="1_wfble"]
 [ext_resource type="AudioStream" uid="uid://cqkmcwl1fmjsd" path="res://asset/snd/DOS-88/DOS-88 - Retrograde Motion - 10 Automata.ogg" id="2_ca233"]
+[ext_resource type="Script" path="res://src/global/difficulty.gd" id="2_rtuj3"]
 [ext_resource type="PackedScene" uid="uid://d3bnjjdsas4ei" path="res://src/ui/game_interface.tscn" id="3_hpude"]
 [ext_resource type="AudioStream" uid="uid://cat7nmh5ani4o" path="res://asset/snd/DOS-88/DOS-88 - Only In Dreams.mp3" id="3_wlnpp"]
 [ext_resource type="PackedScene" uid="uid://c4hi0ie8sw4sa" path="res://asset/crocotile3d/map4/map_4.tscn" id="3_ww1ik"]
@@ -1559,6 +1560,9 @@ animations = [{
 
 [node name="objectives" type="Node" parent="."]
 script = ExtResource("1_wfble")
+
+[node name="difficulty" type="Node" parent="."]
+script = ExtResource("2_rtuj3")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -3357,21 +3361,25 @@ drop = null
 
 [node name="flesh_minion_green" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("50_my7p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, 14)
+health_max = 2
 objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="flesh_minion_green2" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("50_my7p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68, 0, 15)
+health_max = 2
 objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="flesh_minion_green3" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("50_my7p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68, 0, 4)
+health_max = 2
 objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="flesh_minion_green4" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("50_my7p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, 5)
+health_max = 2
 objective_map = NodePath("../../objectives")
 drop = null
 
@@ -3517,16 +3525,19 @@ drop = null
 
 [node name="flesh_minion_blue" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("55_i4brk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.99322, -9.53674e-07, 5.84057)
+health_max = 2
 objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="flesh_minion_blue2" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("55_i4brk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.13149, 9.53674e-07, 15.4158)
+health_max = 2
 objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="flesh_minion_blue3" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("55_i4brk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.80157, 0, 14.9374)
+health_max = 2
 objective_map = NodePath("../../objectives")
 drop = null
 
@@ -3817,16 +3828,19 @@ drop = null
 
 [node name="flesh_minion_green7" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("50_my7p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -235.378, 0, 60.1324)
+health_max = 2
 objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="flesh_minion_green8" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("50_my7p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -229.24, 1.90735e-06, 64.7717)
+health_max = 2
 objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="flesh_minion_green9" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("50_my7p0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -236.729, 0, 64.8397)
+health_max = 2
 objective_map = NodePath("../../objectives")
 drop = null
 
@@ -5131,17 +5145,6 @@ transform = Transform3D(-0.34202, 0.203387, -0.917418, 1.48445e-08, 0.976296, 0.
 [node name="Camera3D5" type="Camera3D" parent="start_cinematic"]
 transform = Transform3D(-1, 3.38438e-08, -8.40747e-08, 1.48445e-08, 0.976296, 0.21644, 8.9407e-08, 0.21644, -0.976296, -186, 2, 122.5)
 
-[node name="game_interface" parent="." instance=ExtResource("3_hpude")]
-
-[node name="game" parent="game_interface" index="0" node_paths=PackedStringArray("player")]
-player = NodePath("../../characters/player")
-
-[node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
-player = NodePath("../../characters/player")
-
-[node name="margin" parent="game_interface/hud" index="3"]
-visible = false
-
 [node name="space" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -221.5, 0, 116.5)
 
@@ -5299,6 +5302,17 @@ light_color = Color(2, 2, 2, 1)
 light_energy = 24.0
 shadow_enabled = true
 omni_range = 64.0
+
+[node name="game_interface" parent="." instance=ExtResource("3_hpude")]
+
+[node name="game" parent="game_interface" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
+
+[node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
+
+[node name="margin" parent="game_interface/hud" index="3"]
+visible = false
 
 [connection signal="finished" from="music" to="music" method="_on_finished"]
 [connection signal="body_entered" from="toggles/space-walk/Area3D" to="toggles/space-walk" method="_on_area_3d_body_entered"]

@@ -5,6 +5,8 @@
 
 [node name="Space Sargent" instance=ExtResource("1_qbar5")]
 health_max = 8
+melee_damage = 2
+range_damage = 2
 
 [node name="img" parent="." index="10"]
 sprite_frames = ExtResource("2_bo30w")

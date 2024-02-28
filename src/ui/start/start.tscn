@@ -1,19 +1,82 @@
-[gd_scene load_steps=15 format=3 uid="uid://cm6lrl0cgaejr"]
+[gd_scene load_steps=31 format=3 uid="uid://cm6lrl0cgaejr"]
 
 [ext_resource type="Script" path="res://src/ui/start/start.gd" id="1_pxw42"]
 [ext_resource type="AudioStream" uid="uid://b1tmf6dh3f8bg" path="res://asset/snd/DOS-88/DOS-88 - Dream Electro - 09 Summer Forever.ogg" id="2_6hujg"]
+[ext_resource type="VideoStream" path="res://asset/video/level1_00000000.ogv" id="2_rckj6"]
 [ext_resource type="AudioStream" uid="uid://dpftmeufvcwmn" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Transition Sound 2.wav" id="2_s5o14"]
 [ext_resource type="AudioStream" uid="uid://b28p215bebbx2" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 6.wav" id="2_wtbf0"]
 [ext_resource type="AudioStream" uid="uid://doasgi164mq1g" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 4.wav" id="3_j5n5w"]
 [ext_resource type="PackedScene" uid="uid://v51siikiuxu0" path="res://src/ui/license/license.tscn" id="3_stmor"]
+[ext_resource type="VideoStream" path="res://asset/video/level1_00000300.ogv" id="3_xxicg"]
 [ext_resource type="PackedScene" uid="uid://b2q8kep108aib" path="res://src/ui/credits/credits.tscn" id="4_gjr5u"]
+[ext_resource type="VideoStream" path="res://asset/video/level1_00000600.ogv" id="4_spl8t"]
 [ext_resource type="AudioStream" uid="uid://cul2ek767wy42" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 2.wav" id="4_vxyq2"]
+[ext_resource type="VideoStream" path="res://asset/video/level1_00000901.ogv" id="5_cx1g5"]
 [ext_resource type="PackedScene" uid="uid://cdgdcmr8nn7t" path="res://src/ui/controls/controls.tscn" id="5_jv6p1"]
+[ext_resource type="VideoStream" path="res://asset/video/level1_00000001.ogv" id="6_4ghcq"]
 [ext_resource type="PackedScene" uid="uid://davqs3425w0qk" path="res://src/ui/effects/effects.tscn" id="6_qo541"]
 [ext_resource type="AudioStream" uid="uid://cdljqjsm5lot5" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Error Sound 3.wav" id="7_2pwke"]
+[ext_resource type="VideoStream" path="res://asset/video/zone2-0.ogv" id="7_6o1i5"]
+[ext_resource type="VideoStream" path="res://asset/video/zone2-1.ogv" id="8_dp6nc"]
+[ext_resource type="VideoStream" path="res://asset/video/zone2-2.ogv" id="9_m0vf8"]
 [ext_resource type="AudioStream" uid="uid://deq57glwxblhk" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Pop-Up Sound 2.wav" id="9_vqq1o"]
+[ext_resource type="VideoStream" path="res://asset/video/zone2-3.ogv" id="10_6sphx"]
+[ext_resource type="VideoStream" path="res://asset/video/zone2-4.ogv" id="11_bhbpi"]
+[ext_resource type="VideoStream" path="res://asset/video/zone2-5.ogv" id="12_3mr1g"]
 [ext_resource type="PackedScene" uid="uid://cffj2cxc154f2" path="res://src/ui/popup/popup.tscn" id="12_lp0hd"]
+[ext_resource type="VideoStream" path="res://asset/video/zone2-6.ogv" id="13_j8jwt"]
+[ext_resource type="VideoStream" path="res://asset/video/zone3-0.ogv" id="14_u8e4a"]
 [ext_resource type="PackedScene" uid="uid://cu0ekcdh24es1" path="res://src/ui/settings/settings.tscn" id="14_yqrh2"]
+
+[sub_resource type="Animation" id="Animation_sxijb"]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg_color:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_video_transition"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_as0gl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg_color:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tdcy"]
+_data = {
+"RESET": SubResource("Animation_as0gl"),
+"transition": SubResource("Animation_sxijb")
+}
 
 [node name="start" type="Control"]
 layout_mode = 3
@@ -23,6 +86,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pxw42")
+videos = Array[VideoStream]([ExtResource("2_rckj6"), ExtResource("3_xxicg"), ExtResource("4_spl8t"), ExtResource("5_cx1g5"), ExtResource("6_4ghcq"), ExtResource("7_6o1i5"), ExtResource("8_dp6nc"), ExtResource("9_m0vf8"), ExtResource("10_6sphx"), ExtResource("11_bhbpi"), ExtResource("12_3mr1g"), ExtResource("13_j8jwt"), ExtResource("14_u8e4a")])
+video_lengths = Array[float]([12.0, 12.0, 12.0, 10.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 61.0, 21.0])
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_6hujg")
@@ -52,6 +117,30 @@ bus = &"sfx"
 [node name="snd_popup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_vqq1o")
 bus = &"sfx"
+
+[node name="bg_video" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autoplay = true
+expand = true
+
+[node name="bg_color" type="ColorRect" parent="bg_video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="anim" type="AnimationPlayer" parent="bg_video"]
+libraries = {
+"": SubResource("AnimationLibrary_1tdcy")
+}
 
 [node name="center" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -162,8 +251,37 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../level1")
 text = "Back"
 
+[node name="difficulty" type="VBoxContainer" parent="center/panel/margin/tabs"]
+visible = false
+layout_mode = 2
+
+[node name="header" type="Label" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Skill Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="easy" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../back")
+text = "Easy"
+
+[node name="medium" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Medium"
+
+[node name="hard" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Hard"
+
+[node name="back" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../easy")
+text = "Back"
+
 [node name="effects" parent="." instance=ExtResource("6_qo541")]
 
+[connection signal="finished" from="bg_video" to="." method="_on_video_transition"]
 [connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/start" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/start" to="." method="_on_start_pressed"]
@@ -197,3 +315,12 @@ text = "Back"
 [connection signal="pressed" from="center/panel/margin/tabs/level/level4" to="." method="_on_level_pressed" binds= [4]]
 [connection signal="focus_entered" from="center/panel/margin/tabs/level/back" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/level/back" to="." method="_on_back_pressed"]
+[connection signal="draw" from="center/panel/margin/tabs/difficulty" to="." method="_on_difficulty_draw"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/easy" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/easy" to="." method="_on_difficulty_pressed" binds= ["easy"]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/medium" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/medium" to="." method="_on_difficulty_pressed" binds= ["medium"]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_difficulty_pressed" binds= ["hard"]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_back_pressed"]

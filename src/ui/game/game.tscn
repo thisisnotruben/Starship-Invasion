@@ -194,6 +194,34 @@ text = "Exit"
 visible = false
 layout_mode = 2
 
+[node name="difficulty" type="VBoxContainer" parent="center/panel/margin/tabs"]
+visible = false
+layout_mode = 2
+
+[node name="header" type="Label" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Skill Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="easy" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../back")
+text = "Easy"
+
+[node name="medium" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Medium"
+
+[node name="hard" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+text = "Hard"
+
+[node name="back" type="Button" parent="center/panel/margin/tabs/difficulty"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../easy")
+text = "Back"
+
 [connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/resume_game" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/resume_game" to="." method="_on_resume_game_pressed"]
@@ -227,3 +255,12 @@ layout_mode = 2
 [connection signal="pressed" from="center/panel/margin/tabs/dead/start_menu" to="." method="_on_start_menu_pressed" binds= [false]]
 [connection signal="focus_entered" from="center/panel/margin/tabs/dead/exit" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/dead/exit" to="." method="_on_exit_pressed" binds= [false]]
+[connection signal="draw" from="center/panel/margin/tabs/difficulty" to="." method="_on_difficulty_draw"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/easy" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/easy" to="." method="_on_difficulty_pressed" binds= ["easy"]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/medium" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/medium" to="." method="_on_difficulty_pressed" binds= ["medium"]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_difficulty_pressed" binds= ["hard"]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_back_pressed" binds= [false]]

@@ -1,5 +1,7 @@
 extends Fsm
 
+const NPC_FLIP := Vector2(1.0, -1.0)
+
 var anim_state_map := {}
 @export var character: Character = null
 
@@ -35,12 +37,13 @@ func _set_state(_state_type) -> bool:
 			var flip: Vector2 = character.anim_tree[blend_pos]
 			match anim_state_map[_state_type]:
 				"shoot", "move-shoot", "melee":
-					flip = Vector2.UP if character.npc else Vector2.DOWN
+					flip = NPC_FLIP if character.npc else Vector2.DOWN
 				_:
-					if flip == Vector2.ZERO:
-						flip = Vector2.UP if character.npc else Vector2.DOWN
-					else:
+					if not character.npc:
 						flip.y *= -1.0
+					else:
+						flip = Vector2(flip.x * -1.0, NPC_FLIP.y) if character.npc \
+							else Vector2.DOWN
 			character.anim_tree[blend_pos] = flip
 
 		if not character.img.is_playing():

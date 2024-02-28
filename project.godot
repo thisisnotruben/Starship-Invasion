@@ -26,6 +26,11 @@ window/size/viewport_height=720
 window/size/mode=3
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/mjpeg_quality=1.0
+movie_writer/movie_file="C:/Users/ruben/Downloads/ffmpeg-6.1.1-essentials_build/ffmpeg-6.1.1-essentials_build/bin/overmind/recorded_game.png"
+
 [gui]
 
 theme/custom="res://resource/theme.tres"
