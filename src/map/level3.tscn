@@ -1,9 +1,8 @@
-[gd_scene load_steps=357 format=3 uid="uid://cps38a2whdhpg"]
+[gd_scene load_steps=363 format=3 uid="uid://cps38a2whdhpg"]
 
 [ext_resource type="Script" path="res://src/map/level3/level3_objectives.gd" id="1_f5jh4"]
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_qisqu"]
 [ext_resource type="AudioStream" uid="uid://cqkmcwl1fmjsd" path="res://asset/snd/DOS-88/DOS-88 - Retrograde Motion - 10 Automata.ogg" id="2_efayn"]
-[ext_resource type="AudioStream" uid="uid://caal853rvelvn" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 11 Home Base.ogg" id="2_jxvuv"]
 [ext_resource type="Script" path="res://src/global/difficulty.gd" id="2_kesrn"]
 [ext_resource type="Script" path="res://src/map/doodads/music.gd" id="2_opopk"]
 [ext_resource type="Environment" uid="uid://lgpdmt1bb81o" path="res://resource/env.tres" id="2_sp0co"]
@@ -80,6 +79,8 @@
 [ext_resource type="PackedScene" uid="uid://cd26og66hea18" path="res://src/map/doodads/checkpoint/chechpoint.tscn" id="76_74eve"]
 [ext_resource type="AudioStream" uid="uid://dol4gnj205422" path="res://asset/snd/2896 - Sci-Fi Door Pack/Sci-Fi Doors Close 3.wav" id="76_vy34w"]
 [ext_resource type="Script" path="res://src/map/doodads/start_cinematic.gd" id="76_wxmyh"]
+[ext_resource type="AudioStream" uid="uid://ceoa4rml8825l" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Defense_System_Activated.wav" id="78_arbk7"]
+[ext_resource type="Script" path="res://src/map/level4/toggle_checkpoint_reached.gd" id="80_a2bso"]
 [ext_resource type="PackedScene" uid="uid://bfd5jjv06mdg6" path="res://src/entity/character/space_sargent/space_sargent_gold.tscn" id="80_c4m0s"]
 [ext_resource type="Texture2D" uid="uid://cq7uomd7usk1f" path="res://asset/img/PlanetsFull/Suns/1.png" id="81_awwdm"]
 [ext_resource type="Texture2D" uid="uid://bx83tagy7o3gt" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/1.png" id="82_jouhx"]
@@ -520,9 +521,6 @@ _data = {
 "new_animation_reverse": SubResource("Animation_7vki8")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ya61m"]
-size = Vector3(35, 4, 39)
-
 [sub_resource type="Animation" id="Animation_u5c4d"]
 length = 0.001
 tracks/0/type = "value"
@@ -633,6 +631,177 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("turret3/generator:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("turret4/generator:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("end_game_cam:current")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("turret/generator:volume_db")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("turret2/generator:volume_db")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("turret:spatial_sound")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("turret2:spatial_sound")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AudioStreamPlayer2:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("turret:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("turret2:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_crc1e"]
+resource_name = "death_cam"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../game_interface/hud/transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("end_game_cam:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("turret:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("turret2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_mnuke"]
 resource_name = "end"
@@ -728,6 +897,78 @@ tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("turret3/generator:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("turret4/generator:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("turret/generator:volume_db")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("turret2/generator:volume_db")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("turret2:spatial_sound")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("turret:spatial_sound")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -852,18 +1093,144 @@ tracks/9/path = NodePath("AudioStreamPlayer:playing")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("turret3/generator:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("turret4/generator:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("turret/generator:volume_db")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("turret2/generator:volume_db")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("turret:spatial_sound")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("turret2:spatial_sound")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AudioStreamPlayer2:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "method"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("../checkpoints/checkpoint5")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"activate"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t57l3"]
 _data = {
 "RESET": SubResource("Animation_u5c4d"),
+"death_cam": SubResource("Animation_crc1e"),
 "end": SubResource("Animation_mnuke"),
 "start": SubResource("Animation_xg4db")
 }
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yxp3w"]
+resource_local_to_scene = true
+top_radius = 0.03
+bottom_radius = 0.03
+height = 8.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ykgq2"]
+resource_local_to_scene = true
+top_radius = 0.03
+bottom_radius = 0.03
+height = 8.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6ieq3"]
+resource_local_to_scene = true
+top_radius = 0.03
+bottom_radius = 0.03
+height = 8.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q4tr6"]
+resource_local_to_scene = true
+top_radius = 0.03
+bottom_radius = 0.03
+height = 8.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ya61m"]
+size = Vector3(35, 4, 39)
 
 [sub_resource type="Animation" id="Animation_6tbal"]
 length = 0.001
@@ -949,7 +1316,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1863,45 +2230,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_ffovp"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:current")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(34, 3.5, 159)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.218167, -3.14159, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_fs0il"]
 length = 0.001
 tracks/0/type = "value"
@@ -1941,6 +2269,45 @@ tracks/2/keys = {
 "values": [Vector3(-0.218167, -3.14159, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ffovp"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(34, 3.5, 159)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.218167, -3.14159, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dk2ts"]
 _data = {
 "RESET": SubResource("Animation_fs0il"),
@@ -1957,7 +2324,6 @@ script = ExtResource("2_kesrn")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("2_jxvuv")
 autoplay = true
 bus = &"music"
 script = ExtResource("2_opopk")
@@ -3636,10 +4002,10 @@ type = 0
 [node name="characters" type="Node3D" parent="."]
 
 [node name="player" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("7_idokq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 150)
 health_max = 6
-npc = false
 friendly = true
+range_damage = 10
 objective_map = NodePath("../../objectives")
 show_light = true
 
@@ -5308,30 +5674,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 58)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 170)
 metadata/_edit_group_ = true
 
-[node name="AsteroidShooter" parent="asteroid_shooter" node_paths=PackedStringArray("cam", "turrets", "hull_integrity", "countdown_label") instance=ExtResource("73_6gmd2")]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="asteroid_shooter"]
+stream = ExtResource("76_vy34w")
+bus = &"sfx"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="asteroid_shooter"]
+stream = ExtResource("78_arbk7")
+bus = &"sfx"
+
+[node name="anim" type="AnimationPlayer" parent="asteroid_shooter"]
+libraries = {
+"": SubResource("AnimationLibrary_t57l3")
+}
+
+[node name="AsteroidShooter" parent="asteroid_shooter" node_paths=PackedStringArray("cam", "anim", "turrets", "hull_integrity", "countdown_label") instance=ExtResource("73_6gmd2")]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 1.97301, 4, 21)
 cam = NodePath("../pivot/cam")
+anim = NodePath("../anim")
 turrets = [NodePath("../turret"), NodePath("../turret2")]
 aim_length = 64
 rand_asteroid_scale_limit = 4.0
 hull_integrity = NodePath("../../game_interface/hud/margin/vBox/hull_integrity/progressBar")
 countdown_label = NodePath("../../game_interface/hud/margin/vBox/hull_integrity/time_left_sec")
 
+[node name="CollisionShape3D" parent="asteroid_shooter/AsteroidShooter/space_hull" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, -0.5)
+
 [node name="turret" parent="asteroid_shooter" instance=ExtResource("72_7hkii")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 0, 16)
 rotate_gun = true
+spatial_sound = false
+
+[node name="laser_sight" parent="asteroid_shooter/turret/turret_gun/ray" index="0"]
+mesh = SubResource("CylinderMesh_yxp3w")
 
 [node name="turret2" parent="asteroid_shooter" instance=ExtResource("72_7hkii")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, 16)
 rotate_gun = true
+spatial_sound = false
+
+[node name="laser_sight" parent="asteroid_shooter/turret2/turret_gun/ray" index="0"]
+mesh = SubResource("CylinderMesh_ykgq2")
 
 [node name="turret3" parent="asteroid_shooter" instance=ExtResource("72_7hkii")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 2, 0)
 rotate_gun = true
 
+[node name="laser_sight" parent="asteroid_shooter/turret3/turret_gun/ray" index="0"]
+mesh = SubResource("CylinderMesh_6ieq3")
+
 [node name="turret4" parent="asteroid_shooter" instance=ExtResource("72_7hkii")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 2, 0)
 rotate_gun = true
+
+[node name="laser_sight" parent="asteroid_shooter/turret4/turret_gun/ray" index="0"]
+mesh = SubResource("CylinderMesh_q4tr6")
 
 [node name="toggle-computer" parent="asteroid_shooter" node_paths=PackedStringArray("area3d", "i_toggleable") instance=ExtResource("74_f23ro")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, 7.5)
@@ -5361,14 +5758,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.5
 
 [node name="cam" type="Camera3D" parent="asteroid_shooter/pivot"]
 
-[node name="anim" type="AnimationPlayer" parent="asteroid_shooter"]
-libraries = {
-"": SubResource("AnimationLibrary_t57l3")
-}
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="asteroid_shooter"]
-stream = ExtResource("76_vy34w")
-bus = &"sfx"
+[node name="end_game_cam" type="Camera3D" parent="asteroid_shooter"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 7, 19)
 
 [node name="checkpoints" type="Node3D" parent="."]
 
@@ -5380,17 +5771,37 @@ player = NodePath("../../characters/player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 2, 110)
 player = NodePath("../../characters/player")
 
-[node name="checkpoint3" parent="checkpoints" node_paths=PackedStringArray("player") instance=ExtResource("76_74eve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 2, 150)
+[node name="checkpoint3" parent="checkpoints" node_paths=PackedStringArray("player", "i_toggelable") instance=ExtResource("76_74eve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 2, 150)
 player = NodePath("../../characters/player")
+i_toggelable = NodePath("IToggleable")
 
-[node name="checkpoint4" parent="checkpoints" node_paths=PackedStringArray("player") instance=ExtResource("76_74eve")]
+[node name="IToggleable" type="Node3D" parent="checkpoints/checkpoint3" node_paths=PackedStringArray("checkpoint")]
+script = ExtResource("80_a2bso")
+checkpoint = NodePath("../../checkpoint4")
+
+[node name="checkpoint4" parent="checkpoints" node_paths=PackedStringArray("player", "i_toggelable") instance=ExtResource("76_74eve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2, 170)
 player = NodePath("../../characters/player")
+i_toggelable = NodePath("IToggleable")
 
-[node name="start_cinematic" type="Node3D" parent="." node_paths=PackedStringArray("anim")]
+[node name="IToggleable" type="Node3D" parent="checkpoints/checkpoint4" node_paths=PackedStringArray("checkpoint")]
+script = ExtResource("80_a2bso")
+checkpoint = NodePath("../../checkpoint3")
+
+[node name="checkpoint5" parent="checkpoints" node_paths=PackedStringArray("player") instance=ExtResource("76_74eve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 2, 177)
+player = NodePath("../../characters/player")
+disabled = true
+
+[node name="IToggleable" type="Node3D" parent="checkpoints/checkpoint5" node_paths=PackedStringArray("checkpoint")]
+script = ExtResource("80_a2bso")
+checkpoint = NodePath("../../checkpoint3")
+
+[node name="start_cinematic" type="Node3D" parent="." node_paths=PackedStringArray("anim", "player")]
 script = ExtResource("76_wxmyh")
 anim = NodePath("AnimationPlayer")
+player = NodePath("../characters/player")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="start_cinematic"]
 libraries = {
@@ -5583,7 +5994,7 @@ libraries = {
 }
 
 [node name="Camera3D" type="Camera3D" parent="cinematic"]
-transform = Transform3D(-1, 3.26815e-08, -1.47417e-07, 0, 0.976296, 0.21644, 1.50996e-07, 0.21644, -0.976296, 34, 3, 159)
+transform = Transform3D(-1, 5.48716e-07, -2.47509e-06, 0, 0.976296, 0.21644, 2.53518e-06, 0.21644, -0.976296, 34, 3, 159)
 current = true
 
 [node name="game_interface" parent="." instance=ExtResource("3_454qj")]
@@ -5598,16 +6009,24 @@ player = NodePath("../../characters/player")
 visible = false
 
 [connection signal="finished" from="music" to="music" method="_on_finished"]
+[connection signal="game_failed" from="asteroid_shooter/AsteroidShooter" to="game_interface/game" method="show_death_screen"]
 [connection signal="game_finished" from="asteroid_shooter/AsteroidShooter" to="asteroid_shooter/toggle-computer/game_toggle" method="_on_asteroid_shooter_game_finished"]
 [connection signal="game_finished" from="asteroid_shooter/AsteroidShooter" to="game_interface/hud" method="_on_show_hull_integrity" binds= [false]]
 [connection signal="game_started" from="asteroid_shooter/AsteroidShooter" to="game_interface/hud" method="_on_show_hull_integrity" binds= [true]]
+[connection signal="hull_hit" from="asteroid_shooter/AsteroidShooter" to="game_interface/hud" method="show_hurt"]
 [connection signal="on_checkpoint_reached" from="checkpoints/checkpoint" to="game_interface/hud" method="_on_show_checkpoint"]
 [connection signal="on_checkpoint_reached" from="checkpoints/checkpoint2" to="game_interface/hud" method="_on_show_checkpoint"]
 [connection signal="on_checkpoint_reached" from="checkpoints/checkpoint3" to="game_interface/hud" method="_on_show_checkpoint"]
 [connection signal="on_checkpoint_reached" from="checkpoints/checkpoint4" to="game_interface/hud" method="_on_show_checkpoint"]
+[connection signal="on_checkpoint_reached" from="checkpoints/checkpoint5" to="game_interface/hud" method="_on_show_checkpoint"]
 
 [editable path="nav/props/ladder/level_transition"]
 [editable path="characters/player"]
 [editable path="toggles/toggle-computer8"]
+[editable path="asteroid_shooter/AsteroidShooter"]
+[editable path="asteroid_shooter/turret"]
+[editable path="asteroid_shooter/turret2"]
+[editable path="asteroid_shooter/turret3"]
+[editable path="asteroid_shooter/turret4"]
 [editable path="game_interface"]
 [editable path="game_interface/hud"]

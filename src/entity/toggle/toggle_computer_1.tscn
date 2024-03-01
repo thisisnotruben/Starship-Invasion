@@ -92,7 +92,6 @@ texture = SubResource("AtlasTexture_ahqq0")
 libraries = {
 "": SubResource("AnimationLibrary_y8nrd")
 }
-autoplay = "hover"
 
 [node name="Sprite3D" type="Sprite3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0.53)

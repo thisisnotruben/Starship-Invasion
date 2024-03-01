@@ -10,6 +10,7 @@ class_name Character
 @onready var camera: Camera3D = $img/pivot/springArm3D/camera3D
 @onready var anim: AnimationPlayer = $animationPlayer
 @onready var anim_tree: AnimationTree = $animationTree
+@onready var visibility: VisibleOnScreenNotifier3D = $visibility
 @onready var fsm: Fsm = $fsm
 @onready var behavior: Fsm = $fsm_behavior.init({
 	BehaviorStates.Type.ATTACK: $fsm_behavior/attack,
@@ -77,13 +78,16 @@ func _on_nav_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
 
 func _physics_process(delta: float):
-	behavior.physics_process(delta)
+	if npc:
+		behavior.physics_process(delta)
 	fsm.physics_process(delta)
 	move_and_slide()
 
 func _process(delta: float):
-	_handle_input()
-	behavior.process(delta)
+	if npc:
+		behavior.process(delta)
+	else:
+		_handle_input()
 	fsm.process(delta)
 
 func _input(event: InputEvent):
@@ -108,6 +112,7 @@ func _set_npc(_npc: bool):
 	$navigationAgent3D.avoidance_enabled = _npc
 	remove_from_group("player" if _npc else "npc")
 	add_to_group("npc" if _npc else "player")
+	set_process_input(not _npc)
 	if npc:
 		set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	else:
@@ -157,9 +162,6 @@ func is_foe(_body: Node3D) -> bool:
 # player behavior
 
 func _handle_input():
-	if npc:
-		return
-
 	img.rotate_y(Input.get_axis("camera_right", "camera_left") * Settings.joy_sens)
 
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
@@ -229,9 +231,13 @@ func draw_objective_path(_show: bool):
 
 func _on_visibility_screen_entered():
 	set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
+	if npc:
+		img.play()
 
 func _on_visibility_screen_exited():
 	set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	if npc:
+		img.stop()
 
 func _on_sight_body_entered(_body: Node3D):
 	if not aggro(_body) \

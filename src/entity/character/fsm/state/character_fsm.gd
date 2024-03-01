@@ -46,7 +46,8 @@ func _set_state(_state_type) -> bool:
 							else Vector2.DOWN
 			character.anim_tree[blend_pos] = flip
 
-		if not character.img.is_playing():
+		if not character.img.is_playing() \
+		and character.visibility.is_on_screen():
 			character.img.play()
 		return true
 	return false

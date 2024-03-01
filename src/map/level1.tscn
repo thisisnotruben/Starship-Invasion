@@ -273,7 +273,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -285,7 +285,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_w3xqh"]
@@ -424,69 +424,6 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="Animation" id="Animation_ks2bf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(138, 2, -49.4653)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.218166, -3.14159, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Path3D/PathFollow3D:progress_ratio")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D:current")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Path3D/PathFollow3D/Camera3D:current")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_b2egp"]
 resource_name = "1"
 length = 25.0
@@ -565,6 +502,69 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ks2bf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(138, 2, -49.4653)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.218166, -3.14159, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path3D/PathFollow3D:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:current")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Path3D/PathFollow3D/Camera3D:current")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_66sq5"]
@@ -1774,13 +1774,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.50095, -62)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 3.00095, -62)
 
 [node name="characters" type="Node3D" parent="."]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="player" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("4_avjbd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -2)
 health_max = 6
-npc = false
 friendly = true
 objective_map = NodePath("../../objectives")
 show_light = true
@@ -3877,9 +3874,10 @@ player = NodePath("../../characters/player")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 2, -10)
 player = NodePath("../../characters/player")
 
-[node name="start_cinematic" type="Node3D" parent="." node_paths=PackedStringArray("anim")]
+[node name="start_cinematic" type="Node3D" parent="." node_paths=PackedStringArray("anim", "player")]
 script = ExtResource("69_i4sum")
 anim = NodePath("AnimationPlayer")
+player = NodePath("../characters/player")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="start_cinematic"]
 libraries = {
@@ -3914,7 +3912,7 @@ libraries = {
 }
 
 [node name="Camera3D" type="Camera3D" parent="cinematic"]
-transform = Transform3D(-1, 3.26815e-08, -1.47417e-07, 0, 0.976296, 0.21644, 1.50996e-07, 0.21644, -0.976296, 138, 2, -49.4653)
+transform = Transform3D(-1, 5.48713e-07, -2.47509e-06, 0, 0.976296, 0.216439, 2.53518e-06, 0.216439, -0.976296, 138, 2, -49.4653)
 
 [node name="Path3D" type="Path3D" parent="cinematic"]
 curve = SubResource("Curve3D_qugpt")
@@ -3933,9 +3931,6 @@ player = NodePath("../../characters/player")
 
 [node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
 player = NodePath("../../characters/player")
-
-[node name="margin" parent="game_interface/hud" index="3"]
-visible = false
 
 [connection signal="finished" from="music" to="music" method="_on_finished"]
 [connection signal="body_entered" from="traps/boss_room/boss_room_trigger" to="traps/boss_room/boss_room_trigger" method="_on_body_entered"]

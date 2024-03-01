@@ -7,6 +7,7 @@ var target: Character = null
 
 func _ready():
 	boss.health_changed.connect(_turn_off_turrets)
+	set_process(false)
 
 func _on_body_entered(body: Node3D):
 	if body is Character and not body.npc and boss != null:

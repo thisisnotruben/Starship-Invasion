@@ -30,6 +30,7 @@ func _on_draw():
 func _on_finish_pressed():
 	if next_level != null:
 		times_died = 0
+		Checkpoint.data.clear()
 		$snd_start.play()
 		await $snd_start.finished
 		get_tree().paused = false

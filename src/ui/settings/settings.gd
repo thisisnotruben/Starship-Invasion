@@ -2,7 +2,7 @@ extends VBoxContainer
 class_name Settings
 
 # File data
-const SAVE_PATH := "user://overmind_settings.cfg"
+const SAVE_PATH := "user://starship_invasion_settings.cfg"
 const VERSION := 1
 
 # Audio

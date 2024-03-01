@@ -103,7 +103,7 @@ layout_mode = 2
 
 [node name="label" type="Label" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
-text = "Overmind"
+text = "Starship Invasion"
 horizontal_alignment = 1
 vertical_alignment = 1
 

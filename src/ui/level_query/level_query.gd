@@ -1,7 +1,7 @@
 extends Node
 class_name LevelQuery
 
-const SAVE_PATH := "user://overmind_level.cfg"
+const SAVE_PATH := "user://starship_invasion.cfg"
 const VERSION := 1
 
 static var unlocked_levels := [true, false, false, false]

@@ -17,7 +17,7 @@ point_count = 3
 size = Vector2(40, 24)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3gq6j"]
-size = Vector3(9, 6, 1)
+size = Vector3(25, 17, 1)
 
 [node name="AsteroidShooter" type="Node3D"]
 script = ExtResource("1_7mei6")

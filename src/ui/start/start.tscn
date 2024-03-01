@@ -28,6 +28,21 @@
 [ext_resource type="VideoStream" path="res://asset/video/zone3-0.ogv" id="14_u8e4a"]
 [ext_resource type="PackedScene" uid="uid://cu0ekcdh24es1" path="res://src/ui/settings/settings.tscn" id="14_yqrh2"]
 
+[sub_resource type="Animation" id="Animation_as0gl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg_color:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_sxijb"]
 resource_name = "transition"
 tracks/0/type = "value"
@@ -57,21 +72,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_as0gl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("bg_color:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1tdcy"]
 _data = {
 "RESET": SubResource("Animation_as0gl"),
@@ -87,7 +87,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pxw42")
 videos = Array[VideoStream]([ExtResource("2_rckj6"), ExtResource("3_xxicg"), ExtResource("4_spl8t"), ExtResource("5_cx1g5"), ExtResource("6_4ghcq"), ExtResource("7_6o1i5"), ExtResource("8_dp6nc"), ExtResource("9_m0vf8"), ExtResource("10_6sphx"), ExtResource("11_bhbpi"), ExtResource("12_3mr1g"), ExtResource("13_j8jwt"), ExtResource("14_u8e4a")])
-video_lengths = Array[float]([12.0, 12.0, 12.0, 10.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 61.0, 21.0])
+video_lengths = Array[float]([12.0, 12.0, 12.0, 10.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 61.0, 21.5])
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_6hujg")
@@ -165,7 +165,7 @@ layout_mode = 2
 
 [node name="label" type="Label" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
-text = "Overmind"
+text = "Starship Invasion"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -225,7 +225,7 @@ layout_mode = 2
 
 [node name="label" type="Label" parent="center/panel/margin/tabs/level"]
 layout_mode = 2
-text = "Overmind"
+text = "Starship Invasion"
 horizontal_alignment = 1
 vertical_alignment = 1
 

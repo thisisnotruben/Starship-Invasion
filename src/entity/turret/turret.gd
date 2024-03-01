@@ -5,6 +5,8 @@ class_name AsteroidTurret
 
 @onready var laser_mesh: MeshInstance3D = $turret_gun/ray/laser_sight
 @onready var snd_shoot: AudioStreamPlayer3D = $snd_shoot
+@onready var snd_generator: AudioStreamPlayer3D = $generator
+@onready var snd_shoot1: AudioStreamPlayer = $snd_shoot1
 @onready var ray: RayCast3D = $turret_gun/ray
 @onready var pivot: Node3D = $turret_gun
 
@@ -14,7 +16,7 @@ class_name AsteroidTurret
 
 @export_category("Shooting")
 @export var random_shoot := false
-@export var hide_laser := false
+@export var spatial_sound := true
 @export_range(1.0, 10.0) var time_to_shoot := 1.5
 @export_range(0.0, 0.5) var rand_amount := 0.5
 
@@ -24,7 +26,6 @@ func _ready():
 	reset_laser()
 	if random_shoot:
 		$timer.start(_get_rand_amount())
-	#$turret_gun/ray/laser_sight.visible = not hide_laser
 
 func _physics_process(_delta: float):
 	if ray.is_colliding():
@@ -44,7 +45,8 @@ func reset_laser():
 
 func shoot():
 	bullet_scene.instantiate().spawn_shot( \
-		{"asteroid_turret": self, "damage": 1})
+		{"asteroid_turret": self, "damage": 1, \
+		"snd_player": snd_shoot if spatial_sound else snd_shoot1})
 
 func _set_rotate(_rotate_gun: bool):
 	rotate_gun = _rotate_gun
@@ -54,11 +56,6 @@ func _set_rotate(_rotate_gun: bool):
 		$anim.stop()
 
 func _on_timer_timeout():
-	# TODO
-	#arm_laser()
-	#await get_tree().create_timer(0.2).timeout
-	#await get_tree().create_timer(0.1).timeout
-	#reset_laser()
 	shoot()
 	$timer.start(_get_rand_amount())
 

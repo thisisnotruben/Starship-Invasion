@@ -30,13 +30,16 @@ func _on_show_checkpoint():
 	await get_tree().create_timer(1.0).timeout
 	$margin/vBox/center.modulate = Color.TRANSPARENT
 
+func show_hurt():
+	$hurt.color = hurt_color[0]
+	get_tree().create_tween().tween_property($hurt, "color", \
+		hurt_color[1], 0.5).set_ease(Tween.EASE_IN) \
+		.set_trans(Tween.TRANS_BOUNCE)
+
 func _on_player_health_changed(health: int):
 	var amount := health - health_container.get_child_count()
 	if amount < 0:
-		$hurt.color = hurt_color[0]
-		get_tree().create_tween().tween_property( \
-			$hurt, "color", hurt_color[1], 0.5) \
-			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BOUNCE)
+		show_hurt()
 
 	for i in abs(amount):
 		if amount > 0:
@@ -72,3 +75,6 @@ func show_alert(duration: float, impact: bool):
 
 func _on_show_hull_integrity(_visible: bool):
 	$margin/vBox/hull_integrity.visible = _visible
+
+
+

@@ -81,7 +81,7 @@ func spawn_shot(args := {}):
 
 	elif args.has("asteroid_turret"):
 		node = args["asteroid_turret"]
-		node.snd_shoot.play()
+		args["snd_player"].play()
 		damage = args["damage"]
 
 		spawn_call = func ():

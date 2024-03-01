@@ -10,15 +10,22 @@ static var items := {
 }
 
 @export var player: Character = null
+@export var disabled := false
+@export var i_toggelable: IToggleable = null
 var passed_by := false
 
 signal on_checkpoint_reached()
 
 
 func _on_player_entered(body: Node3D):
-	if body == player and not passed_by:
+	if body == player and not passed_by and not disabled:
+		activate()
+
+func activate():
 		passed_by = true
 		get_checkpoint_data()
+		if i_toggelable != null:
+			i_toggelable.toggle(true)
 		emit_signal("on_checkpoint_reached")
 
 func get_checkpoint_data():
@@ -54,9 +61,7 @@ func get_checkpoint_data():
 static func set_checkpoint_data(_player: Character):
 	if data.is_empty():
 		return
-
 	var level := _player.owner
-
 	if data.get("level_name", "") != _player.owner.name:
 		data.clear()
 		return
@@ -82,8 +87,15 @@ static func set_checkpoint_data(_player: Character):
 					if node != null:
 						node.set("passed_by", true)
 
+	var mapped_toggle := {}
+	for comp_toggle in level.get_tree().get_nodes_in_group("toggle_computer"):
+		mapped_toggle[comp_toggle.i_toggleable.get_path()] = comp_toggle
+
 	for toggle_path in data.get("toggle_door", []):
-		level.get_node(toggle_path).call("toggle", true)
+		if mapped_toggle.has(toggle_path):
+			mapped_toggle[toggle_path].call("activate", _player)
+		else:
+			level.get_node(toggle_path).call("toggle", true)
 
 static func _get_difference_and_delete(level: Node, alive: Array, group: String):
 	var all := []

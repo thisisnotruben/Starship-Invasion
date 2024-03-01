@@ -28,7 +28,9 @@ func _ready():
 		print_debug("[%s] doesn't have set vale 'target'." % get_path())
 
 func _physics_process(delta: float):
-	if path_follow != null and speed > 0.0:
+	if path_follow == null or is_zero_approx(speed):
+		set_physics_process(false)
+	else:
 		path_follow.progress += speed * delta
 
 func toggle(activate: bool):

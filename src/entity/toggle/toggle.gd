@@ -31,14 +31,16 @@ func _input(event: InputEvent):
 			$snd.stream = sfx_activate if trigger else sfx_deactivate
 			if need_item:
 				if _player.inventory.has(item_needed):
-					i_toggleable.toggle(trigger)
-					_player.on_interacted(name)
+					activate(_player)
 				else:
 					$snd.stream = sfx_denied
 			else:
-				i_toggleable.toggle(trigger)
-				_player.on_interacted(name)
+				activate(_player)
 			$snd.play()
+
+func activate(character: Character):
+	i_toggleable.toggle(trigger)
+	character.on_interacted(name)
 
 func _on_sight_body_entered(body: Node3D):
 	if body is Character and not body.npc:
@@ -49,3 +51,11 @@ func _on_sight_body_exited(body: Node3D):
 	if body == _player:
 		set_process_input(false)
 		_player = null
+
+func _on_visibility_screen_entered():
+	if has_node("anim"):
+		get_node("anim").play("hover")
+
+func _on_visibility_screen_exited():
+	if has_node("anim"):
+		get_node("anim").stop()

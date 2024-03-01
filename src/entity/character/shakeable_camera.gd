@@ -39,11 +39,12 @@ func _get_noise_from_seed(_seed : int) -> float:
 func add_trauma(trauma_amount : float):
 	trauma = clamp(trauma + trauma_amount, 0.0, 1.0)
 
-func shake(duration_sec: float):
+func shake(duration_sec: float, reset := false):
 	set_process(true)
 	var tween := get_tree().create_tween()
 	var initial_rot := camera.rotation
 	tween.tween_method(add_trauma, 0.8, 0.8, duration_sec)
 	await tween.finished
-	camera.rotation = initial_rot
+	if reset:
+		camera.rotation = initial_rot
 	set_process(false)
