@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Overmind"
+config/name="Starship Invasion"
+config/version="1.0"
 run/main_scene="res://src/ui/start/start.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
