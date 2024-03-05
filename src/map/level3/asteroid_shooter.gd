@@ -8,6 +8,7 @@ const max_rot := deg_to_rad(90.0)
 @onready var game_timer: Timer = $game_timer
 @export var cam: Camera3D = null
 @export var anim: AnimationPlayer = null
+@onready var _anim: AnimationPlayer = $anim
 
 @export_category("Turret")
 @export var turrets: Array[AsteroidTurret] = []
@@ -79,6 +80,7 @@ func start_game(start: bool = true, failed := false):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		asteroid_timer.stop()
 		game_timer.stop()
+		get_tree().get_nodes_in_group("asteroid").map(func(a): a.queue_free())
 	if not failed:
 		emit_signal("game_started" if start else "game_finished")
 
@@ -108,6 +110,7 @@ func spawn_asteroid():
 
 func _on_game_timer_timeout():
 	start_game(false)
+	_anim.play("end_win")
 
 func _on_space_hull_area_entered(area: Area3D):
 	hull_life = clampi(hull_life - 1, 0, max_hull_life)
@@ -119,6 +122,7 @@ func _on_space_hull_area_entered(area: Area3D):
 			emit_signal("game_failed", 0)
 			emit_signal("game_finished")
 			anim.play("death_cam")
+			_anim.play("end_failed")
 			start_game(false, true)
 		else:
 			emit_signal("hull_hit")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dl4dor7dfiunt"]
+[gd_scene load_steps=20 format=3 uid="uid://dl4dor7dfiunt"]
 
 [ext_resource type="Script" path="res://src/map/level3/asteroid_shooter.gd" id="1_7mei6"]
 [ext_resource type="PackedScene" uid="uid://dd8mjsefd1wvc" path="res://src/entity/asteroid/asteroid_rock.tscn" id="3_186np"]
@@ -7,12 +7,129 @@
 [ext_resource type="Script" path="res://src/entity/character/shakeable_camera.gd" id="5_1tp18"]
 [ext_resource type="AudioStream" uid="uid://nav8q83481vv" path="res://asset/snd/7712 - Sci-Fi Radiation Sound Effects Pack/Sci-Fi Heavy Radiation Loop 1.wav" id="5_tynnt"]
 [ext_resource type="Script" path="res://src/global/snd_fader.gd" id="6_h7vxn"]
+[ext_resource type="AudioStream" uid="uid://bhahtbhn1b6cb" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Destruction_Imminent.wav" id="7_u5evp"]
+[ext_resource type="AudioStream" uid="uid://dgqp4lv07cxrs" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_17.wav" id="7_ym10b"]
+[ext_resource type="AudioStream" uid="uid://c6iuikvwgnbwf" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Mission_Failed.wav" id="8_8l2sr"]
+[ext_resource type="AudioStream" uid="uid://cap6o3edhmw0u" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Objective_Complete.wav" id="10_i85yc"]
 
 [sub_resource type="Curve" id="Curve_6uo8r"]
 min_value = 1.0
 max_value = 5.0
 _data = [Vector2(0, 1), 0.0, 4.0, 0, 0, Vector2(0.75, 4), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="Animation" id="Animation_e650r"]
+resource_name = "end_failed"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("snd_failed_exp:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("snd_failed:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("snd_failed2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_34cny"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("snd_failed_exp:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("snd_failed:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("snd_failed2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("snd_win:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8wvht"]
+resource_name = "end_win"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("snd_win:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_13fr2"]
+_data = {
+"RESET": SubResource("Animation_34cny"),
+"end_failed": SubResource("Animation_e650r"),
+"end_win": SubResource("Animation_8wvht")
+}
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vgngs"]
 
@@ -27,6 +144,11 @@ script = ExtResource("1_7mei6")
 asteroids = Array[PackedScene]([ExtResource("3_186np"), ExtResource("3_vx3ft")])
 difficulty = SubResource("Curve_6uo8r")
 
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_13fr2")
+}
+
 [node name="snd" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_7ub1e")
 bus = &"sfx"
@@ -37,6 +159,22 @@ bus = &"sfx"
 script = ExtResource("6_h7vxn")
 snd = NodePath(".")
 fade_time = 1.0
+
+[node name="snd_failed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_u5evp")
+bus = &"sfx"
+
+[node name="snd_failed2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8l2sr")
+bus = &"sfx"
+
+[node name="snd_failed_exp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ym10b")
+bus = &"asteroid_walk"
+
+[node name="snd_win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_i85yc")
+bus = &"sfx"
 
 [node name="shake_cam" type="Node" parent="."]
 script = ExtResource("5_1tp18")

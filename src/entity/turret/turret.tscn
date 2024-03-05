@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bnqfy5w6y6l2w"]
+[gd_scene load_steps=17 format=3 uid="uid://bnqfy5w6y6l2w"]
 
 [ext_resource type="Script" path="res://src/entity/turret/turret.gd" id="1_rk5lu"]
 [ext_resource type="ArrayMesh" uid="uid://dovot82hos3n8" path="res://asset/3d/turret/export/turret.obj" id="1_yl558"]
@@ -29,14 +29,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("turret_gun:rotation")
+tracks/0/path = NodePath("pivot:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.261799, 0, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_b12wl"]
@@ -46,20 +46,57 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("turret_gun:rotation")
+tracks/0/path = NodePath("pivot:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.261799, 0, 0), Vector3(0.261799, -6.28319, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, -6.28319, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mnu7r"]
 _data = {
 "RESET": SubResource("Animation_1iw8p"),
 "rotate": SubResource("Animation_b12wl")
+}
+
+[sub_resource type="Animation" id="Animation_6wvgu"]
+resource_name = "recoil"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/turret_gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2, 0), Vector3(0, 2, 0.25), Vector3(0, 2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s74f0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/turret_gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1urh"]
+_data = {
+"RESET": SubResource("Animation_s74f0"),
+"recoil": SubResource("Animation_6wvgu")
 }
 
 [node name="turret" type="Node3D"]
@@ -91,18 +128,22 @@ mesh = ExtResource("1_yl558")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="turret_body/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_obaab")
 
-[node name="turret_gun" type="MeshInstance3D" parent="."]
+[node name="pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="turret_gun" type="MeshInstance3D" parent="pivot"]
 transform = Transform3D(2.5, 0, 0, 0, 2.41481, -0.647045, 0, 0.647045, 2.41481, 0, 2, 0)
 mesh = ExtResource("2_kpk33")
+skeleton = NodePath("../..")
 
-[node name="ray" type="RayCast3D" parent="turret_gun"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.55, -1.2)
+[node name="ray" type="RayCast3D" parent="pivot"]
+transform = Transform3D(2.5, 0, 0, 0, -0.647045, -2.41481, 0, 2.41481, -0.647045, 0, 4.1046, -2.5419)
 target_position = Vector3(0, -32, 0)
 collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="laser_sight" type="MeshInstance3D" parent="turret_gun/ray"]
+[node name="laser_sight" type="MeshInstance3D" parent="pivot/ray"]
 transform = Transform3D(1, 0, 0, 0, 1, -3.07944e-08, 0, 3.07944e-08, 1, 0, -4, 0)
 material_override = SubResource("StandardMaterial3D_s1co4")
 mesh = SubResource("CylinderMesh_m1rsb")
@@ -111,6 +152,11 @@ skeleton = NodePath("../../..")
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_mnu7r")
+}
+
+[node name="anim_shoot" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f1urh")
 }
 
 [node name="timer" type="Timer" parent="."]

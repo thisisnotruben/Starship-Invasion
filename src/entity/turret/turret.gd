@@ -3,19 +3,20 @@ class_name AsteroidTurret
 
 @export var bullet_scene: PackedScene = null
 
-@onready var laser_mesh: MeshInstance3D = $turret_gun/ray/laser_sight
 @onready var snd_shoot: AudioStreamPlayer3D = $snd_shoot
 @onready var snd_generator: AudioStreamPlayer3D = $generator
 @onready var snd_shoot1: AudioStreamPlayer = $snd_shoot1
-@onready var ray: RayCast3D = $turret_gun/ray
-@onready var pivot: Node3D = $turret_gun
+@onready var pivot: Node3D = $pivot
+@onready var ray: RayCast3D = $pivot/ray
+@onready var laser_mesh: MeshInstance3D = $pivot/ray/laser_sight
+@onready var anim_shoot: AnimationPlayer = $anim_shoot
 
 @export var rotate_gun := false : set = _set_rotate
 @export var scan_color: Color = Color.RED
 @export var scan_hit_color: Color = Color.GREEN
 
 @export_category("Shooting")
-@export var random_shoot := false
+@export var random_shoot := false: set = _set_rand_shoot
 @export var spatial_sound := true
 @export_range(1.0, 10.0) var time_to_shoot := 1.5
 @export_range(0.0, 0.5) var rand_amount := 0.5
@@ -24,8 +25,6 @@ class_name AsteroidTurret
 func _ready():
 	set_physics_process(false)
 	reset_laser()
-	if random_shoot:
-		$timer.start(_get_rand_amount())
 
 func _physics_process(_delta: float):
 	if ray.is_colliding():
@@ -44,6 +43,7 @@ func reset_laser():
 	laser_mesh.material_override.emission = scan_color
 
 func shoot():
+	anim_shoot.play("recoil")
 	bullet_scene.instantiate().spawn_shot( \
 		{"asteroid_turret": self, "damage": 1, \
 		"snd_player": snd_shoot if spatial_sound else snd_shoot1})
@@ -55,9 +55,17 @@ func _set_rotate(_rotate_gun: bool):
 	else:
 		$anim.stop()
 
+func _set_rand_shoot(_random_shoot: bool):
+	random_shoot = _random_shoot
+	if _random_shoot:
+		$timer.start(_get_rand_amount())
+	else:
+		$timer.stop()
+
 func _on_timer_timeout():
-	shoot()
-	$timer.start(_get_rand_amount())
+	if random_shoot:
+		shoot()
+		$timer.start(_get_rand_amount())
 
 func _get_rand_amount() -> float:
 	var timer_sec := time_to_shoot

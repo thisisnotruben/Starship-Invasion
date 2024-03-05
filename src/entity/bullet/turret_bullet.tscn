@@ -22,7 +22,7 @@ radius = 0.075
 height = 1.0
 
 [node name="turret_bullet" instance=ExtResource("1_wttus")]
-speed = 35.0
+speed = 40.0
 
 [node name="snd" parent="." index="0"]
 stream = ExtResource("2_tddl3")
