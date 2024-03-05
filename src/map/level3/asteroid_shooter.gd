@@ -20,7 +20,7 @@ var current_aim_dir := Vector2.ZERO
 @export_range(1.0, 4.0) var rand_asteroid_scale_limit = 2.0
 @export_range(1, 6, 1) var sim_amount_max := 3
 @export_range(0.5, 3.0) var spawn_min_sec := 2.0
-@export_range(0.5, 3.0) var spawn_max_sec := 3.0
+@export_range(0.5, 5.0) var spawn_max_sec := 3.0
 
 @export_category("hud feedback")
 @export var hull_integrity: ProgressBar = null
@@ -67,8 +67,10 @@ func _physics_process(_delta: float):
 func start_game(start: bool = true, failed := false):
 	set_physics_process(start)
 	set_process_input(start)
+	$space_background.fade(start)
 	for turret in turrets:
 		turret.set_physics_process(start)
+		turret.rotate_gun = not start
 	if start:
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 		asteroid_timer.start(randf_range(spawn_min_sec, spawn_max_sec))
@@ -102,7 +104,7 @@ func spawn_asteroid():
 		.normalized().ceil()
 	asteroids.pick_random().instantiate().spawn( \
 		{"parent": self, "spawn_pos": rand_spawn, "velocity_dir": vel_dir, \
-		"scale": Vector3.ONE * randf_range(1.0, rand_asteroid_scale_limit)})
+		"scale": randf_range(1.0, rand_asteroid_scale_limit)})
 
 func _on_game_timer_timeout():
 	start_game(false)
@@ -115,6 +117,7 @@ func _on_space_hull_area_entered(area: Area3D):
 		if hull_life == 0:
 			game_done = true
 			emit_signal("game_failed", 0)
+			emit_signal("game_finished")
 			anim.play("death_cam")
 			start_game(false, true)
 		else:
@@ -123,3 +126,7 @@ func _on_space_hull_area_entered(area: Area3D):
 	var node := area.owner
 	if node is Asteroid:
 		node.destroy()
+
+func _on_dialogue_finished():
+	$snd.play()
+	start_game(true)

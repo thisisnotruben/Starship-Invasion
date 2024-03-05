@@ -9,6 +9,7 @@ extends Node
 @onready var asteroid_timer: Timer = $asteroid_timer
 @onready var asteroid_visual: GPUParticles3D = $asteroid/asteroids
 @onready var asteroid_indicator_timer: Timer = $asteroid_indicator_timer
+@onready var snd_impact: AudioStreamPlayer = $snd_impact
 @onready var hit_box: Area3D = $area3D
 
 var in_safe_zone := []
@@ -30,23 +31,33 @@ func _on_asteroid_timer_timeout():
 		emit_signal("on_alert", asteroid_visual.lifetime, true)
 		camera_shake.shake(asteroid_visual.lifetime)
 		asteroid_visual.emitting = true
+
+		await get_tree().create_timer(0.4).timeout
+		for i in range(snd_impact.max_polyphony):
+			snd_impact.play()
+			await get_tree().create_timer(randf_range(0.1, 0.3)).timeout
+
 		await get_tree().create_timer(asteroid_visual.lifetime).timeout
 		_start_asteroid_timer()
 
 func _on_area_3d_body_entered(body: Node3D):
 	if _is_player(body):
 		active = true
+		get_tree().call_group("celestial", "toggle", true)
 		_start_asteroid_timer()
 		_toggle_spawns(true)
 		$space_sound.fade(true)
 
 func _on_area_3d_body_exited(body: Node3D):
 	if _is_player(body):
+		get_tree().call_group("celestial", "toggle", false)
 		active = false
 		asteroid_indicator_timer.stop()
 		asteroid_timer.stop()
 		_toggle_spawns(false)
 		$space_sound.fade(false)
+		for character in hit_box.get_overlapping_bodies():
+			character.health = 0
 
 func _on_safe_zone_body_entered(body: Node3D):
 	if body is Character and not in_safe_zone.has(body):

@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2tr53ho7brj4"]
+
+[ext_resource type="Script" path="res://src/ui/tutorial/tutorial.gd" id="1_f8ssu"]
+[ext_resource type="PackedScene" uid="uid://cdgdcmr8nn7t" path="res://src/ui/controls/controls.tscn" id="1_uthbl"]
+
+[sub_resource type="Animation" id="Animation_2luob"]
+resource_name = "fade"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("center:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5, 7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_p0y34"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("center:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7x8a0"]
+_data = {
+"RESET": SubResource("Animation_p0y34"),
+"fade": SubResource("Animation_2luob")
+}
+
+[node name="tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f8ssu")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7x8a0")
+}
+
+[node name="center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="panel" type="PanelContainer" parent="center"]
+layout_mode = 2
+
+[node name="margin" type="MarginContainer" parent="center/panel"]
+layout_mode = 2
+
+[node name="controls" parent="center/panel" instance=ExtResource("1_uthbl")]
+layout_mode = 2
+
+[node name="back" parent="center/panel/controls" index="1"]
+visible = false
+
+[editable path="center/panel/controls"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=363 format=3 uid="uid://cps38a2whdhpg"]
+[gd_scene load_steps=114 format=3 uid="uid://cps38a2whdhpg"]
 
 [ext_resource type="Script" path="res://src/map/level3/level3_objectives.gd" id="1_f5jh4"]
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_qisqu"]
@@ -71,263 +71,19 @@
 [ext_resource type="PackedScene" uid="uid://doiw2582y7qp2" path="res://src/map/doodads/floor_light.tscn" id="65_g5hvg"]
 [ext_resource type="PackedScene" uid="uid://igfkkdo1d51q" path="res://src/entity/trap/trap_fire.tscn" id="67_oh7mc"]
 [ext_resource type="PackedScene" uid="uid://c7eg7d7hlso3w" path="res://src/items/heart.tscn" id="69_cyq44"]
+[ext_resource type="Script" path="res://src/map/level3/asteroid_dialogue.gd" id="72_0dvm6"]
 [ext_resource type="PackedScene" uid="uid://bnqfy5w6y6l2w" path="res://src/entity/turret/turret.tscn" id="72_7hkii"]
 [ext_resource type="PackedScene" uid="uid://dl4dor7dfiunt" path="res://src/map/level3/asteroid_shooter.tscn" id="73_6gmd2"]
 [ext_resource type="PackedScene" uid="uid://bsdd0rem1sah7" path="res://src/entity/toggle/toggle_computer_2.tscn" id="74_f23ro"]
 [ext_resource type="Script" path="res://src/map/level3/asteroid_toggle.gd" id="74_see6t"]
 [ext_resource type="Script" path="res://src/map/level3/asteroid_start_toggle.gd" id="74_ube3j"]
-[ext_resource type="PackedScene" uid="uid://cd26og66hea18" path="res://src/map/doodads/checkpoint/chechpoint.tscn" id="76_74eve"]
+[ext_resource type="PackedScene" uid="uid://cd26og66hea18" path="res://src/map/doodads/checkpoint/checkpoint.tscn" id="76_74eve"]
 [ext_resource type="AudioStream" uid="uid://dol4gnj205422" path="res://asset/snd/2896 - Sci-Fi Door Pack/Sci-Fi Doors Close 3.wav" id="76_vy34w"]
 [ext_resource type="Script" path="res://src/map/doodads/start_cinematic.gd" id="76_wxmyh"]
 [ext_resource type="AudioStream" uid="uid://ceoa4rml8825l" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Defense_System_Activated.wav" id="78_arbk7"]
 [ext_resource type="Script" path="res://src/map/level4/toggle_checkpoint_reached.gd" id="80_a2bso"]
 [ext_resource type="PackedScene" uid="uid://bfd5jjv06mdg6" path="res://src/entity/character/space_sargent/space_sargent_gold.tscn" id="80_c4m0s"]
-[ext_resource type="Texture2D" uid="uid://cq7uomd7usk1f" path="res://asset/img/PlanetsFull/Suns/1.png" id="81_awwdm"]
-[ext_resource type="Texture2D" uid="uid://bx83tagy7o3gt" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/1.png" id="82_jouhx"]
-[ext_resource type="Texture2D" uid="uid://d1obvahnblivn" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/2.png" id="83_om27x"]
-[ext_resource type="Texture2D" uid="uid://pjs2ym8v7078" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/3.png" id="84_xpuwq"]
-[ext_resource type="Texture2D" uid="uid://ckq38luikd0bn" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/4.png" id="85_05xal"]
-[ext_resource type="Texture2D" uid="uid://coe081lgkrg7v" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/5.png" id="86_cuk60"]
-[ext_resource type="Texture2D" uid="uid://bos5vqo8n8gj5" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/6.png" id="87_e3kc8"]
-[ext_resource type="Texture2D" uid="uid://bjyui5ysk66l6" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/7.png" id="88_hdbq1"]
-[ext_resource type="Texture2D" uid="uid://qgt5kk3bkx3m" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/8.png" id="89_3q45t"]
-[ext_resource type="Texture2D" uid="uid://d1810eifir8bg" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/9.png" id="90_47hik"]
-[ext_resource type="Texture2D" uid="uid://gyofyr2uyt3o" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/10.png" id="91_ypaxv"]
-[ext_resource type="Texture2D" uid="uid://c2fe2i1nut6sv" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/11.png" id="92_4hjpp"]
-[ext_resource type="Texture2D" uid="uid://dijmsvn4t8y6d" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/12.png" id="93_ri5uc"]
-[ext_resource type="Texture2D" uid="uid://kmngrjaw600f" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/13.png" id="94_npdic"]
-[ext_resource type="Texture2D" uid="uid://cft3p7n6ylpyw" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/14.png" id="95_q8108"]
-[ext_resource type="Texture2D" uid="uid://bed33axwqqmis" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/15.png" id="96_0q6xx"]
-[ext_resource type="Texture2D" uid="uid://iceg3extj77b" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/16.png" id="97_3gavx"]
-[ext_resource type="Texture2D" uid="uid://dtod4hdgx2cru" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/17.png" id="98_nrvsc"]
-[ext_resource type="Texture2D" uid="uid://brqxv6jw70jwk" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/18.png" id="99_b7u02"]
-[ext_resource type="Texture2D" uid="uid://cldk0mpvju4ta" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/19.png" id="100_m7u1h"]
-[ext_resource type="Texture2D" uid="uid://did5ijrtxu6lr" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/20.png" id="101_d4qib"]
-[ext_resource type="Texture2D" uid="uid://18n2yfq5io4j" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/21.png" id="102_gg5m6"]
-[ext_resource type="Texture2D" uid="uid://bbh3jhp6wfr8s" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/22.png" id="103_aasmf"]
-[ext_resource type="Texture2D" uid="uid://cqkcjm5m6rqd3" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/23.png" id="104_31okw"]
-[ext_resource type="Texture2D" uid="uid://c8pyad7xvbte1" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/24.png" id="105_mceow"]
-[ext_resource type="Texture2D" uid="uid://bncllo2kdotmk" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/25.png" id="106_hdycr"]
-[ext_resource type="Texture2D" uid="uid://cydhidyn0lp1n" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/26.png" id="107_tosnv"]
-[ext_resource type="Texture2D" uid="uid://bhjgjw7ga73t1" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/27.png" id="108_pjsok"]
-[ext_resource type="Texture2D" uid="uid://du262gklpcte7" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/28.png" id="109_ufrnt"]
-[ext_resource type="Texture2D" uid="uid://do4240bjlr53x" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/29.png" id="110_4r8ck"]
-[ext_resource type="Texture2D" uid="uid://caso3jd13olvo" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/30.png" id="111_ygvex"]
-[ext_resource type="Texture2D" uid="uid://0fpac14p2ofo" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/31.png" id="112_s67jm"]
-[ext_resource type="Texture2D" uid="uid://clacdrkh8pj3h" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/32.png" id="113_yx3lg"]
-[ext_resource type="Texture2D" uid="uid://ba4gh1kkxxa67" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/33.png" id="114_0ldiu"]
-[ext_resource type="Texture2D" uid="uid://cea4t7eupdudb" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/34.png" id="115_vm4li"]
-[ext_resource type="Texture2D" uid="uid://cpnuh4c0g32t6" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/35.png" id="116_cy8aj"]
-[ext_resource type="Texture2D" uid="uid://dg1rbcpygy4te" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/36.png" id="117_4lw64"]
-[ext_resource type="Texture2D" uid="uid://b7m87odepmf8" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/37.png" id="118_gajp3"]
-[ext_resource type="Texture2D" uid="uid://dd0w77766bhxg" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/38.png" id="119_i4i0u"]
-[ext_resource type="Texture2D" uid="uid://d27nrewm2x0ak" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/39.png" id="120_vutnw"]
-[ext_resource type="Texture2D" uid="uid://c6qbh7nium3x0" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/40.png" id="121_7r35b"]
-[ext_resource type="Texture2D" uid="uid://dnvlf1llpxj7o" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/41.png" id="122_j1aby"]
-[ext_resource type="Texture2D" uid="uid://df8dv82d8f4ih" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/42.png" id="123_2nhqv"]
-[ext_resource type="Texture2D" uid="uid://ceqplp561u40e" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/43.png" id="124_6ab0l"]
-[ext_resource type="Texture2D" uid="uid://b0dkk80t4iqit" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/44.png" id="125_uv1a2"]
-[ext_resource type="Texture2D" uid="uid://bnljvfpmuf1q3" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/45.png" id="126_hjjg3"]
-[ext_resource type="Texture2D" uid="uid://dbdpy7rpojrtn" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/46.png" id="127_m3pxn"]
-[ext_resource type="Texture2D" uid="uid://hxs153l0vb6b" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/47.png" id="128_q6c12"]
-[ext_resource type="Texture2D" uid="uid://hbt7y6nir0jg" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/48.png" id="129_f7jrb"]
-[ext_resource type="Texture2D" uid="uid://cqq8a0k36gr36" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/49.png" id="130_v6kyk"]
-[ext_resource type="Texture2D" uid="uid://cna5elj2ae4ni" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/50.png" id="131_buxgf"]
-[ext_resource type="Texture2D" uid="uid://bcs1lwbahsf2m" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/51.png" id="132_pklcq"]
-[ext_resource type="Texture2D" uid="uid://c72e7fobicysg" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/52.png" id="133_6t82x"]
-[ext_resource type="Texture2D" uid="uid://dk2eb8rh0p1mo" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/53.png" id="134_w0bkw"]
-[ext_resource type="Texture2D" uid="uid://dqap4fo2o23yj" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/54.png" id="135_cowmq"]
-[ext_resource type="Texture2D" uid="uid://l2yb7sitkvet" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/55.png" id="136_u2krg"]
-[ext_resource type="Texture2D" uid="uid://ske7k67okoea" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/56.png" id="137_dq1p2"]
-[ext_resource type="Texture2D" uid="uid://bhxlryv7pfwd4" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/57.png" id="138_vbrlf"]
-[ext_resource type="Texture2D" uid="uid://b8lteayosafev" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/58.png" id="139_leqco"]
-[ext_resource type="Texture2D" uid="uid://ya7428ddy0e2" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/59.png" id="140_ubj6s"]
-[ext_resource type="Texture2D" uid="uid://cd4k5r7y2ipyq" path="res://asset/img/AnimatedPlanetsFull/Gas_giant_or_Toxic/4/60.png" id="141_iwoyp"]
-[ext_resource type="Texture2D" uid="uid://ddlk0ipnkec2r" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/1.png" id="142_33k23"]
-[ext_resource type="Texture2D" uid="uid://d340yvhllor3p" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/2.png" id="143_g3j8o"]
-[ext_resource type="Texture2D" uid="uid://bix4o2ssd3otc" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/3.png" id="144_qqjvd"]
-[ext_resource type="Texture2D" uid="uid://c3swj2ht6sixo" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/4.png" id="145_hx7qq"]
-[ext_resource type="Texture2D" uid="uid://cso4gvdpe8dlm" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/5.png" id="146_1nlyh"]
-[ext_resource type="Texture2D" uid="uid://c1h5ft1qsyyju" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/6.png" id="147_41whu"]
-[ext_resource type="Texture2D" uid="uid://bi7vqkil5fbv" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/7.png" id="148_rm2qo"]
-[ext_resource type="Texture2D" uid="uid://6xnoym72ctge" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/8.png" id="149_2dcfs"]
-[ext_resource type="Texture2D" uid="uid://c6uswdvycyibg" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/9.png" id="150_2dsfb"]
-[ext_resource type="Texture2D" uid="uid://dc1hxsjbmvm7m" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/10.png" id="151_70jjf"]
-[ext_resource type="Texture2D" uid="uid://dvx7ggew3absv" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/11.png" id="152_7rtxi"]
-[ext_resource type="Texture2D" uid="uid://cgp3g2llfkyie" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/12.png" id="153_5hrij"]
-[ext_resource type="Texture2D" uid="uid://b3mh57012pnr7" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/13.png" id="154_8g3gn"]
-[ext_resource type="Texture2D" uid="uid://bhrmrum1spiuv" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/14.png" id="155_mxeoj"]
-[ext_resource type="Texture2D" uid="uid://dw68wft2qa5dn" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/15.png" id="156_knx4i"]
-[ext_resource type="Texture2D" uid="uid://bwhnac1340mku" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/16.png" id="157_k5377"]
-[ext_resource type="Texture2D" uid="uid://c8rscd4fyxcbe" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/17.png" id="158_dkia2"]
-[ext_resource type="Texture2D" uid="uid://b08tgl0sr18iy" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/18.png" id="159_boutt"]
-[ext_resource type="Texture2D" uid="uid://ce7smb8gr35mf" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/19.png" id="160_uhvwk"]
-[ext_resource type="Texture2D" uid="uid://bgh2dx0ifv0et" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/20.png" id="161_7jog3"]
-[ext_resource type="Texture2D" uid="uid://c6x01sqpcs6b5" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/21.png" id="162_bn8ol"]
-[ext_resource type="Texture2D" uid="uid://cn2gr6drrwld" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/22.png" id="163_m0kb5"]
-[ext_resource type="Texture2D" uid="uid://bjs5gl6oaufeq" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/23.png" id="164_svkqn"]
-[ext_resource type="Texture2D" uid="uid://jytv6hol2anm" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/24.png" id="165_nkbi7"]
-[ext_resource type="Texture2D" uid="uid://c7pigoruhrfsm" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/25.png" id="166_b0suu"]
-[ext_resource type="Texture2D" uid="uid://jolj6w2eckhu" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/26.png" id="167_5nn2f"]
-[ext_resource type="Texture2D" uid="uid://by1r6e3h1lhvj" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/27.png" id="168_ykmp4"]
-[ext_resource type="Texture2D" uid="uid://clp5qfgdt2dc4" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/28.png" id="169_ylclb"]
-[ext_resource type="Texture2D" uid="uid://v4tvwqcik861" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/29.png" id="170_5nj1c"]
-[ext_resource type="Texture2D" uid="uid://cy6ygp37lfoo2" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/30.png" id="171_kejmj"]
-[ext_resource type="Texture2D" uid="uid://bv7oalw1k7ujj" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/31.png" id="172_2v5yr"]
-[ext_resource type="Texture2D" uid="uid://8gw72fkij42j" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/32.png" id="173_trr6n"]
-[ext_resource type="Texture2D" uid="uid://d05imdhjcjcu1" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/33.png" id="174_lpnnf"]
-[ext_resource type="Texture2D" uid="uid://blyrrwkbybigp" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/34.png" id="175_01e2b"]
-[ext_resource type="Texture2D" uid="uid://tx7t3dejwabu" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/35.png" id="176_12u2x"]
-[ext_resource type="Texture2D" uid="uid://y5dvr2ykrp1k" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/36.png" id="177_6yluy"]
-[ext_resource type="Texture2D" uid="uid://blvhh6r1kr100" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/37.png" id="178_pb0bj"]
-[ext_resource type="Texture2D" uid="uid://c3fksj6mmoqul" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/38.png" id="179_el35t"]
-[ext_resource type="Texture2D" uid="uid://bjkc5rgvci2sh" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/39.png" id="180_hivc1"]
-[ext_resource type="Texture2D" uid="uid://cij082lwp83bx" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/40.png" id="181_twpdb"]
-[ext_resource type="Texture2D" uid="uid://c4l5o3jvouddd" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/41.png" id="182_gb34a"]
-[ext_resource type="Texture2D" uid="uid://cp24j2vmo552k" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/42.png" id="183_i1ppg"]
-[ext_resource type="Texture2D" uid="uid://cig8puc75hpiu" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/43.png" id="184_irpbx"]
-[ext_resource type="Texture2D" uid="uid://ch2cp34muh84q" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/44.png" id="185_sicwx"]
-[ext_resource type="Texture2D" uid="uid://cawbr8ni8agc1" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/45.png" id="186_gput2"]
-[ext_resource type="Texture2D" uid="uid://koqd7wyienq4" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/46.png" id="187_21lbp"]
-[ext_resource type="Texture2D" uid="uid://cw6i7ddepr6nj" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/47.png" id="188_e4kmu"]
-[ext_resource type="Texture2D" uid="uid://bc22av45fuoum" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/48.png" id="189_vlwkm"]
-[ext_resource type="Texture2D" uid="uid://dtw0aja47k8pc" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/49.png" id="190_gfxne"]
-[ext_resource type="Texture2D" uid="uid://di282ur8vsvkg" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/50.png" id="191_wtepu"]
-[ext_resource type="Texture2D" uid="uid://c02qeqfmg0mcu" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/51.png" id="192_ilaql"]
-[ext_resource type="Texture2D" uid="uid://bj2c1skmoycyr" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/52.png" id="193_cf50y"]
-[ext_resource type="Texture2D" uid="uid://d20hm7tn2ys81" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/53.png" id="194_kjful"]
-[ext_resource type="Texture2D" uid="uid://c27l0toyd41gd" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/54.png" id="195_fd8od"]
-[ext_resource type="Texture2D" uid="uid://badxtw0178jsr" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/55.png" id="196_phvnx"]
-[ext_resource type="Texture2D" uid="uid://b1aqravaxl206" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/56.png" id="197_knj8w"]
-[ext_resource type="Texture2D" uid="uid://dc0bwkcts5hlp" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/57.png" id="198_b5lmf"]
-[ext_resource type="Texture2D" uid="uid://ddaptffwsl0sx" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/58.png" id="199_oom71"]
-[ext_resource type="Texture2D" uid="uid://cn53l8kvnbj7e" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/59.png" id="200_oglus"]
-[ext_resource type="Texture2D" uid="uid://bl08lnjnjqtyr" path="res://asset/img/AnimatedPlanetsFull/Terran_no_clouds/1/60.png" id="201_155k1"]
-[ext_resource type="Texture2D" uid="uid://u0g0c851ihmo" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/1.png" id="202_nuxlw"]
-[ext_resource type="Texture2D" uid="uid://cbccmrvhpggrv" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/2.png" id="203_caljv"]
-[ext_resource type="Texture2D" uid="uid://bcuwb32bgdlnq" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/3.png" id="204_63qqd"]
-[ext_resource type="Texture2D" uid="uid://3lh0c514a8ko" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/4.png" id="205_dscc8"]
-[ext_resource type="Texture2D" uid="uid://c5hqvw2q7ri15" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/5.png" id="206_8x17s"]
-[ext_resource type="Texture2D" uid="uid://btlgj6oyjatmn" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/6.png" id="207_ajuq1"]
-[ext_resource type="Texture2D" uid="uid://dotj5ub70yreu" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/7.png" id="208_rq7x1"]
-[ext_resource type="Texture2D" uid="uid://bel33k2apy33a" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/8.png" id="209_qxxeu"]
-[ext_resource type="Texture2D" uid="uid://bbkdcemuj60tv" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/9.png" id="210_sdcjq"]
-[ext_resource type="Texture2D" uid="uid://1f3jiexqy5m1" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/10.png" id="211_yjirc"]
-[ext_resource type="Texture2D" uid="uid://c3dhj1s4kycui" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/11.png" id="212_jdxpe"]
-[ext_resource type="Texture2D" uid="uid://b5pbnt3sqnqvg" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/12.png" id="213_b457b"]
-[ext_resource type="Texture2D" uid="uid://2ymvtplsb5tc" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/13.png" id="214_d18wd"]
-[ext_resource type="Texture2D" uid="uid://dv51kqqh5qx24" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/14.png" id="215_oi1oe"]
-[ext_resource type="Texture2D" uid="uid://cvr54ya27lbut" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/15.png" id="216_00b2x"]
-[ext_resource type="Texture2D" uid="uid://c88oofg0rckv6" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/16.png" id="217_pbxo8"]
-[ext_resource type="Texture2D" uid="uid://d3cv6sftg1f4v" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/17.png" id="218_xkc55"]
-[ext_resource type="Texture2D" uid="uid://5mh2n1ilsrhn" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/18.png" id="219_n5kra"]
-[ext_resource type="Texture2D" uid="uid://b1jt3b0vwwjt7" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/19.png" id="220_qj41h"]
-[ext_resource type="Texture2D" uid="uid://hsisl1dd4o67" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/20.png" id="221_leqs8"]
-[ext_resource type="Texture2D" uid="uid://cw05b85tf4elg" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/21.png" id="222_jf5ge"]
-[ext_resource type="Texture2D" uid="uid://d1xcvy17f2id7" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/22.png" id="223_fgkq5"]
-[ext_resource type="Texture2D" uid="uid://bd30mtcrqbbrr" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/23.png" id="224_k65mf"]
-[ext_resource type="Texture2D" uid="uid://018fp1i3jaja" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/24.png" id="225_sqhpm"]
-[ext_resource type="Texture2D" uid="uid://p8p88kjpqba4" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/25.png" id="226_5mm5b"]
-[ext_resource type="Texture2D" uid="uid://dbjd2y21d8yab" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/26.png" id="227_52lba"]
-[ext_resource type="Texture2D" uid="uid://cjl7ja5ie0me8" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/27.png" id="228_th2rc"]
-[ext_resource type="Texture2D" uid="uid://ovrxta8cx3f" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/28.png" id="229_02ms4"]
-[ext_resource type="Texture2D" uid="uid://2j7p52vnyrbf" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/29.png" id="230_45m6w"]
-[ext_resource type="Texture2D" uid="uid://xf3fqeqt8joo" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/30.png" id="231_oxveh"]
-[ext_resource type="Texture2D" uid="uid://bjfwgk8dfqxai" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/31.png" id="232_ly7jb"]
-[ext_resource type="Texture2D" uid="uid://civko16fbbmev" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/32.png" id="233_jvmpo"]
-[ext_resource type="Texture2D" uid="uid://blmp1talq82kx" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/33.png" id="234_c8kuo"]
-[ext_resource type="Texture2D" uid="uid://dqyy1cw2h8vfd" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/34.png" id="235_i73t2"]
-[ext_resource type="Texture2D" uid="uid://d0ecnqk0rklya" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/35.png" id="236_kactv"]
-[ext_resource type="Texture2D" uid="uid://dv2fy5elfqyej" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/36.png" id="237_ef7km"]
-[ext_resource type="Texture2D" uid="uid://cnkw2cikfnsin" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/37.png" id="238_hcwlu"]
-[ext_resource type="Texture2D" uid="uid://drqcg06ipbylw" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/38.png" id="239_4c06i"]
-[ext_resource type="Texture2D" uid="uid://b1j771tw4c7h8" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/39.png" id="240_jwf14"]
-[ext_resource type="Texture2D" uid="uid://bwkjghgsj6uc5" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/40.png" id="241_aags5"]
-[ext_resource type="Texture2D" uid="uid://n5q7bwemw1oh" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/41.png" id="242_crcdm"]
-[ext_resource type="Texture2D" uid="uid://dxm6ao4fd5lfl" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/42.png" id="243_5k1lp"]
-[ext_resource type="Texture2D" uid="uid://dmvhet1fgic1w" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/43.png" id="244_r38rm"]
-[ext_resource type="Texture2D" uid="uid://cy04740xat5um" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/44.png" id="245_tvm04"]
-[ext_resource type="Texture2D" uid="uid://jgys3bin15nn" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/45.png" id="246_ssh1i"]
-[ext_resource type="Texture2D" uid="uid://dahjyysjnifep" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/46.png" id="247_u7q16"]
-[ext_resource type="Texture2D" uid="uid://ie8kgdbb3wv2" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/47.png" id="248_exae1"]
-[ext_resource type="Texture2D" uid="uid://dk74sjfnighi4" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/48.png" id="249_rxftf"]
-[ext_resource type="Texture2D" uid="uid://cy875ccpc8uo8" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/49.png" id="250_j8my2"]
-[ext_resource type="Texture2D" uid="uid://bry7shsi0wgyi" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/50.png" id="251_f8mmo"]
-[ext_resource type="Texture2D" uid="uid://56lh1and2hqx" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/51.png" id="252_gmugs"]
-[ext_resource type="Texture2D" uid="uid://0v5kvrkbbqjk" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/52.png" id="253_qetgg"]
-[ext_resource type="Texture2D" uid="uid://ewqr0806xi82" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/53.png" id="254_7ryj8"]
-[ext_resource type="Texture2D" uid="uid://da2cak334rdee" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/54.png" id="255_mxlth"]
-[ext_resource type="Texture2D" uid="uid://d0vwlagjk75v5" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/55.png" id="256_bp7xw"]
-[ext_resource type="Texture2D" uid="uid://b5g686c77esl7" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/56.png" id="257_lyr3h"]
-[ext_resource type="Texture2D" uid="uid://duxqqw23e3x4f" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/57.png" id="258_uf3pa"]
-[ext_resource type="Texture2D" uid="uid://c2nx1bc24jg0s" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/58.png" id="259_wcexa"]
-[ext_resource type="Texture2D" uid="uid://dam28c2l1gg1s" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/59.png" id="260_acqgh"]
-[ext_resource type="Texture2D" uid="uid://dc75afgw33q8k" path="res://asset/img/AnimatedPlanetsFull/Tundra/1/60.png" id="261_3eqmx"]
-[ext_resource type="Texture2D" uid="uid://c8oppdyriatgv" path="res://asset/img/AnimatedPlanetsFull/Desert/2/1.png" id="262_7bn4o"]
-[ext_resource type="Texture2D" uid="uid://byu1vw0onyf0j" path="res://asset/img/AnimatedPlanetsFull/Desert/2/2.png" id="263_02myn"]
-[ext_resource type="Texture2D" uid="uid://bwsju0nb3pcpb" path="res://asset/img/AnimatedPlanetsFull/Desert/2/3.png" id="264_xejd1"]
-[ext_resource type="Texture2D" uid="uid://dypek04s30rk3" path="res://asset/img/AnimatedPlanetsFull/Desert/2/4.png" id="265_bf05n"]
-[ext_resource type="Texture2D" uid="uid://btnpxunhwieex" path="res://asset/img/AnimatedPlanetsFull/Desert/2/5.png" id="266_jivo4"]
-[ext_resource type="Texture2D" uid="uid://pu2pvg77q44t" path="res://asset/img/AnimatedPlanetsFull/Desert/2/6.png" id="267_7hum4"]
-[ext_resource type="Texture2D" uid="uid://baod3uos4a0jt" path="res://asset/img/AnimatedPlanetsFull/Desert/2/7.png" id="268_d36wj"]
-[ext_resource type="Texture2D" uid="uid://nt8lask26oml" path="res://asset/img/AnimatedPlanetsFull/Desert/2/8.png" id="269_kgkbu"]
-[ext_resource type="Texture2D" uid="uid://dj1g4smb70q33" path="res://asset/img/AnimatedPlanetsFull/Desert/2/9.png" id="270_28agy"]
-[ext_resource type="Texture2D" uid="uid://d32vu5mehx5hd" path="res://asset/img/AnimatedPlanetsFull/Desert/2/10.png" id="271_m665j"]
-[ext_resource type="Texture2D" uid="uid://do2g5pp7cu0io" path="res://asset/img/AnimatedPlanetsFull/Desert/2/11.png" id="272_fhyjx"]
-[ext_resource type="Texture2D" uid="uid://qlfwe87me34o" path="res://asset/img/AnimatedPlanetsFull/Desert/2/12.png" id="273_o2ijw"]
-[ext_resource type="Texture2D" uid="uid://m74t6rgoji2q" path="res://asset/img/AnimatedPlanetsFull/Desert/2/13.png" id="274_qp7i4"]
-[ext_resource type="Texture2D" uid="uid://cug5n20fo7go" path="res://asset/img/AnimatedPlanetsFull/Desert/2/14.png" id="275_yh7ue"]
-[ext_resource type="Texture2D" uid="uid://dbl6t2tmxwdk7" path="res://asset/img/AnimatedPlanetsFull/Desert/2/15.png" id="276_yx7mo"]
-[ext_resource type="Texture2D" uid="uid://b8pmavd5qjogf" path="res://asset/img/AnimatedPlanetsFull/Desert/2/16.png" id="277_nj02q"]
-[ext_resource type="Texture2D" uid="uid://tuhm46regxdt" path="res://asset/img/AnimatedPlanetsFull/Desert/2/17.png" id="278_o0m0v"]
-[ext_resource type="Texture2D" uid="uid://bc44bl235fqif" path="res://asset/img/AnimatedPlanetsFull/Desert/2/18.png" id="279_13gwd"]
-[ext_resource type="Texture2D" uid="uid://d1p2pj4h0i5ti" path="res://asset/img/AnimatedPlanetsFull/Desert/2/19.png" id="280_76cdw"]
-[ext_resource type="Texture2D" uid="uid://5to86q1sjm6k" path="res://asset/img/AnimatedPlanetsFull/Desert/2/20.png" id="281_4bi2b"]
-[ext_resource type="Texture2D" uid="uid://dork4lt4vi8e2" path="res://asset/img/AnimatedPlanetsFull/Desert/2/21.png" id="282_515ej"]
-[ext_resource type="Texture2D" uid="uid://cm8a8tgd855ca" path="res://asset/img/AnimatedPlanetsFull/Desert/2/22.png" id="283_mkr1m"]
-[ext_resource type="Texture2D" uid="uid://cfapf75x3dtgt" path="res://asset/img/AnimatedPlanetsFull/Desert/2/23.png" id="284_3kca7"]
-[ext_resource type="Texture2D" uid="uid://cog6pv5iipc3q" path="res://asset/img/AnimatedPlanetsFull/Desert/2/24.png" id="285_854vo"]
-[ext_resource type="Texture2D" uid="uid://dnyhdi6m66wpr" path="res://asset/img/AnimatedPlanetsFull/Desert/2/25.png" id="286_q5g3x"]
-[ext_resource type="Texture2D" uid="uid://c6eylyf6njbja" path="res://asset/img/AnimatedPlanetsFull/Desert/2/26.png" id="287_etflt"]
-[ext_resource type="Texture2D" uid="uid://bijwqlk2d7nyy" path="res://asset/img/AnimatedPlanetsFull/Desert/2/27.png" id="288_4muwe"]
-[ext_resource type="Texture2D" uid="uid://bmca2gmv2iocq" path="res://asset/img/AnimatedPlanetsFull/Desert/2/28.png" id="289_swi5i"]
-[ext_resource type="Texture2D" uid="uid://6j604awjy132" path="res://asset/img/AnimatedPlanetsFull/Desert/2/29.png" id="290_t1ss1"]
-[ext_resource type="Texture2D" uid="uid://cww2c7hqw71u3" path="res://asset/img/AnimatedPlanetsFull/Desert/2/30.png" id="291_6m3mo"]
-[ext_resource type="Texture2D" uid="uid://vprjjd1nnvgw" path="res://asset/img/AnimatedPlanetsFull/Desert/2/31.png" id="292_wbwhb"]
-[ext_resource type="Texture2D" uid="uid://c8bnfy542pjt4" path="res://asset/img/AnimatedPlanetsFull/Desert/2/32.png" id="293_l8fis"]
-[ext_resource type="Texture2D" uid="uid://67nvbwt004r8" path="res://asset/img/AnimatedPlanetsFull/Desert/2/33.png" id="294_pfa7u"]
-[ext_resource type="Texture2D" uid="uid://dqx48fb18vc8t" path="res://asset/img/AnimatedPlanetsFull/Desert/2/34.png" id="295_ocmbw"]
-[ext_resource type="Texture2D" uid="uid://bmld7pc1ukyai" path="res://asset/img/AnimatedPlanetsFull/Desert/2/35.png" id="296_jdnbw"]
-[ext_resource type="Texture2D" uid="uid://b52yi7308r5ly" path="res://asset/img/AnimatedPlanetsFull/Desert/2/36.png" id="297_j7ugi"]
-[ext_resource type="Texture2D" uid="uid://5xav263kcvo6" path="res://asset/img/AnimatedPlanetsFull/Desert/2/37.png" id="298_mqufy"]
-[ext_resource type="Texture2D" uid="uid://col7sgw1b8o5w" path="res://asset/img/AnimatedPlanetsFull/Desert/2/38.png" id="299_j0dpm"]
-[ext_resource type="Texture2D" uid="uid://ed5hypff25u8" path="res://asset/img/AnimatedPlanetsFull/Desert/2/39.png" id="300_nygws"]
-[ext_resource type="Texture2D" uid="uid://boqbj6daclye3" path="res://asset/img/AnimatedPlanetsFull/Desert/2/40.png" id="301_somun"]
-[ext_resource type="Texture2D" uid="uid://buwert7sp2awt" path="res://asset/img/AnimatedPlanetsFull/Desert/2/41.png" id="302_ftaro"]
-[ext_resource type="Texture2D" uid="uid://q8ecqdx3ox0r" path="res://asset/img/AnimatedPlanetsFull/Desert/2/42.png" id="303_lfq2t"]
-[ext_resource type="Texture2D" uid="uid://c1efx0cwqhcb0" path="res://asset/img/AnimatedPlanetsFull/Desert/2/43.png" id="304_n375a"]
-[ext_resource type="Texture2D" uid="uid://dpgtfedhk36kq" path="res://asset/img/AnimatedPlanetsFull/Desert/2/44.png" id="305_cljup"]
-[ext_resource type="Texture2D" uid="uid://dryejoennucbe" path="res://asset/img/AnimatedPlanetsFull/Desert/2/45.png" id="306_qoemm"]
-[ext_resource type="Texture2D" uid="uid://dppo6ximkl35m" path="res://asset/img/AnimatedPlanetsFull/Desert/2/46.png" id="307_g3ug5"]
-[ext_resource type="Texture2D" uid="uid://ce7a4f6b7xhnu" path="res://asset/img/AnimatedPlanetsFull/Desert/2/47.png" id="308_af1nn"]
-[ext_resource type="Texture2D" uid="uid://8dyj637ags5g" path="res://asset/img/AnimatedPlanetsFull/Desert/2/48.png" id="309_2rjjy"]
-[ext_resource type="Texture2D" uid="uid://clvkba1whguxq" path="res://asset/img/AnimatedPlanetsFull/Desert/2/49.png" id="310_k2mtg"]
-[ext_resource type="Texture2D" uid="uid://bwx7auqrd26u8" path="res://asset/img/AnimatedPlanetsFull/Desert/2/50.png" id="311_g5bsj"]
-[ext_resource type="Texture2D" uid="uid://djwpgnr7y8xax" path="res://asset/img/AnimatedPlanetsFull/Desert/2/51.png" id="312_6cv05"]
-[ext_resource type="Texture2D" uid="uid://cl8as4565qkx2" path="res://asset/img/AnimatedPlanetsFull/Desert/2/52.png" id="313_1r05c"]
-[ext_resource type="Texture2D" uid="uid://d10jaqpjhdglf" path="res://asset/img/AnimatedPlanetsFull/Desert/2/53.png" id="314_fqanr"]
-[ext_resource type="Texture2D" uid="uid://bsfntc2028gcv" path="res://asset/img/AnimatedPlanetsFull/Desert/2/54.png" id="315_ur7ke"]
-[ext_resource type="Texture2D" uid="uid://c23t7ttejy00" path="res://asset/img/AnimatedPlanetsFull/Desert/2/55.png" id="316_vralu"]
-[ext_resource type="Texture2D" uid="uid://baks5h37uqj5d" path="res://asset/img/AnimatedPlanetsFull/Desert/2/56.png" id="317_gv6qi"]
-[ext_resource type="Texture2D" uid="uid://xmwcetb7gk8g" path="res://asset/img/AnimatedPlanetsFull/Desert/2/57.png" id="318_embp0"]
-[ext_resource type="Texture2D" uid="uid://cj6fopy6pxbwn" path="res://asset/img/AnimatedPlanetsFull/Desert/2/58.png" id="319_kt3in"]
-[ext_resource type="Texture2D" uid="uid://0sloognsb3as" path="res://asset/img/AnimatedPlanetsFull/Desert/2/59.png" id="320_uqol7"]
-[ext_resource type="Texture2D" uid="uid://1owycmakthnw" path="res://asset/img/AnimatedPlanetsFull/Desert/2/60.png" id="321_kyr26"]
-[ext_resource type="Texture2D" uid="uid://gunso6xtknm3" path="res://asset/img/PlanetsFull/Quasars/Quasar4.png" id="322_gvgg4"]
-[ext_resource type="Texture2D" uid="uid://c2x62njpcj5lp" path="res://asset/img/PlanetsFull/Starfield/1.png" id="323_wiqh2"]
-[ext_resource type="Texture2D" uid="uid://cpe30wc3fug7c" path="res://asset/img/PlanetsFull/Starfield/4.png" id="324_86v8s"]
-[ext_resource type="Texture2D" uid="uid://bsnwykmbfk1lm" path="res://asset/img/PlanetsFull/Starfield/3.png" id="325_pktmm"]
-[ext_resource type="Texture2D" uid="uid://bejbvp50aibbv" path="res://asset/img/PlanetsFull/Galaxies/3.png" id="326_sees1"]
+[ext_resource type="PackedScene" uid="uid://ccc73rj8vr8ta" path="res://src/entity/celestial/celestial_layout.tscn" id="83_7b4ht"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_qtsuk"]
 vertices = PackedVector3Array(9, 7.5, 18.5, 8.5, 7.5, 17.25, 5.5, 7.5, 17.25, 3.25, 7.5, 18.5, 4.5, 7.5, 16.25, 4.75, 7.5, -13, 3.25, 7.5, -14.5, 3.25, 7.5, 18.5, 3.25, 7.5, 18.5, 5.5, 7.5, 17.25, 4.5, 7.5, 16.25, 27.25, 7.5, -12.5, 27.25, 7.5, -7.25, 28.5, 7.5, -7.75, 28.5, 7.5, -14.5, 4.75, 7.5, -13, 5.5, 7.5, -13.5, 3.25, 7.5, -14.5, 26.25, 7.5, -13.5, 27.25, 7.5, -12.5, 28.5, 7.5, -14.5, 5.5, 7.5, -13.5, 26.25, 7.5, -13.5, 28.5, 7.5, -14.5, 3.25, 7.5, -14.5, 50.25, 7.5, -6.75, 48.5, 7.5, -6.75, 49, 7.5, -5.5, 68.5, 7.5, -5.5, 35.25, 7.5, -14.5, 35.25, 7.5, -13.5, 50.75, 7.5, -13.25, 68.5, 7.5, -14.5, 68.5, 7.5, -14.5, 51.25, 7.5, -12.5, 51.25, 7.5, -7.75, 68.5, 7.5, -5.5, 68.5, 7.5, -14.5, 50.75, 7.5, -13.25, 51.25, 7.5, -12.5, 51.25, 7.5, -7.75, 50.25, 7.5, -6.75, 68.5, 7.5, -5.5, 29.5, 7.5, -6.75, 28.5, 7.5, -7.75, 27.25, 7.5, -7.25, 27.25, 7.5, -5.5, 49, 7.5, -5.5, 48.5, 7.5, -6.75, 29.5, 7.5, -6.75, 27.25, 7.5, -5.5, 22.75, 7.5, 18.5, 23.25, 7.5, 17.25, 21.5, 7.5, 17.25, 10.25, 7.5, 17.25, 8.5, 7.5, 17.25, 9, 7.5, 18.5, 9, 7.5, 18.5, 22.75, 7.5, 18.5, 21.5, 7.5, 17.25, 10.25, 7.5, 17.25, 20.5, 7.5, 16.25, 20.5, 7.5, -6.75, 11.25, 7.5, -6.75, 11.25, 7.5, 16.25, 11.25, 7.5, 16.25, 10.25, 7.5, 17.25, 21.5, 7.5, 17.25, 20.5, 7.5, 16.25, 33.5, 7.5, 6.5, 36.75, 7.5, 6.5, 37, 7.5, 1.25, 27.25, 7.5, 11, 32.5, 7.5, 10.75, 32.75, 7.5, 7, 32.75, 7.5, 7, 33.5, 7.5, 6.5, 37, 7.5, 1.25, 32.75, 7.5, 7, 37, 7.5, 1.25, 27.25, 7.5, 1.25, 27.25, 7.5, 11, 49.5, 7.5, 6.5, 51, 7.5, 6.5, 50.75, 7.5, 1.25, 37, 7.5, 1.25, 36.75, 7.5, 6.5, 38.25, 7.5, 6.5, 39, 7.5, 7, 48.75, 7.5, 7, 49.5, 7.5, 6.5, 50.75, 7.5, 1.25, 37, 7.5, 1.25, 38.25, 7.5, 6.5, 39, 7.5, 7, 39.25, 7.5, 9.25, 48.5, 7.5, 9.25, 48.75, 7.5, 7, 55.25, 7.5, 7.5, 55.25, 7.5, 10.75, 60.5, 7.5, 11, 50.75, 7.5, 1.25, 51, 7.5, 6.5, 54.75, 7.5, 6.75, 54.75, 7.5, 6.75, 55.25, 7.5, 7.5, 60.5, 7.5, 11, 54.75, 7.5, 6.75, 60.5, 7.5, 11, 60.5, 7.5, 1.25, 50.75, 7.5, 1.25, 46.75, 7.5, 14.75, 49, 7.5, 13, 48.5, 7.5, 12.25, 41, 7.5, 14.75, 46.75, 7.5, 14.75, 48.5, 7.5, 12.25, 48.5, 7.5, 9.25, 39.25, 7.5, 9.25, 39, 7.5, 12.75, 23.25, 7.5, 17.25, 22.75, 7.5, 18.5, 26.25, 7.5, 18.5, 26.25, 7.5, 17.25, 27, 7.5, 16.75, 27, 7.5, 19, 33, 7.5, 22.75, 35.25, 7.5, 22.5, 35.25, 7.5, 13.25, 33, 7.5, 13, 27, 7.5, 16.75, 26.25, 7.5, 17.25, 26.25, 7.5, 18.5, 27, 7.5, 19, 33, 7.5, 13, 32.5, 7.5, 12.25, 27.25, 7.5, 11, 27, 7.5, 16.75, 27.25, 7.5, 24.75, 32.5, 7.5, 25, 32.5, 7.5, 23.5, 32.5, 7.5, 12.25, 32.5, 7.5, 10.75, 27.25, 7.5, 11, 27.25, 7.5, 24.75, 32.5, 7.5, 23.5, 33, 7.5, 22.75, 27, 7.5, 19, 55.25, 7.5, 23.5, 55.25, 7.5, 25, 60.5, 7.5, 24.75, 60.5, 7.5, 11, 55.25, 7.5, 10.75, 55.25, 7.5, 12.25, 54.75, 7.5, 13, 54.75, 7.5, 22.75, 55.25, 7.5, 23.5, 60.5, 7.5, 24.75, 60.5, 7.5, 11, 55.25, 7.5, 12.25, 52.5, 7.5, 13.25, 52.5, 7.5, 22.5, 54.75, 7.5, 22.75, 54.75, 7.5, 13, 38.75, 7.5, 22.75, 41, 7.5, 21, 40.5, 7.5, 20.25, 40.5, 7.5, 15.5, 41, 7.5, 14.75, 39, 7.5, 12.75, 38.25, 7.5, 13.25, 35.25, 7.5, 13.25, 35.25, 7.5, 22.5, 38.75, 7.5, 22.75, 40.5, 7.5, 20.25, 40.5, 7.5, 15.5, 38.25, 7.5, 13.25, 49, 7.5, 13, 46.75, 7.5, 14.75, 47.25, 7.5, 15.5, 52.5, 7.5, 13.25, 49, 7.5, 13, 47.25, 7.5, 15.5, 47, 7.5, 20.75, 49, 7.5, 22.75, 52.5, 7.5, 22.5, 41, 7.5, 21, 38.75, 7.5, 22.75, 39.25, 7.5, 23.5, 48.5, 7.5, 23.5, 49, 7.5, 22.75, 47, 7.5, 20.75, 46.25, 7.5, 21.25, 48.5, 7.5, 26.5, 48.5, 7.5, 23.5, 46.25, 7.5, 21.25, 41, 7.5, 21, 39.25, 7.5, 23.5, 39.25, 7.5, 26.5, 27.25, 7.5, 39, 28.5, 7.5, 38.5, 28.5, 7.5, 35.5, 27.25, 7.5, 24.75, 37, 7.5, 34.5, 36.75, 7.5, 29.25, 33.5, 7.5, 29.25, 29.5, 7.5, 34.5, 37, 7.5, 34.5, 33.5, 7.5, 29.25, 32.75, 7.5, 28.75, 32.75, 7.5, 28.75, 32.5, 7.5, 25, 27.25, 7.5, 24.75, 28.5, 7.5, 35.5, 29.5, 7.5, 34.5, 54.75, 7.5, 29, 53.75, 7.5, 29.25, 54, 7.5, 34.5, 60.5, 7.5, 24.75, 55.25, 7.5, 25, 55.25, 7.5, 28.25, 55.25, 7.5, 28.25, 54.75, 7.5, 29, 54, 7.5, 34.5, 60.5, 7.5, 34.5, 60.5, 7.5, 24.75, 13.5, 7.5, 26.5, 15.25, 7.5, 26.5, 14.75, 7.5, 25.25, 3.25, 7.5, 25.25, 3.25, 7.5, 34.5, 12.5, 7.5, 34.5, 12.5, 7.5, 27.5, 3.25, 7.5, 25.25, 12.5, 7.5, 27.5, 13.5, 7.5, 26.5, 3.25, 7.5, 25.25, 14.75, 7.5, 25.25, 15.25, 7.5, 26.5, 18.25, 7.5, 26.5, 20.5, 7.5, 25.25, 18.25, 7.5, 42.5, 19.25, 7.5, 43.5, 19, 7.5, 40.75, 18.25, 7.5, 41.25, 20.5, 7.5, 25.25, 18.25, 7.5, 26.5, 19.25, 7.5, 27.5, 19.25, 7.5, 43.5, 19.25, 7.5, 46.75, 20.5, 7.5, 47.25, 18.25, 7.5, 41.25, 3.25, 7.5, 41.25, 3.25, 7.5, 42.5, 18.25, 7.5, 42.5, 20.5, 7.5, 47.25, 20.5, 7.5, 25.25, 19.25, 7.5, 27.5, 19, 7.5, 40.75, 19.25, 7.5, 43.5, 38.25, 7.5, 29.25, 36.75, 7.5, 29.25, 37, 7.5, 34.5, 49.75, 7.5, 34.5, 50, 7.5, 29.25, 48.75, 7.5, 28.75, 39, 7.5, 28.75, 38.25, 7.5, 29.25, 37, 7.5, 34.5, 48.75, 7.5, 28.75, 48.5, 7.5, 26.5, 39.25, 7.5, 26.5, 39, 7.5, 28.75, 50.25, 7.5, 42.5, 51, 7.5, 43.25, 52.5, 7.5, 43, 51.25, 7.5, 40.25, 50.25, 7.5, 41.25, 50.25, 7.5, 41.25, 46.75, 7.5, 41.25, 47.25, 7.5, 42.5, 50.25, 7.5, 42.5, 52.5, 7.5, 35.5, 53, 7.5, 34.75, 50.75, 7.5, 34.75, 51.25, 7.5, 35.5, 53, 7.5, 34.75, 54, 7.5, 34.5, 53.75, 7.5, 29.25, 50, 7.5, 29.25, 49.75, 7.5, 34.5, 50.75, 7.5, 34.75, 51.25, 7.5, 40.25, 52.5, 7.5, 43, 52.5, 7.5, 35.5, 51.25, 7.5, 35.5, 45.5, 7.5, 42.5, 47.25, 7.5, 42.5, 46.75, 7.5, 41.25, 29.5, 7.5, 41.25, 28.5, 7.5, 40.25, 28.5, 7.5, 38.5, 27.25, 7.5, 39, 27.25, 7.5, 52.75, 32.5, 7.5, 53, 32.5, 7.5, 51.5, 39.25, 7.5, 51.5, 39.25, 7.5, 54.75, 44.5, 7.5, 55, 27.25, 7.5, 52.75, 32.5, 7.5, 51.5, 33.5, 7.5, 50.5, 28.5, 7.5, 40.25, 27.25, 7.5, 39, 38.25, 7.5, 50.5, 39.25, 7.5, 51.5, 44.5, 7.5, 55, 44.5, 7.5, 43.5, 44.5, 7.5, 43.5, 45.5, 7.5, 42.5, 29.5, 7.5, 41.25, 29.5, 7.5, 41.25, 33.5, 7.5, 50.5, 38.25, 7.5, 50.5, 44.5, 7.5, 43.5, 29.5, 7.5, 41.25, 28.5, 7.5, 40.25, 33.5, 7.5, 50.5, 68.5, 7.5, 51.5, 69, 7.5, 50.75, 68.75, 7.5, 49.5, 66.25, 7.5, 50.5, 67.25, 7.5, 51.5, 67.25, 7.5, 51.5, 67.25, 7.5, 54.5, 68.5, 7.5, 54.5, 68.5, 7.5, 51.5, 53.5, 7.5, 49.5, 52.5, 7.5, 48.5, 51.25, 7.5, 50.5, 52.5, 7.5, 48.5, 52.5, 7.5, 43, 51, 7.5, 43.25, 51.25, 7.5, 50.5, 66.25, 7.5, 50.5, 68.75, 7.5, 49.5, 53.5, 7.5, 49.5, 51.25, 7.5, 50.5, 20.5, 7.5, 47.25, 19.25, 7.5, 46.75, 19.25, 7.5, 48.5, 19.25, 7.5, 51.5, 20.5, 7.5, 47.25, 19.25, 7.5, 48.5, 18.75, 7.5, 49.25, 18.25, 7.5, 50.5, 14.5, 7.5, 49.5, 14.75, 7.5, 50.5, 18.25, 7.5, 50.5, 18.75, 7.5, 49.25, 19.25, 7.5, 51.5, 19.25, 7.5, 78.5, 20.5, 7.5, 79, 20.5, 7.5, 47.25, -28.75, 7.5, 63, -23.5, 7.5, 62.75, -23.25, 7.5, 59, -22.5, 7.5, 58.5, -20.5, 7.5, 58.5, -20.5, 7.5, 49.5, -23.25, 7.5, 59, -22.5, 7.5, 58.5, -20.5, 7.5, 49.5, -23.25, 7.5, 59, -20.5, 7.5, 49.5, -28.75, 7.5, 49.5, -28.75, 7.5, 63, -10.5, 7.5, 54.5, -8, 7.5, 54.5, -8, 7.5, 49.5, -11.25, 7.5, 55, -10.5, 7.5, 54.5, -8, 7.5, 49.5, -20.5, 7.5, 49.5, -20.5, 7.5, 58.5, -20.5, 7.5, 58.5, -11.5, 7.5, 58.5, -11.25, 7.5, 55, -8, 7.5, 49.5, -8, 7.5, 54.5, -5.75, 7.5, 54.5, -8, 7.5, 49.5, -5.75, 7.5, 54.5, -5, 7.5, 55, 4.25, 7.5, 58.5, 4.25, 7.5, 49.5, -5, 7.5, 55, -4.75, 7.5, 58.5, 4.25, 7.5, 58.5, 13.5, 7.5, 50.5, 14.75, 7.5, 50.5, 14.5, 7.5, 49.5, 4.25, 7.5, 49.5, 7, 7.5, 59, 7.25, 7.5, 62.75, 12.5, 7.5, 63, 12.5, 7.5, 51.5, 4.25, 7.5, 49.5, 4.25, 7.5, 58.5, 6.25, 7.5, 58.5, 6.25, 7.5, 58.5, 7, 7.5, 59, 12.5, 7.5, 51.5, 4.25, 7.5, 49.5, 12.5, 7.5, 51.5, 13.5, 7.5, 50.5, 4.25, 7.5, 49.5, 85.5, 7.5, 66.5, 88.5, 7.5, 66.5, 88.5, 7.5, 65.25, 85.5, 7.5, 65.25, 82.25, 7.5, 50.5, 84.5, 7.5, 49.5, 68.75, 7.5, 49.5, 69, 7.5, 50.75, 84.75, 7.5, 67, 85.5, 7.5, 66.5, 85.5, 7.5, 65.25, 84.5, 7.5, 64.25, 83, 7.5, 51, 83.25, 7.5, 74.5, 84.5, 7.5, 64.25, 84.5, 7.5, 49.5, 83.25, 7.5, 74.5, 84.5, 7.5, 74.5, 84.75, 7.5, 67, 84.5, 7.5, 64.25, 82.25, 7.5, 50.5, 83, 7.5, 51, 84.5, 7.5, 49.5, 91.25, 7.5, 59, 94.5, 7.5, 58.75, 94.75, 7.5, 55, 95.5, 7.5, 54.5, 98, 7.5, 54.5, 98, 7.5, 49.5, 94.75, 7.5, 55, 95.5, 7.5, 54.5, 98, 7.5, 49.5, 94.75, 7.5, 55, 98, 7.5, 49.5, 91.25, 7.5, 49.5, 91.25, 7.5, 59, 115.5, 7.5, 54.5, 117.75, 7.5, 54.5, 117.75, 7.5, 49.5, 98, 7.5, 49.5, 98, 7.5, 54.5, 100.25, 7.5, 54.5, 98, 7.5, 49.5, 100.25, 7.5, 54.5, 101, 7.5, 55, 114.5, 7.5, 55.5, 115.5, 7.5, 54.5, 117.75, 7.5, 49.5, 110.5, 7.5, 62.75, 114.75, 7.5, 60.5, 114.5, 7.5, 55.5, 101, 7.5, 55, 101, 7.5, 60.5, 105.25, 7.5, 62.75, 105.25, 7.5, 62.75, 110.5, 7.5, 62.75, 114.5, 7.5, 55.5, 117.75, 7.5, 49.5, 98, 7.5, 49.5, 101, 7.5, 55, 125.5, 7.5, 50.5, 126.75, 7.5, 50.5, 126.5, 7.5, 49.5, 121, 7.5, 55, 121.25, 7.5, 58.75, 124.5, 7.5, 59, 124.5, 7.5, 51.5, 120.25, 7.5, 54.5, 124.5, 7.5, 51.5, 125.5, 7.5, 50.5, 120.25, 7.5, 54.5, 121, 7.5, 55, 124.5, 7.5, 51.5, 117.75, 7.5, 49.5, 117.75, 7.5, 54.5, 120.25, 7.5, 54.5, 125.5, 7.5, 50.5, 126.5, 7.5, 49.5, 126.5, 7.5, 49.5, 126.75, 7.5, 50.5, 130.25, 7.5, 50.5, 132.75, 7.5, 49.5, 131.25, 7.5, 51.5, 131.25, 7.5, 86.25, 132.75, 7.5, 86.25, 132.75, 7.5, 49.5, 132.75, 7.5, 49.5, 130.25, 7.5, 50.5, 131.25, 7.5, 51.5, -60.5, 7.5, 76.5, -59.5, 7.5, 76.75, -59.5, 7.5, 75.5, -60.5, 7.5, 71.25, -41.25, 7.5, 74.5, -40.75, 7.5, 73.25, -42.5, 7.5, 73.25, -58.5, 7.5, 74.5, -36.75, 7.5, 67.5, -36.75, 7.5, 69.25, -35.5, 7.5, 68.75, -35.5, 7.5, 51.25, -58.75, 7.5, 70.25, -43.25, 7.5, 67, -42.5, 7.5, 66.5, -35.5, 7.5, 51.25, -58.75, 7.5, 51.25, -60.5, 7.5, 71.25, -59.5, 7.5, 75.5, -58.5, 7.5, 74.5, -59.25, 7.5, 71, -37.75, 7.5, 66.5, -36.75, 7.5, 67.5, -35.5, 7.5, 51.25, -58.75, 7.5, 70.25, -59.25, 7.5, 71, -58.5, 7.5, 74.5, -43.5, 7.5, 72.25, -43.25, 7.5, 67, -42.5, 7.5, 66.5, -37.75, 7.5, 66.5, -35.5, 7.5, 51.25, -58.5, 7.5, 74.5, -42.5, 7.5, 73.25, -43.5, 7.5, 72.25, 43.25, 7.5, 67.5, 43.25, 7.5, 71, 44.5, 7.5, 70.5, 44.5, 7.5, 55, 44.5, 7.5, 55, 39.25, 7.5, 54.75, 39.25, 7.5, 56.25, 32.5, 7.5, 56.25, 32.5, 7.5, 53, 27.25, 7.5, 52.75, 44.5, 7.5, 55, 39.25, 7.5, 56.25, 38.25, 7.5, 57.25, 42.25, 7.5, 66.5, 43.25, 7.5, 67.5, 33.5, 7.5, 57.25, 32.5, 7.5, 56.25, 27.25, 7.5, 52.75, 27.25, 7.5, 66.5, 33.5, 7.5, 57.25, 27.25, 7.5, 66.5, 42.25, 7.5, 66.5, 38.25, 7.5, 57.25, 35, 9.25, 53, 35, 9.25, 54.75, 36.75, 9.25, 54.75, 36.75, 9.25, 53, 35.25, 7.5, 53.25, 35.25, 7.5, 54.5, 36.5, 7.5, 54.5, 36.5, 7.5, 53.25, 68.75, 7.5, 56.75, 68.5, 7.5, 54.5, 67.25, 7.5, 54.5, 67, 7.5, 56.75, 70.75, 7.5, 66.5, 71, 7.5, 57.25, 69.5, 7.5, 57.25, 69.5, 7.5, 57.25, 68.75, 7.5, 56.75, 67, 7.5, 56.75, 66.25, 7.5, 57.25, 65, 7.5, 66.5, 70.75, 7.5, 66.5, 66.25, 7.5, 57.25, 64.75, 7.5, 57.25, 65, 7.5, 66.5, -9, 9.25, 63.75, -9, 9.25, 66.75, -7.25, 9.25, 66.75, -7.25, 9.25, 63.75, -21, 9.25, 61, -21, 9.25, 62.75, -10, 9.25, 62.75, -10, 9.25, 61, -10, 9.25, 62.75, -9, 9.25, 63.75, -7.25, 9.25, 63.75, -7.25, 9.25, 60, -7.25, 9.25, 57, -9, 9.25, 57, -9, 9.25, 60, 4.75, 9.25, 61, -6.25, 9.25, 61, -6.25, 9.25, 62.75, 4.75, 9.25, 62.75, -6.25, 9.25, 61, -7.25, 9.25, 60, -9, 9.25, 60, -10, 9.25, 61, -10, 9.25, 62.75, -7.25, 9.25, 63.75, -6.25, 9.25, 62.75, -6.25, 9.25, 61, -9, 9.25, 60, 97, 9.25, 57, 97, 9.25, 58.75, 98.75, 9.25, 58.75, 98.75, 9.25, 57, 117, 9.25, 57, 117, 9.25, 58.75, 118.75, 9.25, 58.75, 118.75, 9.25, 57, -8.75, 7.5, 57.25, -8.75, 7.5, 58.75, -7.5, 7.5, 58.75, -7.5, 7.5, 57.25, 64.75, 7.5, 57.25, 51.25, 7.5, 57.25, 51.25, 7.5, 66.5, 65, 7.5, 66.5, 76.5, 7.5, 66.5, 76.5, 7.5, 57.25, 71, 7.5, 57.25, 70.75, 7.5, 66.5, 90.25, 7.5, 65.25, 88.5, 7.5, 65.25, 88.5, 7.5, 66.5, 90.25, 7.5, 66.5, 95.5, 7.5, 70.5, 100.25, 7.5, 70.5, 104.5, 7.5, 63.5, 100.25, 7.5, 61.25, 95.5, 7.5, 61.25, 91.25, 7.5, 64.25, 91.25, 7.5, 64.25, 90.25, 7.5, 65.25, 90.25, 7.5, 66.5, 91.25, 7.5, 67.5, 95.5, 7.5, 70.5, 95.5, 7.5, 61.25, 94.5, 7.5, 60.25, 91.25, 7.5, 59, 91.25, 7.5, 64.25, 91.25, 7.5, 72.75, 94.5, 7.5, 73, 94.5, 7.5, 71.5, 94.5, 7.5, 60.25, 94.5, 7.5, 58.75, 91.25, 7.5, 59, 101, 7.5, 71.25, 105.25, 7.5, 69, 104.5, 7.5, 68.25, 104.5, 7.5, 63.5, 105.25, 7.5, 62.75, 101, 7.5, 60.5, 100.25, 7.5, 61.25, 91.25, 7.5, 72.75, 94.5, 7.5, 71.5, 95.5, 7.5, 70.5, 91.25, 7.5, 67.5, 100.25, 7.5, 70.5, 101, 7.5, 71.25, 104.5, 7.5, 68.25, 104.5, 7.5, 63.5, 121.25, 7.5, 71.5, 121.25, 7.5, 73, 124.5, 7.5, 72.75, 124.5, 7.5, 59, 121.25, 7.5, 58.75, 121.25, 7.5, 60.25, 114.75, 7.5, 60.5, 110.5, 7.5, 62.75, 111.25, 7.5, 63.5, 115.5, 7.5, 61.25, 111.25, 7.5, 68.25, 110.5, 7.5, 69, 114.75, 7.5, 71.25, 115.5, 7.5, 70.5, 111.25, 7.5, 63.5, 111.25, 7.5, 68.25, 115.5, 7.5, 70.5, 120.25, 7.5, 70.5, 120.25, 7.5, 61.25, 115.5, 7.5, 61.25, 120.25, 7.5, 61.25, 120.25, 7.5, 70.5, 121.25, 7.5, 71.5, 124.5, 7.5, 72.75, 124.5, 7.5, 59, 121.25, 7.5, 60.25, -20.75, 7.5, 61.25, -20.75, 7.5, 62.5, -19.25, 7.5, 62.5, -19.25, 7.5, 61.25, -1, 7.5, 61.25, -1, 7.5, 62.5, 4.5, 7.5, 62.5, 4.5, 7.5, 61.25, -29.75, 7.5, 73.25, -31.5, 7.5, 73.25, -31.5, 7.5, 74.5, -29.25, 7.5, 74.75, -9.25, 7.5, 74.5, -10.5, 7.5, 69.25, -11.25, 7.5, 68.75, -22.5, 7.5, 65.25, -28.75, 7.5, 72.25, -26.5, 7.5, 74.5, -28.75, 7.5, 75.5, -28.75, 7.5, 77.25, -27.5, 7.5, 77.25, -27.5, 7.5, 75.5, -23.5, 7.5, 64.25, -23.5, 7.5, 62.75, -28.75, 7.5, 63, -29.25, 7.5, 74.75, -28.75, 7.5, 75.5, -27.5, 7.5, 75.5, -26.5, 7.5, 74.5, -28.75, 7.5, 72.25, -29.75, 7.5, 73.25, -9.25, 7.5, 74.5, -9, 7.5, 69.25, -10.5, 7.5, 69.25, -22.5, 7.5, 65.25, -23.5, 7.5, 64.25, -28.75, 7.5, 63, -28.75, 7.5, 72.25, -11.25, 7.5, 68.75, -11.5, 7.5, 65.25, -22.5, 7.5, 65.25, 11.25, 7.5, 75.5, 11.25, 7.5, 79, 12.5, 7.5, 78.5, 12.5, 7.5, 63, 12.5, 7.5, 63, 7.25, 7.5, 62.75, 7.25, 7.5, 64.25, 12.5, 7.5, 63, 7.25, 7.5, 64.25, 6.25, 7.5, 65.25, 10.25, 7.5, 74.5, 11.25, 7.5, 75.5, -5.25, 7.5, 69, -9, 7.5, 69.25, -9.25, 7.5, 74.5, 6.25, 7.5, 65.25, -4.75, 7.5, 65.25, -4.75, 7.5, 68.25, 6.25, 7.5, 65.25, -4.75, 7.5, 68.25, -5.25, 7.5, 69, 10.25, 7.5, 74.5, 6.25, 7.5, 65.25, -5.25, 7.5, 69, -9.25, 7.5, 74.5, -8.75, 7.5, 65, -8.75, 7.5, 66.5, -7.5, 7.5, 66.5, -7.5, 7.5, 65, 107, 9.25, 65, 107, 9.25, 66.75, 108.75, 9.25, 66.75, 108.75, 9.25, 65, 107.25, 7.5, 65.25, 107.25, 7.5, 66.5, 108.5, 7.5, 66.5, 108.5, 7.5, 65.25, -40.75, 7.5, 73.25, -41.25, 7.5, 74.5, -37.75, 7.5, 74.5, -37.25, 7.5, 73, -35.5, 7.5, 80.25, -35.25, 7.5, 75, -36.75, 7.5, 75.5, -36.75, 7.5, 90.75, -36.75, 7.5, 72.25, -37.25, 7.5, 73, -37.75, 7.5, 74.5, -36.75, 7.5, 75.5, -35.25, 7.5, 75, -35.25, 7.5, 72.75, -31.5, 7.5, 85.5, -34.5, 7.5, 81.25, -35.5, 7.5, 80.25, -36.75, 7.5, 90.75, -31.25, 7.5, 90.75, -34.5, 7.5, 74.5, -31.5, 7.5, 74.5, -31.5, 7.5, 73.25, -34.5, 7.5, 73.25, -31.5, 7.5, 85.5, -31, 7.5, 84.75, -30.25, 7.5, 81.25, -34.5, 7.5, 81.25, -35.25, 7.5, 75, -34.5, 7.5, 74.5, -34.5, 7.5, 73.25, -35.25, 7.5, 72.75, -35.5, 7.5, 68.75, -36.75, 7.5, 69.25, -36.75, 7.5, 72.25, -35.25, 7.5, 72.75, -31, 7.5, 84.75, -30, 7.5, 84.5, -30.25, 7.5, 81.25, -41, 9.25, 69, -41, 9.25, 70.75, -39.25, 9.25, 70.75, -39.25, 9.25, 69, 101.25, 7.5, 76.25, 100.75, 7.5, 77, 100.75, 7.5, 82.5, 115, 7.5, 82.5, 115, 7.5, 77, 114.5, 7.5, 76.25, 114.5, 7.5, 76.25, 114.75, 7.5, 71.25, 110.5, 7.5, 69, 105.25, 7.5, 69, 101, 7.5, 71.25, 101.25, 7.5, 76.25, 114.5, 7.5, 76.25, 110.5, 7.5, 69, 105.25, 7.5, 69, 101.25, 7.5, 76.25, 100.75, 7.5, 82.5, 115, 7.5, 82.5, -40.75, 7.5, 69.25, -40.75, 7.5, 70.5, -39.5, 7.5, 70.5, -39.5, 7.5, 69.25, 69.5, 7.5, 74.5, 71.25, 7.5, 74.5, 70.75, 7.5, 73.25, 45.5, 7.5, 73.25, 44.5, 7.5, 72.25, 44.5, 7.5, 70.5, 43.25, 7.5, 71, 43.25, 7.5, 98.5, 69.5, 7.5, 90.5, 71.25, 7.5, 90.5, 71.25, 7.5, 89.25, 69.5, 7.5, 89.25, 45.5, 7.5, 73.25, 44.5, 7.5, 72.25, 43.25, 7.5, 98.5, 68.5, 7.5, 91.5, 69.5, 7.5, 90.5, 69.5, 7.5, 89.25, 68.5, 7.5, 88.25, 43.25, 7.5, 98.5, 68.5, 7.5, 88.25, 68.5, 7.5, 75.5, 45.5, 7.5, 73.25, 43.25, 7.5, 98.5, 43.25, 7.5, 98.5, 68.5, 7.5, 98.5, 68.5, 7.5, 91.5, 68.5, 7.5, 75.5, 69.5, 7.5, 74.5, 45.5, 7.5, 73.25, 90.25, 7.5, 81.25, 86.75, 7.5, 81.25, 87.25, 7.5, 82.5, 100.75, 7.5, 82.5, 94.5, 7.5, 76.25, 94.5, 7.5, 73, 91.25, 7.5, 72.75, 95, 7.5, 77, 94.5, 7.5, 76.25, 91.25, 7.5, 72.75, 91, 7.5, 80.75, 100.75, 7.5, 82.5, 91, 7.5, 80.75, 90.25, 7.5, 81.25, 100.75, 7.5, 82.5, 100.75, 7.5, 77, 95, 7.5, 77, 91, 7.5, 80.75, 124.5, 7.5, 72.75, 121.25, 7.5, 73, 121.25, 7.5, 76.25, 124.5, 7.5, 72.75, 121.25, 7.5, 76.25, 120.75, 7.5, 77, 124.5, 7.5, 82.5, 120.75, 7.5, 77, 115, 7.5, 77, 115, 7.5, 82.5, 124.5, 7.5, 82.5, 97, 9.25, 73, 97, 9.25, 74.75, 98.75, 9.25, 74.75, 98.75, 9.25, 73, 117, 9.25, 73, 117, 9.25, 74.75, 118.75, 9.25, 74.75, 118.75, 9.25, 73, 85.5, 7.5, 82.5, 87.25, 7.5, 82.5, 86.75, 7.5, 81.25, 77, 7.5, 81, 74.25, 7.5, 89.25, 71.25, 7.5, 89.25, 71.25, 7.5, 90.5, 84.5, 7.5, 90.5, 70.75, 7.5, 73.25, 71.25, 7.5, 74.5, 74.25, 7.5, 74.5, 76.5, 7.5, 73.25, 75.25, 7.5, 88.25, 74.25, 7.5, 89.25, 84.5, 7.5, 90.5, 76.5, 7.5, 73.25, 74.25, 7.5, 74.5, 75.25, 7.5, 75.5, 76.5, 7.5, 80.25, 76.5, 7.5, 73.25, 75.25, 7.5, 75.5, 75.25, 7.5, 88.25, 75.25, 7.5, 88.25, 84.5, 7.5, 90.5, 84.5, 7.5, 83.5, 77, 7.5, 81, 77, 7.5, 81, 76.5, 7.5, 80.25, 75.25, 7.5, 88.25, 84.5, 7.5, 83.5, 85.5, 7.5, 82.5, 77, 7.5, 81, -59.5, 7.5, 80.25, -59.5, 7.5, 76.75, -60.5, 7.5, 76.5, -60.5, 7.5, 98.5, -51.5, 7.5, 98.5, -51.5, 7.5, 81.25, -59, 7.5, 81, -60.5, 7.5, 98.5, -59, 7.5, 81, -59.5, 7.5, 80.25, -60.5, 7.5, 98.5, -27.5, 7.5, 80.25, -27.5, 7.5, 77.25, -28.75, 7.5, 77.25, -28.75, 7.5, 80.25, -24.75, 7.5, 85.5, -24.75, 7.5, 88.5, -15.5, 7.5, 88.5, -15.25, 7.5, 85, -27.5, 7.5, 80.25, -28.75, 7.5, 80.25, -29.25, 7.5, 81, -26.5, 7.5, 81.25, -15.25, 7.5, 85, -14.5, 7.5, 84.5, -13.25, 7.5, 81.25, -26.5, 7.5, 81.25, -25.25, 7.5, 84.75, -24.75, 7.5, 85.5, -14.5, 7.5, 84.5, -13, 7.5, 84.5, -13.25, 7.5, 81.25, -29.25, 7.5, 81, -30.25, 7.5, 81.25, -30, 7.5, 84.5, -25.25, 7.5, 84.75, -26.5, 7.5, 81.25, 10.25, 7.5, 105.25, 8.5, 7.5, 105.25, 9, 7.5, 106.5, 18.5, 7.5, 106.5, 20.5, 7.5, 79, 19.25, 7.5, 78.5, 19.25, 7.5, 80.25, 20.5, 7.5, 82.25, 12.5, 7.5, 80.25, 12.5, 7.5, 78.5, 11.25, 7.5, 79, 11.25, 7.5, 104.25, 11.25, 7.5, 104.25, 18.5, 7.5, 105.5, 19.5, 7.5, 104.5, 20.5, 7.5, 82.25, 19.25, 7.5, 80.25, 18.25, 7.5, 81.25, 21.5, 7.5, 83.25, 20.5, 7.5, 82.25, 18.25, 7.5, 81.25, 13.5, 7.5, 81.25, 11.25, 7.5, 104.25, 13.5, 7.5, 81.25, 12.5, 7.5, 80.25, 11.25, 7.5, 104.25, 11.25, 7.5, 104.25, 19.5, 7.5, 104.5, 34.5, 7.5, 104.5, 34.5, 7.5, 83.25, 21.5, 7.5, 83.25, 11.25, 7.5, 104.25, 10.25, 7.5, 105.25, 18.5, 7.5, 106.5, 18.5, 7.5, 105.5, -13.25, 7.5, 81.25, -13, 7.5, 84.5, -9.75, 7.5, 84.5, -13.25, 7.5, 81.25, -9.75, 7.5, 84.5, -9, 7.5, 85, -3.5, 7.5, 81.25, -9, 7.5, 85, -9, 7.5, 90.75, -3.5, 7.5, 90.75, -3.5, 7.5, 81.25, -3.5, 7.5, 96, -9.5, 7.5, 96.75, -8.75, 7.5, 97.5, -2.5, 7.5, 97.25, -3.5, 7.5, 96, -8.75, 7.5, 97.5, -8.75, 7.5, 99, -3.25, 7.5, 99, -2.5, 7.5, 98.5, 4.5, 7.5, 81.25, 3.25, 7.5, 81.25, 3, 7.5, 96.75, 4.5, 7.5, 98.5, 3, 7.5, 96.75, 2.25, 7.5, 97.25, 4.5, 7.5, 98.5, 2.25, 7.5, 97.25, -2.5, 7.5, 97.25, -2.5, 7.5, 98.5, 4.5, 7.5, 98.5, 130.25, 7.5, 89.25, 128.5, 7.5, 89.25, 128.5, 7.5, 90.5, 130.25, 7.5, 90.5, 131.25, 7.5, 91.5, 131, 7.5, 104.75, 132.75, 7.5, 106.5, 132.75, 7.5, 86.25, 131, 7.5, 88.75, 130.25, 7.5, 89.25, 130.25, 7.5, 90.5, 131.25, 7.5, 91.5, 130.25, 7.5, 105.25, 119.25, 7.5, 105.25, 119.25, 7.5, 106.5, 132.75, 7.5, 106.5, 132.75, 7.5, 86.25, 131.25, 7.5, 86.25, 131, 7.5, 88.75, 131.25, 7.5, 91.5, 131, 7.5, 104.75, 130.25, 7.5, 105.25, 132.75, 7.5, 106.5, -29, 9.25, 87, -29, 9.25, 88.75, -27.25, 9.25, 88.75, -27.25, 9.25, 87, -13, 9.25, 87, -13, 9.25, 88.75, -11.25, 9.25, 88.75, -11.25, 9.25, 87, -14.5, 7.5, 96.5, -12.75, 7.5, 96.5, -12.75, 7.5, 91.25, -14.5, 7.5, 91.25, -15.5, 7.5, 88.5, -24.75, 7.5, 88.5, -24.75, 7.5, 90.25, -15.25, 7.5, 97, -14.5, 7.5, 96.5, -14.5, 7.5, 91.25, -15.25, 7.5, 90.75, -25.25, 7.5, 91, -27.5, 7.5, 91.25, -27.5, 7.5, 96.5, -25.25, 7.5, 96.75, -24.75, 7.5, 97.5, -24.75, 7.5, 99.25, -15.5, 7.5, 99.25, -15.5, 7.5, 99.25, -15.25, 7.5, 97, -15.25, 7.5, 90.75, -15.5, 7.5, 88.5, -24.75, 7.5, 90.25, -24.75, 7.5, 97.5, -24.75, 7.5, 90.25, -25.25, 7.5, 91, -25.25, 7.5, 96.75, -24.75, 7.5, 97.5, 101.5, 7.5, 90.5, 103.25, 7.5, 90.5, 102.75, 7.5, 89.25, 98.25, 7.5, 90.5, 99.25, 7.5, 91.5, 100.5, 7.5, 91.5, 101.5, 7.5, 90.5, 92.75, 7.5, 91, 93.5, 7.5, 90.5, 91.25, 7.5, 89.25, 98.25, 7.5, 90.5, 101.5, 7.5, 90.5, 102.75, 7.5, 89.25, 98.25, 7.5, 90.5, 102.75, 7.5, 89.25, 91.25, 7.5, 89.25, 93.5, 7.5, 90.5, 91.25, 7.5, 102.5, 92.5, 7.5, 103, 92.75, 7.5, 91, 91.25, 7.5, 89.25, 103.25, 7.5, 90.5, 128.5, 7.5, 90.5, 128.5, 7.5, 89.25, 102.75, 7.5, 89.25, -30.5, 7.5, 96.5, -27.5, 7.5, 96.5, -27.5, 7.5, 91.25, -30.5, 7.5, 91.25, -30.5, 7.5, 91.25, -31.25, 7.5, 90.75, -36.75, 7.5, 90.75, -36.75, 7.5, 97, -31.25, 7.5, 97, -30.5, 7.5, 96.5, -9.75, 7.5, 91.25, -12.75, 7.5, 91.25, -12.75, 7.5, 96.5, -9.5, 7.5, 96.75, -9.5, 7.5, 96.75, -3.5, 7.5, 96, -3.5, 7.5, 90.75, -9, 7.5, 90.75, -9.75, 7.5, 91.25, 20.75, 7.5, 113.5, 20.75, 7.5, 115, 21.5, 7.5, 114.5, 100.5, 7.5, 91.5, 99.25, 7.5, 91.5, 99.25, 7.5, 112.5, 100.5, 7.5, 114.5, 21.5, 7.5, 114.5, 100.5, 7.5, 114.5, 98.25, 7.5, 113.5, 20.75, 7.5, 113.5, 100.5, 7.5, 114.5, 99.25, 7.5, 112.5, 98.25, 7.5, 113.5, -36.75, 7.5, 107, -35.25, 7.5, 107.25, -34.5, 7.5, 106.5, -31.25, 7.5, 102.75, -31.25, 7.5, 97, -36.75, 7.5, 97, -27, 7.5, 106.5, -27.25, 7.5, 103.25, -30.5, 7.5, 103.25, -34.5, 7.5, 106.5, -27, 7.5, 106.5, -30.5, 7.5, 103.25, -31.25, 7.5, 102.75, 92.5, 7.5, 103, 91.25, 7.5, 102.5, 91.25, 7.5, 104.25, 92.5, 7.5, 106.5, 74.25, 7.5, 105.25, 72.5, 7.5, 105.25, 73, 7.5, 106.5, 77.5, 7.5, 105.25, 74.25, 7.5, 105.25, 73, 7.5, 106.5, 92.5, 7.5, 106.5, 91.25, 7.5, 104.25, 90.25, 7.5, 105.25, 76.5, 7.5, 104.25, 76.5, 7.5, 97.25, 75.25, 7.5, 97.25, 75.25, 7.5, 104.25, 92.5, 7.5, 106.5, 90.25, 7.5, 105.25, 77.5, 7.5, 105.25, 73, 7.5, 106.5, 77.5, 7.5, 105.25, 76.5, 7.5, 104.25, 75.25, 7.5, 104.25, 74.25, 7.5, 105.25, 117.5, 7.5, 106.5, 119.25, 7.5, 106.5, 119.25, 7.5, 105.25, 117.5, 7.5, 105.25, 117.5, 7.5, 98.5, 124.5, 7.5, 98.5, 124.5, 7.5, 97.25, 109.25, 7.5, 97.25, 116.75, 7.5, 107, 117.5, 7.5, 106.5, 117.5, 7.5, 105.25, 116.5, 7.5, 104.25, 114.25, 7.5, 106.5, 115.25, 7.5, 107.5, 115.25, 7.5, 107.5, 115.25, 7.5, 109.25, 116.5, 7.5, 109.25, 116.75, 7.5, 107, 116.75, 7.5, 99, 117.5, 7.5, 98.5, 109.25, 7.5, 97.25, 109.25, 7.5, 106.5, 114.25, 7.5, 106.5, 116.5, 7.5, 104.25, 116.75, 7.5, 99, 109.25, 7.5, 97.25, -29, 9.25, 99, -29, 9.25, 100.75, -27.25, 9.25, 100.75, -27.25, 9.25, 99, -13, 9.25, 99, -13, 9.25, 100.75, -11.25, 9.25, 100.75, -11.25, 9.25, 99, -9.25, 7.5, 103, -13, 7.5, 103.25, -13.25, 7.5, 106.5, -3.5, 7.5, 106.5, -3.25, 7.5, 99, -8.75, 7.5, 99, -8.75, 7.5, 102.25, -3.5, 7.5, 106.5, -3.25, 7.5, 99, -8.75, 7.5, 102.25, -9.25, 7.5, 103, -13.25, 7.5, 106.5, -13, 7.5, 103.25, -14.5, 7.5, 103.25, -25.75, 7.5, 103.25, -27.25, 7.5, 103.25, -27, 7.5, 106.5, -27, 7.5, 106.5, -13.25, 7.5, 106.5, -14.5, 7.5, 103.25, -15.25, 7.5, 102.75, -25, 7.5, 102.75, -25.75, 7.5, 103.25, -15.25, 7.5, 102.75, -15.5, 7.5, 99.25, -24.75, 7.5, 99.25, -25, 7.5, 102.75, 2.5, 7.5, 113.25, 2.5, 7.5, 114.75, 3.25, 7.5, 115.5, 4.5, 7.5, 112.5, 3.25, 7.5, 112.5, 2.5, 7.5, 113.25, 3.25, 7.5, 115.5, 4.75, 7.5, 115, 5.5, 7.5, 113.5, 5.5, 7.5, 106.5, 9, 7.5, 106.5, 8.5, 7.5, 105.25, 3.25, 7.5, 105.25, 4.75, 7.5, 107, 3.25, 7.5, 105.25, 3.25, 7.5, 112.5, 4.5, 7.5, 112.5, 4.75, 7.5, 107, 5.5, 7.5, 106.5, 3.25, 7.5, 105.25, 9, 7.5, 114.5, 9.25, 7.5, 113.5, 5.5, 7.5, 113.5, 5.5, 7.5, 114.5, 3.25, 7.5, 115.5, 3.25, 7.5, 122.5, 4.5, 7.5, 122.5, 4.75, 7.5, 115, 4.75, 7.5, 115, 5.5, 7.5, 114.5, 5.5, 7.5, 113.5, 72.5, 7.5, 105.25, 45.25, 7.5, 105.25, 45.25, 7.5, 106.5, 73, 7.5, 106.5, -35.5, 7.5, 112.5, -35.25, 7.5, 107.25, -36.75, 7.5, 107, -36.75, 7.5, 114.5, 2.5, 7.5, 114.75, 2.5, 7.5, 113.25, -34.5, 7.5, 113.5, -36.75, 7.5, 114.5, -34.5, 7.5, 113.5, -35.5, 7.5, 112.5, -36.75, 7.5, 114.5, 116.5, 7.5, 109.25, 115.25, 7.5, 109.25, 115.25, 7.5, 112.5, 116.5, 7.5, 112.5, 130.5, 7.5, 114.5, 130.5, 7.5, 113.5, 117.5, 7.5, 113.5, 109.25, 7.5, 114.5, 116.5, 7.5, 112.5, 115.25, 7.5, 112.5, 114.75, 7.5, 113.25, 117.5, 7.5, 113.5, 114.75, 7.5, 113.25, 109.25, 7.5, 113.5, 109.25, 7.5, 114.5, 117.5, 7.5, 113.5, 9.25, 7.5, 113.5, 9, 7.5, 114.5, 10.25, 7.5, 114.5, 20.75, 7.5, 113.5, 22.75, 7.5, 122.5, 23.25, 7.5, 121.25, 21.5, 7.5, 121.25, 13.5, 7.5, 122.5, 11.25, 7.5, 126.5, 12.5, 7.5, 126.5, 12.5, 7.5, 123.5, 11.25, 7.5, 115.5, 20.5, 7.5, 120.25, 20.75, 7.5, 115, 20.75, 7.5, 113.5, 11.25, 7.5, 115.5, 13.5, 7.5, 122.5, 13.5, 7.5, 122.5, 21.5, 7.5, 121.25, 20.5, 7.5, 120.25, 11.25, 7.5, 115.5, 12.5, 7.5, 123.5, 13.5, 7.5, 122.5, 10.25, 7.5, 114.5, 11.25, 7.5, 115.5, 20.75, 7.5, 113.5, 35.25, 7.5, 127.5, 38.5, 7.5, 130.5, 40.75, 7.5, 130.5, 41, 7.5, 121.25, 35.25, 7.5, 123.5, 34.25, 7.5, 122.5, 35.25, 7.5, 123.5, 41, 7.5, 121.25, 34.25, 7.5, 122.5, 41, 7.5, 121.25, 23.25, 7.5, 121.25, 22.75, 7.5, 122.5, 35.25, 7.5, 136.75, 36.5, 7.5, 137, 36.5, 7.5, 135.5, 35.25, 7.5, 133.25, 42.75, 7.5, 130.75, 43.25, 7.5, 131.5, 44.75, 7.5, 131, 45.5, 7.5, 130.5, 35.25, 7.5, 133.25, 36.5, 7.5, 135.5, 37.5, 7.5, 134.5, 42.25, 7.5, 133.25, 35.25, 7.5, 133.25, 37.5, 7.5, 134.5, 44.5, 7.5, 134.5, 45.5, 7.5, 130.5, 46.75, 7.5, 121.25, 41, 7.5, 121.25, 40.75, 7.5, 130.5, 42.75, 7.5, 130.75, 43, 7.5, 132.75, 42.25, 7.5, 133.25, 44.5, 7.5, 134.5, 43, 7.5, 132.75, 44.5, 7.5, 134.5, 44.75, 7.5, 131, 43.25, 7.5, 131.5, 45.5, 7.5, 130.5, 47, 7.5, 130.5, 46.75, 7.5, 121.25, 47, 7.5, 130.5, 49.5, 7.5, 130.5, 52.5, 7.5, 127.5, 52.5, 7.5, 121.25, 46.75, 7.5, 121.25, 3.25, 7.5, 140.75, 4.5, 7.5, 141.25, 4.5, 7.5, 139.5, 3.25, 7.5, 129.25, 12.5, 7.5, 128.25, 12.5, 7.5, 126.5, 11.25, 7.5, 126.5, 11.25, 7.5, 128.25, 3.25, 7.5, 129.25, 4.5, 7.5, 139.5, 5.5, 7.5, 138.5, 13.5, 7.5, 129.25, 12.5, 7.5, 128.25, 11.25, 7.5, 128.25, 10.25, 7.5, 129.25, 12.5, 7.5, 131.5, 13.5, 7.5, 130.5, 13.5, 7.5, 130.5, 26.5, 7.5, 130.5, 26.5, 7.5, 129.25, 13.5, 7.5, 129.25, 3.25, 7.5, 129.25, 5.5, 7.5, 138.5, 12.5, 7.5, 138.5, 12.5, 7.5, 131.5, 10.25, 7.5, 129.25, 59.25, 7.5, 138.75, 68.5, 7.5, 139, 68.5, 7.5, 133.25, 59.25, 7.5, 133.25, 36.5, 7.5, 137, 35.25, 7.5, 136.75, 35.25, 7.5, 138.25, 36.5, 7.5, 138.25, 30.25, 7.5, 150.5, 31, 7.5, 151, 40.75, 7.5, 151, 41.5, 7.5, 150.5, 37.5, 7.5, 139.25, 34.25, 7.5, 139.25, 37.5, 7.5, 139.25, 36.5, 7.5, 138.25, 35.25, 7.5, 138.25, 34.25, 7.5, 139.25, 41.5, 7.5, 150.5, 43, 7.5, 150.5, 42.75, 7.5, 139.25, 37.5, 7.5, 139.25, 31, 7.5, 151, 31.25, 7.5, 153.25, 40.5, 7.5, 153.25, 40.75, 7.5, 151, 29, 7.5, 139.25, 28.75, 7.5, 150.5, 30.25, 7.5, 150.5, 34.25, 7.5, 139.25, 51.25, 9.25, 137.25, 52.5, 9.25, 138, 52.5, 9.25, 137.25, 21.25, 7.5, 139.25, 19.25, 7.5, 138.25, 19.25, 7.5, 139.75, 21.25, 7.5, 139.25, 19.25, 7.5, 139.75, 21.25, 7.5, 143.25, 29, 7.5, 139.25, 21.25, 7.5, 148.75, 20.5, 7.5, 150, 25, 7.5, 150.75, 21.25, 7.5, 148.75, 25, 7.5, 150.75, 28.75, 7.5, 150.5, 29, 7.5, 139.25, 21.25, 7.5, 143.25, 58.75, 7.5, 141, 55, 7.5, 141.25, 55.25, 7.5, 142.5, 58.75, 7.5, 142.75, 59.25, 7.5, 140.25, 59.25, 7.5, 143.5, 62.25, 7.5, 148.5, 59.25, 7.5, 140.25, 58.75, 7.5, 141, 58.75, 7.5, 142.75, 59.25, 7.5, 143.5, 62.25, 7.5, 148.5, 65.5, 7.5, 148.5, 68.5, 7.5, 145.5, 68.5, 7.5, 139, 59.25, 7.5, 138.75, 59.25, 7.5, 140.25, 59.25, 7.5, 143.5, 59.25, 7.5, 145.5, 62.25, 7.5, 148.5, 53.5, 7.5, 142.5, 55.25, 7.5, 142.5, 55, 7.5, 141.25, 53.25, 7.5, 141.25, 43, 7.5, 150.5, 46.75, 7.5, 150.75, 50.5, 7.5, 147.5, 52.75, 7.5, 143, 49.75, 7.5, 139.25, 42.75, 7.5, 139.25, 52.75, 7.5, 143, 53.5, 7.5, 142.5, 53.25, 7.5, 141.25, 49.75, 7.5, 139.25, 47.25, 7.5, 151.5, 47.25, 7.5, 154.75, 50.5, 7.5, 155, 47.25, 7.5, 151.5, 50.5, 7.5, 155, 50.5, 7.5, 147.5, 46.75, 7.5, 150.75, 4.5, 7.5, 144.25, 4.5, 7.5, 141.25, 3.25, 7.5, 140.75, 3.25, 7.5, 151, 12.5, 7.5, 150.75, 12.5, 7.5, 145.25, 5, 7.5, 145, 3.25, 7.5, 151, 5, 7.5, 145, 4.5, 7.5, 144.25, 3.25, 7.5, 151, 59.25, 9.25, 149, 59.25, 9.25, 150.5, 60.75, 9.25, 150.5, 67, 9.25, 150.25, 68.5, 9.25, 150.5, 68.5, 9.25, 149, 15.25, 7.5, 153.25, 15.25, 7.5, 154.5, 18.75, 7.5, 154.75, 19, 7.5, 153, 20.5, 7.5, 150, 19, 7.5, 153, 18.75, 7.5, 154.75, 20.5, 7.5, 158, 24.5, 7.5, 156.25, 24.5, 7.5, 151.5, 24.5, 7.5, 151.5, 25, 7.5, 150.75, 20.5, 7.5, 150, 20.5, 7.5, 158, 25, 7.5, 157, 24.5, 7.5, 156.25, 13, 7.5, 154.75, 15.25, 7.5, 154.5, 15.25, 7.5, 153.25, 13, 7.5, 153, 12.5, 7.5, 152.25, 12.5, 7.5, 150.75, 3.25, 7.5, 151, 12.5, 7.5, 155.5, 13, 7.5, 154.75, 13, 7.5, 153, 12.5, 7.5, 152.25, 3.25, 7.5, 151, 3.25, 7.5, 156.75, 3.25, 7.5, 156.75, 12.5, 7.5, 157, 12.5, 7.5, 155.5, 27, 9.25, 153, 27, 9.25, 154.75, 28.75, 9.25, 154.75, 28.75, 9.25, 153, 43, 9.25, 153, 43, 9.25, 154.75, 44.75, 9.25, 154.75, 44.75, 9.25, 153, 27.25, 7.5, 153.25, 27.25, 7.5, 154.5, 28.5, 7.5, 154.5, 28.5, 7.5, 153.25, 30.5, 7.5, 157, 32.75, 7.5, 161.25, 33.5, 7.5, 160.5, 31.25, 7.5, 156.25, 38.25, 7.5, 160.5, 39, 7.5, 161.25, 41.25, 7.5, 157, 40.5, 7.5, 156.25, 33.5, 7.5, 160.5, 38.25, 7.5, 160.5, 40.5, 7.5, 156.25, 40.5, 7.5, 153.25, 31.25, 7.5, 153.25, 31.25, 7.5, 156.25, 43.25, 7.5, 153.25, 43.25, 7.5, 154.5, 44.5, 7.5, 154.5, 44.5, 7.5, 153.25, 54.75, 7.5, 174.5, 55.25, 7.5, 173.25, 53.5, 7.5, 173.25, 54.75, 7.5, 174.5, 53.5, 7.5, 173.25, 52.75, 7.5, 172.75, 37, 7.5, 174.5, 50.5, 7.5, 155, 47.25, 7.5, 154.75, 47.25, 7.5, 156.25, 50.5, 7.5, 155, 47.25, 7.5, 156.25, 46.25, 7.5, 157.25, 39, 7.5, 164.75, 50.5, 7.5, 168.5, 41.25, 7.5, 157, 39, 7.5, 161.25, 39, 7.5, 164.75, 46.25, 7.5, 157.25, 38.25, 7.5, 165.25, 36.75, 7.5, 165.25, 37, 7.5, 174.5, 39, 7.5, 164.75, 38.25, 7.5, 165.25, 37, 7.5, 174.5, 52.75, 7.5, 172.75, 50.5, 7.5, 168.5, 10.75, 7.5, 173, 3.25, 7.5, 173.25, 3.25, 7.5, 174.5, 12.5, 7.5, 174.5, 3.25, 7.5, 156.75, 3.25, 7.5, 166.5, 10.25, 7.5, 166.5, 12.5, 7.5, 157, 11.25, 7.5, 172.25, 10.75, 7.5, 173, 12.5, 7.5, 174.5, 11.25, 7.5, 167.5, 11.25, 7.5, 172.25, 12.5, 7.5, 174.5, 12.5, 7.5, 157, 10.25, 7.5, 166.5, 11.25, 7.5, 167.5, 12.5, 7.5, 157, 25, 7.5, 157, 20.5, 7.5, 158, 21.25, 7.5, 159.25, 32.75, 7.5, 164.75, 32.75, 7.5, 161.25, 30.5, 7.5, 157, 37, 7.5, 174.5, 36.75, 7.5, 165.25, 33.5, 7.5, 165.25, 37, 7.5, 174.5, 33.5, 7.5, 165.25, 32.75, 7.5, 164.75, 21.25, 7.5, 159.25, 21.25, 7.5, 174.5, 59.25, 9.25, 157.25, 59.25, 9.25, 159, 61, 9.25, 157.5, 66.75, 9.25, 157.25, 68.5, 9.25, 159, 68.5, 9.25, 157.25, 58.25, 7.5, 173.25, 55.25, 7.5, 173.25, 54.75, 7.5, 174.5, 65.5, 7.5, 174.5, 68.5, 7.5, 162.5, 65.25, 7.5, 159.25, 62.5, 7.5, 159.25, 68.5, 7.5, 162.5, 62.5, 7.5, 159.25, 59.25, 7.5, 162.5, 59.25, 7.5, 172.25, 65.5, 7.5, 174.5, 68.5, 7.5, 171.5, 59.25, 7.5, 172.25, 58.25, 7.5, 173.25, 65.5, 7.5, 174.5)
@@ -658,19 +414,19 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("end_game_cam:current")
+tracks/11/path = NodePath("turret/generator:volume_db")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.0]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("turret/generator:volume_db")
+tracks/12/path = NodePath("turret2/generator:volume_db")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -682,19 +438,19 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("turret2/generator:volume_db")
+tracks/13/path = NodePath("turret:spatial_sound")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [false]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("turret:spatial_sound")
+tracks/14/path = NodePath("turret2:spatial_sound")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -706,7 +462,7 @@ tracks/14/keys = {
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("turret2:spatial_sound")
+tracks/15/path = NodePath("AudioStreamPlayer2:playing")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
@@ -718,19 +474,19 @@ tracks/15/keys = {
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("AudioStreamPlayer2:playing")
+tracks/16/path = NodePath("turret:visible")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("turret:visible")
+tracks/17/path = NodePath("turret2:visible")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
@@ -742,14 +498,14 @@ tracks/17/keys = {
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("turret2:visible")
+tracks/18/path = NodePath("end_game_cam:current")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_crc1e"]
@@ -769,19 +525,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("end_game_cam:current")
+tracks/1/path = NodePath("turret:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("turret:visible")
+tracks/2/path = NodePath("turret2:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -793,14 +549,14 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("turret2:visible")
+tracks/3/path = NodePath("end_game_cam:current")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_mnuke"]
@@ -976,24 +732,22 @@ tracks/13/keys = {
 
 [sub_resource type="Animation" id="Animation_xg4db"]
 resource_name = "start"
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AsteroidShooter")
+tracks/0/path = NodePath("../characters/player:npc")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [true],
-"method": &"start_game"
-}]
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../characters/player:npc")
+tracks/1/path = NodePath("pivot/cam:current")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1005,71 +759,71 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("turret:rotate_gun")
+tracks/2/path = NodePath("../worldEnvironment:environment:volumetric_fog_density")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [0.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("turret2:rotate_gun")
+tracks/3/path = NodePath("../game_interface/hud/transition:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("pivot/cam:current")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../worldEnvironment:environment:volumetric_fog_density")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../game_interface/hud/transition:color")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("turret3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("turret4:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("turret3:visible")
+tracks/7/path = NodePath("turret3/generator:playing")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -1077,11 +831,11 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("turret4:visible")
+tracks/8/path = NodePath("turret4/generator:playing")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -1089,31 +843,31 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("AudioStreamPlayer:playing")
+tracks/9/path = NodePath("turret/generator:volume_db")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [-10.0]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("turret3/generator:playing")
+tracks/10/path = NodePath("turret2/generator:volume_db")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [-10.0]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("turret4/generator:playing")
+tracks/11/path = NodePath("turret:spatial_sound")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -1125,75 +879,53 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("turret/generator:volume_db")
+tracks/12/path = NodePath("turret2:spatial_sound")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-10.0]
+"update": 1,
+"values": [false]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("turret2/generator:volume_db")
+tracks/13/path = NodePath("AudioStreamPlayer2:playing")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-10.0]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("turret:spatial_sound")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("turret2:spatial_sound")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("AudioStreamPlayer2:playing")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
 "times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/17/type = "method"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("../checkpoints/checkpoint5")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../checkpoints/checkpoint5")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"activate"
+}]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("../game_interface/dialogue")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0, true],
+"method": &"start_dialogue"
 }]
 }
 
@@ -1328,7 +1060,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_w2jne"]
@@ -1466,769 +1198,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_twsl2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("81_awwdm")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cvmsw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("82_jouhx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("83_om27x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("84_xpuwq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("85_05xal")
-}, {
-"duration": 1.0,
-"texture": ExtResource("86_cuk60")
-}, {
-"duration": 1.0,
-"texture": ExtResource("87_e3kc8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("88_hdbq1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("89_3q45t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("90_47hik")
-}, {
-"duration": 1.0,
-"texture": ExtResource("91_ypaxv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("92_4hjpp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("93_ri5uc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("94_npdic")
-}, {
-"duration": 1.0,
-"texture": ExtResource("95_q8108")
-}, {
-"duration": 1.0,
-"texture": ExtResource("96_0q6xx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("97_3gavx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("98_nrvsc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("99_b7u02")
-}, {
-"duration": 1.0,
-"texture": ExtResource("100_m7u1h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("101_d4qib")
-}, {
-"duration": 1.0,
-"texture": ExtResource("102_gg5m6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("103_aasmf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("104_31okw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("105_mceow")
-}, {
-"duration": 1.0,
-"texture": ExtResource("106_hdycr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("107_tosnv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("108_pjsok")
-}, {
-"duration": 1.0,
-"texture": ExtResource("109_ufrnt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("110_4r8ck")
-}, {
-"duration": 1.0,
-"texture": ExtResource("111_ygvex")
-}, {
-"duration": 1.0,
-"texture": ExtResource("112_s67jm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("113_yx3lg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("114_0ldiu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("115_vm4li")
-}, {
-"duration": 1.0,
-"texture": ExtResource("116_cy8aj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("117_4lw64")
-}, {
-"duration": 1.0,
-"texture": ExtResource("118_gajp3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("119_i4i0u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("120_vutnw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("121_7r35b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("122_j1aby")
-}, {
-"duration": 1.0,
-"texture": ExtResource("123_2nhqv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("124_6ab0l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("125_uv1a2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("126_hjjg3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("127_m3pxn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("128_q6c12")
-}, {
-"duration": 1.0,
-"texture": ExtResource("129_f7jrb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("130_v6kyk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("131_buxgf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("132_pklcq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("133_6t82x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("134_w0bkw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("135_cowmq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("136_u2krg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("137_dq1p2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("138_vbrlf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("139_leqco")
-}, {
-"duration": 1.0,
-"texture": ExtResource("140_ubj6s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("141_iwoyp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hw84u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("142_33k23")
-}, {
-"duration": 1.0,
-"texture": ExtResource("143_g3j8o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("144_qqjvd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("145_hx7qq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("146_1nlyh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("147_41whu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("148_rm2qo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("149_2dcfs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("150_2dsfb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("151_70jjf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("152_7rtxi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("153_5hrij")
-}, {
-"duration": 1.0,
-"texture": ExtResource("154_8g3gn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("155_mxeoj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("156_knx4i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("157_k5377")
-}, {
-"duration": 1.0,
-"texture": ExtResource("158_dkia2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("159_boutt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("160_uhvwk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("161_7jog3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("162_bn8ol")
-}, {
-"duration": 1.0,
-"texture": ExtResource("163_m0kb5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("164_svkqn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("165_nkbi7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("166_b0suu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("167_5nn2f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("168_ykmp4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("169_ylclb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("170_5nj1c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("171_kejmj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("172_2v5yr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("173_trr6n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("174_lpnnf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("175_01e2b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("176_12u2x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("177_6yluy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("178_pb0bj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("179_el35t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("180_hivc1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("181_twpdb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("182_gb34a")
-}, {
-"duration": 1.0,
-"texture": ExtResource("183_i1ppg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("184_irpbx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("185_sicwx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("186_gput2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("187_21lbp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("188_e4kmu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("189_vlwkm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("190_gfxne")
-}, {
-"duration": 1.0,
-"texture": ExtResource("191_wtepu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("192_ilaql")
-}, {
-"duration": 1.0,
-"texture": ExtResource("193_cf50y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("194_kjful")
-}, {
-"duration": 1.0,
-"texture": ExtResource("195_fd8od")
-}, {
-"duration": 1.0,
-"texture": ExtResource("196_phvnx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("197_knj8w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("198_b5lmf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("199_oom71")
-}, {
-"duration": 1.0,
-"texture": ExtResource("200_oglus")
-}, {
-"duration": 1.0,
-"texture": ExtResource("201_155k1")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6aycf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("202_nuxlw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("203_caljv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("204_63qqd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("205_dscc8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("206_8x17s")
-}, {
-"duration": 1.0,
-"texture": ExtResource("207_ajuq1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("208_rq7x1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("209_qxxeu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("210_sdcjq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("211_yjirc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("212_jdxpe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("213_b457b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("214_d18wd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("215_oi1oe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("216_00b2x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("217_pbxo8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("218_xkc55")
-}, {
-"duration": 1.0,
-"texture": ExtResource("219_n5kra")
-}, {
-"duration": 1.0,
-"texture": ExtResource("220_qj41h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("221_leqs8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("222_jf5ge")
-}, {
-"duration": 1.0,
-"texture": ExtResource("223_fgkq5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("224_k65mf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("225_sqhpm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("226_5mm5b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("227_52lba")
-}, {
-"duration": 1.0,
-"texture": ExtResource("228_th2rc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("229_02ms4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("230_45m6w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("231_oxveh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("232_ly7jb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("233_jvmpo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("234_c8kuo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("235_i73t2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("236_kactv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("237_ef7km")
-}, {
-"duration": 1.0,
-"texture": ExtResource("238_hcwlu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("239_4c06i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("240_jwf14")
-}, {
-"duration": 1.0,
-"texture": ExtResource("241_aags5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("242_crcdm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("243_5k1lp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("244_r38rm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("245_tvm04")
-}, {
-"duration": 1.0,
-"texture": ExtResource("246_ssh1i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("247_u7q16")
-}, {
-"duration": 1.0,
-"texture": ExtResource("248_exae1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("249_rxftf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("250_j8my2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("251_f8mmo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("252_gmugs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("253_qetgg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("254_7ryj8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("255_mxlth")
-}, {
-"duration": 1.0,
-"texture": ExtResource("256_bp7xw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("257_lyr3h")
-}, {
-"duration": 1.0,
-"texture": ExtResource("258_uf3pa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("259_wcexa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("260_acqgh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("261_3eqmx")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_unyqy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("262_7bn4o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("263_02myn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("264_xejd1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("265_bf05n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("266_jivo4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("267_7hum4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("268_d36wj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("269_kgkbu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("270_28agy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("271_m665j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("272_fhyjx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("273_o2ijw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("274_qp7i4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("275_yh7ue")
-}, {
-"duration": 1.0,
-"texture": ExtResource("276_yx7mo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("277_nj02q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("278_o0m0v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("279_13gwd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("280_76cdw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("281_4bi2b")
-}, {
-"duration": 1.0,
-"texture": ExtResource("282_515ej")
-}, {
-"duration": 1.0,
-"texture": ExtResource("283_mkr1m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("284_3kca7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("285_854vo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("286_q5g3x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("287_etflt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("288_4muwe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("289_swi5i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("290_t1ss1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("291_6m3mo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("292_wbwhb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("293_l8fis")
-}, {
-"duration": 1.0,
-"texture": ExtResource("294_pfa7u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("295_ocmbw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("296_jdnbw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("297_j7ugi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("298_mqufy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("299_j0dpm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("300_nygws")
-}, {
-"duration": 1.0,
-"texture": ExtResource("301_somun")
-}, {
-"duration": 1.0,
-"texture": ExtResource("302_ftaro")
-}, {
-"duration": 1.0,
-"texture": ExtResource("303_lfq2t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("304_n375a")
-}, {
-"duration": 1.0,
-"texture": ExtResource("305_cljup")
-}, {
-"duration": 1.0,
-"texture": ExtResource("306_qoemm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("307_g3ug5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("308_af1nn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("309_2rjjy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("310_k2mtg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("311_g5bsj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("312_6cv05")
-}, {
-"duration": 1.0,
-"texture": ExtResource("313_1r05c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("314_fqanr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("315_ur7ke")
-}, {
-"duration": 1.0,
-"texture": ExtResource("316_vralu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("317_gv6qi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("318_embp0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("319_kt3in")
-}, {
-"duration": 1.0,
-"texture": ExtResource("320_uqol7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("321_kyr26")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="Animation" id="Animation_fs0il"]
 length = 0.001
@@ -4002,10 +2971,9 @@ type = 0
 [node name="characters" type="Node3D" parent="."]
 
 [node name="player" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("7_idokq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 150)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 2)
 health_max = 6
 friendly = true
-range_damage = 10
 objective_map = NodePath("../../objectives")
 show_light = true
 
@@ -5674,9 +4642,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 58)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 170)
 metadata/_edit_group_ = true
 
+[node name="dialogue_tree" type="Node" parent="asteroid_shooter"]
+script = ExtResource("72_0dvm6")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="asteroid_shooter"]
 stream = ExtResource("76_vy34w")
-bus = &"sfx"
+bus = &"sfx_3"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="asteroid_shooter"]
 stream = ExtResource("78_arbk7")
@@ -5694,8 +4665,10 @@ anim = NodePath("../anim")
 turrets = [NodePath("../turret"), NodePath("../turret2")]
 aim_length = 64
 rand_asteroid_scale_limit = 4.0
-hull_integrity = NodePath("../../game_interface/hud/margin/vBox/hull_integrity/progressBar")
-countdown_label = NodePath("../../game_interface/hud/margin/vBox/hull_integrity/time_left_sec")
+spawn_min_sec = 1.5
+hull_integrity = NodePath("../../game_interface/hud/margin/vBox/panel/margin/hull_integrity/progressBar")
+countdown_label = NodePath("../../game_interface/hud/margin/vBox/panel/margin/hull_integrity/time_left_sec")
+game_timer_sec = 120
 
 [node name="CollisionShape3D" parent="asteroid_shooter/AsteroidShooter/space_hull" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.5, -0.5)
@@ -5705,6 +4678,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 0, 
 rotate_gun = true
 spatial_sound = false
 
+[node name="turret_gun" parent="asteroid_shooter/turret" index="4"]
+transform = Transform3D(2.5, 0, 0, 0, 2.41481, -0.647045, 0, 0.647045, 2.41481, 0, 2, 0)
+
 [node name="laser_sight" parent="asteroid_shooter/turret/turret_gun/ray" index="0"]
 mesh = SubResource("CylinderMesh_yxp3w")
 
@@ -5713,6 +4689,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0,
 rotate_gun = true
 spatial_sound = false
 
+[node name="turret_gun" parent="asteroid_shooter/turret2" index="4"]
+transform = Transform3D(2.5, 0, 0, 0, 2.41481, -0.647045, 0, 0.647045, 2.41481, 0, 2, 0)
+
 [node name="laser_sight" parent="asteroid_shooter/turret2/turret_gun/ray" index="0"]
 mesh = SubResource("CylinderMesh_ykgq2")
 
@@ -5720,12 +4699,18 @@ mesh = SubResource("CylinderMesh_ykgq2")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8, 2, 0)
 rotate_gun = true
 
+[node name="turret_gun" parent="asteroid_shooter/turret3" index="4"]
+transform = Transform3D(2.5, 0, 0, 0, 2.41481, -0.647045, 0, 0.647045, 2.41481, 0, 2, 0)
+
 [node name="laser_sight" parent="asteroid_shooter/turret3/turret_gun/ray" index="0"]
 mesh = SubResource("CylinderMesh_6ieq3")
 
 [node name="turret4" parent="asteroid_shooter" instance=ExtResource("72_7hkii")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 2, 0)
 rotate_gun = true
+
+[node name="turret_gun" parent="asteroid_shooter/turret4" index="4"]
+transform = Transform3D(2.5, 0, 0, 0, 2.41481, -0.647045, 0, 0.647045, 2.41481, 0, 2, 0)
 
 [node name="laser_sight" parent="asteroid_shooter/turret4/turret_gun/ray" index="0"]
 mesh = SubResource("CylinderMesh_q4tr6")
@@ -5759,7 +4744,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.5
 [node name="cam" type="Camera3D" parent="asteroid_shooter/pivot"]
 
 [node name="end_game_cam" type="Camera3D" parent="asteroid_shooter"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 7, 19)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 7, 22)
 
 [node name="checkpoints" type="Node3D" parent="."]
 
@@ -5828,163 +4813,39 @@ transform = Transform3D(-1, 1.89218e-08, -8.53505e-08, 0, 0.976296, 0.21644, 8.7
 [node name="Camera3D4" type="Camera3D" parent="start_cinematic"]
 transform = Transform3D(-1, 1.89218e-08, -8.53505e-08, 0, 0.976296, 0.21644, 8.74228e-08, 0.21644, -0.976296, 34, 3, 159)
 
-[node name="space" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, -50)
+[node name="space" parent="." instance=ExtResource("83_7b4ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, -49)
 
-[node name="sun" type="AnimatedSprite3D" parent="space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.5, 40.5, 330)
-pixel_size = 0.75
-billboard = 1
-shaded = true
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_twsl2")
-autoplay = "default"
+[node name="sun" parent="space" index="0" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="space/sun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5)
-light_color = Color(2, 2, 0, 1)
-light_energy = 24.0
-shadow_enabled = true
-omni_range = 64.0
+[node name="galaxy" parent="space" index="1" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
-[node name="gas_planet" type="AnimatedSprite3D" parent="space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 54.5, 380.5)
-pixel_size = 0.5
-billboard = 1
-shaded = true
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_cvmsw")
-autoplay = "default"
+[node name="quasar" parent="space" index="2" node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 19, 266.5)
+player = NodePath("../../characters/player")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="space/gas_planet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -5)
-light_color = Color(2, 2, 2, 1)
-light_energy = 24.0
-shadow_enabled = true
-omni_range = 32.0
+[node name="gas_planet_pink" parent="space" index="3" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
-[node name="planet" type="AnimatedSprite3D" parent="space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.5, 44, 380.5)
-pixel_size = 0.3
-billboard = 1
-shaded = true
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_hw84u")
-autoplay = "default"
+[node name="planet" parent="space" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="space/planet"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -5)
-light_color = Color(2, 2, 2, 1)
-light_energy = 24.0
-shadow_enabled = true
-omni_range = 32.0
+[node name="planet_tundra" parent="space" index="5" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
-[node name="planet_tundra" type="AnimatedSprite3D" parent="space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.5, 36.5, 380.5)
-pixel_size = 0.25
-billboard = 1
-shaded = true
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_6aycf")
-autoplay = "default"
+[node name="planet_barren" parent="space" index="6" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="space/planet_tundra"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -5)
-light_color = Color(2, 2, 2, 1)
-light_energy = 24.0
-shadow_enabled = true
-omni_range = 32.0
+[node name="stars" parent="space" index="7" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
-[node name="planet_tundra2" type="AnimatedSprite3D" parent="space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 46, 380.5)
-pixel_size = 0.1
-billboard = 1
-shaded = true
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_unyqy")
-autoplay = "default"
+[node name="stars2" parent="space" index="8" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="space/planet_tundra2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -5)
-light_color = Color(2, 2, 2, 1)
-light_energy = 24.0
-shadow_enabled = true
-omni_range = 32.0
-
-[node name="quaser" type="Sprite3D" parent="space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 19, 267.5)
-pixel_size = 0.75
-billboard = 1
-shaded = true
-texture_filter = 0
-texture = ExtResource("322_gvgg4")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="space/quaser"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -2)
-light_color = Color(2, 2, 2, 1)
-light_energy = 20.0
-shadow_enabled = true
-omni_range = 64.0
-
-[node name="stars" type="Sprite3D" parent="space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 40, 312.5)
-pixel_size = 0.5
-billboard = 1
-shaded = true
-texture_filter = 0
-texture = ExtResource("323_wiqh2")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="space/stars"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -3)
-light_color = Color(2, 2, 2, 1)
-light_energy = 24.0
-shadow_enabled = true
-omni_range = 32.0
-
-[node name="stars2" type="Sprite3D" parent="space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 40, 138)
-pixel_size = 0.5
-billboard = 1
-shaded = true
-texture_filter = 0
-texture = ExtResource("324_86v8s")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="space/stars2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -3)
-light_color = Color(2, 2, 2, 1)
-light_energy = 24.0
-shadow_enabled = true
-omni_range = 32.0
-
-[node name="stars3" type="Sprite3D" parent="space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 52, 371.5)
-pixel_size = 0.5
-billboard = 1
-shaded = true
-texture_filter = 0
-texture = ExtResource("325_pktmm")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="space/stars3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1, -3)
-light_color = Color(2, 2, 2, 1)
-light_energy = 24.0
-shadow_enabled = true
-omni_range = 32.0
-
-[node name="galaxy" type="Sprite3D" parent="space"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240, 31, 179.5)
-pixel_size = 2.0
-billboard = 1
-shaded = true
-texture_filter = 0
-texture = ExtResource("326_sees1")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="space/galaxy"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.5, -3)
-light_color = Color(2, 2, 2, 1)
-light_energy = 24.0
-shadow_enabled = true
-omni_range = 64.0
+[node name="stars4" parent="space" index="9" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
 [node name="cinematic" type="Node3D" parent="."]
 
@@ -6005,8 +4866,8 @@ player = NodePath("../../characters/player")
 [node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
 player = NodePath("../../characters/player")
 
-[node name="margin" parent="game_interface/hud" index="3"]
-visible = false
+[node name="dialogue" parent="game_interface" index="3" node_paths=PackedStringArray("dialogue_tree")]
+dialogue_tree = NodePath("../../asteroid_shooter/dialogue_tree")
 
 [connection signal="finished" from="music" to="music" method="_on_finished"]
 [connection signal="game_failed" from="asteroid_shooter/AsteroidShooter" to="game_interface/game" method="show_death_screen"]
@@ -6019,6 +4880,7 @@ visible = false
 [connection signal="on_checkpoint_reached" from="checkpoints/checkpoint3" to="game_interface/hud" method="_on_show_checkpoint"]
 [connection signal="on_checkpoint_reached" from="checkpoints/checkpoint4" to="game_interface/hud" method="_on_show_checkpoint"]
 [connection signal="on_checkpoint_reached" from="checkpoints/checkpoint5" to="game_interface/hud" method="_on_show_checkpoint"]
+[connection signal="dialogue_finished" from="game_interface/dialogue" to="asteroid_shooter/AsteroidShooter" method="_on_dialogue_finished"]
 
 [editable path="nav/props/ladder/level_transition"]
 [editable path="characters/player"]
@@ -6028,5 +4890,16 @@ visible = false
 [editable path="asteroid_shooter/turret2"]
 [editable path="asteroid_shooter/turret3"]
 [editable path="asteroid_shooter/turret4"]
+[editable path="space"]
+[editable path="space/sun"]
+[editable path="space/galaxy"]
+[editable path="space/quasar"]
+[editable path="space/gas_planet_pink"]
+[editable path="space/planet"]
+[editable path="space/planet_tundra"]
+[editable path="space/planet_barren"]
+[editable path="space/stars"]
+[editable path="space/stars2"]
+[editable path="space/stars4"]
 [editable path="game_interface"]
 [editable path="game_interface/hud"]

@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=28 format=3 uid="uid://04jypdjif3cb"]
+[gd_resource type="Theme" load_steps=31 format=3 uid="uid://04jypdjif3cb"]
+
+[ext_resource type="FontFile" uid="uid://dqnpw8ahwmu7i" path="res://asset/font/mago1.ttf" id="1_q35e4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wd5o"]
 bg_color = Color(0.0745098, 0.0941176, 0.0941176, 0.74902)
@@ -101,6 +103,12 @@ bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca1pp"]
 bg_color = Color(0.403922, 1, 0.862745, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cpkt"]
+bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnmte"]
+bg_color = Color(1, 0.403922, 0.541176, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc1c4"]
 
 [resource]
@@ -143,6 +151,8 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_v36xy")
 HSlider/styles/slider = SubResource("StyleBoxLine_au214")
 Label/colors/font_color = Color(0.839216, 1, 0.403922, 1)
 Label/font_sizes/font_size = 32
+LabelHull/base_type = &"Label"
+LabelHull/colors/font_color = Color(0.403922, 0.839216, 1, 1)
 LinkButton/colors/font_color = Color(0.403922, 1, 0.564706, 1)
 LinkButton/colors/font_focus_color = Color(0.403922, 1, 0.862745, 1)
 LinkButton/colors/font_hover_color = Color(0.403922, 1, 0.862745, 1)
@@ -157,6 +167,12 @@ ProgressBar/colors/font_color = Color(0.403922, 1, 0.564706, 1)
 ProgressBar/font_sizes/font_size = 32
 ProgressBar/styles/background = SubResource("StyleBoxFlat_d50nc")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ca1pp")
+ProgressBarHull/base_type = &"ProgressBar"
+ProgressBarHull/styles/background = SubResource("StyleBoxFlat_8cpkt")
+ProgressBarHull/styles/fill = SubResource("StyleBoxFlat_hnmte")
+RichTextLabel/colors/default_color = Color(1, 0.403922, 0.541176, 1)
+RichTextLabel/font_sizes/normal_font_size = 28
+RichTextLabel/fonts/normal_font = ExtResource("1_q35e4")
 TabContainer/styles/panel = SubResource("StyleBoxEmpty_jc1c4")
 VBoxContainer/constants/separation = 6
 buttonToggle/base_type = &"Button"

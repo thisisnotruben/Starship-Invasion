@@ -1,12 +1,9 @@
 # Starship Invasion
 
 # TODO
-- level 4
-	- race track
-	- add random/triggered explosions
-- space walk audio:
-	- of alerting when asteroids are coming
-	- impact of asteroids
+- level 4: add random/triggered explosions
+- dialogue in game
+- when you start game, it shows a tutorial
 
 ## Maybe
 - space warrior: special of throwing grenade?

@@ -69,7 +69,7 @@
 [ext_resource type="Script" path="res://src/map/level1/boss_room_trigger_1.gd" id="52_yyfmh"]
 [ext_resource type="PackedScene" uid="uid://cei5p7vxygc7n" path="res://src/entity/character/space_warrior/space_warrior.tscn" id="54_688ep"]
 [ext_resource type="PackedScene" uid="uid://8f0fgqy1encr" path="res://src/map/doodads/props/ladder.tscn" id="55_ug4be"]
-[ext_resource type="PackedScene" uid="uid://cd26og66hea18" path="res://src/map/doodads/checkpoint/chechpoint.tscn" id="68_k4xqt"]
+[ext_resource type="PackedScene" uid="uid://cd26og66hea18" path="res://src/map/doodads/checkpoint/checkpoint.tscn" id="68_k4xqt"]
 [ext_resource type="Script" path="res://src/map/doodads/start_cinematic.gd" id="69_i4sum"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_aaf11"]

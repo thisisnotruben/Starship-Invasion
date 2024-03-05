@@ -26,16 +26,16 @@ func _on_snd_finished():
 		snd.play()
 
 func _on_visibility_screen_entered():
-	if play_snd:
-		snd.play()
 	if _is_valid():
 		set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 		set_process(true)
+	if play_snd:
+		snd.play()
 
 func _on_visibility_screen_exited():
 	snd.stop()
+	set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	if _is_valid():
-		set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 		set_process(false)
 
 func _process(_delta: float):

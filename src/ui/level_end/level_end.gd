@@ -1,14 +1,16 @@
 extends Control
 
 static var times_died: int = 0
+static var time_started: int = 0
 
 var victims: int = 0
 var total_victims: int = 0
-var time_started := Time.get_ticks_msec()
 var next_level: PackedScene = null
 
 
 func _ready():
+	if times_died == 0:
+		time_started = Time.get_ticks_msec()
 	total_victims = get_tree().get_nodes_in_group("character") \
 		.map(func(c): c.tree_exited.connect(Callable( \
 		self, "_on_victim_died").bind(c))).size() - 1

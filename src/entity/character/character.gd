@@ -30,6 +30,7 @@ class_name Character
 @export_range(1, 10) var range_damage: int = 1
 
 @export_category("Player")
+@export_flags_3d_physics var player_hit_flag := 0b00000000_00000000_00000000_01000000
 @export_range(0.0, 10.0) var jump_velocity: float = 5.0
 var can_shoot := true
 @export var nav_agent: NavigationAgent3D = null
@@ -37,6 +38,7 @@ var can_shoot := true
 var objective_path := {"lines": [], "points": []}
 
 @export_category("Npc")
+@export_flags_3d_physics var npc_hit_flag := 0b00000000_00000000_00000000_00000010
 @export_range(0.0, 50.0) var shoot_range: float = 12.0
 @export var show_light := false
 
@@ -63,16 +65,7 @@ func _ready():
 	hit_scan_melee.target_position.y = melee_range
 	hit_scan_shoot.target_position.y = shoot_range
 	health = health_max
-	get_tree().get_nodes_in_group("npc" if npc else "player") \
-		.map(func(c): hit_scan_melee.add_exception(c); \
-			hit_scan_shoot.add_exception(c))
-	get_tree().get_nodes_in_group("player" if npc else "npc") \
-		.map(func(c): hit_scan_melee.remove_exception(c); \
-			hit_scan_shoot.remove_exception(c))
 	_set_npc(npc)
-	if not npc:
-		for prop in get_tree().get_nodes_in_group("prop"):
-			prop.set("look_at_node", self)
 
 func _on_nav_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
@@ -113,13 +106,18 @@ func _set_npc(_npc: bool):
 	remove_from_group("player" if _npc else "npc")
 	add_to_group("npc" if _npc else "player")
 	set_process_input(not _npc)
+	hit_scan_melee.set_deferred("collision_mask", player_hit_flag if _npc \
+	 else npc_hit_flag)
+	set_deferred("collision_layer", npc_hit_flag if _npc \
+		else player_hit_flag + npc_hit_flag)
 	if npc:
 		set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	else:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		if is_inside_tree():
+		var set_group_look_at := func():
 			for prop in get_tree().get_nodes_in_group("prop"):
 				prop.set("look_at_node", self)
+		set_group_look_at.call_deferred()
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_set_friendly(friendly)
 
 func _set_friendly(_friendly: bool):

@@ -74,7 +74,7 @@ func show_alert(duration: float, impact: bool):
 		$alert/anim.stop()
 
 func _on_show_hull_integrity(_visible: bool):
-	$margin/vBox/hull_integrity.visible = _visible
+	$margin/vBox/panel.visible = _visible
 
 
 

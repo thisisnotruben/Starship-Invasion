@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://d117vxi7x2g3a"]
+
+[ext_resource type="Script" path="res://src/entity/celestial/celestial.gd" id="1_xuf5p"]
+
+[sub_resource type="Animation" id="Animation_tiq87"]
+resource_name = "hover"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wu48m"]
+_data = {
+"hover": SubResource("Animation_tiq87")
+}
+
+[node name="celestial" type="Node3D" groups=["celestial"]]
+script = ExtResource("1_xuf5p")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wu48m")
+}
+
+[node name="container" type="Node3D" parent="."]
+
+[node name="imgAnim" type="AnimatedSprite3D" parent="container"]
+pixel_size = 0.125
+shaded = true
+texture_filter = 0
+
+[node name="img" type="Sprite3D" parent="container"]
+pixel_size = 0.125
+shaded = true
+texture_filter = 0
+
+[node name="light" type="OmniLight3D" parent="container"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+light_energy = 64.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 64.0

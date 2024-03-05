@@ -112,8 +112,7 @@ func _on_back_pressed(main := true):
 	tab.current_tab = tabs["main" if main else "dead"]
 
 func _on_visibility_changed():
-	if not dead and is_inside_tree() \
-	and get_tree() != null:
+	if not dead and is_inside_tree() and get_tree() != null:
 		get_tree().paused = visible
 		if not visible:
 			tab.current_tab = tabs["main"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnqfy5w6y6l2w"]
+[gd_scene load_steps=14 format=3 uid="uid://bnqfy5w6y6l2w"]
 
 [ext_resource type="Script" path="res://src/entity/turret/turret.gd" id="1_rk5lu"]
 [ext_resource type="ArrayMesh" uid="uid://dovot82hos3n8" path="res://asset/3d/turret/export/turret.obj" id="1_yl558"]
 [ext_resource type="PackedScene" uid="uid://bocimopxl5cwo" path="res://src/entity/bullet/turret_bullet.tscn" id="2_0qslv"]
 [ext_resource type="ArrayMesh" uid="uid://depk6fskoqwu8" path="res://asset/3d/turret/export/turret_gun.obj" id="2_kpk33"]
+[ext_resource type="AudioStream" uid="uid://dg3llcjda02u1" path="res://asset/snd/8881 - Sci-Fi Energy Weapon Sound Effects Pack/Sci-Fi Heavy Energy Cannon Shot 1.wav" id="3_7tj3u"]
 [ext_resource type="AudioStream" uid="uid://c8x5fr1nvncpd" path="res://asset/snd/8881 - Sci-Fi Energy Weapon Sound Effects Pack/Sci-Fi Heavy Energy Cannon Shot 3.wav" id="3_we82n"]
 [ext_resource type="AudioStream" uid="uid://1qm6x1yecq37" path="res://asset/snd/7712 - Sci-Fi Radiation Sound Effects Pack/Sci-Fi Nuclear Power Generator Loop 3.wav" id="4_p8dgu"]
 
@@ -66,8 +67,8 @@ script = ExtResource("1_rk5lu")
 bullet_scene = ExtResource("2_0qslv")
 
 [node name="snd_shoot1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_we82n")
-bus = &"sfx"
+stream = ExtResource("3_7tj3u")
+bus = &"sfx_3"
 
 [node name="snd_shoot" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_we82n")

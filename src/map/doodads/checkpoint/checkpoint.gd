@@ -22,6 +22,7 @@ func _on_player_entered(body: Node3D):
 		activate()
 
 func activate():
+		$snd.play()
 		passed_by = true
 		get_checkpoint_data()
 		if i_toggelable != null:
@@ -58,6 +59,8 @@ func get_checkpoint_data():
 		if node.passed_by:
 			data["checkpoint"].append(node.get_path())
 
+	data["objectives"] = ObjectiveMap.objectives
+
 static func set_checkpoint_data(_player: Character):
 	if data.is_empty():
 		return
@@ -86,6 +89,8 @@ static func set_checkpoint_data(_player: Character):
 					var node := level.get_node_or_null(node_path)
 					if node != null:
 						node.set("passed_by", true)
+			"objectives":
+				ObjectiveMap.objectives = data[datam]
 
 	var mapped_toggle := {}
 	for comp_toggle in level.get_tree().get_nodes_in_group("toggle_computer"):

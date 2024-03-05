@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl4dor7dfiunt"]
+[gd_scene load_steps=12 format=3 uid="uid://dl4dor7dfiunt"]
 
 [ext_resource type="Script" path="res://src/map/level3/asteroid_shooter.gd" id="1_7mei6"]
 [ext_resource type="PackedScene" uid="uid://dd8mjsefd1wvc" path="res://src/entity/asteroid/asteroid_rock.tscn" id="3_186np"]
 [ext_resource type="PackedScene" uid="uid://6wu2smq5bqak" path="res://src/entity/asteroid/asteroid_rock1.tscn" id="3_vx3ft"]
+[ext_resource type="AudioStream" uid="uid://dol4gnj205422" path="res://asset/snd/2896 - Sci-Fi Door Pack/Sci-Fi Doors Close 3.wav" id="4_7ub1e"]
 [ext_resource type="Script" path="res://src/entity/character/shakeable_camera.gd" id="5_1tp18"]
+[ext_resource type="AudioStream" uid="uid://nav8q83481vv" path="res://asset/snd/7712 - Sci-Fi Radiation Sound Effects Pack/Sci-Fi Heavy Radiation Loop 1.wav" id="5_tynnt"]
+[ext_resource type="Script" path="res://src/global/snd_fader.gd" id="6_h7vxn"]
 
 [sub_resource type="Curve" id="Curve_6uo8r"]
 min_value = 1.0
@@ -23,6 +26,17 @@ size = Vector3(25, 17, 1)
 script = ExtResource("1_7mei6")
 asteroids = Array[PackedScene]([ExtResource("3_186np"), ExtResource("3_vx3ft")])
 difficulty = SubResource("Curve_6uo8r")
+
+[node name="snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7ub1e")
+bus = &"sfx"
+
+[node name="space_background" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("snd")]
+stream = ExtResource("5_tynnt")
+bus = &"sfx"
+script = ExtResource("6_h7vxn")
+snd = NodePath(".")
+fade_time = 1.0
 
 [node name="shake_cam" type="Node" parent="."]
 script = ExtResource("5_1tp18")

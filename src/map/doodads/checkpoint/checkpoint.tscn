@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd26og66hea18"]
+[gd_scene load_steps=4 format=3 uid="uid://cd26og66hea18"]
 
 [ext_resource type="Script" path="res://src/map/doodads/checkpoint/checkpoint.gd" id="1_xr4n5"]
+[ext_resource type="AudioStream" uid="uid://b2hpi4iqmivtc" path="res://asset/snd/Robotic_Voices/Alert_SFX/Alert3.wav" id="2_cpurw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nc4bh"]
 size = Vector3(4, 4, 4)
 
 [node name="checkpoint" type="Node3D" groups=["checkpoint"]]
 script = ExtResource("1_xr4n5")
+
+[node name="snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cpurw")
+bus = &"sfx"
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0

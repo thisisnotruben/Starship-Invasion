@@ -116,30 +116,41 @@ grow_vertical = 2
 layout_mode = 2
 alignment = 2
 
-[node name="hull_integrity" type="GridContainer" parent="margin/vBox"]
+[node name="panel" type="PanelContainer" parent="margin/vBox"]
 visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="margin" type="MarginContainer" parent="margin/vBox/panel"]
+layout_mode = 2
+
+[node name="hull_integrity" type="GridContainer" parent="margin/vBox/panel/margin"]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 2
 
-[node name="label" type="Label" parent="margin/vBox/hull_integrity"]
+[node name="label" type="Label" parent="margin/vBox/panel/margin/hull_integrity"]
 layout_mode = 2
+theme_type_variation = &"LabelHull"
 text = "Hull integrity:"
 
-[node name="progressBar" type="ProgressBar" parent="margin/vBox/hull_integrity"]
+[node name="progressBar" type="ProgressBar" parent="margin/vBox/panel/margin/hull_integrity"]
 custom_minimum_size = Vector2(240, 24)
 layout_mode = 2
 size_flags_vertical = 4
+theme_type_variation = &"ProgressBarHull"
 max_value = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="time_left" type="Label" parent="margin/vBox/hull_integrity"]
+[node name="time_left" type="Label" parent="margin/vBox/panel/margin/hull_integrity"]
 layout_mode = 2
+theme_type_variation = &"LabelHull"
 text = "Time left:"
 
-[node name="time_left_sec" type="Label" parent="margin/vBox/hull_integrity"]
+[node name="time_left_sec" type="Label" parent="margin/vBox/panel/margin/hull_integrity"]
 layout_mode = 2
+theme_type_variation = &"LabelHull"
 text = "0 sec"
 
 [node name="padding" type="Control" parent="margin/vBox"]
