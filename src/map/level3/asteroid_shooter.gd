@@ -1,20 +1,18 @@
 extends Node3D
 
-const min_rot := deg_to_rad(-90.0)
-const max_rot := deg_to_rad(90.0)
-
 @onready var spawn_point_constraint: MeshInstance3D = $spawn_point_mesh
 @onready var asteroid_timer: Timer = $asteroid_timer
 @onready var game_timer: Timer = $game_timer
 @export var cam: Camera3D = null
 @export var anim: AnimationPlayer = null
 @onready var _anim: AnimationPlayer = $anim
+@onready var aim_cursor: Marker3D = $aim_cursor
 
 @export_category("Turret")
 @export var turrets: Array[AsteroidTurret] = []
 @export var aim_length := 600
+@export_range(100.0, 1000.0) var turret_aim_speed :=  580.0
 var turret_idx: int = 0
-var current_aim_dir := Vector2.ZERO
 
 @export_category("Asteroid")
 @export var asteroids: Array[PackedScene] = []
@@ -34,6 +32,9 @@ var current_aim_dir := Vector2.ZERO
 
 var hull_life := -1
 var game_done := false
+var screen_size := Vector2( \
+	ProjectSettings.get("display/window/size/viewport_width"), \
+	ProjectSettings.get("display/window/size/viewport_height"))
 
 signal game_started
 signal game_finished
@@ -49,15 +50,18 @@ func _ready():
 
 func _input(event: InputEvent):
 	if event is InputEventMouseMotion:
-		current_aim_dir = event.global_position
-		update_turret_aim()
+		update_turret_aim(project_aim(event.global_position))
 
-func _physics_process(_delta: float):
-	for turret in turrets:
-		turret.pivot.rotate_x(Input.get_axis("move_s", "move_n") * Settings.joy_sens)
-		turret.pivot.rotate_y(Input.get_axis("move_e", "move_w") * Settings.joy_sens)
-		turret.pivot.rotation.x = clamp(turret.pivot.rotation.x, min_rot, max_rot)
-		turret.pivot.rotation.y = clamp(turret.pivot.rotation.y, min_rot, max_rot)
+func _physics_process(delta: float):
+	var input_dir := Input.get_vector("move_w", "move_e", "move_n", "move_s")
+	if not input_dir.is_zero_approx():
+		var target_pos = (Vector2(aim_cursor.global_position.x, \
+			aim_cursor.global_position.y) + input_dir.normalized() \
+			* turret_aim_speed * delta).clamp(Vector2.ZERO, screen_size)
+		aim_cursor.global_position.x = target_pos.x
+		aim_cursor.global_position.y = target_pos.y
+		update_turret_aim(project_aim(target_pos))
+
 	if Input.is_action_just_pressed("shoot"):
 		turrets[turret_idx].shoot()
 		turret_idx = (turret_idx + 1) % turrets.size()
@@ -76,6 +80,9 @@ func start_game(start: bool = true, failed := false):
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 		asteroid_timer.start(randf_range(spawn_min_sec, spawn_max_sec))
 		game_timer.start(game_timer_sec)
+		var start_cursor_pos = project_aim(screen_size / 2.0)
+		aim_cursor.global_position.z = start_cursor_pos.z
+		update_turret_aim(start_cursor_pos)
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		asteroid_timer.stop()
@@ -89,10 +96,12 @@ func _on_asteroid_timer_timeout():
 	for i in range(sim_amount_max):
 		spawn_asteroid()
 
-func update_turret_aim():
+func project_aim(pos: Vector2) -> Vector3:
+	return cam.project_ray_origin(pos) + cam.project_ray_normal(pos) * aim_length
+
+func update_turret_aim(aim_to: Vector3):
 	for turret in turrets:
-		turret.pivot.look_at(cam.project_ray_origin(current_aim_dir) \
-			+ cam.project_ray_normal(current_aim_dir) * aim_length)
+		turret.pivot.look_at(aim_to)
 
 func spawn_asteroid():
 	var spawn_area := spawn_point_constraint.global_position

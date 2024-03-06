@@ -4169,8 +4169,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 16)
 [node name="red-keycard" parent="items" instance=ExtResource("63_t2lk6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -230, 0, 62)
 
-[node name="space_walk" type="Node3D" parent="."]
+[node name="space_walk" type="Node3D" parent="." node_paths=PackedStringArray("hit_box", "spawns")]
 script = ExtResource("69_2ccfi")
+hit_box = NodePath("space_sound_area")
+spawns = [NodePath("spawn"), NodePath("spawn2"), NodePath("spawn3"), NodePath("spawn4")]
 
 [node name="space_sound" type="AudioStreamPlayer" parent="space_walk" node_paths=PackedStringArray("snd")]
 stream = ExtResource("69_f12ag")
@@ -4262,6 +4264,7 @@ move_to_marker = NodePath("../Marker3D")
 
 [node name="spawn4" parent="space_walk" node_paths=PackedStringArray("character_container", "action_trigger", "door") instance=ExtResource("319_550jo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0.00020051, 42)
+_spawns = Array[PackedScene]([ExtResource("46_1qejp"), ExtResource("48_qnlmi"), ExtResource("47_io3to"), ExtResource("51_1ks63"), ExtResource("53_r7rli"), ExtResource("52_kgekm"), ExtResource("56_ub2ql"), ExtResource("54_mnndn"), ExtResource("49_jttrc"), ExtResource("57_p8qa5"), ExtResource("55_i4brk"), ExtResource("50_my7p0")])
 character_container = NodePath("../../characters")
 spawn_interval_sec = 5.0
 action_trigger = NodePath("trigger")

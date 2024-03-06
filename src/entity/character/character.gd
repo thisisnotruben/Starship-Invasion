@@ -53,6 +53,7 @@ var target: Character = null
 signal health_changed(_health)
 signal inventory_added(_item)
 signal show_objective(_show, blurb)
+signal died(_character)
 
 
 func _ready():
@@ -93,6 +94,7 @@ func _set_health(_health: int):
 	if health >= 0 and fsm.state != CharacterStates.Type.DIE:
 		emit_signal("health_changed", health)
 	if health == 0:
+		emit_signal("died", self)
 		fsm.state = CharacterStates.Type.DIE
 		set_physics_process(false)
 		set_process_input(false)
