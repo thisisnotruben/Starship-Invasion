@@ -1,9 +1,12 @@
 # Starship Invasion
 
 # TODO
-- level 4: add random/triggered explosions
-- dialogue in game
-- when you start game, it shows a tutorial
+- level 4:
+	- add random/triggered explosions
+- cinematics:
+	- when you start game, it shows a tutorial / cinematic
+	- when game ends, it shows cinematic
+	- level 3 add cinematic of setting bomb
 
 ## Maybe
 - space warrior: special of throwing grenade?

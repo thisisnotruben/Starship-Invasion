@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=31 format=3 uid="uid://04jypdjif3cb"]
+[gd_resource type="Theme" load_steps=32 format=3 uid="uid://04jypdjif3cb"]
 
 [ext_resource type="FontFile" uid="uid://dqnpw8ahwmu7i" path="res://asset/font/mago1.ttf" id="1_q35e4"]
 
@@ -97,6 +97,14 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.403922, 1, 0.564706, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o43kk"]
+bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.403922, 0.541176, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d50nc"]
 bg_color = Color(0.0313726, 0.0392157, 0.0392157, 0.74902)
 
@@ -151,6 +159,8 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_v36xy")
 HSlider/styles/slider = SubResource("StyleBoxLine_au214")
 Label/colors/font_color = Color(0.839216, 1, 0.403922, 1)
 Label/font_sizes/font_size = 32
+LabelDet/base_type = &"Label"
+LabelDet/colors/font_color = Color(1, 0.403922, 0.541176, 1)
 LabelHull/base_type = &"Label"
 LabelHull/colors/font_color = Color(0.403922, 0.839216, 1, 1)
 LinkButton/colors/font_color = Color(0.403922, 1, 0.564706, 1)
@@ -163,6 +173,8 @@ MarginContainer/constants/margin_left = 32
 MarginContainer/constants/margin_right = 32
 MarginContainer/constants/margin_top = 16
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ptw75")
+PanelContainerDet/base_type = &"PanelContainer"
+PanelContainerDet/styles/panel = SubResource("StyleBoxFlat_o43kk")
 ProgressBar/colors/font_color = Color(0.403922, 1, 0.564706, 1)
 ProgressBar/font_sizes/font_size = 32
 ProgressBar/styles/background = SubResource("StyleBoxFlat_d50nc")

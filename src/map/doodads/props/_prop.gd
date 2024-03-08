@@ -6,6 +6,7 @@ extends StaticBody3D
 @export_category("Audio")
 @export var snd_library: Array[AudioStream] = []
 @export var rand := false
+@export var play := true
 @export_category("Light")
 @export var lights: Array[Light3D] = []
 @export var look_at_node: Node3D = null
@@ -15,7 +16,7 @@ var play_snd := false
 
 func _ready():
 	set_process(false)
-	play_snd = not rand or (rand and randi_range(0, 1) == 1)
+	play_snd = play and (not rand or (rand and randi_range(0, 1) == 1))
 	if snd.stream == null and not snd_library.is_empty():
 		snd.stream = snd_library.pick_random()
 

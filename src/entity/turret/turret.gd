@@ -10,6 +10,7 @@ class_name AsteroidTurret
 @onready var ray: RayCast3D = $pivot/ray
 @onready var laser_mesh: MeshInstance3D = $pivot/ray/laser_sight
 @onready var anim_shoot: AnimationPlayer = $anim_shoot
+@onready var timer: Timer = $timer
 
 @export var rotate_gun := false : set = _set_rotate
 @export var scan_color: Color = Color.RED
@@ -42,6 +43,13 @@ func reset_laser():
 	laser_mesh.material_override.albedo_color = scan_color
 	laser_mesh.material_override.emission = scan_color
 
+func set_aim(aim_true: bool):
+	$pivot/turret_gun.rotation.x = 0.0 if aim_true else deg_to_rad(15.0)
+	ray.position = Vector3(0.0, 3.4, -3.0) if aim_true \
+		else Vector3(0.0, 4.1, -2.5)
+	ray.rotation.x = deg_to_rad(90.0 if aim_true else 105.0)
+	reset_laser()
+
 func shoot():
 	anim_shoot.play("recoil")
 	bullet_scene.instantiate().spawn_shot( \
@@ -56,16 +64,18 @@ func _set_rotate(_rotate_gun: bool):
 		$anim.stop()
 
 func _set_rand_shoot(_random_shoot: bool):
+	var timer_callable := func():
+		if _random_shoot:
+			timer.start(_get_rand_amount())
+		else:
+			timer.stop()
 	random_shoot = _random_shoot
-	if _random_shoot:
-		$timer.start(_get_rand_amount())
-	else:
-		$timer.stop()
+	timer_callable.call_deferred()
 
 func _on_timer_timeout():
 	if random_shoot:
 		shoot()
-		$timer.start(_get_rand_amount())
+		timer.start(_get_rand_amount())
 
 func _get_rand_amount() -> float:
 	var timer_sec := time_to_shoot

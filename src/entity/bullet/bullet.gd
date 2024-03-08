@@ -90,6 +90,12 @@ func spawn_shot(args := {}):
 
 		node.add_sibling(self)
 
+	elif args.has_all(["parent", "origin", "target"]):
+		node = args["parent"]
+		spawn_call = func():
+			look_at_from_position(args["origin"], args["target"])
+		node.add_sibling(self)
+
 func _physics_process(delta: float):
 	if hit:
 		return

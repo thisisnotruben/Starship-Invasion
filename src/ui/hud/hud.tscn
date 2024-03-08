@@ -153,6 +153,29 @@ layout_mode = 2
 theme_type_variation = &"LabelHull"
 text = "0 sec"
 
+[node name="panel2" type="PanelContainer" parent="margin/vBox"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"PanelContainerDet"
+
+[node name="margin" type="MarginContainer" parent="margin/vBox/panel2"]
+layout_mode = 2
+
+[node name="countdown" type="GridContainer" parent="margin/vBox/panel2/margin"]
+layout_mode = 2
+columns = 2
+
+[node name="detonation_lbl" type="Label" parent="margin/vBox/panel2/margin/countdown"]
+layout_mode = 2
+theme_type_variation = &"LabelDet"
+text = "Detonation:"
+
+[node name="detonation_sec" type="Label" parent="margin/vBox/panel2/margin/countdown"]
+layout_mode = 2
+theme_type_variation = &"LabelDet"
+text = "0 sec"
+
 [node name="padding" type="Control" parent="margin/vBox"]
 layout_mode = 2
 size_flags_vertical = 3

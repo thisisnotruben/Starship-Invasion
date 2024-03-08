@@ -1,0 +1,38 @@
+[gd_scene load_steps=14 format=3 uid="uid://boiqik7ur6ncj"]
+
+[ext_resource type="Script" path="res://src/map/level4/countdown.gd" id="1_og04p"]
+[ext_resource type="AudioStream" uid="uid://cmqf5p88keham" path="res://asset/snd/Robotic_Voices/Male/Numbers/__10.wav" id="2_smeoa"]
+[ext_resource type="AudioStream" uid="uid://dvwuavc1bua7a" path="res://asset/snd/Robotic_Voices/Male/Numbers/__9.wav" id="3_qwylm"]
+[ext_resource type="AudioStream" uid="uid://1uvy24at4iqk" path="res://asset/snd/Robotic_Voices/Male/Numbers/__8.wav" id="4_i1vnt"]
+[ext_resource type="AudioStream" uid="uid://ci2or2xqo1vcg" path="res://asset/snd/Robotic_Voices/Male/Numbers/__7.wav" id="5_wyshm"]
+[ext_resource type="AudioStream" uid="uid://c0i37chraa244" path="res://asset/snd/Robotic_Voices/Male/Numbers/__6.wav" id="6_4hs08"]
+[ext_resource type="AudioStream" uid="uid://vkwqyssunfjl" path="res://asset/snd/Robotic_Voices/Male/Numbers/__5.wav" id="7_2yo07"]
+[ext_resource type="AudioStream" uid="uid://cwdqhm2rsg5gr" path="res://asset/snd/Robotic_Voices/Male/Numbers/__4.wav" id="8_iaedf"]
+[ext_resource type="AudioStream" uid="uid://opqnp51xs4dr" path="res://asset/snd/Robotic_Voices/Male/Numbers/__2.wav" id="9_pa3jd"]
+[ext_resource type="AudioStream" uid="uid://uup12wsmfbkg" path="res://asset/snd/Robotic_Voices/Male/Numbers/__3.wav" id="10_3gkmj"]
+[ext_resource type="AudioStream" uid="uid://ciwes4crqrt15" path="res://asset/snd/Robotic_Voices/Male/Numbers/__1.wav" id="11_dpjro"]
+[ext_resource type="AudioStream" uid="uid://bhahtbhn1b6cb" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Destruction_Imminent.wav" id="12_p5e3l"]
+[ext_resource type="AudioStream" uid="uid://dgqp4lv07cxrs" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_17.wav" id="13_mufpk"]
+
+[node name="countdown" type="Node" node_paths=PackedStringArray("player", "countdown_panel", "label")]
+script = ExtResource("1_og04p")
+player = NodePath("")
+countdown_panel = NodePath("")
+label = NodePath("")
+countdown_snd_library = Array[AudioStream]([ExtResource("2_smeoa"), ExtResource("3_qwylm"), ExtResource("4_i1vnt"), ExtResource("5_wyshm"), ExtResource("6_4hs08"), ExtResource("7_2yo07"), ExtResource("8_iaedf"), ExtResource("9_pa3jd"), ExtResource("10_3gkmj"), ExtResource("11_dpjro"), ExtResource("12_p5e3l")])
+
+[node name="snd_explode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_mufpk")
+bus = &"asteroid_walk"
+
+[node name="snd_countdown" type="AudioStreamPlayer" parent="."]
+bus = &"sfx"
+
+[node name="timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="timer_audio" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="timer_audio" to="." method="_on_timer_audio_timeout"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://br06uem2tymoj"]
+
+[ext_resource type="Script" path="res://src/map/start_cinematic/cinematic_shoot.gd" id="1_lqyrb"]
+[ext_resource type="PackedScene" uid="uid://bcn16nd8wqbn2" path="res://asset/crocotile3d/start_cinematic/cinematic_turret_bullet.tscn" id="2_oqub7"]
+
+[node name="cinematicShoot" type="Node3D"]
+script = ExtResource("1_lqyrb")
+bullet_scene = ExtResource("2_oqub7")
+
+[node name="Marker3D" type="Marker3D" parent="."]

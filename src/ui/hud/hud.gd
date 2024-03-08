@@ -75,6 +75,3 @@ func show_alert(duration: float, impact: bool):
 
 func _on_show_hull_integrity(_visible: bool):
 	$margin/vBox/panel.visible = _visible
-
-
-
