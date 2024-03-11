@@ -4,7 +4,7 @@ class_name LevelQuery
 const SAVE_PATH := "user://starship_invasion.cfg"
 const VERSION := 1
 
-static var unlocked_levels := [true, false, false, false]
+static var unlocked_levels := [false, false, false, false]
 
 
 static func _static_init():
@@ -12,11 +12,17 @@ static func _static_init():
 
 static func unlock_level(level: int):
 	if is_locked(level):
-		unlocked_levels[level] = true
+		unlocked_levels[level - 1] = true
 		save_level()
 
-static func is_locked(level: int):
-	return unlocked_levels.size() > level and not unlocked_levels[level]
+static func is_locked(level: int) -> bool:
+	return unlocked_levels.size() >= level and not unlocked_levels[level - 1]
+
+static func have_played() -> bool:
+	return unlocked_levels.any(func(l): return l)
+
+static func first_played_level() -> bool:
+	return unlocked_levels.count(true) == 1
 
 static func save_level():
 	var config := ConfigFile.new()

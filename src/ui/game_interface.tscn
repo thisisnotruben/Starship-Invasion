@@ -1,21 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3bnjjdsas4ei"]
+[gd_scene load_steps=6 format=3 uid="uid://d3bnjjdsas4ei"]
 
 [ext_resource type="PackedScene" uid="uid://bc8j412lenuw0" path="res://src/ui/game/game.tscn" id="1_kvwol"]
 [ext_resource type="PackedScene" uid="uid://davqs3425w0qk" path="res://src/ui/effects/effects.tscn" id="2_w7tmx"]
 [ext_resource type="PackedScene" uid="uid://dwm6s58v1ngu" path="res://src/ui/hud/hud.tscn" id="3_cm2xl"]
 [ext_resource type="PackedScene" uid="uid://dlr5huenvbia8" path="res://src/ui/dialogue/dialogue.tscn" id="4_mxvfn"]
+[ext_resource type="PackedScene" uid="uid://b2tr53ho7brj4" path="res://src/ui/tutorial/tutorial.tscn" id="5_cnvty"]
 
 [node name="game_interface" type="CanvasLayer"]
 
 [node name="game" parent="." instance=ExtResource("1_kvwol")]
-visible = false
 
 [node name="effects" parent="." instance=ExtResource("2_w7tmx")]
 
 [node name="hud" parent="." instance=ExtResource("3_cm2xl")]
 
+[node name="tutorial" parent="." node_paths=PackedStringArray("game_menu") instance=ExtResource("5_cnvty")]
+game_menu = NodePath("../game")
+
 [node name="dialogue" parent="." node_paths=PackedStringArray("game_menu") instance=ExtResource("4_mxvfn")]
 visible = false
 game_menu = NodePath("../game")
 
+[connection signal="visibility_changed" from="game" to="tutorial" method="_on_game_visibility_changed"]
 [connection signal="visibility_changed" from="game" to="dialogue" method="_on_game_visibility_changed"]

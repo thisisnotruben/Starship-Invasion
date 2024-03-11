@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cybtj1ouq743o" path="res://asset/snd/DOS-88/DOS-88 - Dark Ascent.mp3" id="2_mwbjw"]
 [ext_resource type="Script" path="res://src/map/start_cinematic/start_cinematic_dialogue.gd" id="3_4dun3"]
 [ext_resource type="PackedScene" uid="uid://d3bnjjdsas4ei" path="res://src/ui/game_interface.tscn" id="3_247ah"]
-[ext_resource type="PackedScene" uid="uid://dbwsdg4frpi15" path="res://src/map/level1.tscn" id="3_piqyk"]
+[ext_resource type="PackedScene" uid="uid://cm6lrl0cgaejr" path="res://src/ui/start/start.tscn" id="3_msux0"]
 [ext_resource type="PackedScene" uid="uid://sbj1ilhselp0" path="res://src/map/doodads/starship/starship.tscn" id="4_ovtf3"]
 [ext_resource type="Script" path="res://src/entity/character/shakeable_camera.gd" id="4_soco3"]
 [ext_resource type="PackedScene" uid="uid://des2ke677y68u" path="res://asset/crocotile3d/map1/map_1.tscn" id="6_7bne4"]
@@ -3014,7 +3014,7 @@ point_count = 2
 [node name="startCinematic" type="Node3D"]
 script = ExtResource("1_57w32")
 act0_music = ExtResource("2_mwbjw")
-next_level = ExtResource("3_piqyk")
+next_level = ExtResource("3_msux0")
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -3112,7 +3112,7 @@ stream = ExtResource("14_dei6u")
 bus = &"sfx"
 
 [node name="act11" type="Camera3D" parent="."]
-transform = Transform3D(-0.559194, -0.375787, 0.738976, 0, 0.891368, 0.453281, -0.829036, 0.253472, -0.498447, 136.406, 16.6396, 60.1448)
+transform = Transform3D(-0.559194, -0.375787, 0.738975, 0, 0.891368, 0.453281, -0.829036, 0.253472, -0.498447, 136.406, 16.6396, 60.1448)
 
 [node name="act12" type="Camera3D" parent="."]
 transform = Transform3D(-3.62049e-06, -0.130527, 0.991445, 3.8097e-09, 0.991445, 0.130527, -1, 4.76347e-07, -3.58902e-06, 125, 13.9998, 66.5)
@@ -3124,8 +3124,7 @@ bus = &"sfx"
 [node name="maps" type="Node3D" parent="."]
 
 [node name="1" type="Node3D" parent="maps"]
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.95, 177)
 
 [node name="map1" parent="maps/1" instance=ExtResource("6_7bne4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 38.9083)

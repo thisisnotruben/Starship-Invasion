@@ -1,7 +1,10 @@
 extends Control
+class_name StartMenu
+
+static var chosen_level_scene: PackedScene = null
+static var next_level := -1
 
 var play_focus_sfx := false
-var next_level := -1
 
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
@@ -12,6 +15,7 @@ var next_level := -1
 
 @export var videos: Array[VideoStream] = []
 @export var video_lengths: Array[float] = []
+@export var cinematic_scene: PackedScene = null
 var video_data := {}
 
 var tabs := {"main": 0, "license": 1, "credits": 2, "controls": 3, \
@@ -88,16 +92,31 @@ func _on_main_draw():
 	play_focus_sfx = true
 
 func _on_level_draw():
+	$center/panel/margin/tabs/level/start_cinematic.visible = \
+		LevelQuery.have_played()
 	play_focus_sfx = false
 	lvl_bttn_focus.grab_focus()
 	play_focus_sfx = true
 
+func _on_start_cinematic_pressed():
+	next_level = -1
+	chosen_level_scene = null
+	$center/panel/margin/tabs/level/start_cinematic.release_focus()
+	$snd_game.play()
+	await $snd_game.finished
+	get_tree().change_scene_to_packed(cinematic_scene)
+
 func _on_level_pressed(level: int):
 	next_level = level
+	chosen_level_scene = load("res://src/map/level%s.tscn" % next_level)
 	tab_back = "level"
-	lvl_bttn_focus = get_node("center/panel/margin/tabs/level/level%s" \
-		 % level)
-	if LevelQuery.is_locked(level - 1):
+	lvl_bttn_focus = get_node("center/panel/margin/tabs/level/level%s" % level)
+	lvl_bttn_focus.release_focus()
+	if not LevelQuery.have_played():
+		$snd_game.play()
+		await $snd_game.finished
+		get_tree().change_scene_to_packed(cinematic_scene)
+	elif level > 1 and LevelQuery.is_locked(level):
 		$snd_popup.play()
 		popup.display("You haven't complete prior level...\n" \
 			+ "Complete prior level?", "Go", "Stay")
@@ -120,11 +139,10 @@ func _on_difficulty_pressed(difficulty: String):
 			chosen_difficulty = Difficulty.Type.HARD
 
 	Difficulty.des_diff = chosen_difficulty
-	LevelQuery.unlock_level(next_level - 1)
-	set_process_input(false)
+	LevelQuery.unlock_level(next_level)
 	$snd_game.play()
 	await $snd_game.finished
-	get_tree().change_scene_to_file("res://src/map/level%s.tscn" % next_level)
+	get_tree().change_scene_to_packed(chosen_level_scene)
 
 func _on_difficulty_draw():
 	$center/panel/margin/tabs/difficulty/medium.grab_focus()

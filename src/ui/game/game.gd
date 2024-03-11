@@ -141,7 +141,7 @@ func show_death_screen(player_health: int):
 		show()
 
 func next_level(next_level_scene: PackedScene, level: int):
-	LevelQuery.unlock_level(level - 1)
+	LevelQuery.unlock_level(level)
 	tab.current_tab = tabs["next_level"]
 	tab.get_child(tabs["next_level"]).set("next_level", next_level_scene)
 	show()

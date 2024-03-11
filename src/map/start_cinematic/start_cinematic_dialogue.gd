@@ -9,7 +9,7 @@ func _init():
 		"all agreed to this suicide mission for one purpose:\n\nIt is better " + \
 		"to die for the empress than live for yourself.\n\n" + \
 		"You...\n\nAn instrument of Empress Muneka's will " + \
-		"took a vow to purge all her heretics and protect her reign at all costs." + \
+		"took a vow to purge all her enemies and protect her reign at all costs." + \
 		"\n\nThe Heretics called down the thunder and now they got it, " + \
 		"Deliver the bomb to the underbeast of this foresaken station and " + \
 		"kill all those who are unfaithful to her reign.",

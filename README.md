@@ -3,10 +3,7 @@
 # TODO
 - level 4:
 	- add random/triggered explosions
-- cinematics:
-	- tutorial screen
 	- when game ends, it shows cinematic
-	- level 3 add cinematic of setting bomb
 
 ## Maybe
 - space warrior: special of throwing grenade?

@@ -9,6 +9,8 @@ var started := false
 
 func _ready():
 	set_physics_process(false)
+	if StartMenu.chosen_level_scene != null:
+		next_level = StartMenu.chosen_level_scene
 
 func _physics_process(_delta: float):
 	$turrets/turret.pivot.look_at($starships/starship1.global_position)
@@ -16,6 +18,8 @@ func _physics_process(_delta: float):
 
 func _on_dialogue_finished():
 	if started:
+		if StartMenu.next_level != -1:
+			LevelQuery.unlock_level(StartMenu.next_level)
 		get_tree().change_scene_to_packed(next_level)
 	else:
 		anim.play("act01")
