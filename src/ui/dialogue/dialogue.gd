@@ -29,6 +29,7 @@ func start_dialogue(idx: int, _show_and_hide := true):
 	show_and_hide = _show_and_hide
 	shown = true
 	bttn_focused = false
+	continue_bttn.hide()
 
 	var dialogue: String = dialogue_tree.dialogues[idx]
 	var play_length: float = dialogue.length() * character_speed
@@ -46,6 +47,7 @@ func start_dialogue(idx: int, _show_and_hide := true):
 		"visible_ratio", 1.0, play_length).finished
 	active = false
 	bttn_focused = true
+	continue_bttn.show()
 	continue_bttn.grab_focus()
 	$snd_nav.play()
 

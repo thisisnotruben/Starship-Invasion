@@ -1,23 +1,33 @@
-[gd_scene load_steps=62 format=3 uid="uid://dudokf247b84k"]
+[gd_scene load_steps=85 format=3 uid="uid://dudokf247b84k"]
 
 [ext_resource type="Script" path="res://src/global/snd_fader.gd" id="1_2j50e"]
 [ext_resource type="Script" path="res://src/map/start_cinematic/start_cinematic.gd" id="1_57w32"]
 [ext_resource type="Environment" uid="uid://lgpdmt1bb81o" path="res://resource/env.tres" id="1_oql53"]
 [ext_resource type="AudioStream" uid="uid://jhv8qp55lmet" path="res://asset/snd/DOS-88/D0S-88 - Raging Inferno.mp3" id="2_buvp5"]
+[ext_resource type="AudioStream" uid="uid://cybtj1ouq743o" path="res://asset/snd/DOS-88/DOS-88 - Dark Ascent.mp3" id="2_mwbjw"]
 [ext_resource type="Script" path="res://src/map/start_cinematic/start_cinematic_dialogue.gd" id="3_4dun3"]
 [ext_resource type="PackedScene" uid="uid://d3bnjjdsas4ei" path="res://src/ui/game_interface.tscn" id="3_247ah"]
+[ext_resource type="PackedScene" uid="uid://dbwsdg4frpi15" path="res://src/map/level1.tscn" id="3_piqyk"]
 [ext_resource type="PackedScene" uid="uid://sbj1ilhselp0" path="res://src/map/doodads/starship/starship.tscn" id="4_ovtf3"]
 [ext_resource type="Script" path="res://src/entity/character/shakeable_camera.gd" id="4_soco3"]
 [ext_resource type="PackedScene" uid="uid://des2ke677y68u" path="res://asset/crocotile3d/map1/map_1.tscn" id="6_7bne4"]
 [ext_resource type="PackedScene" uid="uid://bjmbcp7vdja4y" path="res://asset/crocotile3d/map1/ceiling.tscn" id="7_18ep7"]
 [ext_resource type="PackedScene" uid="uid://b7xjy28ah2oxu" path="res://asset/crocotile3d/map2/map_2.tscn" id="8_0odxf"]
+[ext_resource type="AudioStream" uid="uid://ddrjw05umf57v" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 6.wav" id="8_p53n7"]
+[ext_resource type="AudioStream" uid="uid://dol4gnj205422" path="res://asset/snd/2896 - Sci-Fi Door Pack/Sci-Fi Doors Close 3.wav" id="8_pwfb8"]
 [ext_resource type="PackedScene" uid="uid://l45kqdfmr3ss" path="res://asset/crocotile3d/map2/ceiling.tscn" id="9_m6shy"]
+[ext_resource type="AudioStream" uid="uid://ve4ykdk2umr7" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 7.wav" id="9_x4hfi"]
+[ext_resource type="AudioStream" uid="uid://bglq01afapwgo" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Panicked Radio Voice 6.wav" id="10_ejwfk"]
 [ext_resource type="PackedScene" uid="uid://id51tk4jxdhw" path="res://asset/crocotile3d/map3/map_3.tscn" id="10_skj4i"]
+[ext_resource type="AudioStream" uid="uid://bfperjte44ja2" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 5.wav" id="11_t18e3"]
 [ext_resource type="PackedScene" uid="uid://7flk3fj2va5f" path="res://asset/crocotile3d/map3/ceiling.tscn" id="11_wq1pt"]
 [ext_resource type="PackedScene" uid="uid://c4hi0ie8sw4sa" path="res://asset/crocotile3d/map4/map_4.tscn" id="12_1x5fx"]
+[ext_resource type="AudioStream" uid="uid://daanni2ptqedj" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Panicked Radio Voice 5.wav" id="12_edoa7"]
 [ext_resource type="PackedScene" uid="uid://cg4k7icoo4jdx" path="res://asset/crocotile3d/map4/ceiling.tscn" id="13_b7mae"]
 [ext_resource type="PackedScene" uid="uid://cbnd3riidtonx" path="res://asset/crocotile3d/start_cinematic/start_cinematic_asset.tscn" id="14_1jcya"]
+[ext_resource type="AudioStream" uid="uid://ciav57csq6o5c" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Voice 2.wav" id="14_dei6u"]
 [ext_resource type="PackedScene" uid="uid://ca37jkluxvjp6" path="res://src/entity/door/door.tscn" id="14_xbeuw"]
+[ext_resource type="AudioStream" uid="uid://b5g35hl20mcbk" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 1.wav" id="15_oifca"]
 [ext_resource type="PackedScene" uid="uid://biwvlbyxt56yb" path="res://src/map/doodads/props/boxes/box_gray_1.tscn" id="15_yutp1"]
 [ext_resource type="PackedScene" uid="uid://d07v76u0ymnne" path="res://src/map/doodads/props/boxes/box_gray_3.tscn" id="16_b36le"]
 [ext_resource type="PackedScene" uid="uid://bea4f7qu4pjne" path="res://src/entity/toggle/toggle_computer_1.tscn" id="16_f0qrs"]
@@ -45,8 +55,9 @@
 [ext_resource type="PackedScene" uid="uid://djlg145r3kxg6" path="res://src/map/doodads/props/computer/computer_2.tscn" id="39_px26p"]
 [ext_resource type="PackedScene" uid="uid://8f0fgqy1encr" path="res://src/map/doodads/props/ladder.tscn" id="40_jplqv"]
 [ext_resource type="PackedScene" uid="uid://caygose7ahttw" path="res://src/map/doodads/props/boxes/box_green_small.tscn" id="41_2fwqo"]
-[ext_resource type="PackedScene" uid="uid://ccc73rj8vr8ta" path="res://src/entity/celestial/celestial_layout.tscn" id="43_e3ygr"]
 [ext_resource type="PackedScene" uid="uid://br06uem2tymoj" path="res://src/map/start_cinematic/cinematic_shoot.tscn" id="46_aixpt"]
+[ext_resource type="PackedScene" uid="uid://igfkkdo1d51q" path="res://src/entity/trap/trap_fire.tscn" id="47_hqxkw"]
+[ext_resource type="AudioStream" uid="uid://dgqp4lv07cxrs" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_17.wav" id="47_ydm7i"]
 
 [sub_resource type="Animation" id="Animation_od4q6"]
 length = 0.001
@@ -458,9 +469,664 @@ tracks/33/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("act6-fires/AudioStreamPlayer:playing")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("act6-shoot:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("act6-shoot:scale")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("act7:current")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("act7:fov")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("act7:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(154, 26, 72)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("act7:rotation")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.575959, 1.37305, 1.36688e-08)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("act8:current")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("act8:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(116, 24.5, 79)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("act8:rotation")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.488692, -0.959931, 0)]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("node8/Path3D/PathFollow3D:progress_ratio")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("node8:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("node8:rotation")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("node8:visible")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("act9:current")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("act9:fov")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [55.5]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("act9:position")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(127.398, 18.7082, 52.8816)]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("act9:rotation")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.506145, -2.71224, 0)]
+}
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("act3-squadron:visible")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/53/type = "value"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("act10:current")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("act10-survivor:visible")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("act10:position")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(130, 14.25, 66.5)]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("act10:rotation")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.218166, -1.5708, 0)]
+}
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("act10:fov")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [63.9]
+}
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("act11:current")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("act10-survivor:position")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/60/type = "value"
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/path = NodePath("act10-survivor:rotation")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/61/type = "value"
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/path = NodePath("characters:visible")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/62/type = "value"
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/path = NodePath("act11:position")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(136.406, 16.6396, 60.1448)]
+}
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("act11:rotation")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.470443, 2.16421, 0)]
+}
+tracks/64/type = "value"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("act10-survivor/character:position")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(134, 11.9999, 66.5)]
+}
+tracks/65/type = "value"
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/path = NodePath("act12:current")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/66/type = "value"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("act12:position")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(125, 13.9998, 66.5)]
+}
+tracks/67/type = "value"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("act12:rotation")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.1309, 1.5708, 3.84257e-09)]
+}
+tracks/68/type = "value"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("act12-survivor:visible")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/69/type = "value"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("lights/light:visible")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/70/type = "value"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("act12:fov")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+tracks/71/type = "value"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("act8/AudioStreamPlayer:playing")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/72/type = "value"
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/path = NodePath("act2/AudioStreamPlayer:playing")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/73/type = "value"
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/path = NodePath("act2/AudioStreamPlayer2:playing")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/74/type = "value"
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/path = NodePath("act2/AudioStreamPlayer3:playing")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/75/type = "value"
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/path = NodePath("act2/AudioStreamPlayer4:playing")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/76/type = "value"
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/path = NodePath("act3/AudioStreamPlayer:playing")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/77/type = "value"
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/path = NodePath("act3/AudioStreamPlayer2:playing")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/78/type = "value"
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/path = NodePath("game_interface/hud/impact:color")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.709804, 0.709804, 0.0392157, 0)]
+}
+tracks/79/type = "value"
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/path = NodePath("act8/AudioStreamPlayer2:playing")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/80/type = "value"
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/path = NodePath("act10/AudioStreamPlayer:playing")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/81/type = "value"
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/path = NodePath("act12/AudioStreamPlayer:playing")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kpu11"]
+resource_name = "act00"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("game_interface/dialogue")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0, true],
+"method": &"start_dialogue"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("act0:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(48.5, 68.5, 71)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("act0:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("act0:projection")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("act0:current")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"act0_start"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_jq6g7"]
-resource_name = "act1"
+resource_name = "act01"
 length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -572,7 +1238,7 @@ tracks/8/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_cipie"]
-resource_name = "act2"
+resource_name = "act02"
 length = 11.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -624,9 +1290,69 @@ tracks/3/keys = {
 "method": &"act2_shake_cam"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("act2/AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("act2/AudioStreamPlayer2:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("act2/AudioStreamPlayer3:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(10.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("act2/AudioStreamPlayer4:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(5.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("game_interface/hud/impact:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(9, 9.3, 9.6, 9.9, 10.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.709804, 0.709804, 0.0392157, 0), Color(0.709804, 0, 0.0392157, 1), Color(0.709804, 0, 0.0392157, 0), Color(0.709804, 0, 0.0392157, 1), Color(0.709804, 0, 0.0392157, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_3mxms"]
-resource_name = "act3"
+resource_name = "act03"
 length = 5.7
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -743,7 +1469,7 @@ tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.8, 3, 3.25, 3.5, 3.7, 4, 4.2, 4.5, 4.7, 5, 5.2),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.8, 3, 3.25, 3.5, 3.7, 4, 4.2, 4.5, 4.7, 5, 5.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -826,87 +1552,8 @@ tracks/10/keys = {
 "values": [0.035]
 }
 
-[sub_resource type="Animation" id="Animation_kpu11"]
-resource_name = "act0"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("game_interface/dialogue")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [0, true],
-"method": &"start_dialogue"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("act0:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(48.5, 68.5, 71)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("act0:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.5708, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("act0:projection")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("act0:current")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"act0_start"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_v1xka"]
-resource_name = "act4"
+resource_name = "act04"
 length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1108,60 +1755,33 @@ tracks/13/keys = {
 "update": 0,
 "values": [Vector3(28.6714, 38.8814, -108.352)]
 }
-
-[sub_resource type="Animation" id="Animation_deghu"]
-resource_name = "act6"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("act6:current")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("act3/AudioStreamPlayer:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(2.4),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("act6:fov")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("act3/AudioStreamPlayer2:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(3.7),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [45.6]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("act6:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(126, 24.5, 80)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("act6:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.349066, 0.872665, 4.75124e-09)]
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_lpbto"]
-resource_name = "act5"
+resource_name = "act05"
 length = 5.8
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1266,9 +1886,24 @@ tracks/8/path = NodePath(".")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(3.5, 3.7, 3.9, 4, 4.2, 4.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1.3, 1.7, 2.2, 2.7, 3.1, 3.5, 3.7, 3.9, 4, 4.2, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
+"args": [NodePath("act4/cinematicShoot3")],
+"method": &"act4_shoot"
+}, {
+"args": [NodePath("act4/cinematicShoot3")],
+"method": &"act4_shoot"
+}, {
+"args": [NodePath("act4/cinematicShoot3")],
+"method": &"act4_shoot"
+}, {
+"args": [NodePath("act4/cinematicShoot3")],
+"method": &"act4_shoot"
+}, {
+"args": [NodePath("act4/cinematicShoot3")],
+"method": &"act4_shoot"
+}, {
 "args": [NodePath("starships/starship2/cinematicShoot")],
 "method": &"act5_shoot"
 }, {
@@ -1301,19 +1936,1028 @@ tracks/9/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -2, 0), Vector3(0, 0.5, 0), Vector3(0, -0.5, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_deghu"]
+resource_name = "act06"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("act6:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("act6:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [45.6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("act6:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(126, 24.5, 80)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("act6:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.349066, 0.872665, 4.75124e-09)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7, 0.8, 0.9, 1.1, 1.2, 1.3, 1.5, 1.6, 1.7, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"act6_start"
+}, {
+"args": [NodePath("turrets/turret2")],
+"method": &"act3_turret_shoot"
+}, {
+"args": [NodePath("turrets/turret")],
+"method": &"act3_turret_shoot"
+}, {
+"args": [NodePath("turrets/turret2")],
+"method": &"act3_turret_shoot"
+}, {
+"args": [NodePath("turrets/turret")],
+"method": &"act3_turret_shoot"
+}, {
+"args": [NodePath("act6-shoot/cinematicShoot")],
+"method": &"act5_shoot"
+}, {
+"args": [NodePath("turrets/turret2")],
+"method": &"act3_turret_shoot"
+}, {
+"args": [NodePath("turrets/turret")],
+"method": &"act3_turret_shoot"
+}, {
+"args": [NodePath("act6-shoot/cinematicShoot3")],
+"method": &"act5_shoot"
+}, {
+"args": [NodePath("turrets/turret2")],
+"method": &"act3_turret_shoot"
+}, {
+"args": [NodePath("turrets/turret")],
+"method": &"act3_turret_shoot"
+}, {
+"args": [NodePath("act6-shoot/cinematicShoot5")],
+"method": &"act5_shoot"
+}, {
+"args": [NodePath("act6-shoot/cinematicShoot6")],
+"method": &"act5_shoot"
+}, {
+"args": [true],
+"method": &"act6_fires"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("act6-fires/AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("starships:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(289, 88.5, 32.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("starships:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("act6-shoot:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("act6-shoot:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("act9:fov")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [55.5]
+}
+
+[sub_resource type="Animation" id="Animation_c62ax"]
+resource_name = "act07"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("act7:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("act7:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [75.0, 30.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("act7:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(154, 26, 72)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("act7:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.575959, 1.37305, 1.36688e-08)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("lights/light:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_nminw"]
+resource_name = "act08"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("act8:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("act8:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(116, 24.5, 79)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("act8:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.488692, -0.959931, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("node8/Path3D/PathFollow3D:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.7538, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("node8:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("node8:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("node8:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("lights/light:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("act8/AudioStreamPlayer:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("act8/AudioStreamPlayer2:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_p7nxv"]
+resource_name = "act09"
+length = 10.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("act9:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("node8:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("node8:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("node8:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("node8/Path3D/PathFollow3D:progress_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("act9:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(127.398, 18.7082, 52.8816)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("act9:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.506145, -2.71224, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("act9:fov")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [55.5]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("act3-squadron:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.1, 2.4, 3.2, 4.6, 5, 5.2, 5.3, 5.4, 5.5, 5.9, 6.1, 6.2, 6.3, 6.4, 6.5, 8.5, 8.6, 9.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"act9_start"
+}, {
+"args": [NodePath("act3-squadron/character5")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("characters/SwarmAlien")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("characters/Space Sargent")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("characters/SwarmAlienRed2")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("characters/Space Warrior2")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("characters/SwarmAlien2")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("act3-squadron/character7"), NodePath("characters/SwarmAlienRed")],
+"method": &"switch_target"
+}, {
+"args": [NodePath("act3-squadron/character2")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("characters/Space Warrior"), NodePath("act3-squadron/character7")],
+"method": &"switch_target"
+}, {
+"args": [NodePath("characters/SwarmAlienGreen"), NodePath("act3-squadron/character")],
+"method": &"switch_target"
+}, {
+"args": [NodePath("act3-squadron/character"), NodePath("characters/SwarmAlienGreen")],
+"method": &"switch_target"
+}, {
+"args": [NodePath("act3-squadron/character4")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("characters/SwarmAlienRed"), NodePath("act3-squadron/character7")],
+"method": &"switch_target"
+}, {
+"args": [NodePath("characters/Space Warrior")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("act3-squadron/character7")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("characters/SwarmAlienRed")],
+"method": &"act9_die"
+}, {
+"args": [NodePath("characters/SwarmAlienGreen")],
+"method": &"act9_die"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5fc4r"]
+resource_name = "act10"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("act10:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("act10-survivor:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("node8:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("node8/Path3D/PathFollow3D:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("act10:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(130, 14.25, 66.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("act10:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.218166, -1.5708, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("act10:fov")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [63.9]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("act3-squadron:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("act10-survivor:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("act10-survivor:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("act10-survivor/character:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(134, 11.9999, 66.5)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("act10/AudioStreamPlayer:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_n4je7"]
+resource_name = "act11"
+length = 3.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("act11:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("act10-survivor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("act10-survivor:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("act10-survivor:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("act3-squadron:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("characters:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("node8:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("node8/Path3D/PathFollow3D:progress_ratio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("act11:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(136.406, 16.6396, 60.1448)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("act11:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.470443, 2.16421, 0)]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"act11_start"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_715hp"]
+resource_name = "act12"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("act12:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("act12:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(125, 13.9998, 66.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("act12:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.1309, 1.5708, 3.84257e-09)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"act12_start"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("act10-survivor:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("act12-survivor:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("act12:fov")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(8, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [75.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("act12/AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jyhf7"]
+resource_name = "act13"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("game_interface/dialogue")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1, true],
+"method": &"start_dialogue"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("act0:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(48.5, 68.5, 71)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("act0:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("act0:projection")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("act0:current")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gdkl1"]
 _data = {
 "RESET": SubResource("Animation_od4q6"),
-"act0": SubResource("Animation_kpu11"),
-"act1": SubResource("Animation_jq6g7"),
-"act2": SubResource("Animation_cipie"),
-"act3": SubResource("Animation_3mxms"),
-"act4": SubResource("Animation_v1xka"),
-"act5": SubResource("Animation_lpbto"),
-"act6": SubResource("Animation_deghu")
+"act00": SubResource("Animation_kpu11"),
+"act01": SubResource("Animation_jq6g7"),
+"act02": SubResource("Animation_cipie"),
+"act03": SubResource("Animation_3mxms"),
+"act04": SubResource("Animation_v1xka"),
+"act05": SubResource("Animation_lpbto"),
+"act06": SubResource("Animation_deghu"),
+"act07": SubResource("Animation_c62ax"),
+"act08": SubResource("Animation_nminw"),
+"act09": SubResource("Animation_p7nxv"),
+"act10": SubResource("Animation_5fc4r"),
+"act11": SubResource("Animation_n4je7"),
+"act12": SubResource("Animation_715hp"),
+"act13": SubResource("Animation_jyhf7")
 }
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ykvwg"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_moyye"]
+vertices = PackedVector3Array(96.5, 12.5, 49.75, 96.5, 12.5, 50.5, 97, 12.5, 50, 97, 12.5, 50, 97.75, 12.5, 49.5, 97.25, 12.5, 49.25, 96.5, 12.5, 49.25, 96.5, 12.5, 49.75, 115.25, 16.5, 49.75, 115.25, 16.5, 49.25, 114.5, 16.5, 49.25, 97.5, 16.5, 49.25, 96.5, 16.5, 49.25, 96.5, 16.5, 50, 115.25, 16.5, 49.75, 114.5, 16.5, 49.25, 114, 16.5, 49.25, 115.25, 16.5, 50.5, 98, 16.5, 49.25, 97.5, 16.5, 49.25, 96.5, 16.5, 50, 105, 16.5, 49.25, 104.5, 16.5, 49.25, 96.5, 16.5, 54.75, 96.5, 16.5, 55.75, 98, 16.5, 49.25, 96.5, 16.5, 50, 96.5, 16.5, 51, 98.75, 16.5, 49.25, 115.25, 16.5, 51.25, 115.25, 16.5, 50.5, 114, 16.5, 49.25, 113.25, 16.5, 49.25, 115.25, 16.5, 55.5, 107.25, 16.5, 49.25, 106.75, 16.5, 49.25, 115.25, 16.5, 55.5, 108, 16.5, 49.25, 107.25, 16.5, 49.25, 115.25, 16.5, 51.25, 113.25, 16.5, 49.25, 112.75, 16.5, 49.25, 113.75, 16.5, 63.75, 114.5, 16.5, 63.75, 115.25, 16.5, 60.75, 98.75, 16.5, 49.25, 96.5, 16.5, 51, 96.5, 16.5, 52, 99.75, 16.5, 49.25, 113.25, 17.5, 63.75, 113.75, 16.5, 63.75, 115.25, 16.5, 60.75, 115.25, 16.5, 60, 115.25, 16.5, 52, 115.25, 16.5, 51.25, 112.75, 16.5, 49.25, 112, 16.5, 49.25, 105.75, 16.5, 49.25, 105, 16.5, 49.25, 96.5, 16.5, 55.75, 96.5, 16.5, 56.75, 115.25, 16.5, 55.5, 106.75, 16.5, 49.25, 105.75, 16.5, 49.25, 96.5, 16.5, 62.25, 96.5, 16.5, 63.25, 112.75, 16.5, 64.5, 113.107, 17.5, 63.2143, 113.464, 16.5, 61.9286, 111.486, 16.5, 60.4804, 105.75, 16.5, 49.25, 96.5, 16.5, 61.25, 96.5, 16.5, 62.25, 115.25, 16.5, 52, 112, 16.5, 49.25, 111.5, 16.5, 49.25, 115.25, 16.5, 52.75, 100.25, 16.5, 49.25, 99.75, 16.5, 49.25, 96.5, 16.5, 52, 113.25, 17.5, 63.75, 115.25, 16.5, 60, 115.25, 16.5, 59.25, 96.5, 16.5, 63.25, 96.5, 16.5, 64.25, 112.75, 16.5, 64.5, 101, 16.5, 49.25, 100.25, 16.5, 49.25, 96.5, 16.5, 52, 96.5, 16.5, 53, 113.25, 17.5, 63.75, 115.25, 16.5, 59.25, 115.25, 16.5, 58.5, 115.25, 16.5, 53.5, 115.25, 16.5, 52.75, 111.5, 16.5, 49.25, 105.75, 16.5, 49.25, 96.5, 16.5, 56.75, 96.5, 16.5, 57.5, 115.25, 16.5, 54.25, 115.25, 16.5, 53.5, 111.5, 16.5, 49.25, 113.25, 17.5, 63.75, 115.25, 16.5, 58.5, 115.25, 16.5, 57.75, 101, 16.5, 49.25, 96.5, 16.5, 53, 96.5, 16.5, 53.75, 102, 16.5, 49.25, 115.25, 16.5, 55, 115.25, 16.5, 54.25, 111.5, 16.5, 49.25, 113.25, 17.5, 63.75, 115.25, 16.5, 57.75, 115.25, 16.5, 57, 105.75, 16.5, 49.25, 96.5, 16.5, 57.5, 96.5, 16.5, 58.5, 115.25, 16.5, 55.5, 115.25, 16.5, 55, 111.5, 16.5, 49.25, 110.5, 16.5, 49.25, 102.5, 16.5, 49.25, 102, 16.5, 49.25, 96.5, 16.5, 53.75, 113.25, 17.5, 63.75, 115.25, 16.5, 57, 115.25, 16.5, 56.25, 105.75, 16.5, 49.25, 96.5, 16.5, 58.5, 96.5, 16.5, 59.5, 103.25, 16.5, 49.25, 102.5, 16.5, 49.25, 96.5, 16.5, 53.75, 115.25, 16.5, 55.5, 110.5, 16.5, 49.25, 109.75, 16.5, 49.25, 113.25, 17.5, 63.75, 115.25, 16.5, 56.25, 115.25, 16.5, 55.5, 112.75, 16.5, 64.5, 113.464, 16.5, 61.9286, 113.107, 17.5, 63.2143, 103.75, 16.5, 49.25, 103.25, 16.5, 49.25, 96.5, 16.5, 53.75, 115.25, 16.5, 55.5, 109.75, 16.5, 49.25, 109.25, 16.5, 49.25, 103.75, 16.5, 49.25, 96.5, 16.5, 53.75, 96.5, 16.5, 54.75, 104.5, 16.5, 49.25, 115.25, 16.5, 55.5, 109.25, 16.5, 49.25, 108.5, 16.5, 49.25, 105.75, 16.5, 49.25, 96.5, 16.5, 59.5, 96.5, 16.5, 60.5, 115.25, 16.5, 55.5, 108.5, 16.5, 49.25, 108, 16.5, 49.25, 105.75, 16.5, 49.25, 96.5, 16.5, 60.5, 96.5, 16.5, 61.25, 114.5, 12.5, 49.25, 114, 12.5, 49.25, 114.5, 12.5, 50, 114.5, 12.5, 50, 115.25, 12.5, 50.5, 115.25, 12.5, 49.75, 115.25, 12.5, 49.75, 115.25, 12.5, 49.25, 114.5, 12.5, 49.25, 114.5, 12.5, 50, 98.75, 12.5, 51, 98.25, 12.5, 51.25, 98, 12.5, 51.75, 100.75, 12.5, 49.5, 100, 12.5, 49.5, 99.75, 12.5, 50, 99.75, 12.5, 50, 99.25, 12.5, 50.25, 98.75, 12.5, 51, 97.25, 12.5, 52.25, 96.75, 12.5, 53, 96.75, 12.5, 53.75, 101.75, 12.5, 49.5, 100.75, 12.5, 49.5, 99.75, 12.5, 50, 97.25, 12.5, 52.25, 96.75, 12.5, 53.75, 96.75, 12.5, 54.5, 102.5, 12.5, 49.5, 101.75, 12.5, 49.5, 99.75, 12.5, 50, 98, 12.5, 51.75, 97.25, 12.5, 52.25, 96.75, 12.5, 54.5, 96.75, 12.5, 55.25, 96.75, 12.5, 57, 96.75, 12.5, 58, 103, 12.5, 57.75, 103, 12.5, 57, 103.5, 12.5, 49.5, 102.5, 12.5, 49.5, 99.75, 12.5, 50, 104.25, 12.5, 49.5, 103.5, 12.5, 49.5, 99.75, 12.5, 50, 98, 12.5, 51.75, 96.75, 12.5, 55.25, 96.75, 12.5, 56.25, 98, 12.5, 51.75, 96.75, 12.5, 56.25, 96.75, 12.5, 57, 103, 12.5, 56.25, 103.5, 12.5, 55.75, 98.75, 12.5, 51, 105.25, 12.5, 49.5, 104.25, 12.5, 49.5, 99.75, 12.5, 50, 106, 12.5, 49.5, 105.25, 12.5, 49.5, 99.75, 12.5, 50, 98.75, 12.5, 51, 103.5, 12.5, 55.75, 104.25, 12.5, 55.75, 106.75, 12.5, 55.75, 107, 12.5, 49.5, 106, 12.5, 49.5, 105.75, 12.5, 55.75, 105, 12.5, 55.75, 105.75, 12.5, 55.75, 106, 12.5, 49.5, 96.75, 12.5, 58.75, 96.75, 12.5, 59.75, 103, 12.5, 59.5, 103, 12.5, 58.5, 104.25, 12.5, 55.75, 105, 12.5, 55.75, 106, 12.5, 49.5, 96.75, 12.5, 58, 96.75, 12.5, 58.75, 103, 12.5, 58.5, 103, 12.5, 57.75, 96.75, 12.5, 57, 103, 12.5, 57, 103, 12.5, 56.25, 114, 12.5, 52, 113.75, 12.5, 51.5, 113.25, 12.5, 51.25, 112.75, 12.5, 50.75, 112.5, 12.5, 50.25, 112, 12.5, 50, 108.5, 12.5, 49.5, 108, 12.5, 49.5, 112, 12.5, 50, 111.75, 12.5, 49.5, 111, 12.5, 49.5, 115, 12.5, 52.75, 114.5, 12.5, 52.25, 114, 12.5, 52, 115, 12.5, 53.5, 112, 12.5, 50, 111, 12.5, 49.5, 110.5, 12.5, 49.5, 108.75, 12.5, 57.75, 115, 12.5, 58, 115, 12.5, 57, 108.75, 12.5, 57, 112, 12.5, 50, 110.5, 12.5, 49.5, 109.75, 12.5, 49.5, 115, 12.5, 54.5, 115, 12.5, 53.5, 114, 12.5, 52, 112, 12.5, 50, 109.75, 12.5, 49.5, 109.25, 12.5, 49.5, 115, 12.5, 55.25, 115, 12.5, 54.5, 114, 12.5, 52, 112, 12.5, 50, 109.25, 12.5, 49.5, 108.5, 12.5, 49.5, 108.75, 12.5, 59.5, 115, 12.5, 59.75, 115, 12.5, 58.75, 108.75, 12.5, 58.5, 115, 12.5, 56.25, 115, 12.5, 55.25, 114, 12.5, 52, 108.75, 12.5, 58.5, 115, 12.5, 58.75, 115, 12.5, 58, 108.75, 12.5, 57.75, 115, 12.5, 57, 115, 12.5, 56.25, 114, 12.5, 52, 113.25, 12.5, 51.25, 112.75, 12.5, 50.75, 108, 12.5, 49.5, 115, 12.5, 57, 114, 12.5, 52, 113.25, 12.5, 51.25, 108, 12.5, 49.5, 108.25, 12.5, 55.75, 108.75, 12.5, 56.25, 107, 12.5, 49.5, 106.75, 12.5, 55.75, 107.5, 12.5, 55.75, 108, 12.5, 49.5, 108.75, 12.5, 56.25, 108.75, 12.5, 57, 115, 12.5, 57, 108, 12.5, 49.5, 107.5, 12.5, 55.75, 108.25, 12.5, 55.75, 125, 12.25, 76.25, 124.5, 12.25, 76.5, 125, 12.25, 76.75, 122, 12.25, 61.25, 121.5, 12.25, 61.25, 122, 12.25, 61.75, 128.75, 12.25, 80, 129.5, 12.25, 80, 129, 12.25, 79.5, 132, 12.25, 79.5, 131.5, 12.25, 80, 132.25, 12.25, 80, 124.75, 12.25, 57.75, 125, 12.25, 57.25, 124.5, 12.25, 57.25, 124.5, 12.25, 58, 122.75, 12.25, 68.75, 125.25, 12.25, 70.75, 125.75, 12.25, 71, 124.75, 12.25, 58.25, 124.75, 12.25, 57.75, 124.5, 12.25, 58, 122.75, 12.25, 70, 122.5, 12.25, 70.75, 123, 12.25, 70.75, 124.75, 12.25, 58.75, 124.75, 12.25, 58.25, 124.5, 12.25, 58, 124.5, 12.25, 59, 140.75, 12.25, 54.25, 137.75, 12.25, 53.25, 137, 12.25, 53.25, 124.75, 12.25, 59.5, 124.75, 12.25, 58.75, 124.5, 12.25, 59, 124.5, 12.25, 59.75, 126.75, 12.25, 74, 129.75, 12.25, 75.75, 130.25, 12.25, 75.25, 126.75, 12.25, 73, 125.25, 12.25, 59.75, 124.75, 12.25, 59.5, 124.5, 12.25, 59.75, 124.5, 12.25, 60.75, 125.5, 12.25, 60.25, 125.5, 12.25, 76, 125, 12.25, 76.25, 125, 12.25, 76.75, 122.75, 12.25, 61.25, 122, 12.25, 61.25, 122, 12.25, 61.75, 128.75, 12.25, 80, 129, 12.25, 79.5, 128.5, 12.25, 79, 127.25, 12.25, 79, 127.5, 12.25, 79.5, 128, 12.25, 80, 132.5, 12.25, 79, 132, 12.25, 79.5, 132.25, 12.25, 80, 133.25, 12.25, 80, 128.5, 12.25, 56.25, 128.25, 12.25, 57, 128.75, 12.25, 57.25, 125.75, 12.25, 71, 126, 12.25, 71.5, 126.5, 12.25, 71.75, 121, 12.5, 67.25, 121, 12.5, 68.25, 121.5, 12.5, 68.25, 137.25, 12.25, 80, 139.25, 12.25, 77.25, 139.25, 12.25, 76.5, 136.25, 12.25, 80, 139.75, 12.25, 76, 143.25, 12.25, 73, 143.25, 12.25, 72.25, 147.25, 12.25, 61, 147.25, 12.25, 60.5, 146.75, 12.25, 60, 140.25, 12.25, 53.75, 140, 12.25, 53.25, 139.25, 12.25, 53.25, 129, 12.25, 53.25, 128.5, 12.25, 53.25, 128.5, 12.25, 54.25, 128.75, 12.25, 58.75, 128.25, 12.25, 59, 128.25, 12.25, 59.75, 147.25, 12.25, 63.25, 147.25, 12.25, 62.5, 146.25, 12.25, 59.5, 139.75, 12.25, 76, 140.5, 12.25, 76, 143.25, 12.25, 74, 143.25, 12.25, 73, 122.75, 12.25, 70, 123, 12.25, 70.75, 123.75, 12.25, 70.75, 122.75, 12.25, 69.25, 125.5, 12.25, 76, 125, 12.25, 76.75, 125.5, 12.25, 77.25, 126, 12.25, 75.75, 125.5, 12.25, 77.25, 125.75, 12.25, 77.75, 126.25, 12.25, 78.25, 126.75, 12.25, 78.5, 132, 12.25, 53.25, 131.25, 12.25, 53.25, 128.5, 12.25, 55.25, 128.5, 12.25, 77, 129, 12.25, 76.75, 129.5, 12.25, 76.25, 129.75, 12.25, 75.75, 126.75, 12.25, 74, 126.75, 12.25, 74.75, 142.5, 12.25, 56, 142, 12.25, 55.5, 134.75, 12.25, 53.25, 146.25, 12.25, 71.75, 147.25, 12.25, 71.75, 147.25, 12.25, 71, 146.25, 12.25, 59.5, 145.75, 12.25, 59, 145.25, 12.25, 58.75, 147.25, 12.25, 66, 147.25, 12.25, 65.25, 144.75, 12.25, 58.25, 144.5, 12.25, 57.75, 144, 12.25, 57.25, 143.5, 12.25, 57, 147.25, 12.25, 66, 142, 12.25, 55.5, 141.75, 12.25, 55, 141.25, 12.25, 54.5, 140.75, 12.25, 54.25, 135.5, 12.25, 53.25, 134.75, 12.25, 53.25, 125.75, 12.25, 60.75, 125.5, 12.25, 60.25, 124.5, 12.25, 60.75, 123.25, 12.25, 61.25, 122.75, 12.25, 61.25, 122, 12.25, 61.75, 121.5, 12.5, 64, 121, 12.5, 64.25, 121, 12.5, 65.25, 138.25, 12.25, 80, 139.25, 12.25, 80, 139.25, 12.25, 79, 142.25, 12.25, 76, 143.25, 12.25, 76, 143.25, 12.25, 75, 132.25, 12.25, 75.75, 132.25, 12.25, 76.5, 132.5, 12.25, 77.25, 135.25, 12.25, 80, 136.25, 12.25, 80, 139.25, 12.25, 76.5, 143.75, 12.25, 71.75, 144.5, 12.25, 71.75, 147.25, 12.25, 68.75, 147.25, 12.25, 68, 121, 12.5, 67.25, 121.5, 12.5, 68.25, 122.25, 12.25, 68.25, 121, 12.5, 66.25, 127.25, 12.25, 79, 128.5, 12.25, 79, 128.5, 12.25, 78, 126.75, 12.25, 78.5, 129.75, 12.25, 53.25, 129, 12.25, 53.25, 128.5, 12.25, 54.25, 143.25, 12.25, 72.25, 147.25, 12.25, 66, 143.5, 12.25, 57, 134.75, 12.25, 53.25, 128.25, 12.25, 60.75, 131.75, 12.25, 75.25, 147.25, 12.25, 66, 145.25, 12.25, 58.75, 144.75, 12.25, 58.25, 147.25, 12.25, 63.75, 147.25, 12.25, 63.25, 146.25, 12.25, 59.5, 143.5, 12.25, 57, 143, 12.25, 56.5, 134.75, 12.25, 53.25, 123.25, 12.25, 61.25, 122, 12.25, 61.75, 122, 12.5, 62.5, 124, 12.25, 61.25, 140.75, 12.25, 54.25, 137, 12.25, 53.25, 136.25, 12.25, 53.25, 146.25, 12.25, 71.75, 147.25, 12.25, 71, 147.25, 12.25, 70.25, 147.25, 12.25, 61, 146.75, 12.25, 60, 146.25, 12.25, 59.5, 147.25, 12.25, 61.75, 140.75, 12.25, 54.25, 140.25, 12.25, 53.75, 139.25, 12.25, 53.25, 138.5, 12.25, 53.25, 132.75, 12.25, 53.25, 132, 12.25, 53.25, 128.5, 12.25, 55.25, 126.25, 12.25, 61.25, 125.75, 12.25, 60.75, 124.5, 12.25, 60.75, 124, 12.25, 61.25, 132.5, 12.25, 79, 133.25, 12.25, 80, 134.25, 12.25, 80, 132.5, 12.25, 78, 138.25, 12.25, 80, 139.25, 12.25, 79, 139.25, 12.25, 78.25, 141.5, 12.25, 76, 142.25, 12.25, 76, 143.25, 12.25, 75, 128.5, 12.25, 55.25, 128.5, 12.25, 56.25, 128.75, 12.25, 57.25, 134.75, 12.25, 53.25, 134.25, 12.25, 53.25, 122, 12.5, 63.5, 121.5, 12.5, 64, 121, 12.5, 65.25, 121, 12.5, 66.25, 128.75, 12.25, 58.75, 128.25, 12.25, 59.75, 128.25, 12.25, 60.75, 134.75, 12.25, 53.25, 122.75, 12.25, 68.75, 122.75, 12.25, 69.25, 123.75, 12.25, 70.75, 124.5, 12.25, 70.75, 126.5, 12.25, 75.25, 126, 12.25, 75.75, 125.5, 12.25, 77.25, 126.75, 12.25, 78.5, 128.5, 12.25, 78, 128.5, 12.25, 77, 130.5, 12.25, 53.25, 129.75, 12.25, 53.25, 128.5, 12.25, 54.25, 133.5, 12.25, 53.25, 132.75, 12.25, 53.25, 128.5, 12.25, 55.25, 139.25, 12.25, 76.5, 139.75, 12.25, 76, 143.25, 12.25, 72.25, 131.75, 12.25, 75.25, 132.25, 12.25, 75.75, 145.5, 12.25, 71.75, 146.25, 12.25, 71.75, 147.25, 12.25, 70.25, 147.25, 12.25, 69.5, 134.75, 12.25, 53.25, 128.75, 12.25, 57.25, 128.75, 12.25, 58, 147.25, 12.25, 64.5, 147.25, 12.25, 63.75, 146.25, 12.25, 59.5, 140.75, 12.25, 54.25, 136.25, 12.25, 53.25, 135.5, 12.25, 53.25, 122, 12.5, 63.5, 121, 12.5, 66.25, 122.75, 12.25, 68.75, 125.75, 12.25, 71, 127.75, 12.25, 61.25, 127, 12.25, 61.25, 147.25, 12.25, 65.25, 147.25, 12.25, 64.5, 146.25, 12.25, 59.5, 143.75, 12.25, 71.75, 147.25, 12.25, 68, 147.25, 12.25, 67.25, 137.25, 12.25, 80, 138.25, 12.25, 80, 139.25, 12.25, 78.25, 139.25, 12.25, 77.25, 141.5, 12.25, 76, 143.25, 12.25, 75, 143.25, 12.25, 74, 140.5, 12.25, 76, 130.5, 12.25, 53.25, 128.5, 12.25, 54.25, 128.5, 12.25, 55.25, 131.25, 12.25, 53.25, 126.5, 12.25, 71.75, 126.75, 12.25, 72.25, 130.25, 12.25, 75.25, 131, 12.25, 75.25, 127, 12.25, 61.25, 126.25, 12.25, 61.25, 122, 12.5, 63.5, 134.25, 12.25, 53.25, 133.5, 12.25, 53.25, 128.5, 12.25, 55.25, 126.75, 12.25, 72.25, 126.75, 12.25, 73, 130.25, 12.25, 75.25, 126.75, 12.25, 74.75, 126.5, 12.25, 75.25, 128.5, 12.25, 77, 124, 12.25, 61.25, 122, 12.5, 62.5, 122, 12.5, 63.5, 126.25, 12.25, 61.25, 121, 12.5, 66.25, 122.25, 12.25, 68.25, 122.75, 12.25, 68.75, 143, 12.25, 56.5, 142.5, 12.25, 56, 134.75, 12.25, 53.25, 147.25, 12.25, 62.5, 147.25, 12.25, 61.75, 146.25, 12.25, 59.5, 140.75, 12.25, 54.25, 138.5, 12.25, 53.25, 137.75, 12.25, 53.25, 122.75, 12.25, 68.75, 124.5, 12.25, 70.75, 125.25, 12.25, 70.75, 132.5, 12.25, 77.25, 132.5, 12.25, 78, 134.25, 12.25, 80, 135.25, 12.25, 80, 126.5, 12.25, 71.75, 131, 12.25, 75.25, 131.75, 12.25, 75.25, 128.25, 12.25, 60.75, 127.75, 12.25, 61.25, 125.75, 12.25, 71, 134.75, 12.25, 53.25, 128.75, 12.25, 58, 128.75, 12.25, 58.75, 143.75, 12.25, 71.75, 147.25, 12.25, 67.25, 147.25, 12.25, 66.5, 143.75, 12.25, 71.75, 147.25, 12.25, 66.5, 147.25, 12.25, 66, 143.25, 12.25, 72.25, 145.5, 12.25, 71.75, 147.25, 12.25, 69.5, 147.25, 12.25, 68.75, 144.5, 12.25, 71.75, 105, 14.25, 57.25, 104.5, 14.25, 57.25, 104.5, 14.25, 57.75, 104.5, 14.25, 59.25, 104.5, 14.25, 60, 105, 14.25, 60, 107.25, 14.25, 57.75, 107.25, 14.25, 57.25, 106.5, 14.25, 57.25, 106.5, 14.25, 60, 107.25, 14.25, 60, 107.25, 14.25, 59.25, 105.75, 14.25, 57.25, 105, 14.25, 57.25, 104.5, 14.25, 57.75, 104.5, 14.25, 58.5, 104.5, 14.25, 59.25, 105, 14.25, 60, 105.75, 14.25, 60, 107.25, 14.25, 58.5, 107.25, 14.25, 57.75, 106.5, 14.25, 57.25, 105.75, 14.25, 57.25, 105.75, 14.25, 60, 106.5, 14.25, 60, 107.25, 14.25, 59.25, 104.5, 14.25, 58.5, 104.5, 14.25, 59.25, 105.75, 14.25, 60, 107.25, 14.25, 59.25, 107.25, 14.25, 58.5, 105.75, 14.25, 57.25, 106.25, 12.5, 59.75, 107, 12.5, 59.75, 107, 12.5, 59, 104.75, 12.5, 59, 104.75, 12.5, 59.75, 105.75, 12.5, 59.75, 107, 12.5, 58.5, 107, 12.5, 57.5, 106.25, 12.5, 57.5, 105.75, 12.5, 57.5, 104.75, 12.5, 57.5, 104.75, 12.5, 58.5, 105.75, 12.5, 59.75, 106.25, 12.5, 59.75, 107, 12.5, 59, 104.75, 12.5, 58.5, 104.75, 12.5, 59, 105.75, 12.5, 59.75, 107, 12.5, 59, 107, 12.5, 58.5, 105.75, 12.5, 57.5, 107, 12.5, 58.5, 106.25, 12.5, 57.5, 105.75, 12.5, 57.5, 126.25, 13.5, 58.25, 126.25, 13.5, 58.75, 126.75, 13.5, 58.75, 126.75, 13.5, 58.25, 92.75, 12.5, 67, 92.75, 12.5, 67.75, 93.5, 12.5, 67.75, 93.5, 12.5, 65.5, 92.75, 12.5, 65.5, 92.75, 12.5, 66.5, 92.75, 12.5, 66.5, 92.75, 12.5, 67, 93.5, 12.5, 67.75, 94.5, 12.5, 67.75, 94.5, 12.5, 65.5, 93.5, 12.5, 65.5, 92.75, 12.5, 66.5, 103.5, 12.5, 61.5, 103, 12.5, 61, 96.75, 12.5, 63.5, 96.75, 12.5, 64.25, 94.5, 12.5, 65.5, 92.75, 12.5, 66.5, 94.5, 12.5, 67.75, 95.25, 12.5, 67.75, 95.25, 12.5, 65.5, 96.75, 12.5, 69.5, 103, 12.5, 72.25, 103.5, 12.5, 71.75, 96.75, 12.5, 68.75, 105, 12.5, 61.5, 104.25, 12.5, 61.5, 96.75, 12.5, 65, 96.25, 12.5, 65.5, 95.25, 12.5, 65.5, 95.25, 12.5, 67.75, 96.25, 12.5, 67.75, 96.75, 12.5, 68.25, 105, 12.5, 71.75, 105.75, 12.5, 71.75, 96.75, 12.5, 65, 96.25, 12.5, 65.5, 96.25, 12.5, 67.75, 96.75, 12.5, 68.25, 96.75, 12.5, 68.25, 96.75, 12.5, 68.75, 103.5, 12.5, 71.75, 104.25, 12.5, 71.75, 96.75, 12.5, 73.5, 103, 12.5, 73.75, 103, 12.5, 73, 96.75, 12.5, 72.75, 105.75, 12.5, 61.5, 105, 12.5, 61.5, 96.75, 12.5, 65, 96.75, 12.5, 72.75, 103, 12.5, 73, 103, 12.5, 72.25, 96.75, 12.5, 72, 105.75, 12.5, 71.75, 106.5, 12.5, 71.75, 106.5, 12.5, 61.5, 105.75, 12.5, 61.5, 96.75, 12.5, 65, 96.75, 12.5, 68.25, 103, 12.5, 60.25, 103, 12.5, 59.5, 96.75, 12.5, 59.75, 96.75, 12.5, 60.25, 103.5, 12.5, 61.5, 96.75, 12.5, 64.25, 96.75, 12.5, 65, 104.25, 12.5, 61.5, 103, 12.5, 61, 103, 12.5, 60.25, 96.75, 12.5, 60.25, 96.75, 12.5, 61, 96.75, 12.5, 68.25, 104.25, 12.5, 71.75, 105, 12.5, 71.75, 103, 12.5, 61, 96.75, 12.5, 61, 96.75, 12.5, 61.5, 96.75, 12.5, 71.25, 96.75, 12.5, 72, 103, 12.5, 72.25, 103, 12.5, 61, 96.75, 12.5, 61.5, 96.75, 12.5, 62.25, 96.75, 12.5, 70.75, 96.75, 12.5, 71.25, 103, 12.5, 72.25, 103, 12.5, 61, 96.75, 12.5, 62.25, 96.75, 12.5, 62.75, 96.75, 12.5, 70, 96.75, 12.5, 70.75, 103, 12.5, 72.25, 103, 12.5, 61, 96.75, 12.5, 62.75, 96.75, 12.5, 63.5, 96.75, 12.5, 69.5, 96.75, 12.5, 70, 103, 12.5, 72.25, 118, 12.5, 67.75, 119, 12.5, 67.75, 119, 12.5, 67, 119, 12.5, 66.5, 119, 12.5, 65.5, 118, 12.5, 65.5, 118, 12.5, 67.75, 119, 12.5, 67, 119, 12.5, 66.5, 117.25, 12.5, 67.75, 119, 12.5, 66.5, 118, 12.5, 65.5, 117.25, 12.5, 65.5, 115, 12.5, 62.75, 115, 12.5, 62.25, 108.75, 12.5, 61, 117.25, 12.5, 67.75, 119, 12.5, 66.5, 117.25, 12.5, 65.5, 116.25, 12.5, 65.5, 116.25, 12.5, 67.75, 108.75, 12.5, 72.25, 115, 12.5, 70.75, 115, 12.5, 70, 108.75, 12.5, 72.25, 115, 12.5, 70, 115, 12.5, 69.5, 115.5, 12.5, 67.75, 116.25, 12.5, 67.75, 116.25, 12.5, 65.5, 115.5, 12.5, 65.5, 115, 12.5, 63.5, 115, 12.5, 62.75, 108.75, 12.5, 61, 115, 12.5, 68.25, 115.5, 12.5, 67.75, 115.5, 12.5, 65.5, 115, 12.5, 65, 115, 12.5, 63.5, 108.75, 12.5, 61, 108.25, 12.5, 61.5, 115, 12.5, 64.25, 108.75, 12.5, 73, 108.75, 12.5, 73.75, 115, 12.5, 73.5, 115, 12.5, 72.75, 106.5, 12.5, 61.5, 106.5, 12.5, 71.75, 107.25, 12.5, 71.75, 115, 12.5, 68.25, 115, 12.5, 65, 107.25, 12.5, 61.5, 108.75, 12.5, 72.25, 108.75, 12.5, 73, 115, 12.5, 72.75, 115, 12.5, 72, 115, 12.5, 65, 115, 12.5, 64.25, 108.25, 12.5, 61.5, 107.25, 12.5, 61.5, 115, 12.5, 59.75, 108.75, 12.5, 59.5, 108.75, 12.5, 60.25, 115, 12.5, 60.25, 108.25, 12.5, 71.75, 108.75, 12.5, 72.25, 115, 12.5, 69.5, 115, 12.5, 68.75, 115, 12.5, 61, 115, 12.5, 60.25, 108.75, 12.5, 60.25, 108.75, 12.5, 61, 108.25, 12.5, 71.75, 115, 12.5, 68.75, 115, 12.5, 68.25, 107.25, 12.5, 71.75, 115, 12.5, 61.5, 115, 12.5, 61, 108.75, 12.5, 61, 108.75, 12.5, 72.25, 115, 12.5, 72, 115, 12.5, 71.25, 115, 12.5, 62.25, 115, 12.5, 61.5, 108.75, 12.5, 61, 108.75, 12.5, 72.25, 115, 12.5, 71.25, 115, 12.5, 70.75, 119.25, 16.5, 62, 119.25, 16.5, 61.25, 118.25, 16.5, 61.25, 118.25, 16.5, 71.75, 119.25, 16.5, 71.75, 119.25, 16.5, 70.75, 119.25, 16.5, 68.25, 119.5, 16.5, 67.75, 119.5, 16.5, 66.75, 119.5, 16.5, 65.75, 119.5, 16.5, 64.75, 119.25, 16.5, 64, 119.25, 16.5, 62, 118.25, 16.5, 61.25, 117.5, 16.5, 61.25, 119.25, 16.5, 63, 117.5, 16.5, 71.75, 118.25, 16.5, 71.75, 119.25, 16.5, 70.75, 119.25, 16.5, 70, 119.25, 16.5, 64, 119.25, 16.5, 63, 117.5, 16.5, 61.25, 116.5, 16.5, 61.25, 115.25, 16.5, 64.25, 115.25, 16.5, 65, 116.5, 16.5, 71.75, 117.5, 16.5, 71.75, 119.25, 16.5, 70, 119.25, 16.5, 69, 119.25, 16.5, 68.25, 119.5, 16.5, 66.75, 119.5, 16.5, 65.75, 119.25, 16.5, 64, 115.25, 16.5, 65, 115.25, 17.5, 65.75, 116.25, 16.5, 66.375, 115.75, 16.5, 61.25, 115.25, 16.5, 60.75, 114.5, 16.5, 63.75, 115.75, 16.5, 61.25, 114.5, 16.5, 63.75, 115.25, 16.5, 64.25, 116.5, 16.5, 61.25, 115.75, 16.5, 71.75, 116.5, 16.5, 71.75, 119.25, 16.5, 69, 119.25, 16.5, 68.25, 115.25, 17.5, 65.75, 114.75, 17.5, 66, 115, 17.5, 67.4375, 115.25, 16.5, 68.875, 116.25, 16.5, 66.375, 93.5, 16.5, 65.25, 92.75, 16.5, 65.25, 92.75, 16.5, 65.75, 92.75, 16.5, 67.25, 92.75, 16.5, 68, 93.5, 16.5, 68, 93.5, 16.5, 65.25, 92.75, 16.5, 65.75, 92.75, 16.5, 66.5, 94.25, 16.5, 65.25, 92.75, 16.5, 66.5, 92.75, 16.5, 67.25, 93.5, 16.5, 68, 94.25, 16.5, 68, 96.25, 16.5, 64.75, 96, 16.5, 65.25, 96, 16.5, 68, 96.5, 16.5, 64.25, 96.25, 16.5, 64.75, 96, 16.5, 68, 96.5, 16.5, 68.75, 113.5, 17.5, 66.25, 112.75, 17.5, 65.75, 111.273, 16.5, 65.6136, 112.083, 16.5, 66.4583, 95, 16.5, 65.25, 94.25, 16.5, 65.25, 92.75, 16.5, 66.5, 92.75, 16.5, 66.5, 94.25, 16.5, 68, 95, 16.5, 68, 95, 16.5, 65.25, 92.75, 16.5, 66.5, 95, 16.5, 68, 96, 16.5, 68, 96, 16.5, 65.25, 112.75, 17.5, 65.75, 112.75, 16.5, 65, 96.5, 16.5, 64.25, 111.273, 16.5, 65.6136, 112.75, 16.5, 65, 112.75, 16.5, 64.5, 96.5, 16.5, 64.25, 114.5, 16.5, 83.75, 115.25, 16.5, 83.75, 115.25, 16.5, 83, 114.75, 17.5, 66, 114, 17.5, 66, 113.5, 17.5, 66.25, 115.25, 16.5, 72.25, 115.75, 16.5, 71.75, 115.25, 16.5, 68.875, 115, 17.5, 67.4375, 113.85, 17.5, 67.45, 114.2, 16.5, 68.65, 96.5, 16.5, 82.75, 96.5, 16.5, 83.75, 97.5, 16.5, 83.75, 114, 16.5, 83.75, 114.5, 16.5, 83.75, 115.25, 16.5, 83, 96.5, 16.5, 82.75, 97.5, 16.5, 83.75, 98, 16.5, 83.75, 114, 16.5, 83.75, 115.25, 16.5, 83, 115.25, 16.5, 82.25, 113.25, 16.5, 83.75, 96.5, 16.5, 82.75, 98, 16.5, 83.75, 98.75, 16.5, 83.75, 96.5, 16.5, 81.75, 115.25, 16.5, 76.5, 115.25, 16.5, 75.75, 113.5, 17.5, 66.25, 113.75, 16.5, 67.7143, 113.75, 16.5, 67.6071, 112.75, 16.5, 83.75, 113.25, 16.5, 83.75, 115.25, 16.5, 82.25, 115.25, 16.5, 81.5, 96.5, 16.5, 71.5, 96.5, 16.5, 72.5, 105.75, 16.5, 83.75, 96.5, 16.5, 70.5, 96.5, 16.5, 71.5, 105.75, 16.5, 83.75, 96.5, 16.5, 80.75, 96.5, 16.5, 81.75, 98.75, 16.5, 83.75, 112.75, 16.5, 83.75, 115.25, 16.5, 81.5, 115.25, 16.5, 80.75, 112, 16.5, 83.75, 96.5, 16.5, 80, 96.5, 16.5, 80.75, 98.75, 16.5, 83.75, 99.75, 16.5, 83.75, 106.75, 16.5, 83.75, 107.25, 16.5, 83.75, 115.25, 16.5, 76.5, 111.5, 16.5, 83.75, 112, 16.5, 83.75, 115.25, 16.5, 80.75, 115.25, 16.5, 80, 96.5, 16.5, 76.25, 96.5, 16.5, 77, 105, 16.5, 83.75, 96.5, 16.5, 80, 99.75, 16.5, 83.75, 100.25, 16.5, 83.75, 96.5, 16.5, 76.25, 105, 16.5, 83.75, 105.75, 16.5, 83.75, 96.5, 16.5, 75.25, 96.5, 16.5, 80, 100.25, 16.5, 83.75, 101, 16.5, 83.75, 111.5, 16.5, 83.75, 115.25, 16.5, 80, 115.25, 16.5, 79.25, 96.5, 16.5, 78, 104.5, 16.5, 83.75, 105, 16.5, 83.75, 96.5, 16.5, 77, 105.75, 16.5, 83.75, 106.75, 16.5, 83.75, 115.25, 16.5, 76.5, 113.5, 17.5, 66.25, 96.5, 16.5, 68.75, 96.5, 16.5, 69.5, 113.75, 16.5, 67.7143, 112.083, 16.5, 66.4583, 112.98, 17.5, 69.5178, 111.495, 16.5, 69.5068, 112.98, 16.5, 70.9777, 111.5, 16.5, 83.75, 115.25, 16.5, 79.25, 115.25, 16.5, 78.5, 96.5, 16.5, 79, 96.5, 16.5, 80, 101, 16.5, 83.75, 102, 16.5, 83.75, 115.25, 16.5, 72.75, 115.25, 16.5, 72.25, 113.5, 17.5, 66.25, 113.85, 16.5, 67.55, 114.2, 16.5, 68.65, 113.85, 17.5, 67.45, 111.5, 16.5, 83.75, 115.25, 16.5, 78.5, 115.25, 16.5, 78, 110.5, 16.5, 83.75, 96.5, 16.5, 69.5, 96.5, 16.5, 70.5, 105.75, 16.5, 83.75, 96.5, 16.5, 74.25, 96.5, 16.5, 75.25, 105.75, 16.5, 83.75, 115.25, 16.5, 73.5, 115.25, 16.5, 72.75, 113.5, 17.5, 66.25, 113.85, 16.5, 67.7, 113.85, 16.5, 67.55, 96.5, 16.5, 79, 102, 16.5, 83.75, 102.5, 16.5, 83.75, 109.75, 16.5, 83.75, 110.5, 16.5, 83.75, 115.25, 16.5, 78, 115.25, 16.5, 74.25, 115.25, 16.5, 73.5, 113.5, 17.5, 66.25, 113.792, 16.5, 67.5833, 113.85, 16.5, 67.7, 96.5, 16.5, 79, 102.5, 16.5, 83.75, 103.25, 16.5, 83.75, 109.25, 16.5, 83.75, 109.75, 16.5, 83.75, 115.25, 16.5, 78, 96.5, 16.5, 79, 103.25, 16.5, 83.75, 103.75, 16.5, 83.75, 109.25, 16.5, 83.75, 115.25, 16.5, 78, 115.25, 16.5, 77.25, 108.5, 16.5, 83.75, 115.25, 16.5, 75, 115.25, 16.5, 74.25, 113.5, 17.5, 66.25, 113.792, 16.5, 67.7083, 113.792, 16.5, 67.5833, 96.5, 16.5, 78, 96.5, 16.5, 79, 103.75, 16.5, 83.75, 104.5, 16.5, 83.75, 96.5, 16.5, 73.25, 96.5, 16.5, 74.25, 105.75, 16.5, 83.75, 115.25, 16.5, 75.75, 115.25, 16.5, 75, 113.5, 17.5, 66.25, 113.75, 16.5, 67.6071, 113.792, 16.5, 67.7083, 108, 16.5, 83.75, 108.5, 16.5, 83.75, 115.25, 16.5, 77.25, 96.5, 16.5, 72.5, 96.5, 16.5, 73.25, 105.75, 16.5, 83.75, 108, 16.5, 83.75, 115.25, 16.5, 77.25, 115.25, 16.5, 76.5, 107.25, 16.5, 83.75, 122.75, 15, 73.5, 122.75, 15, 74.25, 123.25, 15, 74.75, 124, 15, 74.75, 124.75, 15, 74.75, 125.25, 15, 74.25, 125.25, 15, 73.5, 125.25, 15, 72.75, 124.75, 15, 72.25, 124, 15, 72.25, 124, 15, 72.25, 123.25, 15, 72.25, 122.75, 15, 72.75, 122.75, 15, 73.5, 125.25, 15, 73.5, 124, 15, 72.25, 122.75, 15, 73.5, 123.25, 15, 74.75, 124, 15, 74.75, 125.25, 15, 74.25, 125, 12.5, 74, 124.5, 12.5, 72.5, 123, 12.5, 73, 123, 12.5, 74, 123.5, 12.5, 74.5, 124.5, 12.5, 74.5, 124.5, 12.5, 72.5, 123.5, 12.5, 72.5, 123, 12.5, 73, 125, 12.5, 74, 125, 12.5, 73, 124.5, 12.5, 72.5, 105, 14.25, 73.25, 104.5, 14.25, 73.25, 104.5, 14.25, 73.75, 104.5, 14.25, 75.25, 104.5, 14.25, 76, 105, 14.25, 76, 107.25, 14.25, 73.75, 107.25, 14.25, 73.25, 106.5, 14.25, 73.25, 106.5, 14.25, 76, 107.25, 14.25, 76, 107.25, 14.25, 75.25, 105.75, 14.25, 73.25, 105, 14.25, 73.25, 104.5, 14.25, 73.75, 104.5, 14.25, 74.5, 104.5, 14.25, 75.25, 105, 14.25, 76, 105.75, 14.25, 76, 107.25, 14.25, 74.5, 107.25, 14.25, 73.75, 106.5, 14.25, 73.25, 105.75, 14.25, 73.25, 105.75, 14.25, 76, 106.5, 14.25, 76, 107.25, 14.25, 75.25, 104.5, 14.25, 74.5, 104.5, 14.25, 75.25, 105.75, 14.25, 76, 107.25, 14.25, 75.25, 107.25, 14.25, 74.5, 105.75, 14.25, 73.25, 97.25, 12.5, 80.5, 97.5, 12.5, 81, 98, 12.5, 81.25, 96.75, 12.5, 78.5, 96.75, 12.5, 79.25, 98.5, 12.5, 81.75, 98.75, 12.5, 82.25, 99.25, 12.5, 82.5, 103.75, 12.5, 83.5, 104.5, 12.5, 83.5, 99.25, 12.5, 82.5, 99.5, 12.5, 83, 100, 12.5, 83.5, 100.75, 12.5, 83.5, 96.75, 12.5, 79.25, 96.75, 12.5, 80.25, 97.25, 12.5, 80.5, 96.75, 12.5, 75.75, 96.75, 12.5, 76.75, 98.5, 12.5, 81.75, 104.5, 12.5, 83.5, 103.5, 12.5, 77.5, 103, 12.5, 77, 104.5, 12.5, 83.5, 104, 12.5, 77.5, 103.5, 12.5, 77.5, 99.25, 12.5, 82.5, 100.75, 12.5, 83.5, 101.5, 12.5, 83.5, 103, 12.5, 75.25, 96.75, 12.5, 75, 96.75, 12.5, 75.75, 103, 12.5, 76, 99.25, 12.5, 82.5, 101.5, 12.5, 83.5, 102.25, 12.5, 83.5, 96.75, 12.5, 78.5, 98, 12.5, 81.25, 98.5, 12.5, 81.75, 96.75, 12.5, 77.5, 99.25, 12.5, 82.5, 102.25, 12.5, 83.5, 103, 12.5, 83.5, 103, 12.5, 73.75, 96.75, 12.5, 73.5, 96.75, 12.5, 74.25, 103, 12.5, 74.5, 99.25, 12.5, 82.5, 103, 12.5, 83.5, 103.75, 12.5, 83.5, 96.75, 12.5, 76.75, 96.75, 12.5, 77.5, 98.5, 12.5, 81.75, 104.5, 12.5, 83.5, 104.75, 12.5, 77.5, 104, 12.5, 77.5, 106, 12.5, 83.5, 106, 12.5, 77.5, 105.25, 12.5, 77.5, 105.25, 12.5, 83.5, 103, 12.5, 77, 103, 12.5, 76, 96.75, 12.5, 75.75, 105.25, 12.5, 83.5, 105.25, 12.5, 77.5, 104.75, 12.5, 77.5, 104.5, 12.5, 83.5, 103, 12.5, 74.5, 96.75, 12.5, 74.25, 96.75, 12.5, 75, 103, 12.5, 75.25, 106.25, 12.5, 75.75, 107, 12.5, 75.75, 107, 12.5, 75, 104.75, 12.5, 75, 104.75, 12.5, 75.75, 105.75, 12.5, 75.75, 107, 12.5, 74.5, 107, 12.5, 73.5, 106.25, 12.5, 73.5, 105.75, 12.5, 73.5, 104.75, 12.5, 73.5, 104.75, 12.5, 74.5, 105.75, 12.5, 75.75, 106.25, 12.5, 75.75, 107, 12.5, 75, 104.75, 12.5, 74.5, 104.75, 12.5, 75, 105.75, 12.5, 75.75, 107, 12.5, 75, 107, 12.5, 74.5, 105.75, 12.5, 73.5, 107, 12.5, 74.5, 106.25, 12.5, 73.5, 105.75, 12.5, 73.5, 112, 12.5, 83, 112.5, 12.5, 82.75, 112.75, 12.5, 82.25, 113.25, 12.5, 81.75, 113.75, 12.5, 81.5, 114, 12.5, 81, 115, 12.5, 77.5, 115, 12.5, 76.75, 111, 12.5, 83.5, 111.75, 12.5, 83.5, 112, 12.5, 83, 114, 12.5, 81, 114.5, 12.5, 80.75, 115, 12.5, 80.25, 115, 12.5, 79.25, 110.25, 12.5, 83.5, 111, 12.5, 83.5, 112, 12.5, 83, 115, 12.5, 75, 115, 12.5, 74.25, 108.75, 12.5, 74.5, 108.75, 12.5, 75.25, 109.5, 12.5, 83.5, 110.25, 12.5, 83.5, 112, 12.5, 83, 114, 12.5, 81, 115, 12.5, 79.25, 115, 12.5, 78.5, 108.75, 12.5, 83.5, 109.5, 12.5, 83.5, 112, 12.5, 83, 114, 12.5, 81, 115, 12.5, 78.5, 115, 12.5, 77.5, 108, 12.5, 83.5, 108.75, 12.5, 83.5, 112, 12.5, 83, 106.5, 12.5, 83.5, 112, 12.5, 83, 112.75, 12.5, 82.25, 115, 12.5, 76.75, 108.75, 12.5, 77, 108.25, 12.5, 77.5, 107.25, 12.5, 83.5, 108, 12.5, 83.5, 112, 12.5, 83, 115, 12.5, 76.75, 115, 12.5, 75.75, 108.75, 12.5, 76, 108.75, 12.5, 77, 106.5, 12.5, 83.5, 107.25, 12.5, 83.5, 112, 12.5, 83, 112.75, 12.5, 82.25, 113.25, 12.5, 81.75, 115, 12.5, 76.75, 106, 12.5, 77.5, 106, 12.5, 83.5, 106.5, 12.5, 83.5, 107, 12.5, 77.5, 115, 12.5, 75.75, 115, 12.5, 75, 108.75, 12.5, 75.25, 108.75, 12.5, 76, 107.5, 12.5, 77.5, 107, 12.5, 77.5, 106.5, 12.5, 83.5, 108.25, 12.5, 77.5, 107.5, 12.5, 77.5, 106.5, 12.5, 83.5, 115, 12.5, 74.25, 115, 12.5, 73.5, 108.75, 12.5, 73.75, 108.75, 12.5, 74.5, 130, 14.5, 77.5, 130, 14.5, 78.5, 131, 14.5, 78.5, 131, 14.5, 77.5, 130.25, 12.5, 77.75, 130.25, 12.5, 78.25, 130.75, 12.5, 78.25, 130.75, 12.5, 77.75, 97.25, 12.5, 83, 96.5, 12.5, 82.5, 96.5, 12.5, 83, 97, 12.5, 83.75, 97.75, 12.5, 83.75, 97.25, 12.5, 83, 96.5, 12.5, 83, 96.5, 12.5, 83.75, 97, 12.5, 83.75, 97.25, 12.5, 83, 115.25, 12.5, 83, 115.25, 12.5, 82.5, 114.5, 12.5, 83, 114.5, 12.5, 83, 114, 12.5, 83.5, 114.5, 12.5, 83.75, 115.25, 12.5, 83.75, 115.25, 12.5, 83)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(7, 6, 3), PackedInt32Array(3, 6, 5), PackedInt32Array(3, 5, 4), PackedInt32Array(10, 9, 8), PackedInt32Array(13, 12, 11), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(20, 19, 18), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 24), PackedInt32Array(25, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(30, 29, 31), PackedInt32Array(31, 29, 32), PackedInt32Array(35, 34, 33), PackedInt32Array(38, 37, 36), PackedInt32Array(41, 40, 39), PackedInt32Array(44, 43, 42), PackedInt32Array(46, 45, 47), PackedInt32Array(47, 45, 48), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 52), PackedInt32Array(54, 53, 55), PackedInt32Array(55, 53, 56), PackedInt32Array(58, 57, 59), PackedInt32Array(59, 57, 60), PackedInt32Array(65, 69, 66), PackedInt32Array(66, 69, 67), PackedInt32Array(67, 69, 68), PackedInt32Array(68, 69, 61), PackedInt32Array(61, 69, 62), PackedInt32Array(62, 69, 63), PackedInt32Array(63, 69, 64), PackedInt32Array(64, 69, 65), PackedInt32Array(72, 71, 70), PackedInt32Array(74, 73, 75), PackedInt32Array(75, 73, 76), PackedInt32Array(79, 78, 77), PackedInt32Array(82, 81, 80), PackedInt32Array(85, 84, 83), PackedInt32Array(87, 86, 88), PackedInt32Array(88, 86, 89), PackedInt32Array(92, 91, 90), PackedInt32Array(95, 94, 93), PackedInt32Array(98, 97, 96), PackedInt32Array(101, 100, 99), PackedInt32Array(104, 103, 102), PackedInt32Array(106, 105, 107), PackedInt32Array(107, 105, 108), PackedInt32Array(111, 110, 109), PackedInt32Array(114, 113, 112), PackedInt32Array(117, 116, 115), PackedInt32Array(119, 118, 120), PackedInt32Array(120, 118, 121), PackedInt32Array(124, 123, 122), PackedInt32Array(127, 126, 125), PackedInt32Array(130, 129, 128), PackedInt32Array(133, 132, 131), PackedInt32Array(136, 135, 134), PackedInt32Array(140, 142, 137), PackedInt32Array(137, 142, 141), PackedInt32Array(137, 141, 138), PackedInt32Array(138, 141, 139), PackedInt32Array(145, 144, 143), PackedInt32Array(148, 147, 146), PackedInt32Array(149, 152, 150), PackedInt32Array(150, 152, 151), PackedInt32Array(155, 154, 153), PackedInt32Array(158, 157, 156), PackedInt32Array(161, 160, 159), PackedInt32Array(164, 163, 162), PackedInt32Array(167, 166, 165), PackedInt32Array(170, 169, 168), PackedInt32Array(172, 171, 173), PackedInt32Array(173, 171, 174), PackedInt32Array(177, 176, 175), PackedInt32Array(180, 179, 178), PackedInt32Array(183, 182, 181), PackedInt32Array(186, 185, 184), PackedInt32Array(188, 187, 189), PackedInt32Array(192, 191, 190), PackedInt32Array(195, 194, 193), PackedInt32Array(198, 197, 199), PackedInt32Array(199, 197, 196), PackedInt32Array(203, 202, 200), PackedInt32Array(200, 202, 201), PackedInt32Array(206, 205, 204), PackedInt32Array(209, 208, 207), PackedInt32Array(212, 211, 210), PackedInt32Array(214, 213, 215), PackedInt32Array(215, 213, 218), PackedInt32Array(215, 218, 216), PackedInt32Array(216, 218, 217), PackedInt32Array(221, 220, 219), PackedInt32Array(223, 222, 224), PackedInt32Array(224, 222, 225), PackedInt32Array(225, 222, 226), PackedInt32Array(226, 222, 227), PackedInt32Array(231, 230, 228), PackedInt32Array(228, 230, 229), PackedInt32Array(234, 233, 232), PackedInt32Array(238, 237, 235), PackedInt32Array(235, 237, 236), PackedInt32Array(241, 240, 239), PackedInt32Array(245, 244, 242), PackedInt32Array(242, 244, 243), PackedInt32Array(248, 247, 246), PackedInt32Array(251, 250, 249), PackedInt32Array(253, 252, 254), PackedInt32Array(254, 252, 255), PackedInt32Array(255, 252, 256), PackedInt32Array(259, 258, 257), PackedInt32Array(261, 260, 262), PackedInt32Array(262, 260, 263), PackedInt32Array(266, 265, 264), PackedInt32Array(270, 269, 267), PackedInt32Array(267, 269, 268), PackedInt32Array(273, 272, 271), PackedInt32Array(276, 275, 274), PackedInt32Array(279, 278, 277), PackedInt32Array(282, 281, 280), PackedInt32Array(285, 284, 283), PackedInt32Array(289, 288, 286), PackedInt32Array(286, 288, 287), PackedInt32Array(292, 291, 290), PackedInt32Array(296, 295, 293), PackedInt32Array(293, 295, 294), PackedInt32Array(299, 298, 297), PackedInt32Array(300, 302, 301), PackedInt32Array(304, 303, 305), PackedInt32Array(305, 303, 308), PackedInt32Array(305, 308, 307), PackedInt32Array(305, 307, 306), PackedInt32Array(310, 309, 311), PackedInt32Array(311, 309, 312), PackedInt32Array(315, 314, 313), PackedInt32Array(318, 317, 316), PackedInt32Array(321, 320, 319), PackedInt32Array(324, 323, 322), PackedInt32Array(327, 326, 325), PackedInt32Array(330, 329, 328), PackedInt32Array(332, 331, 333), PackedInt32Array(333, 331, 334), PackedInt32Array(337, 336, 335), PackedInt32Array(340, 339, 338), PackedInt32Array(343, 342, 341), PackedInt32Array(344, 347, 345), PackedInt32Array(345, 347, 346), PackedInt32Array(350, 349, 348), PackedInt32Array(354, 353, 351), PackedInt32Array(351, 353, 352), PackedInt32Array(356, 355, 357), PackedInt32Array(357, 355, 358), PackedInt32Array(360, 359, 361), PackedInt32Array(361, 359, 363), PackedInt32Array(361, 363, 362), PackedInt32Array(365, 364, 366), PackedInt32Array(369, 368, 367), PackedInt32Array(371, 370, 372), PackedInt32Array(372, 370, 375), PackedInt32Array(372, 375, 374), PackedInt32Array(372, 374, 373), PackedInt32Array(377, 376, 378), PackedInt32Array(378, 376, 379), PackedInt32Array(380, 382, 381), PackedInt32Array(385, 384, 383), PackedInt32Array(388, 387, 386), PackedInt32Array(390, 389, 391), PackedInt32Array(391, 389, 392), PackedInt32Array(395, 394, 393), PackedInt32Array(398, 397, 396), PackedInt32Array(401, 400, 399), PackedInt32Array(404, 403, 402), PackedInt32Array(407, 406, 405), PackedInt32Array(408, 410, 409), PackedInt32Array(412, 411, 413), PackedInt32Array(413, 411, 414), PackedInt32Array(416, 415, 417), PackedInt32Array(417, 415, 418), PackedInt32Array(420, 419, 421), PackedInt32Array(421, 419, 422), PackedInt32Array(424, 423, 425), PackedInt32Array(425, 423, 426), PackedInt32Array(429, 428, 427), PackedInt32Array(431, 430, 432), PackedInt32Array(432, 430, 433), PackedInt32Array(433, 430, 435), PackedInt32Array(433, 435, 434), PackedInt32Array(438, 437, 436), PackedInt32Array(441, 440, 439), PackedInt32Array(443, 442, 444), PackedInt32Array(444, 442, 446), PackedInt32Array(444, 446, 445), PackedInt32Array(448, 447, 449), PackedInt32Array(449, 447, 450), PackedInt32Array(450, 447, 451), PackedInt32Array(453, 452, 454), PackedInt32Array(454, 452, 455), PackedInt32Array(455, 452, 456), PackedInt32Array(456, 452, 457), PackedInt32Array(460, 459, 458), PackedInt32Array(463, 462, 461), PackedInt32Array(466, 465, 464), PackedInt32Array(469, 468, 467), PackedInt32Array(472, 471, 470), PackedInt32Array(474, 473, 475), PackedInt32Array(475, 473, 476), PackedInt32Array(476, 473, 477), PackedInt32Array(477, 473, 478), PackedInt32Array(480, 479, 481), PackedInt32Array(481, 479, 482), PackedInt32Array(484, 483, 485), PackedInt32Array(485, 483, 486), PackedInt32Array(487, 490, 488), PackedInt32Array(488, 490, 489), PackedInt32Array(491, 493, 492), PackedInt32Array(495, 494, 496), PackedInt32Array(496, 494, 497), PackedInt32Array(497, 494, 498), PackedInt32Array(498, 494, 499), PackedInt32Array(502, 501, 500), PackedInt32Array(505, 504, 503), PackedInt32Array(506, 508, 507), PackedInt32Array(510, 509, 511), PackedInt32Array(511, 509, 512), PackedInt32Array(515, 514, 513), PackedInt32Array(518, 517, 516), PackedInt32Array(520, 519, 521), PackedInt32Array(521, 519, 522), PackedInt32Array(524, 523, 525), PackedInt32Array(525, 523, 526), PackedInt32Array(529, 528, 527), PackedInt32Array(531, 530, 532), PackedInt32Array(532, 530, 533), PackedInt32Array(535, 534, 536), PackedInt32Array(536, 534, 537), PackedInt32Array(540, 539, 538), PackedInt32Array(543, 542, 541), PackedInt32Array(545, 544, 546), PackedInt32Array(546, 544, 548), PackedInt32Array(546, 548, 547), PackedInt32Array(550, 549, 551), PackedInt32Array(551, 549, 552), PackedInt32Array(554, 553, 555), PackedInt32Array(555, 553, 556), PackedInt32Array(558, 557, 559), PackedInt32Array(559, 557, 560), PackedInt32Array(562, 561, 563), PackedInt32Array(563, 561, 564), PackedInt32Array(564, 561, 566), PackedInt32Array(564, 566, 565), PackedInt32Array(569, 568, 567), PackedInt32Array(572, 571, 570), PackedInt32Array(574, 573, 575), PackedInt32Array(575, 573, 577), PackedInt32Array(575, 577, 576), PackedInt32Array(579, 578, 580), PackedInt32Array(580, 578, 581), PackedInt32Array(582, 584, 583), PackedInt32Array(587, 586, 585), PackedInt32Array(590, 589, 588), PackedInt32Array(592, 591, 593), PackedInt32Array(593, 591, 594), PackedInt32Array(594, 591, 596), PackedInt32Array(594, 596, 595), PackedInt32Array(599, 598, 597), PackedInt32Array(602, 601, 600), PackedInt32Array(604, 603, 605), PackedInt32Array(605, 603, 606), PackedInt32Array(608, 607, 609), PackedInt32Array(609, 607, 610), PackedInt32Array(611, 614, 612), PackedInt32Array(612, 614, 613), PackedInt32Array(616, 615, 617), PackedInt32Array(617, 615, 618), PackedInt32Array(621, 620, 619), PackedInt32Array(624, 623, 622), PackedInt32Array(627, 626, 625), PackedInt32Array(628, 630, 629), PackedInt32Array(632, 631, 633), PackedInt32Array(633, 631, 634), PackedInt32Array(637, 636, 635), PackedInt32Array(640, 639, 638), PackedInt32Array(643, 642, 641), PackedInt32Array(646, 645, 644), PackedInt32Array(649, 648, 647), PackedInt32Array(651, 650, 652), PackedInt32Array(652, 650, 653), PackedInt32Array(655, 654, 656), PackedInt32Array(656, 654, 659), PackedInt32Array(656, 659, 658), PackedInt32Array(656, 658, 657), PackedInt32Array(662, 661, 660), PackedInt32Array(665, 664, 663), PackedInt32Array(667, 666, 668), PackedInt32Array(668, 666, 669), PackedInt32Array(671, 670, 672), PackedInt32Array(672, 670, 673), PackedInt32Array(676, 675, 674), PackedInt32Array(679, 678, 677), PackedInt32Array(682, 681, 680), PackedInt32Array(685, 684, 683), PackedInt32Array(687, 686, 688), PackedInt32Array(688, 686, 689), PackedInt32Array(692, 691, 690), PackedInt32Array(694, 693, 695), PackedInt32Array(695, 693, 696), PackedInt32Array(699, 698, 697), PackedInt32Array(701, 700, 702), PackedInt32Array(702, 700, 705), PackedInt32Array(702, 705, 704), PackedInt32Array(702, 704, 703), PackedInt32Array(708, 707, 706), PackedInt32Array(711, 710, 709), PackedInt32Array(714, 713, 712), PackedInt32Array(717, 716, 715), PackedInt32Array(720, 719, 718), PackedInt32Array(722, 721, 723), PackedInt32Array(723, 721, 726), PackedInt32Array(723, 726, 725), PackedInt32Array(723, 725, 724), PackedInt32Array(729, 728, 727), PackedInt32Array(733, 732, 730), PackedInt32Array(730, 732, 731), PackedInt32Array(736, 735, 734), PackedInt32Array(739, 738, 737), PackedInt32Array(741, 740, 742), PackedInt32Array(742, 740, 743), PackedInt32Array(746, 745, 744), PackedInt32Array(748, 747, 749), PackedInt32Array(749, 747, 750), PackedInt32Array(755, 754, 751), PackedInt32Array(751, 754, 753), PackedInt32Array(751, 753, 752), PackedInt32Array(757, 756, 758), PackedInt32Array(758, 756, 759), PackedInt32Array(762, 761, 760), PackedInt32Array(766, 765, 763), PackedInt32Array(763, 765, 764), PackedInt32Array(769, 768, 767), PackedInt32Array(771, 770, 772), PackedInt32Array(772, 770, 773), PackedInt32Array(775, 774, 776), PackedInt32Array(776, 774, 777), PackedInt32Array(781, 780, 778), PackedInt32Array(778, 780, 779), PackedInt32Array(784, 783, 782), PackedInt32Array(788, 787, 785), PackedInt32Array(785, 787, 786), PackedInt32Array(789, 794, 790), PackedInt32Array(790, 794, 793), PackedInt32Array(790, 793, 792), PackedInt32Array(790, 792, 791), PackedInt32Array(798, 797, 795), PackedInt32Array(795, 797, 796), PackedInt32Array(800, 799, 801), PackedInt32Array(801, 799, 802), PackedInt32Array(806, 805, 803), PackedInt32Array(803, 805, 804), PackedInt32Array(809, 808, 807), PackedInt32Array(812, 811, 810), PackedInt32Array(815, 814, 813), PackedInt32Array(818, 817, 816), PackedInt32Array(821, 820, 819), PackedInt32Array(824, 823, 822), PackedInt32Array(827, 826, 825), PackedInt32Array(830, 829, 828), PackedInt32Array(833, 832, 831), PackedInt32Array(836, 835, 834), PackedInt32Array(839, 838, 837), PackedInt32Array(841, 840, 842), PackedInt32Array(842, 840, 843), PackedInt32Array(846, 845, 844), PackedInt32Array(849, 848, 847), PackedInt32Array(854, 853, 850), PackedInt32Array(850, 853, 852), PackedInt32Array(850, 852, 851), PackedInt32Array(857, 856, 855), PackedInt32Array(860, 859, 858), PackedInt32Array(864, 863, 861), PackedInt32Array(861, 863, 862), PackedInt32Array(867, 866, 865), PackedInt32Array(869, 868, 870), PackedInt32Array(870, 868, 871), PackedInt32Array(873, 872, 874), PackedInt32Array(874, 872, 875), PackedInt32Array(879, 878, 876), PackedInt32Array(876, 878, 877), PackedInt32Array(885, 884, 880), PackedInt32Array(880, 884, 883), PackedInt32Array(880, 883, 882), PackedInt32Array(880, 882, 881), PackedInt32Array(889, 888, 886), PackedInt32Array(886, 888, 887), PackedInt32Array(891, 890, 892), PackedInt32Array(892, 890, 893), PackedInt32Array(897, 896, 894), PackedInt32Array(894, 896, 895), PackedInt32Array(899, 898, 900), PackedInt32Array(900, 898, 901), PackedInt32Array(905, 904, 902), PackedInt32Array(902, 904, 903), PackedInt32Array(907, 906, 908), PackedInt32Array(908, 906, 909), PackedInt32Array(912, 911, 910), PackedInt32Array(915, 914, 913), PackedInt32Array(918, 917, 916), PackedInt32Array(921, 920, 919), PackedInt32Array(924, 923, 922), PackedInt32Array(927, 926, 925), PackedInt32Array(930, 929, 928), PackedInt32Array(933, 932, 931), PackedInt32Array(935, 934, 936), PackedInt32Array(936, 934, 937), PackedInt32Array(939, 938, 940), PackedInt32Array(940, 938, 941), PackedInt32Array(943, 942, 944), PackedInt32Array(944, 942, 945), PackedInt32Array(945, 942, 946), PackedInt32Array(946, 942, 947), PackedInt32Array(949, 948, 950), PackedInt32Array(950, 948, 951), PackedInt32Array(957, 956, 958), PackedInt32Array(958, 956, 955), PackedInt32Array(958, 955, 954), PackedInt32Array(958, 954, 953), PackedInt32Array(958, 953, 952), PackedInt32Array(961, 960, 959), PackedInt32Array(963, 962, 964), PackedInt32Array(964, 962, 965), PackedInt32Array(970, 974, 971), PackedInt32Array(971, 974, 972), PackedInt32Array(972, 974, 973), PackedInt32Array(973, 974, 969), PackedInt32Array(973, 969, 968), PackedInt32Array(973, 968, 967), PackedInt32Array(973, 967, 966), PackedInt32Array(977, 976, 975), PackedInt32Array(980, 979, 978), PackedInt32Array(982, 981, 983), PackedInt32Array(983, 981, 984), PackedInt32Array(986, 985, 987), PackedInt32Array(987, 985, 988), PackedInt32Array(989, 991, 990), PackedInt32Array(996, 999, 997), PackedInt32Array(997, 999, 998), PackedInt32Array(998, 999, 992), PackedInt32Array(992, 999, 993), PackedInt32Array(993, 999, 994), PackedInt32Array(994, 999, 995), PackedInt32Array(1002, 1001, 1000), PackedInt32Array(1005, 1004, 1003), PackedInt32Array(1010, 1009, 1006), PackedInt32Array(1006, 1009, 1008), PackedInt32Array(1006, 1008, 1007), PackedInt32Array(1011, 1014, 1012), PackedInt32Array(1012, 1014, 1013), PackedInt32Array(1017, 1016, 1015), PackedInt32Array(1020, 1019, 1018), PackedInt32Array(1022, 1021, 1023), PackedInt32Array(1023, 1021, 1028), PackedInt32Array(1028, 1021, 1027), PackedInt32Array(1028, 1027, 1029), PackedInt32Array(1029, 1027, 1026), PackedInt32Array(1029, 1026, 1025), PackedInt32Array(1029, 1025, 1024), PackedInt32Array(1032, 1031, 1030), PackedInt32Array(1035, 1034, 1033), PackedInt32Array(1038, 1037, 1036), PackedInt32Array(1040, 1039, 1041), PackedInt32Array(1041, 1039, 1042), PackedInt32Array(1044, 1043, 1045), PackedInt32Array(1045, 1043, 1046), PackedInt32Array(1049, 1051, 1050), PackedInt32Array(1050, 1051, 1048), PackedInt32Array(1050, 1048, 1047), PackedInt32Array(1053, 1052, 1054), PackedInt32Array(1054, 1052, 1055), PackedInt32Array(1058, 1057, 1056), PackedInt32Array(1061, 1060, 1059), PackedInt32Array(1064, 1063, 1062), PackedInt32Array(1066, 1065, 1067), PackedInt32Array(1067, 1065, 1068), PackedInt32Array(1070, 1069, 1071), PackedInt32Array(1071, 1069, 1072), PackedInt32Array(1075, 1074, 1073), PackedInt32Array(1077, 1076, 1078), PackedInt32Array(1078, 1076, 1079), PackedInt32Array(1082, 1081, 1080), PackedInt32Array(1085, 1084, 1083), PackedInt32Array(1087, 1086, 1088), PackedInt32Array(1088, 1086, 1089), PackedInt32Array(1092, 1091, 1090), PackedInt32Array(1095, 1094, 1093), PackedInt32Array(1097, 1096, 1098), PackedInt32Array(1098, 1096, 1099), PackedInt32Array(1104, 1109, 1105), PackedInt32Array(1105, 1109, 1100), PackedInt32Array(1100, 1109, 1101), PackedInt32Array(1101, 1110, 1102), PackedInt32Array(1102, 1110, 1106), PackedInt32Array(1106, 1107, 1103), PackedInt32Array(1107, 1109, 1104), PackedInt32Array(1109, 1110, 1101), PackedInt32Array(1110, 1108, 1106), PackedInt32Array(1106, 1109, 1107), PackedInt32Array(1109, 1108, 1110), PackedInt32Array(1108, 1109, 1106), PackedInt32Array(1113, 1112, 1111), PackedInt32Array(1115, 1114, 1116), PackedInt32Array(1116, 1114, 1117), PackedInt32Array(1120, 1123, 1121), PackedInt32Array(1121, 1123, 1122), PackedInt32Array(1121, 1122, 1119), PackedInt32Array(1121, 1119, 1118), PackedInt32Array(1125, 1124, 1126), PackedInt32Array(1126, 1124, 1127), PackedInt32Array(1130, 1129, 1128), PackedInt32Array(1133, 1132, 1131), PackedInt32Array(1136, 1138, 1137), PackedInt32Array(1137, 1138, 1135), PackedInt32Array(1137, 1135, 1134), PackedInt32Array(1139, 1141, 1140), PackedInt32Array(1144, 1143, 1142), PackedInt32Array(1147, 1149, 1148), PackedInt32Array(1148, 1149, 1146), PackedInt32Array(1148, 1146, 1145), PackedInt32Array(1152, 1151, 1150), PackedInt32Array(1155, 1154, 1153), PackedInt32Array(1158, 1157, 1156), PackedInt32Array(1160, 1159, 1161), PackedInt32Array(1161, 1159, 1162), PackedInt32Array(1165, 1167, 1166), PackedInt32Array(1166, 1167, 1164), PackedInt32Array(1166, 1164, 1163), PackedInt32Array(1170, 1169, 1171), PackedInt32Array(1171, 1169, 1168), PackedInt32Array(1174, 1173, 1172), PackedInt32Array(1177, 1179, 1178), PackedInt32Array(1178, 1179, 1176), PackedInt32Array(1178, 1176, 1175), PackedInt32Array(1182, 1181, 1180), PackedInt32Array(1185, 1184, 1183), PackedInt32Array(1187, 1186, 1188), PackedInt32Array(1188, 1186, 1189), PackedInt32Array(1192, 1191, 1190), PackedInt32Array(1195, 1194, 1193), PackedInt32Array(1197, 1196, 1198), PackedInt32Array(1198, 1196, 1199), PackedInt32Array(1201, 1200, 1202), PackedInt32Array(1202, 1200, 1203), PackedInt32Array(1209, 1208, 1204), PackedInt32Array(1204, 1208, 1207), PackedInt32Array(1204, 1207, 1206), PackedInt32Array(1204, 1206, 1205), PackedInt32Array(1215, 1214, 1210), PackedInt32Array(1210, 1214, 1213), PackedInt32Array(1210, 1213, 1212), PackedInt32Array(1210, 1212, 1211), PackedInt32Array(1218, 1217, 1216), PackedInt32Array(1221, 1220, 1219), PackedInt32Array(1224, 1223, 1222), PackedInt32Array(1227, 1226, 1225), PackedInt32Array(1230, 1229, 1228), PackedInt32Array(1233, 1232, 1231), PackedInt32Array(1235, 1234, 1236), PackedInt32Array(1236, 1234, 1237), PackedInt32Array(1240, 1239, 1238), PackedInt32Array(1242, 1241, 1243), PackedInt32Array(1243, 1241, 1244), PackedInt32Array(1247, 1246, 1245), PackedInt32Array(1249, 1248, 1250), PackedInt32Array(1250, 1248, 1253), PackedInt32Array(1250, 1253, 1252), PackedInt32Array(1250, 1252, 1251), PackedInt32Array(1255, 1254, 1256), PackedInt32Array(1256, 1254, 1258), PackedInt32Array(1256, 1258, 1257), PackedInt32Array(1260, 1259, 1261), PackedInt32Array(1261, 1259, 1262), PackedInt32Array(1262, 1259, 1263), PackedInt32Array(1265, 1264, 1266), PackedInt32Array(1266, 1264, 1267), PackedInt32Array(1268, 1270, 1269), PackedInt32Array(1272, 1271, 1273), PackedInt32Array(1273, 1271, 1276), PackedInt32Array(1273, 1276, 1275), PackedInt32Array(1273, 1275, 1274), PackedInt32Array(1279, 1278, 1277), PackedInt32Array(1282, 1281, 1280), PackedInt32Array(1286, 1285, 1283), PackedInt32Array(1283, 1285, 1284), PackedInt32Array(1289, 1288, 1287), PackedInt32Array(1291, 1290, 1292), PackedInt32Array(1292, 1290, 1293), PackedInt32Array(1296, 1295, 1294), PackedInt32Array(1300, 1299, 1297), PackedInt32Array(1297, 1299, 1298), PackedInt32Array(1303, 1302, 1301), PackedInt32Array(1306, 1305, 1304), PackedInt32Array(1309, 1308, 1307), PackedInt32Array(1313, 1312, 1310), PackedInt32Array(1310, 1312, 1311), PackedInt32Array(1316, 1315, 1314), PackedInt32Array(1318, 1317, 1319), PackedInt32Array(1319, 1317, 1320), PackedInt32Array(1324, 1323, 1321), PackedInt32Array(1321, 1323, 1322), PackedInt32Array(1327, 1326, 1325), PackedInt32Array(1330, 1329, 1328), PackedInt32Array(1333, 1332, 1331), PackedInt32Array(1336, 1335, 1334), PackedInt32Array(1339, 1338, 1337), PackedInt32Array(1341, 1340, 1342), PackedInt32Array(1342, 1340, 1345), PackedInt32Array(1342, 1345, 1344), PackedInt32Array(1342, 1344, 1343), PackedInt32Array(1348, 1347, 1346), PackedInt32Array(1351, 1350, 1349), PackedInt32Array(1353, 1352, 1354), PackedInt32Array(1354, 1352, 1355), PackedInt32Array(1355, 1352, 1356), PackedInt32Array(1359, 1358, 1357), PackedInt32Array(1361, 1360, 1362), PackedInt32Array(1362, 1360, 1363), PackedInt32Array(1364, 1366, 1365), PackedInt32Array(1370, 1369, 1367), PackedInt32Array(1367, 1369, 1368), PackedInt32Array(1373, 1372, 1371), PackedInt32Array(1376, 1375, 1374), PackedInt32Array(1379, 1378, 1377), PackedInt32Array(1382, 1381, 1380), PackedInt32Array(1385, 1384, 1383), PackedInt32Array(1387, 1386, 1388), PackedInt32Array(1388, 1386, 1391), PackedInt32Array(1388, 1391, 1390), PackedInt32Array(1388, 1390, 1389), PackedInt32Array(1394, 1393, 1392), PackedInt32Array(1398, 1397, 1395), PackedInt32Array(1395, 1397, 1396), PackedInt32Array(1401, 1400, 1399), PackedInt32Array(1402, 1404, 1403), PackedInt32Array(1406, 1405, 1407), PackedInt32Array(1407, 1405, 1408), PackedInt32Array(1412, 1411, 1409), PackedInt32Array(1409, 1411, 1410), PackedInt32Array(1415, 1414, 1413), PackedInt32Array(1418, 1417, 1416), PackedInt32Array(1422, 1421, 1419), PackedInt32Array(1419, 1421, 1420), PackedInt32Array(1426, 1425, 1423), PackedInt32Array(1423, 1425, 1424), PackedInt32Array(1430, 1429, 1427), PackedInt32Array(1427, 1429, 1428), PackedInt32Array(1433, 1432, 1431), PackedInt32Array(1436, 1435, 1434), PackedInt32Array(1438, 1437, 1439), PackedInt32Array(1439, 1437, 1440), PackedInt32Array(1443, 1442, 1441), PackedInt32Array(1445, 1444, 1446), PackedInt32Array(1446, 1444, 1448), PackedInt32Array(1446, 1448, 1447)]
+geometry_parsed_geometry_type = 2
+agent_radius = 0.55
+edge_max_length = 1.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_47obl"]
 resource_local_to_scene = true
@@ -1339,45 +2983,47 @@ top_radius = 0.03
 bottom_radius = 0.03
 height = 8.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3rn7o"]
+emission_shape_scale = Vector3(6, 6, 8)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 2.5
+initial_velocity_max = 2.5
+radial_velocity_max = 8.0
+gravity = Vector3(0, 0, 0)
+scale_max = 1.25
+color = Color(0.956863, 0.0588235, 0.0196078, 1)
+hue_variation_max = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vv5qt"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_hf270"]
+material = SubResource("StandardMaterial3D_vv5qt")
+
+[sub_resource type="Curve3D" id="Curve3D_3763n"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 205, 24, 69, 5, 0, 17.5, -5, 0, -17.5, 141, 14, 66.5),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="startCinematic" type="Node3D"]
 script = ExtResource("1_57w32")
-act0_music = ExtResource("2_buvp5")
+act0_music = ExtResource("2_mwbjw")
+next_level = ExtResource("3_piqyk")
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_gdkl1")
 }
-autoplay = "act1"
+autoplay = "act00"
 
 [node name="worldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_oql53")
-
-[node name="act0" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 48.5, 68.5, 71)
-projection = 1
-current = true
-
-[node name="act1" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.976296, 0.21644, 0, -0.21644, 0.976296, 38, 54.5, -138)
-size = 0.05
-
-[node name="act2" type="Camera3D" parent="." node_paths=PackedStringArray("camera")]
-transform = Transform3D(-3.7822e-08, -0.461749, 0.887011, -1.13133e-08, 0.887011, 0.461749, -1, 7.42922e-09, -3.87725e-08, 108.643, 13.75, 158)
-size = 0.12
-script = ExtResource("4_soco3")
-noise = SubResource("FastNoiseLite_ykvwg")
-camera = NodePath(".")
-
-[node name="act3" type="Camera3D" parent="."]
-transform = Transform3D(0.134049, -0.214486, -0.967485, -4.22315e-09, 0.976296, -0.21644, 0.990975, 0.0290136, 0.130872, 104, 17, 68.1305)
-fov = 55.0
-
-[node name="act5" type="Camera3D" parent="."]
-transform = Transform3D(0.939693, -0.0740267, 0.333913, 0, 0.976296, 0.21644, -0.34202, -0.203387, 0.917418, 45, 49, -150.5)
-
-[node name="act6" type="Camera3D" parent="."]
-transform = Transform3D(0.642788, -0.262003, 0.719846, 4.4647e-09, 0.939693, 0.34202, -0.766044, -0.219846, 0.604023, 126, 24.5, 80)
-fov = 45.6
 
 [node name="music" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("snd")]
 stream = ExtResource("2_buvp5")
@@ -1387,6 +3033,93 @@ snd = NodePath(".")
 
 [node name="dialogue_tree" type="Node" parent="."]
 script = ExtResource("3_4dun3")
+
+[node name="act0" type="Camera3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 48.5, 68.5, 71)
+projection = 1
+current = true
+
+[node name="act1" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.976296, 0.216439, 0, -0.216439, 0.976296, 38, 54.5, -138)
+size = 0.05
+
+[node name="act2" type="Camera3D" parent="." node_paths=PackedStringArray("camera")]
+transform = Transform3D(-3.6141e-06, -0.461749, 0.887011, -1.13134e-08, 0.887011, 0.461749, -1, 1.65877e-06, -3.21097e-06, 108.643, 13.75, 158)
+size = 0.12
+script = ExtResource("4_soco3")
+noise = SubResource("FastNoiseLite_ykvwg")
+camera = NodePath(".")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="act2"]
+stream = ExtResource("8_p53n7")
+bus = &"sfx"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="act2"]
+stream = ExtResource("9_x4hfi")
+bus = &"sfx"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="act2"]
+stream = ExtResource("10_ejwfk")
+bus = &"sfx"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="act2"]
+stream = ExtResource("11_t18e3")
+bus = &"sfx"
+
+[node name="act3" type="Camera3D" parent="."]
+transform = Transform3D(0.134052, -0.214486, -0.967485, -4.22315e-09, 0.976295, -0.21644, 0.990975, 0.029014, 0.130874, 104, 17, 68.1305)
+fov = 55.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="act3"]
+stream = ExtResource("12_edoa7")
+bus = &"sfx"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="act3"]
+stream = ExtResource("10_ejwfk")
+bus = &"sfx"
+
+[node name="act5" type="Camera3D" parent="."]
+transform = Transform3D(0.939693, -0.0740267, 0.333913, 0, 0.976296, 0.216439, -0.34202, -0.203387, 0.917418, 45, 49, -150.5)
+
+[node name="act6" type="Camera3D" parent="."]
+transform = Transform3D(0.642787, -0.262003, 0.719846, 4.4647e-09, 0.939693, 0.34202, -0.766045, -0.219846, 0.604022, 126, 24.5, 80)
+fov = 45.6
+
+[node name="act7" type="Camera3D" parent="."]
+transform = Transform3D(0.19646, -0.534025, 0.822326, 1.14636e-08, 0.838671, 0.544639, -0.980512, -0.107, 0.164765, 154, 26, 72)
+
+[node name="act8" type="Camera3D" parent="."]
+transform = Transform3D(0.573576, 0.384568, -0.723268, 0, 0.882947, 0.469471, 0.819152, -0.269278, 0.506438, 116, 24.5, 79)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="act8"]
+stream = ExtResource("8_pwfb8")
+bus = &"sfx_3"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="act8"]
+stream = ExtResource("14_dei6u")
+bus = &"sfx"
+
+[node name="act9" type="Camera3D" parent="."]
+transform = Transform3D(-0.909235, 0.201818, -0.364089, 0, 0.87462, 0.484809, 0.416282, 0.440806, -0.795236, 127.398, 18.7082, 52.8816)
+fov = 55.5
+
+[node name="act10" type="Camera3D" parent="."]
+transform = Transform3D(-3.61999e-06, 0.216439, -0.976296, 0, 0.976296, 0.216439, 1, 7.83509e-07, -3.53418e-06, 130, 14.25, 66.5)
+fov = 63.9
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="act10"]
+stream = ExtResource("14_dei6u")
+bus = &"sfx"
+
+[node name="act11" type="Camera3D" parent="."]
+transform = Transform3D(-0.559194, -0.375787, 0.738976, 0, 0.891368, 0.453281, -0.829036, 0.253472, -0.498447, 136.406, 16.6396, 60.1448)
+
+[node name="act12" type="Camera3D" parent="."]
+transform = Transform3D(-3.62049e-06, -0.130527, 0.991445, 3.8097e-09, 0.991445, 0.130527, -1, 4.76347e-07, -3.58902e-06, 125, 13.9998, 66.5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="act12"]
+stream = ExtResource("15_oifca")
+bus = &"sfx"
 
 [node name="maps" type="Node3D" parent="."]
 
@@ -1409,9 +3142,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 4, 294)
 
 [node name="3" type="Node3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66, 7.95, 0)
 
 [node name="map3" parent="maps/3" instance=ExtResource("10_skj4i")]
 
@@ -1426,102 +3157,173 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
 [node name="ceiling" parent="maps/4" instance=ExtResource("13_b7mae")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -252, 4, 76)
 
-[node name="start_cinematic" parent="maps" instance=ExtResource("14_1jcya")]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="maps"]
+navigation_mesh = SubResource("NavigationMesh_moyye")
+
+[node name="start_cinematic" parent="maps/NavigationRegion3D" instance=ExtResource("14_1jcya")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 92, 12, 48.5)
 
-[node name="props" type="Node3D" parent="."]
+[node name="props" type="Node3D" parent="maps/NavigationRegion3D"]
 
-[node name="door" parent="props" instance=ExtResource("14_xbeuw")]
+[node name="door" parent="maps/NavigationRegion3D/props" instance=ExtResource("14_xbeuw")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 120, 12, 66.5)
 type = 0
 
-[node name="toggle-computer-1" parent="props/door" node_paths=PackedStringArray("i_toggleable") instance=ExtResource("16_f0qrs")]
+[node name="toggle-computer-1" parent="maps/NavigationRegion3D/props/door" node_paths=PackedStringArray("i_toggleable") instance=ExtResource("16_f0qrs")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.99998, 0, -0.5)
 i_toggleable = NodePath("..")
 
-[node name="interact" parent="props/door/toggle-computer-1" index="3"]
+[node name="interact" parent="maps/NavigationRegion3D/props/door/toggle-computer-1" index="3"]
 visible = false
 
-[node name="box_gray_1" parent="props" instance=ExtResource("15_yutp1")]
+[node name="box_gray_1" parent="maps/NavigationRegion3D/props" instance=ExtResource("15_yutp1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124, 12, 73.5)
 
-[node name="box_gray_3" parent="props" instance=ExtResource("16_b36le")]
+[node name="box_gray_3" parent="maps/NavigationRegion3D/props" instance=ExtResource("16_b36le")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.5, 12, 78)
 
-[node name="box_gray_6" parent="props" instance=ExtResource("17_xn46w")]
+[node name="box_gray_6" parent="maps/NavigationRegion3D/props" instance=ExtResource("17_xn46w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131, 12, 76.5)
 
-[node name="box_green_large" parent="props" instance=ExtResource("18_uv64q")]
+[node name="box_green_large" parent="maps/NavigationRegion3D/props" instance=ExtResource("18_uv64q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.5, 12, 58.5)
 
-[node name="box_red_medium" parent="props" instance=ExtResource("19_ukup1")]
+[node name="box_red_medium" parent="maps/NavigationRegion3D/props" instance=ExtResource("19_ukup1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.5, 12, 58)
 
-[node name="box_yellow_small" parent="props" instance=ExtResource("20_drqev")]
+[node name="box_yellow_small" parent="maps/NavigationRegion3D/props" instance=ExtResource("20_drqev")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127, 12, 60)
 
-[node name="tank_green_intact" parent="props" instance=ExtResource("21_b1imh")]
+[node name="tank_green_intact" parent="maps/NavigationRegion3D/props" instance=ExtResource("21_b1imh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.5, 12, 69.5)
 
-[node name="tank_green_intact2" parent="props" node_paths=PackedStringArray("lights") instance=ExtResource("21_b1imh")]
+[node name="tank_green_intact2" parent="maps/NavigationRegion3D/props" node_paths=PackedStringArray("lights") instance=ExtResource("21_b1imh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.5, 12, 71.5)
 lights = [NodePath("../tank_green_intact/OmniLight3D")]
 
-[node name="tank_blue_intact" parent="props" instance=ExtResource("22_yjrov")]
+[node name="tank_blue_intact" parent="maps/NavigationRegion3D/props" instance=ExtResource("22_yjrov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123, 12, 60)
 
-[node name="toggle" parent="props" instance=ExtResource("33_edih0")]
+[node name="toggle" parent="maps/NavigationRegion3D/props" instance=ExtResource("33_edih0")]
 transform = Transform3D(0.573576, 0, -0.819152, 0, 1, 0, 0.819152, 0, 0.573576, 112.5, 16, 63.5)
 
-[node name="interact" parent="props/toggle" index="5"]
+[node name="interact" parent="maps/NavigationRegion3D/props/toggle" index="5"]
 visible = false
 
-[node name="toggle2" parent="props" instance=ExtResource("33_edih0")]
+[node name="toggle2" parent="maps/NavigationRegion3D/props" instance=ExtResource("33_edih0")]
 transform = Transform3D(-0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152, 112.5, 16, 69)
 
-[node name="interact" parent="props/toggle2" index="5"]
+[node name="interact" parent="maps/NavigationRegion3D/props/toggle2" index="5"]
 visible = false
 
-[node name="tank_green_intact3" parent="props" instance=ExtResource("21_b1imh")]
+[node name="tank_green_intact3" parent="maps/NavigationRegion3D/props" instance=ExtResource("21_b1imh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114, 16, 65)
 
-[node name="box_yellow_large" parent="props" instance=ExtResource("34_3wrhy")]
+[node name="box_yellow_large" parent="maps/NavigationRegion3D/props" instance=ExtResource("34_3wrhy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.5, 16, 66.5)
 
-[node name="box_red_small" parent="props" instance=ExtResource("35_tbeix")]
+[node name="box_red_small" parent="maps/NavigationRegion3D/props" instance=ExtResource("35_tbeix")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113, 16, 66)
 
 [node name="characters" type="Node3D" parent="."]
 
-[node name="Space Sargent" parent="characters" instance=ExtResource("25_xwbp0")]
+[node name="Space Sargent" parent="characters" node_paths=PackedStringArray("target") instance=ExtResource("25_xwbp0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 12, 66)
+health_max = 10
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../act3-squadron/character7")
 
-[node name="Space Warrior" parent="characters" instance=ExtResource("26_k18e1")]
+[node name="melee" parent="characters/Space Sargent/fsm" index="4"]
+enabled = false
+
+[node name="navigationAgent3D" parent="characters/Space Sargent" index="4"]
+path_max_distance = 3.01
+
+[node name="img" parent="characters/Space Sargent" index="10"]
+flip_h = true
+
+[node name="Space Warrior" parent="characters" node_paths=PackedStringArray("target") instance=ExtResource("26_k18e1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 12, 63)
+health_max = 10
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../act3-squadron/character3")
 
-[node name="Space Warrior2" parent="characters" instance=ExtResource("26_k18e1")]
+[node name="melee" parent="characters/Space Warrior/fsm" index="4"]
+enabled = false
+
+[node name="navigationAgent3D" parent="characters/Space Warrior" index="4"]
+path_max_distance = 3.01
+
+[node name="img" parent="characters/Space Warrior" index="10"]
+flip_h = true
+
+[node name="Space Warrior2" parent="characters" node_paths=PackedStringArray("target") instance=ExtResource("26_k18e1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 12, 69)
+health_max = 10
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../act3-squadron/character3")
 
-[node name="SwarmAlien" parent="characters" instance=ExtResource("27_tlold")]
+[node name="melee" parent="characters/Space Warrior2/fsm" index="4"]
+enabled = false
+
+[node name="navigationAgent3D" parent="characters/Space Warrior2" index="4"]
+path_max_distance = 3.01
+
+[node name="img" parent="characters/Space Warrior2" index="10"]
+flip_h = true
+
+[node name="SwarmAlien" parent="characters" node_paths=PackedStringArray("target") instance=ExtResource("27_tlold")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.5, 12, 73.5)
+health_max = 10
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../act3-squadron/character5")
 
-[node name="SwarmAlienRed" parent="characters" instance=ExtResource("28_22tu3")]
+[node name="img" parent="characters/SwarmAlien" index="10"]
+flip_h = true
+
+[node name="SwarmAlienRed" parent="characters" node_paths=PackedStringArray("target") instance=ExtResource("28_22tu3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.5, 12, 61.5)
+health_max = 10
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../act3-squadron/character4")
 
-[node name="SwarmAlienGreen" parent="characters" instance=ExtResource("29_unc1q")]
+[node name="img" parent="characters/SwarmAlienRed" index="10"]
+flip_h = true
+
+[node name="SwarmAlienGreen" parent="characters" node_paths=PackedStringArray("target") instance=ExtResource("29_unc1q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.5, 12, 67.5)
+health_max = 10
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../act3-squadron/character3")
 
-[node name="Space Warrior3" parent="characters" instance=ExtResource("26_k18e1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 12, 65)
+[node name="img" parent="characters/SwarmAlienGreen" index="10"]
+flip_h = true
 
-[node name="Space Warrior4" parent="characters" instance=ExtResource("26_k18e1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 12, 67)
-
-[node name="SwarmAlienRed2" parent="characters" instance=ExtResource("28_22tu3")]
+[node name="SwarmAlienRed2" parent="characters" node_paths=PackedStringArray("target") instance=ExtResource("28_22tu3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130, 12, 71.5)
+health_max = 10
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../act3-squadron/character3")
 
-[node name="SwarmAlien2" parent="characters" instance=ExtResource("27_tlold")]
+[node name="img" parent="characters/SwarmAlienRed2" index="10"]
+flip_h = true
+
+[node name="SwarmAlien2" parent="characters" node_paths=PackedStringArray("target") instance=ExtResource("27_tlold")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 132, 12, 56.5)
+health_max = 10
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../act3-squadron/character8")
+
+[node name="img" parent="characters/SwarmAlien2" index="10"]
+flip_h = true
 
 [node name="turret_area" type="Node3D" parent="characters"]
 
@@ -1668,6 +3470,16 @@ spot_range = 10.0
 spot_attenuation = 0.406126
 spot_angle = 38.6
 
+[node name="light" type="SpotLight3D" parent="lights"]
+transform = Transform3D(0.00179946, -0.343655, 0.939094, 0.00491713, -0.939081, -0.34366, 0.999986, 0.00523605, -4.01627e-08, 137.5, 12.1, 66.5)
+visible = false
+light_color = Color(0.568627, 0.745098, 0.87451, 1)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 20.0
+spot_attenuation = 0.406126
+spot_angle = 38.6
+
 [node name="SpotLight3D82" type="SpotLight3D" parent="lights"]
 transform = Transform3D(0.00179946, -0.343655, 0.939094, 0.00491713, -0.939081, -0.34366, 0.999986, 0.00523605, -4.27238e-08, 143, 12.1, 66.5)
 light_color = Color(0.568627, 0.745098, 0.87451, 1)
@@ -1684,31 +3496,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.5, 12.1, 155)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 2, -22)
 
 [node name="character1" parent="start_cinematic_ship" instance=ExtResource("37_ljj25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.041049, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.00152588, 5)
+
+[node name="idle" parent="start_cinematic_ship/character1/fsm" index="0"]
+quip_play_chance = 0.0
 
 [node name="character2" parent="start_cinematic_ship" node_paths=PackedStringArray("nav_agent") instance=ExtResource("37_ljj25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.041049, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.021801, 1)
 nav_agent = NodePath("../character1/navigationAgent3DObjective")
+
+[node name="idle" parent="start_cinematic_ship/character2/fsm" index="0"]
+quip_play_chance = 0.0
 
 [node name="character3" parent="start_cinematic_ship" node_paths=PackedStringArray("nav_agent") instance=ExtResource("37_ljj25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.041049, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.00157547, 5)
 nav_agent = NodePath("../character1/navigationAgent3DObjective")
+
+[node name="idle" parent="start_cinematic_ship/character3/fsm" index="0"]
+quip_play_chance = 0.0
 
 [node name="character4" parent="start_cinematic_ship" node_paths=PackedStringArray("nav_agent") instance=ExtResource("37_ljj25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.041049, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.021801, 1)
 nav_agent = NodePath("../character1/navigationAgent3DObjective")
+
+[node name="idle" parent="start_cinematic_ship/character4/fsm" index="0"]
+quip_play_chance = 0.0
 
 [node name="character5" parent="start_cinematic_ship" node_paths=PackedStringArray("nav_agent") instance=ExtResource("37_ljj25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.041049, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.00157547, 5)
 nav_agent = NodePath("../character1/navigationAgent3DObjective")
+
+[node name="idle" parent="start_cinematic_ship/character5/fsm" index="0"]
+quip_play_chance = 0.0
 
 [node name="character6" parent="start_cinematic_ship" node_paths=PackedStringArray("nav_agent") instance=ExtResource("37_ljj25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.041049, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.021801, 1)
 nav_agent = NodePath("../character1/navigationAgent3DObjective")
 
+[node name="idle" parent="start_cinematic_ship/character6/fsm" index="0"]
+quip_play_chance = 0.0
+
 [node name="character7" parent="start_cinematic_ship" node_paths=PackedStringArray("nav_agent") instance=ExtResource("37_ljj25")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.041049, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.00172615, 3)
 nav_agent = NodePath("../character1/navigationAgent3DObjective")
+
+[node name="idle" parent="start_cinematic_ship/character7/fsm" index="0"]
+quip_play_chance = 0.0
 
 [node name="bomb" parent="start_cinematic_ship" instance=ExtResource("38_qj2eb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.6196, 3)
@@ -1746,9 +3579,6 @@ light_energy = 0.25
 shadow_enabled = true
 omni_range = 4.0
 
-[node name="space" parent="." instance=ExtResource("43_e3ygr")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 101.5, 53.5, 4.5)
-
 [node name="act4" type="Node3D" parent="."]
 
 [node name="cinematicShoot1" parent="act4" node_paths=PackedStringArray("target") instance=ExtResource("46_aixpt")]
@@ -1763,6 +3593,252 @@ target = NodePath("../../starships/starship3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6714, 38.8814, -108.352)
 target = NodePath("../../starships/starship2/Marker3D")
 
+[node name="act6-fires" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="act6-fires"]
+stream = ExtResource("47_ydm7i")
+bus = &"asteroid_walk"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="act6-fires"]
+transform = Transform3D(-0.906308, 0.422618, 0, -0.422618, -0.906308, 0, 0, 0, 1, 110, 19.5, 63)
+emitting = false
+amount = 90
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_3rn7o")
+draw_pass_1 = SubResource("BoxMesh_hf270")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="act6-fires"]
+transform = Transform3D(-0.906308, 0.422618, 0, -0.422618, -0.906308, 0, 0, 0, 1, 110, 19.5, 70.5)
+emitting = false
+amount = 90
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_3rn7o")
+draw_pass_1 = SubResource("BoxMesh_hf270")
+
+[node name="trap_fire" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 16, 71.5)
+activate_type = 0
+
+[node name="trap_fire9" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.5, 16, 76)
+activate_type = 0
+
+[node name="trap_fire10" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.5, 16, 77)
+activate_type = 0
+
+[node name="trap_fire14" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.5, 16, 77)
+activate_type = 0
+
+[node name="trap_fire15" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113, 16, 74.5)
+activate_type = 0
+
+[node name="trap_fire2" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 105.5, 16, 67.5)
+activate_type = 0
+
+[node name="trap_fire5" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 110, 16, 73.5)
+activate_type = 0
+
+[node name="trap_fire12" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 111.5, 16, 57)
+activate_type = 0
+
+[node name="trap_fire13" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 119, 16, 67)
+activate_type = 0
+
+[node name="trap_fire8" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 104, 16, 71)
+activate_type = 0
+
+[node name="trap_fire6" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 115.5, 16, 63.5)
+activate_type = 0
+
+[node name="trap_fire7" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 104.5, 16, 61)
+activate_type = 0
+
+[node name="trap_fire3" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 16, 63.5)
+activate_type = 0
+
+[node name="trap_fire4" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112, 16, 64.5)
+activate_type = 0
+
+[node name="trap_fire11" parent="act6-fires" instance=ExtResource("47_hqxkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 16, 72.5)
+activate_type = 0
+
+[node name="act6-shoot" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="cinematicShoot" parent="act6-shoot" node_paths=PackedStringArray("target") instance=ExtResource("46_aixpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 48, 66.5)
+target = NodePath("../../turrets/turret")
+
+[node name="cinematicShoot2" parent="act6-shoot" node_paths=PackedStringArray("target") instance=ExtResource("46_aixpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 48, 68.5)
+target = NodePath("../../turrets/turret2/pivot/turret_gun")
+
+[node name="cinematicShoot3" parent="act6-shoot" node_paths=PackedStringArray("target") instance=ExtResource("46_aixpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 49.5, 67.5)
+target = NodePath("Marker3D2")
+
+[node name="Marker3D2" type="Marker3D" parent="act6-shoot/cinematicShoot3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5, -33.5, 1.5)
+
+[node name="cinematicShoot4" parent="act6-shoot" node_paths=PackedStringArray("target") instance=ExtResource("46_aixpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 46, 67.5)
+target = NodePath("Marker3D3")
+
+[node name="Marker3D3" type="Marker3D" parent="act6-shoot/cinematicShoot4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5, -30, -5.5)
+
+[node name="cinematicShoot5" parent="act6-shoot" node_paths=PackedStringArray("target") instance=ExtResource("46_aixpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 46, 65)
+target = NodePath("Marker3D4")
+
+[node name="Marker3D4" type="Marker3D" parent="act6-shoot/cinematicShoot5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, -30, 1.5)
+
+[node name="cinematicShoot6" parent="act6-shoot" node_paths=PackedStringArray("target") instance=ExtResource("46_aixpt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158, 49, 65)
+target = NodePath("Marker3D5")
+
+[node name="Marker3D5" type="Marker3D" parent="act6-shoot/cinematicShoot6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47, -33, 11)
+
+[node name="node8" type="Node3D" parent="."]
+visible = false
+
+[node name="Path3D" type="Path3D" parent="node8"]
+curve = SubResource("Curve3D_3763n")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="node8/Path3D"]
+transform = Transform3D(0.0390303, 0, 0.999177, 0, 0.999984, 0, -0.999172, 0, 0.0390305, 205, 24, 69)
+rotation_mode = 1
+
+[node name="starship" parent="node8/Path3D/PathFollow3D" instance=ExtResource("4_ovtf3")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+
+[node name="act3-squadron" type="Node3D" parent="."]
+visible = false
+
+[node name="character" parent="act3-squadron" node_paths=PackedStringArray("target") instance=ExtResource("37_ljj25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.5, 12, 66)
+health_max = 10
+friendly = true
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../characters/Space Warrior")
+
+[node name="melee" parent="act3-squadron/character/fsm" index="4"]
+enabled = false
+
+[node name="character2" parent="act3-squadron" node_paths=PackedStringArray("nav_agent", "target") instance=ExtResource("37_ljj25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.5, 12, 63.5)
+health_max = 10
+friendly = true
+nav_agent = NodePath("../character/navigationAgent3DObjective")
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../characters/Space Warrior2")
+
+[node name="melee" parent="act3-squadron/character2/fsm" index="4"]
+enabled = false
+
+[node name="character3" parent="act3-squadron" node_paths=PackedStringArray("nav_agent", "target") instance=ExtResource("37_ljj25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.5, 12, 68.5)
+health_max = 10
+friendly = true
+nav_agent = NodePath("../character/navigationAgent3DObjective")
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../characters/SwarmAlienGreen")
+
+[node name="melee" parent="act3-squadron/character3/fsm" index="4"]
+enabled = false
+
+[node name="character4" parent="act3-squadron" node_paths=PackedStringArray("nav_agent", "target") instance=ExtResource("37_ljj25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135, 12, 60.5)
+health_max = 10
+friendly = true
+nav_agent = NodePath("../character/navigationAgent3DObjective")
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../characters/SwarmAlienRed")
+
+[node name="melee" parent="act3-squadron/character4/fsm" index="4"]
+enabled = false
+
+[node name="character5" parent="act3-squadron" node_paths=PackedStringArray("nav_agent", "target") instance=ExtResource("37_ljj25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.5, 12, 72)
+friendly = true
+nav_agent = NodePath("../character/navigationAgent3DObjective")
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../characters/SwarmAlien")
+
+[node name="melee" parent="act3-squadron/character5/fsm" index="4"]
+enabled = false
+
+[node name="character8" parent="act3-squadron" node_paths=PackedStringArray("nav_agent", "target") instance=ExtResource("37_ljj25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135.5, 12, 58.5)
+health_max = 3
+friendly = true
+nav_agent = NodePath("../character/navigationAgent3DObjective")
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../characters/SwarmAlienRed")
+
+[node name="melee" parent="act3-squadron/character8/fsm" index="4"]
+enabled = false
+
+[node name="character7" parent="act3-squadron" node_paths=PackedStringArray("nav_agent", "target") instance=ExtResource("37_ljj25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134, 12, 65)
+health_max = 10
+friendly = true
+nav_agent = NodePath("../character/navigationAgent3DObjective")
+drop_percent = 0.0
+cinematic = true
+target = NodePath("../../characters/SwarmAlien2")
+
+[node name="melee" parent="act3-squadron/character7/fsm" index="4"]
+enabled = false
+
+[node name="act10-survivor" type="Node3D" parent="."]
+visible = false
+
+[node name="character" parent="act10-survivor" instance=ExtResource("37_ljj25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134, 11.9999, 66.5)
+
+[node name="move" parent="act10-survivor/character/fsm" index="1"]
+speed = 4.0
+
+[node name="Marker3D" type="Marker3D" parent="act10-survivor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.5, 12.5396, 66.5)
+
+[node name="act12-survivor" type="Node3D" parent="."]
+visible = false
+
+[node name="into_station" type="Marker3D" parent="act12-survivor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.5, 11.999, 66.5)
+
+[node name="character" parent="act12-survivor" instance=ExtResource("37_ljj25")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.5, 12.0018, 66.5)
+
+[node name="move" parent="act12-survivor/character/fsm" index="1"]
+speed = 4.0
+
 [node name="game_interface" parent="." instance=ExtResource("3_247ah")]
 
 [node name="dialogue" parent="game_interface" index="3" node_paths=PackedStringArray("dialogue_tree")]
@@ -1772,11 +3848,36 @@ dialogue_tree = NodePath("../../dialogue_tree")
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="dialogue_finished" from="game_interface/dialogue" to="." method="_on_dialogue_finished"]
 
-[editable path="props/door/toggle-computer-1"]
-[editable path="props/toggle"]
-[editable path="props/toggle2"]
+[editable path="maps/NavigationRegion3D/props/door/toggle-computer-1"]
+[editable path="maps/NavigationRegion3D/props/toggle"]
+[editable path="maps/NavigationRegion3D/props/toggle2"]
+[editable path="characters/Space Sargent"]
+[editable path="characters/Space Warrior"]
+[editable path="characters/Space Warrior2"]
+[editable path="characters/SwarmAlien"]
+[editable path="characters/SwarmAlienRed"]
+[editable path="characters/SwarmAlienGreen"]
+[editable path="characters/SwarmAlienRed2"]
+[editable path="characters/SwarmAlien2"]
 [editable path="turrets/turret"]
 [editable path="turrets/turret2"]
 [editable path="turrets/turret3"]
 [editable path="turrets/turret4"]
+[editable path="start_cinematic_ship/character1"]
+[editable path="start_cinematic_ship/character2"]
+[editable path="start_cinematic_ship/character3"]
+[editable path="start_cinematic_ship/character4"]
+[editable path="start_cinematic_ship/character5"]
+[editable path="start_cinematic_ship/character6"]
+[editable path="start_cinematic_ship/character7"]
+[editable path="act3-squadron/character"]
+[editable path="act3-squadron/character2"]
+[editable path="act3-squadron/character3"]
+[editable path="act3-squadron/character4"]
+[editable path="act3-squadron/character5"]
+[editable path="act3-squadron/character8"]
+[editable path="act3-squadron/character7"]
+[editable path="act10-survivor/character"]
+[editable path="act12-survivor/character"]
 [editable path="game_interface"]
+[editable path="game_interface/hud"]

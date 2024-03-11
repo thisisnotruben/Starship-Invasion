@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcn16nd8wqbn2"]
+
+[ext_resource type="PackedScene" uid="uid://bocimopxl5cwo" path="res://src/entity/bullet/turret_bullet.tscn" id="1_a4dqp"]
+
+[node name="cin_turret_bullet" instance=ExtResource("1_a4dqp")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

@@ -4,7 +4,7 @@
 - level 4:
 	- add random/triggered explosions
 - cinematics:
-	- when you start game, it shows a tutorial / cinematic
+	- tutorial screen
 	- when game ends, it shows cinematic
 	- level 3 add cinematic of setting bomb
 

@@ -1,6 +1,9 @@
 extends CharacterBody3D
 class_name Character
 
+const WORLD_LAYER := 0b00000000_00000000_00000000_00000001
+
+
 @onready var img: AnimatedSprite3D = $img
 @onready var body: CollisionShape3D = $body
 @onready var snd: AudioStreamPlayer3D = $snd
@@ -22,6 +25,12 @@ class_name Character
 @export var npc = true: set = _set_npc
 @export var friendly := false: set = _set_friendly
 
+@export_category("Hit Flags")
+@export_flags_3d_physics var character_hit_flag := 0b00000000_00000000_00000000_00000010
+@export_flags_3d_physics var friendly_hit_flag := 0b00000000_00000000_00000000_10000000
+@export_flags_3d_physics var foe_hit_flag := 0b00000000_00000000_00000001_00000000
+@export_flags_3d_physics var player_hit_flag := 0b00000000_00000000_00000000_01000000
+
 @export_category("Melee")
 @export_range(1, 10) var melee_damage: int = 1
 @export_range(0.0, 50.0) var melee_range: float = 1.1
@@ -30,7 +39,6 @@ class_name Character
 @export_range(1, 10) var range_damage: int = 1
 
 @export_category("Player")
-@export_flags_3d_physics var player_hit_flag := 0b00000000_00000000_00000000_01000000
 @export_range(0.0, 10.0) var jump_velocity: float = 5.0
 var can_shoot := true
 @export var nav_agent: NavigationAgent3D = null
@@ -38,7 +46,6 @@ var can_shoot := true
 var objective_path := {"lines": [], "points": []}
 
 @export_category("Npc")
-@export_flags_3d_physics var npc_hit_flag := 0b00000000_00000000_00000000_00000010
 @export_range(0.0, 50.0) var shoot_range: float = 12.0
 @export var show_light := false
 
@@ -47,8 +54,12 @@ var objective_path := {"lines": [], "points": []}
 @export var drop: PackedScene # `Item`
 @export_range(0.0, 1.0, 0.05) var drop_percent := 0.2
 
+@export_category("Other")
+@export var cinematic := false
+@export var target: Character = null
+
+
 var health: int : set = _set_health
-var target: Character = null
 
 signal health_changed(_health)
 signal inventory_added(_item)
@@ -94,11 +105,25 @@ func _set_health(_health: int):
 	if health >= 0 and fsm.state != CharacterStates.Type.DIE:
 		emit_signal("health_changed", health)
 	if health == 0:
-		emit_signal("died", self)
 		fsm.state = CharacterStates.Type.DIE
+		emit_signal("died", self)
 		set_physics_process(false)
 		set_process_input(false)
 		set_process(false)
+
+func set_hit_flags():
+	var hit_layer := character_hit_flag
+	hit_layer += friendly_hit_flag if friendly else foe_hit_flag
+	if not npc:
+		hit_layer += player_hit_flag
+	set_deferred("collision_layer", hit_layer)
+
+	var hit_scan := WORLD_LAYER
+	hit_scan += foe_hit_flag if friendly else friendly_hit_flag
+	if not friendly:
+		hit_scan += player_hit_flag
+	$img/hit_cast_melee.set_deferred("collision_mask", hit_scan)
+	$img/hit_cast_shoot.set_deferred("collision_mask", hit_scan)
 
 func _set_npc(_npc: bool):
 	npc = _npc
@@ -108,10 +133,6 @@ func _set_npc(_npc: bool):
 	remove_from_group("player" if _npc else "npc")
 	add_to_group("npc" if _npc else "player")
 	set_process_input(not _npc)
-	hit_scan_melee.set_deferred("collision_mask", player_hit_flag if _npc \
-	 else npc_hit_flag)
-	set_deferred("collision_layer", npc_hit_flag if _npc \
-		else player_hit_flag + npc_hit_flag)
 	if npc:
 		set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	else:
@@ -124,6 +145,7 @@ func _set_npc(_npc: bool):
 
 func _set_friendly(_friendly: bool):
 	friendly = _friendly
+	call_deferred("set_hit_flags")
 	if npc:
 		if _friendly:
 			remove_from_group("foe")
@@ -251,7 +273,7 @@ func _on_sight_area_entered(area: Node3D):
 		aggro(area.owner.from_character)
 
 func aggro(_body: Node3D) -> bool:
-	if npc and is_foe(_body):
+	if npc and is_foe(_body) and not cinematic:
 		target = _body
 		behavior.state = BehaviorStates.Type.ATTACK
 		$sight.get_overlapping_bodies() \

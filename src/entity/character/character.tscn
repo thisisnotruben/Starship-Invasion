@@ -415,7 +415,6 @@ parameters/move-shoot/blend_position = Vector2(0, 0)
 parameters/shoot/blend_position = Vector2(0, 0)
 
 [node name="navigationAgent3D" type="NavigationAgent3D" parent="."]
-path_max_distance = 3.01
 avoidance_enabled = true
 radius = 0.55
 neighbor_distance = 12.0

@@ -9,7 +9,6 @@ extends BehaviorState
 @onready var special_timer: Timer = $special_cooldown
 
 var state := -1
-var distance := -1.0
 
 
 func exit():
@@ -26,8 +25,6 @@ func process(_delta: float):
 		character.global_position.y, character.target.global_position.z))
 
 	state = -1
-	distance = snappedf(character.global_position.distance_to( \
-		character.target.global_position), 0.01)
 
 	# check if can special
 	if special_state.enabled and special_state.is_valid_state() \
@@ -36,14 +33,15 @@ func process(_delta: float):
 			state = CharacterStates.Type.SPECIAL
 
 	# check if can melee
-	elif character.fsm.can_melee() and (character.melee_range >= distance \
-	or character.hit_scan_melee.get_collider() == character.target):
+	elif character.fsm.can_melee() \
+	and character.hit_scan_melee.get_collider() == character.target:
 		if is_zero_approx(melee_timer.time_left):
 			state = CharacterStates.Type.MELEE
 
 	# check if can shoot
-	elif character.fsm.can_shoot() and (character.shoot_range >= distance
-	and character.hit_scan_shoot.get_collider() == character.target):
+
+	elif character.fsm.can_shoot() \
+	and character.hit_scan_shoot.get_collider() == character.target:
 		if is_zero_approx(shoot_timer.time_left):
 			state = CharacterStates.Type.SHOOT
 

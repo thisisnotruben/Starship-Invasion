@@ -3093,7 +3093,7 @@ type = 0
 [node name="characters" type="Node3D" parent="."]
 
 [node name="player" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("7_idokq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 155)
 health_max = 6
 friendly = true
 range_damage = 10

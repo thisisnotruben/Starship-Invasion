@@ -158,6 +158,8 @@ show_objective={
 3d_physics/layer_5="asteroid_kill"
 3d_physics/layer_6="spawn"
 3d_physics/layer_7="player"
+3d_physics/layer_8="friendly"
+3d_physics/layer_9="foe"
 
 [rendering]
 
