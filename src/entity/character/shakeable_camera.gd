@@ -1,4 +1,5 @@
 extends Node
+class_name ShakeCam
 
 @export var trauma_reduction_rate := 1.0
 
@@ -12,14 +13,13 @@ extends Node
 var trauma := 0.0
 var time := 0.0
 
-@export var camera: Camera3D = null
-var initial_rotation: Vector3 = Vector3.ZERO
+@export var camera: Camera3D = null: set = _set_cam
+var initial_rotation := Vector3.ZERO
+var init_rot := Vector3.ZERO
 
 
 func _ready():
 	set_process(false)
-	if camera != null:
-		initial_rotation = camera.rotation_degrees
 
 func _process(delta: float):
 	time += delta
@@ -41,10 +41,14 @@ func add_trauma(trauma_amount : float):
 
 func shake(duration_sec: float, reset := false):
 	set_process(true)
-	var tween := get_tree().create_tween()
-	var initial_rot := camera.rotation
-	tween.tween_method(add_trauma, 0.8, 0.8, duration_sec)
-	await tween.finished
-	if reset:
-		camera.rotation = initial_rot
+	await get_tree().create_tween().tween_method( \
+		add_trauma, 0.8, 0.8, duration_sec).finished
 	set_process(false)
+	if reset:
+		get_tree().create_tween().tween_property( \
+			camera, "rotation", init_rot, 0.5)
+
+func _set_cam(_camera: Camera3D):
+	camera =_camera
+	initial_rotation = camera.rotation_degrees
+	init_rot = camera.rotation

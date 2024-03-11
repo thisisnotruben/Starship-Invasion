@@ -1,0 +1,92 @@
+[gd_scene load_steps=33 format=3 uid="uid://5s5yojvrdw8j"]
+
+[ext_resource type="Script" path="res://src/map/doodads/explosion/explosion.gd" id="1_jbr6m"]
+[ext_resource type="Script" path="res://src/entity/character/shakeable_camera.gd" id="2_dp644"]
+[ext_resource type="AudioStream" uid="uid://oobi12prv1ju" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_01.wav" id="2_vwb11"]
+[ext_resource type="AudioStream" uid="uid://c4ycqfo6bl5yg" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_02.wav" id="3_ym10l"]
+[ext_resource type="AudioStream" uid="uid://cv0gxa8n2n2kv" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_03.wav" id="4_w60cs"]
+[ext_resource type="AudioStream" uid="uid://cw3jlnacl3i4c" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_04.wav" id="5_k456n"]
+[ext_resource type="AudioStream" uid="uid://i8wxrrqtbmyf" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_05.wav" id="6_nqpcd"]
+[ext_resource type="AudioStream" uid="uid://5wwt1ul8g7t3" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_06.wav" id="7_lp77p"]
+[ext_resource type="AudioStream" uid="uid://bmuq1orbs72ta" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_07.wav" id="8_u6jq1"]
+[ext_resource type="AudioStream" uid="uid://dts53chmaqa2a" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_08.wav" id="9_21u2b"]
+[ext_resource type="AudioStream" uid="uid://b4m3r43lup172" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_09.wav" id="10_wm4o6"]
+[ext_resource type="AudioStream" uid="uid://bhy8qla7q32xl" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_10.wav" id="11_akuyx"]
+[ext_resource type="AudioStream" uid="uid://b474iml37anlc" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_11.wav" id="12_y3l31"]
+[ext_resource type="AudioStream" uid="uid://ne4jwvtrpdnx" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_12.wav" id="13_46vkb"]
+[ext_resource type="AudioStream" uid="uid://brtmjesa1qrab" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_13.wav" id="14_3eiwj"]
+[ext_resource type="AudioStream" uid="uid://mdvx4t8h4f1k" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_14.wav" id="15_uqug6"]
+[ext_resource type="AudioStream" uid="uid://ba1kueclgq44f" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_15.wav" id="16_3oulk"]
+[ext_resource type="AudioStream" uid="uid://bubdantahfnl7" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_16.wav" id="17_n3u0k"]
+[ext_resource type="AudioStream" uid="uid://dgqp4lv07cxrs" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_17.wav" id="18_orx0y"]
+[ext_resource type="AudioStream" uid="uid://djygrxv3tbfw5" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_18.wav" id="19_uuwd2"]
+[ext_resource type="AudioStream" uid="uid://dt5sxh6q41wbb" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_19.wav" id="20_rfm8n"]
+[ext_resource type="AudioStream" uid="uid://dv27e7ojy1tnt" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_20.wav" id="21_nxax4"]
+[ext_resource type="AudioStream" uid="uid://crpfpggpv17mu" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_Mini_01.wav" id="22_icfwo"]
+[ext_resource type="AudioStream" uid="uid://bebfqkm1502j" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_Mini_02.wav" id="23_wd3fm"]
+[ext_resource type="AudioStream" uid="uid://c5fn6uv0d7hqm" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_Mini_03.wav" id="24_covaa"]
+[ext_resource type="AudioStream" uid="uid://bcx7g0yrh2ehy" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_Mini_04.wav" id="25_5wlsh"]
+[ext_resource type="AudioStream" uid="uid://ckqtai5o441uk" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_Mini_05.wav" id="26_pnyib"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_1re6x"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_in8mp"]
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 2.5
+initial_velocity_max = 2.5
+gravity = Vector3(0, -4.9, 0)
+linear_accel_min = 3.0
+linear_accel_max = 3.0
+scale_min = 0.5
+scale_max = 0.5
+color = Color(0.956863, 0.0588235, 0.0196078, 1)
+emission_curve = SubResource("CurveTexture_1re6x")
+hue_variation_max = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfws4"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_16cfb"]
+material = SubResource("StandardMaterial3D_nfws4")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_toapw"]
+height = 1.5
+radius = 2.0
+
+[node name="explosion" type="Node3D"]
+script = ExtResource("1_jbr6m")
+snd_library = Array[AudioStream]([ExtResource("2_vwb11"), ExtResource("3_ym10l"), ExtResource("4_w60cs"), ExtResource("5_k456n"), ExtResource("6_nqpcd"), ExtResource("7_lp77p"), ExtResource("8_u6jq1"), ExtResource("9_21u2b"), ExtResource("10_wm4o6"), ExtResource("11_akuyx"), ExtResource("12_y3l31"), ExtResource("13_46vkb"), ExtResource("14_3eiwj"), ExtResource("15_uqug6"), ExtResource("16_3oulk"), ExtResource("17_n3u0k"), ExtResource("18_orx0y"), ExtResource("19_uuwd2"), ExtResource("20_rfm8n"), ExtResource("21_nxax4"), ExtResource("22_icfwo"), ExtResource("23_wd3fm"), ExtResource("24_covaa"), ExtResource("25_5wlsh"), ExtResource("26_pnyib")])
+
+[node name="shake_cam" type="Node" parent="."]
+script = ExtResource("2_dp644")
+
+[node name="offset" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="snd" type="AudioStreamPlayer" parent="offset"]
+bus = &"asteroid_walk"
+
+[node name="particles" type="GPUParticles3D" parent="offset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+emitting = false
+amount = 60
+one_shot = true
+explosiveness = 0.8
+visibility_aabb = AABB(-4, -3.5, -4, 8, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_in8mp")
+draw_pass_1 = SubResource("BoxMesh_16cfb")
+
+[node name="area3D" type="Area3D" parent="offset"]
+collision_layer = 0
+collision_mask = 64
+monitorable = false
+
+[node name="coll" type="CollisionShape3D" parent="offset/area3D"]
+shape = SubResource("CylinderShape3D_toapw")
+
+[connection signal="body_entered" from="offset/area3D" to="." method="_on_area_3d_body_entered"]

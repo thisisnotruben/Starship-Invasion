@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cybtj1ouq743o" path="res://asset/snd/DOS-88/DOS-88 - Dark Ascent.mp3" id="2_mwbjw"]
 [ext_resource type="Script" path="res://src/map/start_cinematic/start_cinematic_dialogue.gd" id="3_4dun3"]
 [ext_resource type="PackedScene" uid="uid://d3bnjjdsas4ei" path="res://src/ui/game_interface.tscn" id="3_247ah"]
-[ext_resource type="PackedScene" uid="uid://cm6lrl0cgaejr" path="res://src/ui/start/start.tscn" id="3_msux0"]
+[ext_resource type="PackedScene" uid="uid://cm6lrl0cgaejr" path="res://src/ui/start/start.tscn" id="3_d3ygr"]
 [ext_resource type="PackedScene" uid="uid://sbj1ilhselp0" path="res://src/map/doodads/starship/starship.tscn" id="4_ovtf3"]
 [ext_resource type="Script" path="res://src/entity/character/shakeable_camera.gd" id="4_soco3"]
 [ext_resource type="PackedScene" uid="uid://des2ke677y68u" path="res://asset/crocotile3d/map1/map_1.tscn" id="6_7bne4"]
@@ -3014,7 +3014,7 @@ point_count = 2
 [node name="startCinematic" type="Node3D"]
 script = ExtResource("1_57w32")
 act0_music = ExtResource("2_mwbjw")
-next_level = ExtResource("3_msux0")
+next_level = ExtResource("3_d3ygr")
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -3840,7 +3840,7 @@ speed = 4.0
 
 [node name="game_interface" parent="." instance=ExtResource("3_247ah")]
 
-[node name="dialogue" parent="game_interface" index="3" node_paths=PackedStringArray("dialogue_tree")]
+[node name="dialogue" parent="game_interface" index="4" node_paths=PackedStringArray("dialogue_tree")]
 play_snd = false
 dialogue_tree = NodePath("../../dialogue_tree")
 

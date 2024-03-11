@@ -21,6 +21,9 @@ static func is_locked(level: int) -> bool:
 static func have_played() -> bool:
 	return unlocked_levels.any(func(l): return l)
 
+static func finished_last_level() -> bool:
+	return unlocked_levels[-1]
+
 static func first_played_level() -> bool:
 	return unlocked_levels.count(true) == 1
 

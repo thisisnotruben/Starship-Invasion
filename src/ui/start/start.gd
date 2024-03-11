@@ -15,7 +15,8 @@ var play_focus_sfx := false
 
 @export var videos: Array[VideoStream] = []
 @export var video_lengths: Array[float] = []
-@export var cinematic_scene: PackedScene = null
+@export var start_cinematic_scene: PackedScene = null
+@export var end_cinematic_scene: PackedScene = null
 var video_data := {}
 
 var tabs := {"main": 0, "license": 1, "credits": 2, "controls": 3, \
@@ -94,6 +95,8 @@ func _on_main_draw():
 func _on_level_draw():
 	$center/panel/margin/tabs/level/start_cinematic.visible = \
 		LevelQuery.have_played()
+	$center/panel/margin/tabs/level/end_cinematic.visible = \
+		LevelQuery.finished_last_level()
 	play_focus_sfx = false
 	lvl_bttn_focus.grab_focus()
 	play_focus_sfx = true
@@ -104,7 +107,15 @@ func _on_start_cinematic_pressed():
 	$center/panel/margin/tabs/level/start_cinematic.release_focus()
 	$snd_game.play()
 	await $snd_game.finished
-	get_tree().change_scene_to_packed(cinematic_scene)
+	get_tree().change_scene_to_packed(start_cinematic_scene)
+
+func _on_end_cinematic__pressed():
+	next_level = -1
+	chosen_level_scene = null
+	$center/panel/margin/tabs/level/end_cinematic.release_focus()
+	$snd_game.play()
+	await $snd_game.finished
+	get_tree().change_scene_to_packed(end_cinematic_scene)
 
 func _on_level_pressed(level: int):
 	next_level = level
@@ -115,7 +126,7 @@ func _on_level_pressed(level: int):
 	if not LevelQuery.have_played():
 		$snd_game.play()
 		await $snd_game.finished
-		get_tree().change_scene_to_packed(cinematic_scene)
+		get_tree().change_scene_to_packed(start_cinematic_scene)
 	elif level > 1 and LevelQuery.is_locked(level):
 		$snd_popup.play()
 		popup.display("You haven't complete prior level...\n" \

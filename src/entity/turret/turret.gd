@@ -53,7 +53,7 @@ func set_aim(aim_true: bool):
 func shoot():
 	anim_shoot.play("recoil")
 	bullet_scene.instantiate().spawn_shot( \
-		{"asteroid_turret": self, "damage": 1, \
+		{"asteroid_turret": self, "damage": 1, "spatial": spatial_sound, \
 		"snd_player": snd_shoot if spatial_sound else snd_shoot1})
 
 func _set_rotate(_rotate_gun: bool):
@@ -66,9 +66,9 @@ func _set_rotate(_rotate_gun: bool):
 func _set_rand_shoot(_random_shoot: bool):
 	var timer_callable := func():
 		if _random_shoot:
-			timer.start(_get_rand_amount())
+			$timer.start(_get_rand_amount())
 		else:
-			timer.stop()
+			$timer.stop()
 	random_shoot = _random_shoot
 	timer_callable.call_deferred()
 

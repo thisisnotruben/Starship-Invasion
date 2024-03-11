@@ -9,6 +9,7 @@
 [node name="game_interface" type="CanvasLayer"]
 
 [node name="game" parent="." instance=ExtResource("1_kvwol")]
+visible = false
 
 [node name="effects" parent="." instance=ExtResource("2_w7tmx")]
 

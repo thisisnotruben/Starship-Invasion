@@ -3,7 +3,6 @@ class_name Character
 
 const WORLD_LAYER := 0b00000000_00000000_00000000_00000001
 
-
 @onready var img: AnimatedSprite3D = $img
 @onready var body: CollisionShape3D = $body
 @onready var snd: AudioStreamPlayer3D = $snd
