@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cm6lrl0cgaejr"]
+[gd_scene load_steps=31 format=3 uid="uid://cm6lrl0cgaejr"]
 
 [ext_resource type="Script" path="res://src/ui/start/start.gd" id="1_pxw42"]
 [ext_resource type="AudioStream" uid="uid://b1tmf6dh3f8bg" path="res://asset/snd/DOS-88/DOS-88 - Dream Electro - 09 Summer Forever.ogg" id="2_6hujg"]
@@ -27,7 +27,6 @@
 [ext_resource type="VideoStream" path="res://asset/video/zone2-6.ogv" id="13_j8jwt"]
 [ext_resource type="VideoStream" path="res://asset/video/zone3-0.ogv" id="14_u8e4a"]
 [ext_resource type="PackedScene" uid="uid://cu0ekcdh24es1" path="res://src/ui/settings/settings.tscn" id="14_yqrh2"]
-[ext_resource type="PackedScene" uid="uid://dudokf247b84k" path="res://src/map/start_cinematic/start_cinematic.tscn" id="15_8obxp"]
 
 [sub_resource type="Animation" id="Animation_as0gl"]
 length = 0.001
@@ -89,7 +88,7 @@ grow_vertical = 2
 script = ExtResource("1_pxw42")
 videos = Array[VideoStream]([ExtResource("2_rckj6"), ExtResource("3_xxicg"), ExtResource("4_spl8t"), ExtResource("5_cx1g5"), ExtResource("6_4ghcq"), ExtResource("7_6o1i5"), ExtResource("8_dp6nc"), ExtResource("9_m0vf8"), ExtResource("10_6sphx"), ExtResource("11_bhbpi"), ExtResource("12_3mr1g"), ExtResource("13_j8jwt"), ExtResource("14_u8e4a")])
 video_lengths = Array[float]([12.0, 12.0, 12.0, 10.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 12.0, 61.0, 21.5])
-start_cinematic_scene = ExtResource("15_8obxp")
+start_cinematic_scenepath = "res://src/map/start_cinematic/start_cinematic.tscn"
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_6hujg")

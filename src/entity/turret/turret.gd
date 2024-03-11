@@ -54,7 +54,7 @@ func shoot():
 	anim_shoot.play("recoil")
 	bullet_scene.instantiate().spawn_shot( \
 		{"asteroid_turret": self, "damage": 1, "spatial": spatial_sound, \
-		"snd_player": snd_shoot if spatial_sound else snd_shoot1})
+		"snd_player_spatial": snd_shoot, "snd_player": snd_shoot1})
 
 func _set_rotate(_rotate_gun: bool):
 	rotate_gun = _rotate_gun

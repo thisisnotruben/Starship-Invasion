@@ -15,8 +15,8 @@ var play_focus_sfx := false
 
 @export var videos: Array[VideoStream] = []
 @export var video_lengths: Array[float] = []
-@export var start_cinematic_scene: PackedScene = null
-@export var end_cinematic_scene: PackedScene = null
+@export_file("*.tscn") var start_cinematic_scenepath := ""
+@export_file("*.tscn") var end_cinematic_scenepath := ""
 var video_data := {}
 
 var tabs := {"main": 0, "license": 1, "credits": 2, "controls": 3, \
@@ -107,7 +107,7 @@ func _on_start_cinematic_pressed():
 	$center/panel/margin/tabs/level/start_cinematic.release_focus()
 	$snd_game.play()
 	await $snd_game.finished
-	get_tree().change_scene_to_packed(start_cinematic_scene)
+	get_tree().change_scene_to_file(start_cinematic_scenepath)
 
 func _on_end_cinematic__pressed():
 	next_level = -1
@@ -115,7 +115,7 @@ func _on_end_cinematic__pressed():
 	$center/panel/margin/tabs/level/end_cinematic.release_focus()
 	$snd_game.play()
 	await $snd_game.finished
-	get_tree().change_scene_to_packed(end_cinematic_scene)
+	get_tree().change_scene_to_file(end_cinematic_scenepath)
 
 func _on_level_pressed(level: int):
 	next_level = level
@@ -126,7 +126,7 @@ func _on_level_pressed(level: int):
 	if not LevelQuery.have_played():
 		$snd_game.play()
 		await $snd_game.finished
-		get_tree().change_scene_to_packed(start_cinematic_scene)
+		get_tree().change_scene_to_file(start_cinematic_scenepath)
 	elif level > 1 and LevelQuery.is_locked(level):
 		$snd_popup.play()
 		popup.display("You haven't complete prior level...\n" \
