@@ -22,7 +22,6 @@
 [ext_resource type="AnimationLibrary" uid="uid://dm8ve6q8hsmqt" path="res://resource/character_anim.tres" id="13_c30pa"]
 [ext_resource type="SpriteFrames" uid="uid://ybsqrkdfor0r" path="res://resource/character/character_0.tres" id="13_jlygo"]
 [ext_resource type="AudioStream" uid="uid://1sxsos4l36tq" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Screaming Voice 1.wav" id="13_khco6"]
-[ext_resource type="Script" path="res://src/entity/fsm/_fsm.gd" id="13_vknas"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/behavior/attack.gd" id="14_a08bn"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/behavior/rest.gd" id="15_q5611"]
 [ext_resource type="AudioStream" uid="uid://ccbgujfvxyabt" path="res://asset/snd/8881 - Sci-Fi Energy Weapon Sound Effects Pack/Sci-Fi Energy Weapon Shot 4.wav" id="17_3aye0"]
@@ -37,6 +36,7 @@
 [ext_resource type="AudioStream" uid="uid://bxij0fikjikr7" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_09.wav" id="26_b13vc"]
 [ext_resource type="AudioStream" uid="uid://bh2a3e87mck6l" path="res://asset/snd/Punch & Flesh SFX/96khz24bit/S_Body_Punch_Impact_10.wav" id="27_1v5ju"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/state/special.gd" id="30_2o4ms"]
+[ext_resource type="Script" path="res://src/entity/character/fsm/behavior/behavior_fsm.gd" id="32_e3qg4"]
 [ext_resource type="Script" path="res://src/entity/character/fsm/behavior/move.gd" id="33_p5j20"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jxg5c"]
@@ -322,6 +322,7 @@ speed = 8.0
 BOB_FREQ = 2.0
 quips = Array[AudioStream]([ExtResource("4_d87sa"), ExtResource("5_n0rev"), ExtResource("6_b6d6m"), ExtResource("7_j4qcj")])
 quip_play_chance = 0.2
+need_physics_process = true
 
 [node name="player" type="Node" parent="fsm/move"]
 script = ExtResource("9_r4jia")
@@ -335,6 +336,7 @@ script = ExtResource("5_ljr7x")
 bullet_scene = ExtResource("8_gxqps")
 quips = Array[AudioStream]([ExtResource("10_3idqd"), ExtResource("11_k1aml"), ExtResource("12_tigal")])
 quip_play_chance = 0.125
+need_physics_process = true
 
 [node name="player" type="Node" parent="fsm/move-shoot"]
 script = ExtResource("9_r4jia")
@@ -365,12 +367,13 @@ script = ExtResource("30_2o4ms")
 enabled = false
 
 [node name="fsm_behavior" type="Node" parent="."]
-script = ExtResource("13_vknas")
+script = ExtResource("32_e3qg4")
 
 [node name="attack" type="Node" parent="fsm_behavior" node_paths=PackedStringArray("nav_agent", "special_state")]
 script = ExtResource("14_a08bn")
 nav_agent = NodePath("../../navigationAgent3D")
 special_state = NodePath("../../fsm/special")
+need_physics_process = true
 
 [node name="melee_cooldown" type="Timer" parent="fsm_behavior/attack"]
 wait_time = 1.5
@@ -390,6 +393,7 @@ script = ExtResource("15_q5611")
 [node name="move_to" type="Node" parent="fsm_behavior" node_paths=PackedStringArray("nav_agent")]
 script = ExtResource("33_p5j20")
 nav_agent = NodePath("../../navigationAgent3D")
+need_physics_process = true
 
 [node name="animationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -415,6 +419,7 @@ parameters/move-shoot/blend_position = Vector2(0, 0)
 parameters/shoot/blend_position = Vector2(0, 0)
 
 [node name="navigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 1.1
 avoidance_enabled = true
 radius = 0.55
 neighbor_distance = 12.0

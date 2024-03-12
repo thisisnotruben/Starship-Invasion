@@ -65,10 +65,10 @@ func toggle(activate: bool):
 	$area3D/collisionShape3D.set_deferred("disabled", not activate)
 	if activate:
 		$snd.play()
-		timer.start()
+		$timer.start()
 	else:
 		$snd.stop()
-		timer.stop()
+		$timer.stop()
 
 func _get_rand_amount() -> float:
 	var timer_sec := time_to_activate

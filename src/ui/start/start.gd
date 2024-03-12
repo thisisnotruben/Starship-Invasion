@@ -5,6 +5,7 @@ static var chosen_level_scene: PackedScene = null
 static var next_level := -1
 
 var play_focus_sfx := false
+var thread := Thread.new()
 
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
@@ -119,15 +120,11 @@ func _on_end_cinematic__pressed():
 
 func _on_level_pressed(level: int):
 	next_level = level
-	chosen_level_scene = load("res://src/map/level%s.tscn" % next_level)
+	thread.start(func(): return load("res://src/map/level%s.tscn" % level))
 	tab_back = "level"
 	lvl_bttn_focus = get_node("center/panel/margin/tabs/level/level%s" % level)
 	lvl_bttn_focus.release_focus()
-	if not LevelQuery.have_played():
-		$snd_game.play()
-		await $snd_game.finished
-		get_tree().change_scene_to_file(start_cinematic_scenepath)
-	elif level > 1 and LevelQuery.is_locked(level):
+	if level > 1 and LevelQuery.is_locked(level):
 		$snd_popup.play()
 		popup.display("You haven't complete prior level...\n" \
 			+ "Complete prior level?", "Go", "Stay")
@@ -143,17 +140,27 @@ func _on_level_pressed(level: int):
 
 func _on_difficulty_pressed(difficulty: String):
 	var chosen_difficulty := Difficulty.Type.MEDIUM
+	var button: Control = $center/panel/margin/tabs/difficulty/medium
 	match difficulty:
 		"easy":
 			chosen_difficulty = Difficulty.Type.EASY
+			button = $center/panel/margin/tabs/difficulty/easy
 		"hard":
 			chosen_difficulty = Difficulty.Type.HARD
+			button = $center/panel/margin/tabs/difficulty/hard
+	button.release_focus()
 
 	Difficulty.des_diff = chosen_difficulty
+	var have_played := LevelQuery.have_played()
 	LevelQuery.unlock_level(next_level)
+
 	$snd_game.play()
 	await $snd_game.finished
-	get_tree().change_scene_to_packed(chosen_level_scene)
+	chosen_level_scene = thread.wait_to_finish()
+	if have_played:
+		get_tree().change_scene_to_packed(chosen_level_scene)
+	else:
+		get_tree().change_scene_to_file(start_cinematic_scenepath)
 
 func _on_difficulty_draw():
 	$center/panel/margin/tabs/difficulty/medium.grab_focus()

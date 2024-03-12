@@ -9,7 +9,6 @@ extends StaticBody3D
 @export var play := true
 @export_category("Light")
 @export var lights: Array[Light3D] = []
-@export var look_at_node: Node3D = null
 
 var play_snd := false
 
@@ -42,9 +41,9 @@ func _on_visibility_screen_exited():
 func _process(_delta: float):
 	if _is_valid():
 		for light in lights:
-			light.look_at(look_at_node.global_position)
+			light.look_at(get_viewport().get_camera_3d().global_position)
 	else:
 		set_process(false)
 
 func _is_valid() -> bool:
-	return look_at_node != null and not lights.is_empty()
+	return not lights.is_empty()

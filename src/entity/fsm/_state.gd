@@ -1,6 +1,12 @@
 extends Node
 class_name IState
 
+@export_category("Performance Flags")
+@export var need_physics_process := false
+@export var need_process := false
+@export var need_input_process := false
+
+
 var active: bool = false
 
 signal change_state(_state)

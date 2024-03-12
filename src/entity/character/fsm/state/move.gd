@@ -1,6 +1,9 @@
 extends CharacterState
 class_name Move
 
+@onready var player_move: IState = $player
+@onready var npc_move: IState = $npc
+
 @export_group("Movement Variables")
 @export_subgroup("Movement")
 @export_range(0.0, 20.0) var speed: float = 6.0
@@ -28,19 +31,12 @@ func exit():
 	super.exit()
 	velocity = Vector3(0.0, velocity.y, 0.0)
 
-func input(event: InputEvent):
-	super.input(event)
-	if character.npc:
-		$npc.input(event)
-	else:
-		$player.input(event)
-
 func physics_process(delta: float):
 	super.physics_process(delta)
 	if character.npc:
-		$npc.physics_process(delta)
+		npc_move.physics_process(delta)
 	else:
-		$player.physics_process(delta)
+		player_move.physics_process(delta)
 
 # animation
 func apply_animation(input_dir: Vector2):

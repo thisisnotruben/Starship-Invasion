@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://b2hpi4iqmivtc" path="res://asset/snd/Robotic_Voices/Alert_SFX/Alert3.wav" id="10_q4xse"]
 
 [node name="dialogue" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,6 +32,15 @@ bus = &"sfx"
 [node name="snd_show" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_q4xse")
 bus = &"sfx"
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0313726, 0.0392157, 0.0392157, 0.501961)
 
 [node name="center" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -60,5 +70,6 @@ visible = false
 layout_mode = 2
 text = "Continue"
 
+[connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="finished" from="snd" to="." method="_on_snd_finished"]
 [connection signal="pressed" from="center/panel/margin/VBoxContainer/continue" to="." method="_on_continue_pressed"]

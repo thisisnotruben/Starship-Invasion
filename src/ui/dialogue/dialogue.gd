@@ -8,12 +8,13 @@ extends Control
 
 @export_category("Sound")
 @export var snd_library: Array[AudioStream] = []
-@export var play_snd := true
+@export var play_snd := false
 @export_range(0.0, 5.0) var pause_between_audio := 0.25
 
 @export_category("Behavior")
 @export var dialogue_tree: DialogueTree = null
 @export_range(0.01, 1.0) var character_speed = 0.045
+@export var pause_when_shown := true
 
 var active := false
 var shown := false
@@ -43,7 +44,9 @@ func start_dialogue(idx: int, _show_and_hide := true):
 		snd.play()
 
 	active = true
-	await get_tree().create_tween().tween_property(label, \
+	var tween := get_tree().create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	await tween.tween_property(label, \
 		"visible_ratio", 1.0, play_length).finished
 	active = false
 	bttn_focused = true
@@ -71,3 +74,7 @@ func _on_game_visibility_changed():
 		visible = not game_menu.visible
 		if visible and bttn_focused:
 			continue_bttn.grab_focus()
+
+func _on_draw():
+	if pause_when_shown:
+		get_tree().paused = visible

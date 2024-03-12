@@ -1,8 +1,8 @@
 # Starship Invasion
 
 # TODO
+- music selection
 - level 4:
-	- add random/triggered explosions
 	- when game ends, it shows cinematic
 
 ## Maybe

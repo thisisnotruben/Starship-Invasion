@@ -55,6 +55,7 @@ vertex_color_use_as_albedo = true
 material = SubResource("StandardMaterial3D_nfws4")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_toapw"]
+resource_local_to_scene = true
 height = 1.5
 radius = 2.0
 
@@ -65,14 +66,8 @@ snd_library = Array[AudioStream]([ExtResource("2_vwb11"), ExtResource("3_ym10l")
 [node name="shake_cam" type="Node" parent="."]
 script = ExtResource("2_dp644")
 
-[node name="offset" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-
-[node name="snd" type="AudioStreamPlayer" parent="offset"]
-bus = &"asteroid_walk"
-
-[node name="particles" type="GPUParticles3D" parent="offset"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+[node name="particles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
 emitting = false
 amount = 60
 one_shot = true
@@ -80,6 +75,12 @@ explosiveness = 0.8
 visibility_aabb = AABB(-4, -3.5, -4, 8, 8, 8)
 process_material = SubResource("ParticleProcessMaterial_in8mp")
 draw_pass_1 = SubResource("BoxMesh_16cfb")
+
+[node name="offset" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="snd" type="AudioStreamPlayer" parent="offset"]
+bus = &"sfx"
 
 [node name="area3D" type="Area3D" parent="offset"]
 collision_layer = 0

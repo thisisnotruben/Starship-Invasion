@@ -152,7 +152,9 @@ show_objective={
 [layer_names]
 
 3d_physics/layer_1="world"
+3d_navigation/layer_1="world"
 3d_physics/layer_2="character"
+3d_navigation/layer_2="door"
 3d_physics/layer_3="bullet"
 3d_physics/layer_4="asteroid"
 3d_physics/layer_5="asteroid_kill"
@@ -164,3 +166,4 @@ show_objective={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+occlusion_culling/use_occlusion_culling=true

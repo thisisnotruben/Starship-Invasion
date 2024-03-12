@@ -24,3 +24,4 @@ game_menu = NodePath("../game")
 
 [connection signal="visibility_changed" from="game" to="tutorial" method="_on_game_visibility_changed"]
 [connection signal="visibility_changed" from="game" to="dialogue" method="_on_game_visibility_changed"]
+[connection signal="dialogue_finished" from="dialogue" to="tutorial" method="start"]

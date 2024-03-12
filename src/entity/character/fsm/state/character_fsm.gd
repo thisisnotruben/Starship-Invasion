@@ -1,4 +1,5 @@
 extends Fsm
+class_name FSMCharacter
 
 const NPC_FLIP := Vector2(1.0, -1.0)
 

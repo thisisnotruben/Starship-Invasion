@@ -7,15 +7,13 @@ class_name ShakeCam
 @export var max_y := 10.0
 @export var max_z := 5.0
 
-@export var noise: FastNoiseLite
+@export var noise: FastNoiseLite = null
 @export var noise_speed := 50.0
+@export var camera: Camera3D = null: set = _set_camera
 
 var trauma := 0.0
 var time := 0.0
-
-@export var camera: Camera3D = null: set = _set_cam
 var initial_rotation := Vector3.ZERO
-var init_rot := Vector3.ZERO
 
 
 func _ready():
@@ -44,11 +42,13 @@ func shake(duration_sec: float, reset := false):
 	await get_tree().create_tween().tween_method( \
 		add_trauma, 0.8, 0.8, duration_sec).finished
 	set_process(false)
+	var init_rot := initial_rotation
+	init_rot.x = deg_to_rad(init_rot.x)
 	if reset:
 		get_tree().create_tween().tween_property( \
 			camera, "rotation", init_rot, 0.5)
 
-func _set_cam(_camera: Camera3D):
-	camera =_camera
-	initial_rotation = camera.rotation_degrees
-	init_rot = camera.rotation
+func _set_camera(_camera: Camera3D):
+	camera = _camera
+	initial_rotation = Character.CAMERA_ROT if _camera.owner is Character \
+		else _camera.rotation_degrees

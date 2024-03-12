@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Character
 
 const WORLD_LAYER := 0b00000000_00000000_00000000_00000001
+const CAMERA_ROT := Vector3(-15.0, 0.0, 0.0)
 
 @onready var img: AnimatedSprite3D = $img
 @onready var body: CollisionShape3D = $body
@@ -106,9 +107,7 @@ func _set_health(_health: int):
 	if health == 0:
 		fsm.state = CharacterStates.Type.DIE
 		emit_signal("died", self)
-		set_physics_process(false)
-		set_process_input(false)
-		set_process(false)
+		set_performance_process(true)
 
 func set_hit_flags():
 	var hit_layer := character_hit_flag
@@ -131,14 +130,8 @@ func _set_npc(_npc: bool):
 	$navigationAgent3D.avoidance_enabled = _npc
 	remove_from_group("player" if _npc else "npc")
 	add_to_group("npc" if _npc else "player")
-	set_process_input(not _npc)
-	if npc:
-		set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
-	else:
-		var set_group_look_at := func():
-			for prop in get_tree().get_nodes_in_group("prop"):
-				prop.set("look_at_node", self)
-		set_group_look_at.call_deferred()
+	if not npc:
+		set_performance_process(false)
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_set_friendly(friendly)
 
@@ -251,12 +244,10 @@ func draw_objective_path(_show: bool):
 # npc behavior
 
 func _on_visibility_screen_entered():
-	set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 	if npc:
 		img.play()
 
 func _on_visibility_screen_exited():
-	set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	if npc:
 		img.stop()
 
@@ -285,3 +276,11 @@ func aggro(_body: Node3D) -> bool:
 func move_to(pos: Vector3):
 	$fsm_behavior/move_to.move_to_pos = pos
 	behavior.state = BehaviorStates.Type.MOVE_TO
+
+# util
+
+func set_performance_process(performance: bool):
+	performance = not performance
+	set_physics_process.call_deferred(performance)
+	set_process.call_deferred(performance)
+	set_process_input.call_deferred(performance)

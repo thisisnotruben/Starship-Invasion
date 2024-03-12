@@ -41,16 +41,25 @@ func _on_player_health_changed(health: int):
 	if amount < 0:
 		show_hurt()
 
+	var add_health := func():
+		health_level.append(health_scene.instantiate())
+		health_container.add_child(health_level[-1])
+
 	for i in abs(amount):
 		if amount > 0:
-			health_level.append(health_scene.instantiate())
-			health_container.add_child(health_level[-1])
-		elif amount < 0 and not health_level.is_empty():
+			add_health.call()
+		elif amount < 0:
 			var lost_health: Control = health_level.pop_back()
-			var tween_heart := get_tree().create_tween()
-			tween_heart.tween_property(lost_health, "modulate", Color.TRANSPARENT, 0.5) \
-				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BOUNCE)
-			tween_heart.tween_callback(lost_health.queue_free)
+			if lost_health != null:
+				var tween_heart := get_tree().create_tween()
+				tween_heart.tween_property(lost_health, "modulate", \
+					Color.TRANSPARENT, 0.5).set_ease(Tween.EASE_IN) \
+					.set_trans(Tween.TRANS_BOUNCE)
+				tween_heart.tween_callback(lost_health.queue_free)
+
+	if health_container.get_child_count() == 0:
+		for i in player.health:
+			add_health.call()
 
 func _on_player_inventory_changed(data: Dictionary):
 	if data["add"]:
