@@ -28,7 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://bcx7g0yrh2ehy" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_Mini_04.wav" id="25_5wlsh"]
 [ext_resource type="AudioStream" uid="uid://ckqtai5o441uk" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_Mini_05.wav" id="26_pnyib"]
 
-[sub_resource type="CurveTexture" id="CurveTexture_1re6x"]
+[sub_resource type="CurveTexture" id="CurveTexture_a3fi0"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_in8mp"]
 emission_shape_scale = Vector3(0.5, 0.5, 0.5)
@@ -44,15 +44,15 @@ linear_accel_max = 3.0
 scale_min = 0.5
 scale_max = 0.5
 color = Color(0.956863, 0.0588235, 0.0196078, 1)
-emission_curve = SubResource("CurveTexture_1re6x")
+emission_curve = SubResource("CurveTexture_a3fi0")
 hue_variation_max = 0.2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nfws4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uu5j1"]
 shading_mode = 0
 vertex_color_use_as_albedo = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_16cfb"]
-material = SubResource("StandardMaterial3D_nfws4")
+material = SubResource("StandardMaterial3D_uu5j1")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_toapw"]
 resource_local_to_scene = true

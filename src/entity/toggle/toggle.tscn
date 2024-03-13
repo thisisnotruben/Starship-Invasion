@@ -19,7 +19,7 @@ bus = &"sfx"
 
 [node name="sight" type="Area3D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sight"]
 shape = SubResource("CylinderShape3D_5w5js")

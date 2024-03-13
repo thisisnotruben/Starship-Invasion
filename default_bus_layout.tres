@@ -1,5 +1,8 @@
 [gd_resource type="AudioBusLayout" load_steps=11 format=3 uid="uid://rbjx38p5litc"]
 
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_8yj1a"]
+resource_name = "Limiter"
+
 [sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_0hhfn"]
 resource_name = "PitchShift"
 pitch_scale = 0.4
@@ -53,11 +56,10 @@ resource_name = "Reverb"
 room_size = 0.4
 damping = 0.0
 
-[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_ysmx2"]
-resource_name = "Limiter"
-
 [resource]
 bus/0/volume_db = 6.02
+bus/0/effect/0/effect = SubResource("AudioEffectLimiter_8yj1a")
+bus/0/effect/0/enabled = true
 bus/1/name = &"music"
 bus/1/solo = false
 bus/1/mute = false
@@ -112,5 +114,3 @@ bus/6/effect/1/effect = SubResource("AudioEffectChorus_63f6e")
 bus/6/effect/1/enabled = true
 bus/6/effect/2/effect = SubResource("AudioEffectReverb_ra4fg")
 bus/6/effect/2/enabled = true
-bus/6/effect/3/effect = SubResource("AudioEffectLimiter_ysmx2")
-bus/6/effect/3/enabled = true

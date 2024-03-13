@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwdnhm0uqh5vg"]
+
+[ext_resource type="Script" path="res://src/global/seed_randomizer.gd" id="1_hpqll"]
+
+[node name="SeedRandomizer" type="Node"]
+script = ExtResource("1_hpqll")
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

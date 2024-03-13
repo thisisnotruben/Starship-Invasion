@@ -5,6 +5,9 @@ extends Node
 @export_range(3.0, 24.0) var asteroid_timer_max := 12.0
 @export var alert_heads_up: float = 3.0
 
+@export_group("Other")
+@export var space_celestials: Node3D = null
+
 @onready var camera_shake: Node = $camera_shake
 @onready var asteroid_timer: Timer = $asteroid_timer
 @onready var asteroid_visual: GPUParticles3D = $asteroid/asteroids
@@ -42,6 +45,7 @@ func _on_asteroid_timer_timeout():
 
 func _on_area_3d_body_entered(body: Node3D):
 	if _is_player(body):
+		space_celestials.show()
 		active = true
 		get_tree().call_group("celestial", "toggle", true)
 		_start_asteroid_timer()
@@ -51,6 +55,7 @@ func _on_area_3d_body_entered(body: Node3D):
 func _on_area_3d_body_exited(body: Node3D):
 	if _is_player(body):
 		get_tree().call_group("celestial", "toggle", false)
+		space_celestials.hide()
 		active = false
 		asteroid_indicator_timer.stop()
 		asteroid_timer.stop()

@@ -5,7 +5,7 @@ const CEILING_HEIGHT := 3.8
 
 @onready var shake_cam: ShakeCam = $shake_cam
 @onready var snd: AudioStreamPlayer = $offset/snd
-@onready var particles: GPUParticles3D = $offset/particles
+@onready var particles: GPUParticles3D = $particles
 
 @export var snd_library: Array[AudioStream] = []
 @export_range(1.0, 3.0) var shake_cam_sec_max := 2.5
@@ -25,14 +25,16 @@ func _ready():
 			coll_min_radius, coll_max_radius)
 
 func trigger(node: Node3D):
-	if not passed_by and node is Character and not node.npc:
+	if not passed_by:
+		if node != null:
+			shake_cam.camera = node.camera
+			shake_cam.shake(randf_range(1.0, shake_cam_sec_max), true)
 		passed_by = true
-		shake_cam.camera = node.camera
-		shake_cam.shake(randf_range(1.0, shake_cam_sec_max), true)
 		particles.emitting = true
 		snd.play()
 		await snd.finished
 		queue_free()
 
 func _on_area_3d_body_entered(body: Node3D):
-	trigger(body)
+	if body is Character and not body.npc:
+		trigger(body)

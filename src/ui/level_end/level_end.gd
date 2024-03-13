@@ -7,6 +7,8 @@ var victims: int = 0
 var total_victims: int = 0
 var next_level: PackedScene = null
 
+signal finished
+
 
 func _ready():
 	if times_died == 0:
@@ -21,6 +23,10 @@ func _on_victim_died(victim: Character):
 	else:
 		times_died += 1
 
+func clean_up():
+	times_died = 0
+	Checkpoint.data.clear()
+
 func _on_draw():
 	$finish.grab_focus()
 	var final_time_sec := float(Time.get_ticks_msec() - time_started) / 1000.0
@@ -30,10 +36,4 @@ func _on_draw():
 		% [floor(final_time_sec / 60), int(final_time_sec) % 60]
 
 func _on_finish_pressed():
-	if next_level != null:
-		times_died = 0
-		Checkpoint.data.clear()
-		$snd_start.play()
-		await $snd_start.finished
-		get_tree().paused = false
-		get_tree().change_scene_to_packed(next_level)
+	emit_signal("finished")

@@ -4,6 +4,7 @@ var play_focus_sfx := false
 
 @export var player: Character = null
 @export var start_menu_scene: PackedScene = null
+@export var dialogue: DialogueMenu = null
 var dead := false
 var checkpoint := false
 
@@ -140,11 +141,22 @@ func show_death_screen(player_health: int):
 		tab.current_tab = tabs["dead"]
 		show()
 
-func next_level(next_level_scene: PackedScene, level: int):
+func next_level(next_level_scene: PackedScene, level: int, dialogue_idx := -1):
 	LevelQuery.unlock_level(level)
 	tab.current_tab = tabs["next_level"]
-	tab.get_child(tabs["next_level"]).set("next_level", next_level_scene)
+	var end_level_stats: Control = tab.get_child(tabs["next_level"])
+	end_level_stats.clean_up()
 	show()
+
+	await end_level_stats.finished
+	if dialogue != null and dialogue_idx != -1:
+		dialogue.start_dialogue(dialogue_idx)
+		await dialogue.dialogue_finished
+
+	$snd_game.play()
+	await $snd_game.finished
+	get_tree().paused = false
+	get_tree().change_scene_to_packed(next_level_scene)
 
 func _on_difficulty_pressed(difficulty: String):
 	var chosen_difficulty := Difficulty.Type.MEDIUM

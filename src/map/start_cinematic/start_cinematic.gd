@@ -58,7 +58,7 @@ func _on_anim_animation_finished(anim_name: String):
 			next_anim = "act12"
 		"act12":
 			next_anim = "act13"
-	if not next_anim.is_empty() and anim.has_animation(next_anim):
+	if anim.has_animation(next_anim):
 		anim.play(next_anim)
 
 func act0_start():

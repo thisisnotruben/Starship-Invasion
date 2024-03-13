@@ -8,8 +8,9 @@
 
 [node name="game_interface" type="CanvasLayer"]
 
-[node name="game" parent="." instance=ExtResource("1_kvwol")]
+[node name="game" parent="." node_paths=PackedStringArray("dialogue") instance=ExtResource("1_kvwol")]
 visible = false
+dialogue = NodePath("../dialogue")
 
 [node name="effects" parent="." instance=ExtResource("2_w7tmx")]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://cps38a2whdhpg"]
+[gd_scene load_steps=122 format=3 uid="uid://cps38a2whdhpg"]
 
 [ext_resource type="Script" path="res://src/map/level3/level3_objectives.gd" id="1_f5jh4"]
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_qisqu"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://src/map/level3/level3_DialogueTree.gd" id="3_dsyql"]
 [ext_resource type="AudioStream" uid="uid://cat7nmh5ani4o" path="res://asset/snd/DOS-88/DOS-88 - Only In Dreams.mp3" id="3_ine7s"]
 [ext_resource type="PackedScene" uid="uid://id51tk4jxdhw" path="res://asset/crocotile3d/map3/map_3.tscn" id="3_vlkqf"]
+[ext_resource type="AudioStream" uid="uid://qpqy16jexljp" path="res://asset/snd/DOS-88/BERSERK DOS-88 - DEMON SLAYER.mp3" id="4_a68cv"]
 [ext_resource type="AudioStream" uid="uid://b31amltr1o1ul" path="res://asset/snd/DOS-88/DOS-88 - Lost Signal.mp3" id="4_x40lw"]
 [ext_resource type="AudioStream" uid="uid://p1oe7hpxuwip" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 13 The Way Home.ogg" id="5_4f7qm"]
 [ext_resource type="PackedScene" uid="uid://ca37jkluxvjp6" path="res://src/entity/door/door.tscn" id="6_2y4h1"]
@@ -28,10 +29,15 @@
 [ext_resource type="ArrayOccluder3D" uid="uid://wcwd3bpaayej" path="res://src/map/level3/level3.occ" id="14_fbgs4"]
 [ext_resource type="PackedScene" uid="uid://svfrqx7pjpt" path="res://src/map/doodads/props/tanks/tank_blue_broken_half.tscn" id="14_gewkr"]
 [ext_resource type="PackedScene" uid="uid://dntypl5iv1qsw" path="res://src/map/doodads/props/computer/computer_1.tscn" id="15_scs7h"]
+[ext_resource type="AudioStream" uid="uid://cvcep72rf7d1t" path="res://asset/snd/DOS-88/DOS-88 - Last Transmission.mp3" id="15_y4shc"]
+[ext_resource type="AudioStream" uid="uid://bipv5xwjrrouy" path="res://asset/snd/DOS-88/DOS-88 - Fight To Win.mp3" id="16_183kl"]
 [ext_resource type="PackedScene" uid="uid://cy2vk1m7b57r3" path="res://src/map/doodads/props/machine/machine_4.tscn" id="16_eohkp"]
 [ext_resource type="PackedScene" uid="uid://wbmw3s7h71bi" path="res://src/map/doodads/props/machine/machine_3.tscn" id="17_ayux1"]
+[ext_resource type="AudioStream" uid="uid://caal853rvelvn" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 11 Home Base.ogg" id="17_f1lu4"]
+[ext_resource type="AudioStream" uid="uid://d0ejgupsb0hj6" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 07 Initiate Destruction.ogg" id="18_gj4oq"]
 [ext_resource type="PackedScene" uid="uid://cxexnilt4hxuw" path="res://src/map/doodads/props/machine/machine_2.tscn" id="18_jmm0s"]
 [ext_resource type="PackedScene" uid="uid://cdc8k7531h34n" path="res://src/map/doodads/props/boxes/box_gray_6.tscn" id="19_6uow1"]
+[ext_resource type="AudioStream" uid="uid://bopr86oop6pga" path="res://asset/snd/DOS-88/DOS-88 - Dream Electro - 10 Underground.ogg" id="19_pwelc"]
 [ext_resource type="PackedScene" uid="uid://l6diopwjh5p6" path="res://src/map/doodads/props/boxes/box_gray_4.tscn" id="20_gwrs0"]
 [ext_resource type="PackedScene" uid="uid://biwvlbyxt56yb" path="res://src/map/doodads/props/boxes/box_gray_1.tscn" id="21_u0qkg"]
 [ext_resource type="PackedScene" uid="uid://blkotc2fues3o" path="res://src/map/doodads/props/boxes/box_gray_2.tscn" id="22_lrft3"]
@@ -1474,10 +1480,11 @@ script = ExtResource("3_dsyql")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
+stream = ExtResource("4_a68cv")
 autoplay = true
 bus = &"music"
 script = ExtResource("2_opopk")
-music_list = Array[AudioStream]([ExtResource("2_efayn"), ExtResource("3_ine7s"), ExtResource("4_x40lw"), ExtResource("5_4f7qm"), ExtResource("6_cw5wo"), ExtResource("1_qisqu"), ExtResource("8_07yw3"), ExtResource("9_nssj3"), ExtResource("10_oauts")])
+music_list = Array[AudioStream]([ExtResource("2_efayn"), ExtResource("3_ine7s"), ExtResource("4_x40lw"), ExtResource("5_4f7qm"), ExtResource("6_cw5wo"), ExtResource("1_qisqu"), ExtResource("8_07yw3"), ExtResource("9_nssj3"), ExtResource("10_oauts"), ExtResource("15_y4shc"), ExtResource("16_183kl"), ExtResource("4_a68cv"), ExtResource("17_f1lu4"), ExtResource("18_gj4oq"), ExtResource("19_pwelc")])
 
 [node name="worldEnvironment" type="WorldEnvironment" parent="." groups=["world_env"]]
 environment = ExtResource("2_sp0co")
@@ -2877,6 +2884,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 2.38419e-07, 114)
 [node name="level_transition" parent="nav/props/ladder" instance=ExtResource("44_2j8pr")]
 next_level = ExtResource("45_smkfk")
 level = 4
+dialogue_idx = 2
 
 [node name="ladder2" parent="nav/props" groups=["prop"] instance=ExtResource("43_u1h8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 1.87385, 114)
@@ -3764,7 +3772,7 @@ nav_agent = NodePath("../Space Warrior Purple9/navigationAgent3DObjective")
 drop = null
 
 [node name="Space Sargent Gold" parent="characters" instance=ExtResource("80_c4m0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 170)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0.00200081, 170)
 
 [node name="traps" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
@@ -4931,18 +4939,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 2, 150)
 player = NodePath("../../characters/player")
 i_toggelable = NodePath("IToggleable")
 
-[node name="IToggleable" type="Node3D" parent="checkpoints/checkpoint3" node_paths=PackedStringArray("checkpoint")]
+[node name="IToggleable" type="Node3D" parent="checkpoints/checkpoint3" node_paths=PackedStringArray("checkpoint", "dialogue_menu")]
 script = ExtResource("80_a2bso")
 checkpoint = NodePath("../../checkpoint4")
+dialogue_menu = NodePath("../../../game_interface/dialogue")
 
 [node name="checkpoint4" parent="checkpoints" node_paths=PackedStringArray("player", "i_toggelable") instance=ExtResource("76_74eve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2, 170)
 player = NodePath("../../characters/player")
 i_toggelable = NodePath("IToggleable")
 
-[node name="IToggleable" type="Node3D" parent="checkpoints/checkpoint4" node_paths=PackedStringArray("checkpoint")]
+[node name="IToggleable" type="Node3D" parent="checkpoints/checkpoint4" node_paths=PackedStringArray("checkpoint", "dialogue_menu")]
 script = ExtResource("80_a2bso")
 checkpoint = NodePath("../../checkpoint3")
+dialogue_menu = NodePath("../../../game_interface/dialogue")
 
 [node name="checkpoint5" parent="checkpoints" node_paths=PackedStringArray("player") instance=ExtResource("76_74eve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 2, 177)
@@ -4999,7 +5009,7 @@ current = true
 [node name="bomb_cinematic" type="Node3D" parent="."]
 
 [node name="bomb" parent="bomb_cinematic" node_paths=PackedStringArray("csg_shapes") instance=ExtResource("84_ach2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0.6, 170)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0.6, 172)
 visible = false
 csg_shapes = [null, null, null, null]
 
@@ -5017,6 +5027,7 @@ player = NodePath("../../characters/player")
 
 [node name="dialogue" parent="game_interface" index="4" node_paths=PackedStringArray("dialogue_tree")]
 dialogue_tree = NodePath("../../DialogueTree")
+emit_dialogue_finished_signal = false
 
 [connection signal="finished" from="music" to="music" method="_on_finished"]
 [connection signal="game_failed" from="asteroid_shooter/AsteroidShooter" to="game_interface/game" method="show_death_screen"]

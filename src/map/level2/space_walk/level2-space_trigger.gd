@@ -1,4 +1,4 @@
-extends IToggleable
+extends ITriggerable
 
 @export var player: Character = null
 @export var move_to_marker: Marker3D = null

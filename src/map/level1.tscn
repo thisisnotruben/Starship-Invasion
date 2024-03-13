@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dbwsdg4frpi15"]
+[gd_scene load_steps=99 format=3 uid="uid://dbwsdg4frpi15"]
 
 [ext_resource type="Script" path="res://src/map/level1/level1_objectives.gd" id="1_mwjjg"]
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_xjonf"]
@@ -25,12 +25,18 @@
 [ext_resource type="PackedScene" uid="uid://cdc8k7531h34n" path="res://src/map/doodads/props/boxes/box_gray_6.tscn" id="11_wwkl7"]
 [ext_resource type="PackedScene" uid="uid://bjmbcp7vdja4y" path="res://asset/crocotile3d/map1/ceiling.tscn" id="13_1insc"]
 [ext_resource type="PackedScene" uid="uid://wjbtmejqevko" path="res://src/map/doodads/props/boxes/box_green_large.tscn" id="13_txnvp"]
+[ext_resource type="AudioStream" uid="uid://cvcep72rf7d1t" path="res://asset/snd/DOS-88/DOS-88 - Last Transmission.mp3" id="14_4ap4s"]
 [ext_resource type="PackedScene" uid="uid://cgb7qusn4qf0k" path="res://src/map/doodads/props/boxes/box_red_small.tscn" id="14_gqjcy"]
+[ext_resource type="AudioStream" uid="uid://bipv5xwjrrouy" path="res://asset/snd/DOS-88/DOS-88 - Fight To Win.mp3" id="15_noyjn"]
 [ext_resource type="PackedScene" uid="uid://bnfu2ewh8504q" path="res://src/map/doodads/props/boxes/box_yellow_medium.tscn" id="15_um2y3"]
 [ext_resource type="PackedScene" uid="uid://bocqtrvk3yvxo" path="res://src/map/doodads/props/boxes/box_gray_5.tscn" id="16_jsy4v"]
+[ext_resource type="AudioStream" uid="uid://qpqy16jexljp" path="res://asset/snd/DOS-88/BERSERK DOS-88 - DEMON SLAYER.mp3" id="16_m7x5x"]
+[ext_resource type="AudioStream" uid="uid://caal853rvelvn" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 11 Home Base.ogg" id="17_bm06s"]
 [ext_resource type="PackedScene" uid="uid://c8q3j5k2rklrk" path="res://src/map/doodads/props/boxes/box_yellow_large.tscn" id="17_q43xg"]
+[ext_resource type="AudioStream" uid="uid://d0ejgupsb0hj6" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 07 Initiate Destruction.ogg" id="18_djtio"]
 [ext_resource type="PackedScene" uid="uid://cv3r5654pg4y0" path="res://src/map/doodads/props/boxes/box_red_medium.tscn" id="18_w7xyd"]
 [ext_resource type="PackedScene" uid="uid://l8cqblmem8rg" path="res://src/map/doodads/props/boxes/box_green_medium.tscn" id="19_o80ar"]
+[ext_resource type="AudioStream" uid="uid://bopr86oop6pga" path="res://asset/snd/DOS-88/DOS-88 - Dream Electro - 10 Underground.ogg" id="19_ujae4"]
 [ext_resource type="PackedScene" uid="uid://cy2vk1m7b57r3" path="res://src/map/doodads/props/machine/machine_4.tscn" id="20_vkx8w"]
 [ext_resource type="PackedScene" uid="uid://wbmw3s7h71bi" path="res://src/map/doodads/props/machine/machine_3.tscn" id="21_5bvjf"]
 [ext_resource type="PackedScene" uid="uid://48bnficermyv" path="res://src/map/doodads/props/tanks/tank_green_intact.tscn" id="23_gft3i"]
@@ -591,10 +597,10 @@ script = ExtResource("3_xh0vm")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("6_myixf")
+stream = ExtResource("4_x2b5d")
 bus = &"music"
 script = ExtResource("2_1puig")
-music_list = Array[AudioStream]([ExtResource("2_d1k21"), ExtResource("3_qkag2"), ExtResource("4_x2b5d"), ExtResource("5_ccw63"), ExtResource("6_myixf"), ExtResource("1_xjonf"), ExtResource("8_evbre"), ExtResource("9_7xwee"), ExtResource("10_l3rp4")])
+music_list = Array[AudioStream]([ExtResource("2_d1k21"), ExtResource("3_qkag2"), ExtResource("4_x2b5d"), ExtResource("5_ccw63"), ExtResource("6_myixf"), ExtResource("1_xjonf"), ExtResource("8_evbre"), ExtResource("9_7xwee"), ExtResource("10_l3rp4"), ExtResource("14_4ap4s"), ExtResource("15_noyjn"), ExtResource("16_m7x5x"), ExtResource("17_bm06s"), ExtResource("18_djtio"), ExtResource("19_ujae4")])
 
 [node name="worldEnvironment" type="WorldEnvironment" parent="." groups=["world_env"]]
 environment = ExtResource("2_q236e")
@@ -604,6 +610,7 @@ occluder = SubResource("ArrayOccluder3D_1prxg")
 
 [node name="ceiling" parent="." instance=ExtResource("13_1insc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 4, -28)
+visible = false
 
 [node name="nav_objective" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_aaf11")
@@ -1769,6 +1776,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 0.000950098, -62)
 [node name="level_transition" parent="nav/props/ladder" instance=ExtResource("36_b32tb")]
 next_level = ExtResource("37_e0p25")
 level = 2
+dialogue_idx = 1
 
 [node name="ladder2" parent="nav/props" groups=["prop"] instance=ExtResource("55_ug4be")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.50095, -62)
@@ -1817,12 +1825,7 @@ objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="SwarmAlien13" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -109)
-objective_map = NodePath("../../objectives")
-drop = null
-
-[node name="SwarmAlien52" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -109)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6299, 0.00918472, -108.311)
 objective_map = NodePath("../../objectives")
 drop = null
 
@@ -2322,7 +2325,7 @@ objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="SwarmAlien43" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -66.8824)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.525, 0.00738716, -66.8824)
 objective_map = NodePath("../../objectives")
 drop = null
 
@@ -2332,17 +2335,12 @@ objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="SwarmAlien45" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -53.8824)
-objective_map = NodePath("../../objectives")
-drop = null
-
-[node name="SwarmAlien46" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("26_w2eeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.737, 0.00738716, -53.8824)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.403, 0.00738716, -53.8824)
 objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="SwarmAlienRed33" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("42_4v5r4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 0, -45)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.192, 0, -45)
 objective_map = NodePath("../../objectives")
 drop = null
 

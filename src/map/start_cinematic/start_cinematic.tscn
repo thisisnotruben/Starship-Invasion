@@ -1,10 +1,9 @@
-[gd_scene load_steps=85 format=3 uid="uid://dudokf247b84k"]
+[gd_scene load_steps=84 format=3 uid="uid://dudokf247b84k"]
 
 [ext_resource type="Script" path="res://src/global/snd_fader.gd" id="1_2j50e"]
 [ext_resource type="Script" path="res://src/map/start_cinematic/start_cinematic.gd" id="1_57w32"]
 [ext_resource type="Environment" uid="uid://lgpdmt1bb81o" path="res://resource/env.tres" id="1_oql53"]
 [ext_resource type="AudioStream" uid="uid://jhv8qp55lmet" path="res://asset/snd/DOS-88/D0S-88 - Raging Inferno.mp3" id="2_buvp5"]
-[ext_resource type="AudioStream" uid="uid://cybtj1ouq743o" path="res://asset/snd/DOS-88/DOS-88 - Dark Ascent.mp3" id="2_mwbjw"]
 [ext_resource type="Script" path="res://src/map/start_cinematic/start_cinematic_dialogue_tree.gd" id="3_4dun3"]
 [ext_resource type="PackedScene" uid="uid://d3bnjjdsas4ei" path="res://src/ui/game_interface.tscn" id="3_247ah"]
 [ext_resource type="PackedScene" uid="uid://cm6lrl0cgaejr" path="res://src/ui/start/start.tscn" id="3_d3ygr"]
@@ -3013,7 +3012,7 @@ point_count = 2
 
 [node name="startCinematic" type="Node3D"]
 script = ExtResource("1_57w32")
-act0_music = ExtResource("2_mwbjw")
+act0_music = ExtResource("2_buvp5")
 next_level = ExtResource("3_d3ygr")
 
 [node name="anim" type="AnimationPlayer" parent="."]
@@ -3037,7 +3036,6 @@ script = ExtResource("3_4dun3")
 [node name="act0" type="Camera3D" parent="."]
 transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 48.5, 68.5, 71)
 projection = 1
-current = true
 
 [node name="act1" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.976296, 0.216439, 0, -0.216439, 0.976296, 38, 54.5, -138)

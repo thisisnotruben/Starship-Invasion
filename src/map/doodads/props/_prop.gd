@@ -41,7 +41,8 @@ func _on_visibility_screen_exited():
 func _process(_delta: float):
 	if _is_valid():
 		for light in lights:
-			light.look_at(get_viewport().get_camera_3d().global_position)
+			if light != null:
+				light.look_at(get_viewport().get_camera_3d().global_position)
 	else:
 		set_process(false)
 

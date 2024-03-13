@@ -1,4 +1,5 @@
 extends Control
+class_name DialogueMenu
 
 @onready var label: RichTextLabel = $center/panel/margin/VBoxContainer/richTextLabel
 @onready var continue_bttn: Button = $center/panel/margin/VBoxContainer/continue
@@ -15,6 +16,7 @@ extends Control
 @export var dialogue_tree: DialogueTree = null
 @export_range(0.01, 1.0) var character_speed = 0.045
 @export var pause_when_shown := true
+@export var emit_dialogue_finished_signal := true
 
 var active := false
 var shown := false
@@ -63,10 +65,13 @@ func _on_snd_finished():
 			snd.play()
 
 func _on_continue_pressed():
-	emit_signal("dialogue_finished")
+	if emit_dialogue_finished_signal:
+		emit_signal("dialogue_finished")
 	shown = false
 	bttn_focused = false
 	if show_and_hide:
+		if pause_when_shown:
+			get_tree().paused = false
 		hide()
 
 func _on_game_visibility_changed():

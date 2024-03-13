@@ -40,7 +40,7 @@ one_shot = true
 
 [node name="area3D" type="Area3D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 64
 script = ExtResource("5_cf1fp")
 
 [node name="coll" type="CollisionShape3D" parent="area3D"]

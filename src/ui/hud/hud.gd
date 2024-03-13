@@ -37,7 +37,7 @@ func show_hurt():
 		.set_trans(Tween.TRANS_BOUNCE)
 
 func _on_player_health_changed(health: int):
-	var amount := health - health_container.get_child_count()
+	var amount := player.health - health_container.get_child_count()
 	if amount < 0:
 		show_hurt()
 

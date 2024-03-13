@@ -20,6 +20,7 @@ config/windows_native_icon="res://icon.ico"
 [autoload]
 
 LevelUnlocker="*res://src/ui/level_query/level_query.gd"
+SeedRandomizer="*res://src/global/seed_randomizer.tscn"
 
 [display]
 

@@ -250,7 +250,7 @@ shape = SubResource("BoxShape3D_bulbr")
 
 [node name="area3D" type="Area3D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 64
 
 [node name="collisionShape3D" type="CollisionShape3D" parent="area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
