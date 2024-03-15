@@ -21,4 +21,3 @@ func _on_focus_entered():
 func _on_donate_pressed():
 	$snd.play()
 	await $snd.finished
-	OS.shell_open("https://itch.io/my-collections")

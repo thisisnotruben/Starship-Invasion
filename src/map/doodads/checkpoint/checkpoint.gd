@@ -6,7 +6,8 @@ static var items := {
 	Item.Type.BLUE_KEYCARD: preload("res://src/items/keycard/blue_keycard.tscn"),
 	Item.Type.GREEN_KEYCARD: preload("res://src/items/keycard/green_keycard.tscn"),
 	Item.Type.RED_KEYCARD: preload("res://src/items/keycard/red_keycard.tscn"),
-	Item.Type.YELLOW_KEYCARD: preload("res://src/items/keycard/yellow_keycard.tscn")
+	Item.Type.YELLOW_KEYCARD: preload("res://src/items/keycard/yellow_keycard.tscn"),
+	Item.Type.GUN: preload("res://src/items/gun.tscn")
 }
 
 @export var player: Character = null
@@ -37,8 +38,15 @@ func get_checkpoint_data():
 	data["health"] = player.health
 
 	data["inventory"] = []
+	data["inventory_powerups"] = {}
 	for item_type in player.inventory:
-		data["inventory"].append(items[item_type])
+		if player.powerups.has(item_type):
+			match item_type:
+				Item.Type.GUN:
+					data["inventory_powerups"][item_type] = \
+						player.powerups[item_type].time_left
+		else:
+			data["inventory"].append(items[item_type])
 
 	data["npc"] = []
 	for character in get_tree().get_nodes_in_group("character"):
@@ -91,6 +99,13 @@ static func set_checkpoint_data(_player: Character):
 			"inventory":
 				for item in data[datam]:
 					item.instantiate().add_to_inventory(_player)
+			"inventory_powerups":
+				for item_type in data[datam]:
+					var powerup: Item = items[item_type].instantiate()
+					match item_type:
+						Item.Type.GUN:
+							powerup.add_powerup(_player, \
+								data[datam][item_type])
 			"npc":
 				_get_difference_and_delete(level, data[datam], "character")
 			"item":

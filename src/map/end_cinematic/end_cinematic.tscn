@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://tlyl5plbrh48"]
+[gd_scene load_steps=285 format=3 uid="uid://tlyl5plbrh48"]
 
 [ext_resource type="Script" path="res://src/map/end_cinematic/end_cinematic.gd" id="1_kcf14"]
 [ext_resource type="Environment" uid="uid://lgpdmt1bb81o" path="res://resource/env.tres" id="1_q0ky6"]
@@ -69,9 +69,11 @@
 [ext_resource type="AudioStream" uid="uid://ciwes4crqrt15" path="res://asset/snd/Robotic_Voices/Male/Numbers/__1.wav" id="36_o3iqa"]
 [ext_resource type="AudioStream" uid="uid://bhahtbhn1b6cb" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Destruction_Imminent.wav" id="37_3cbom"]
 [ext_resource type="PackedScene" uid="uid://cm6lrl0cgaejr" path="res://src/ui/start/start.tscn" id="38_wbmw2"]
+[ext_resource type="Script" path="res://src/global/snd_fader.gd" id="43_4ecbs"]
 [ext_resource type="PackedScene" uid="uid://pssw525ar13h" path="res://src/map/end_cinematic/cin_explosions.tscn" id="59_dxvjx"]
 [ext_resource type="AudioStream" uid="uid://bfperjte44ja2" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 5.wav" id="70_04osx"]
 [ext_resource type="AudioStream" uid="uid://b2hpi4iqmivtc" path="res://asset/snd/Robotic_Voices/Alert_SFX/Alert3.wav" id="71_4wv4q"]
+[ext_resource type="AudioStream" uid="uid://bo073rcxici5b" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 8.wav" id="71_gumri"]
 [ext_resource type="PackedScene" uid="uid://drqo7f8xt5im5" path="res://asset/crocotile3d/start_cinematic/start_cinematic_ship.tscn" id="71_yh6ga"]
 [ext_resource type="PackedScene" uid="uid://d0uhlbjpjiilc" path="res://asset/crocotile3d/start_cinematic/start_cinematic_ship_ceiling.tscn" id="72_7ot3v"]
 [ext_resource type="PackedScene" uid="uid://48bnficermyv" path="res://src/map/doodads/props/tanks/tank_green_intact.tscn" id="74_py158"]
@@ -80,6 +82,187 @@
 [ext_resource type="PackedScene" uid="uid://cv3r5654pg4y0" path="res://src/map/doodads/props/boxes/box_red_medium.tscn" id="77_x184u"]
 [ext_resource type="PackedScene" uid="uid://tppaxe7higqe" path="res://src/map/doodads/props/boxes/box_yellow_small.tscn" id="78_x1hse"]
 [ext_resource type="PackedScene" uid="uid://caygose7ahttw" path="res://src/map/doodads/props/boxes/box_green_small.tscn" id="79_v7dhr"]
+[ext_resource type="PackedScene" uid="uid://d117vxi7x2g3a" path="res://src/entity/celestial/celestial.tscn" id="81_moree"]
+[ext_resource type="Texture2D" uid="uid://jkybu47v6kdy" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/1.png" id="82_pe5uq"]
+[ext_resource type="Texture2D" uid="uid://dcw8j6q1pomud" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/2.png" id="83_7n614"]
+[ext_resource type="Texture2D" uid="uid://cf8w2cvi4ubog" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/3.png" id="84_1xwwb"]
+[ext_resource type="Texture2D" uid="uid://bwqt4ofq50c28" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/4.png" id="85_tpv08"]
+[ext_resource type="Texture2D" uid="uid://2s307efprrph" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/5.png" id="86_swnn1"]
+[ext_resource type="Texture2D" uid="uid://dhxb8wmon2ici" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/6.png" id="87_q3neh"]
+[ext_resource type="Texture2D" uid="uid://d2hdq8msg1cb8" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/7.png" id="88_ckvww"]
+[ext_resource type="Texture2D" uid="uid://bsc4o267km60q" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/8.png" id="89_drfew"]
+[ext_resource type="Texture2D" uid="uid://bvc4itqvrbqwr" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/9.png" id="90_x868i"]
+[ext_resource type="Texture2D" uid="uid://d28umvjgqsp5j" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/10.png" id="91_g7quc"]
+[ext_resource type="Texture2D" uid="uid://d3eskwtot4xsq" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/11.png" id="92_tvaj2"]
+[ext_resource type="Texture2D" uid="uid://bpvyapfb55fsq" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/12.png" id="93_wwqt3"]
+[ext_resource type="Texture2D" uid="uid://bbd8us3s0qsmn" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/13.png" id="94_t13wm"]
+[ext_resource type="Texture2D" uid="uid://bbk1axc2tnveo" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/14.png" id="95_150nr"]
+[ext_resource type="Texture2D" uid="uid://c2hx6px5pjv0w" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/15.png" id="96_55tyh"]
+[ext_resource type="Texture2D" uid="uid://cgjxgp5o5uvk3" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/16.png" id="97_hc8y2"]
+[ext_resource type="Texture2D" uid="uid://ignp32dvkokt" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/17.png" id="98_pk8ra"]
+[ext_resource type="Texture2D" uid="uid://bss2dxwuj54x" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/18.png" id="99_pklth"]
+[ext_resource type="Texture2D" uid="uid://d2abe0fif0pwt" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/19.png" id="100_ne8es"]
+[ext_resource type="Texture2D" uid="uid://cs4wx0dm5qex6" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/20.png" id="101_66fm5"]
+[ext_resource type="Texture2D" uid="uid://dgxmbo3t0nkfs" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/21.png" id="102_eg5j7"]
+[ext_resource type="Texture2D" uid="uid://bjnfi71lyctbj" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/22.png" id="103_caifn"]
+[ext_resource type="Texture2D" uid="uid://onglm503klva" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/23.png" id="104_xur7t"]
+[ext_resource type="Texture2D" uid="uid://bw5xtsdgg6nvq" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/24.png" id="105_jqkql"]
+[ext_resource type="Texture2D" uid="uid://c8krv8xj0g1up" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/25.png" id="106_wystk"]
+[ext_resource type="Texture2D" uid="uid://bjj18q8b72y8x" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/26.png" id="107_kh4e5"]
+[ext_resource type="Texture2D" uid="uid://dn65nbhwq8a2c" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/27.png" id="108_p8up4"]
+[ext_resource type="Texture2D" uid="uid://baaegc8bqok8l" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/28.png" id="109_onq5e"]
+[ext_resource type="Texture2D" uid="uid://ce1cuof6bnham" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/29.png" id="110_kkepy"]
+[ext_resource type="Texture2D" uid="uid://byq5eo0tp1417" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/30.png" id="111_le0vl"]
+[ext_resource type="Texture2D" uid="uid://bc2p4heertypj" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/31.png" id="112_mvly7"]
+[ext_resource type="Texture2D" uid="uid://degr40d46hjnx" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/32.png" id="113_m50na"]
+[ext_resource type="Texture2D" uid="uid://bhsx82lq6kl50" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/33.png" id="114_u42kv"]
+[ext_resource type="Texture2D" uid="uid://cxe15h1kmbd8h" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/34.png" id="115_g02vn"]
+[ext_resource type="Texture2D" uid="uid://cbky441k21wcf" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/35.png" id="116_447ba"]
+[ext_resource type="Texture2D" uid="uid://bdvihe8f4aimu" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/36.png" id="117_1650s"]
+[ext_resource type="Texture2D" uid="uid://bsyg38kcxfw3c" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/37.png" id="118_53wk1"]
+[ext_resource type="Texture2D" uid="uid://17hq17qdehb0" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/38.png" id="119_8abg7"]
+[ext_resource type="Texture2D" uid="uid://b484m0j31cyf8" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/39.png" id="120_746p7"]
+[ext_resource type="Texture2D" uid="uid://d3gyprjn5km13" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/40.png" id="121_h1wo6"]
+[ext_resource type="Texture2D" uid="uid://cgda0xmycpd01" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/41.png" id="122_deeux"]
+[ext_resource type="Texture2D" uid="uid://ckl1mtt0wih8h" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/42.png" id="123_wterh"]
+[ext_resource type="Texture2D" uid="uid://dw7ikkp2oaced" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/43.png" id="124_mxdr0"]
+[ext_resource type="Texture2D" uid="uid://c52lnckxme4wv" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/44.png" id="125_n12ch"]
+[ext_resource type="Texture2D" uid="uid://chrucrvoikfft" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/45.png" id="126_ndayg"]
+[ext_resource type="Texture2D" uid="uid://cctv1wyi8kcu3" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/46.png" id="127_x05nv"]
+[ext_resource type="Texture2D" uid="uid://8xqbjs5av0fb" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/47.png" id="128_3mluf"]
+[ext_resource type="Texture2D" uid="uid://cp1tfmefticwr" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/48.png" id="129_o7n5t"]
+[ext_resource type="Texture2D" uid="uid://n6ohsr0mtn71" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/49.png" id="130_n07w2"]
+[ext_resource type="Texture2D" uid="uid://cq6rxakx8mxoi" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/50.png" id="131_yg8p6"]
+[ext_resource type="Texture2D" uid="uid://bme23kmgjc0n2" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/51.png" id="132_7frdg"]
+[ext_resource type="Texture2D" uid="uid://bargwi6f6rd3u" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/52.png" id="133_cgqcr"]
+[ext_resource type="Texture2D" uid="uid://bv7gupsmmef2t" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/53.png" id="134_u4rbm"]
+[ext_resource type="Texture2D" uid="uid://dovio05g2l5am" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/54.png" id="135_xn37j"]
+[ext_resource type="Texture2D" uid="uid://b5yx60lob5402" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/55.png" id="136_fxdve"]
+[ext_resource type="Texture2D" uid="uid://ckkxe74ixxyjx" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/56.png" id="137_15u1s"]
+[ext_resource type="Texture2D" uid="uid://pa1ptkrauae1" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/57.png" id="138_ludpf"]
+[ext_resource type="Texture2D" uid="uid://dj2b01s6pisnx" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/58.png" id="139_nc1ms"]
+[ext_resource type="Texture2D" uid="uid://df3xylp85raqb" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/59.png" id="140_tfhsq"]
+[ext_resource type="Texture2D" uid="uid://ddjxyaeqsvxcj" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/60.png" id="141_imyfr"]
+[ext_resource type="Texture2D" uid="uid://b32k3cb3ob8ym" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/61.png" id="142_0l1gi"]
+[ext_resource type="Texture2D" uid="uid://c11mvwda80qpq" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/62.png" id="143_5wuti"]
+[ext_resource type="Texture2D" uid="uid://b2or7rh4a0hof" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/63.png" id="144_fxkbb"]
+[ext_resource type="Texture2D" uid="uid://b4qx8xi8q4i5w" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/64.png" id="145_qh1gf"]
+[ext_resource type="Texture2D" uid="uid://ddjcv1vo1pp4e" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/65.png" id="146_o6fnm"]
+[ext_resource type="Texture2D" uid="uid://dou7co4bm5ft2" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/66.png" id="147_upolw"]
+[ext_resource type="Texture2D" uid="uid://kdphg18an0vq" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/67.png" id="148_hm8ka"]
+[ext_resource type="Texture2D" uid="uid://x8ap8rnb0nsq" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/68.png" id="149_yqxgi"]
+[ext_resource type="Texture2D" uid="uid://brenpkf6d1gox" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/69.png" id="150_xyv1k"]
+[ext_resource type="Texture2D" uid="uid://7yllucveyj0b" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/70.png" id="151_lfehq"]
+[ext_resource type="Texture2D" uid="uid://26ado2c3wld7" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/71.png" id="152_lgnyc"]
+[ext_resource type="Texture2D" uid="uid://cgwtdu5qnrt7c" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/72.png" id="153_hxy4a"]
+[ext_resource type="Texture2D" uid="uid://dpdemtor4c4ut" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/73.png" id="154_1ix4v"]
+[ext_resource type="Texture2D" uid="uid://cxdsct6ml515l" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/74.png" id="155_m31qb"]
+[ext_resource type="Texture2D" uid="uid://dnecoca747ill" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/75.png" id="156_07h7t"]
+[ext_resource type="Texture2D" uid="uid://n61alipk2d67" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/76.png" id="157_i52vq"]
+[ext_resource type="Texture2D" uid="uid://baustf464vlww" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/77.png" id="158_nx0ix"]
+[ext_resource type="Texture2D" uid="uid://bprdeist07jph" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/78.png" id="159_drbih"]
+[ext_resource type="Texture2D" uid="uid://b6bhn2pif85or" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/79.png" id="160_2iuhu"]
+[ext_resource type="Texture2D" uid="uid://bj6pe8rnhvugo" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/80.png" id="161_alaml"]
+[ext_resource type="Texture2D" uid="uid://cd2q86hnhgwna" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/81.png" id="162_xuohd"]
+[ext_resource type="Texture2D" uid="uid://cybufn6th74je" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/82.png" id="163_0b0y7"]
+[ext_resource type="Texture2D" uid="uid://dn2rss1s1mge" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/83.png" id="164_ux2f1"]
+[ext_resource type="Texture2D" uid="uid://ck3dnj15fvi38" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/84.png" id="165_qmhio"]
+[ext_resource type="Texture2D" uid="uid://bdq5qc7a84qxk" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/85.png" id="166_heq4c"]
+[ext_resource type="Texture2D" uid="uid://cr5bs0ilv33bo" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/86.png" id="167_tj7p2"]
+[ext_resource type="Texture2D" uid="uid://bv1ciqs51v045" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/87.png" id="168_3nmsk"]
+[ext_resource type="Texture2D" uid="uid://dgrryow4xvxmh" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/88.png" id="169_wur04"]
+[ext_resource type="Texture2D" uid="uid://dk5e2ahuwnove" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/89.png" id="170_mctng"]
+[ext_resource type="Texture2D" uid="uid://5q55k8j6exx8" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/90.png" id="171_hi3gm"]
+[ext_resource type="Texture2D" uid="uid://drbx2vyjf1ni3" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/91.png" id="172_bk68y"]
+[ext_resource type="Texture2D" uid="uid://d1s76w87hdr4y" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/92.png" id="173_0cmv2"]
+[ext_resource type="Texture2D" uid="uid://civ2ht0jv72v0" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/93.png" id="174_xftak"]
+[ext_resource type="Texture2D" uid="uid://cf6rhaq3yd8kc" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/94.png" id="175_ggtpe"]
+[ext_resource type="Texture2D" uid="uid://b40wq06pgefi3" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/95.png" id="176_ikvj5"]
+[ext_resource type="Texture2D" uid="uid://djdmlotwudpd8" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/96.png" id="177_kggn6"]
+[ext_resource type="Texture2D" uid="uid://v3xs4nf8sr4v" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/97.png" id="178_eovno"]
+[ext_resource type="Texture2D" uid="uid://b0cysk4qgqopo" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/98.png" id="179_0732c"]
+[ext_resource type="Texture2D" uid="uid://b0ymwxkd3p1b3" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/99.png" id="180_qd62w"]
+[ext_resource type="Texture2D" uid="uid://c4yyojiyb4etl" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/100.png" id="181_qihe7"]
+[ext_resource type="Texture2D" uid="uid://n0kjjrq5um4k" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/101.png" id="182_ulct8"]
+[ext_resource type="Texture2D" uid="uid://chmpcv0t4vhf3" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/102.png" id="183_rrmrh"]
+[ext_resource type="Texture2D" uid="uid://dty22y4jkrnmo" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/103.png" id="184_liccv"]
+[ext_resource type="Texture2D" uid="uid://cms4tu6nfn30h" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/104.png" id="185_621qg"]
+[ext_resource type="Texture2D" uid="uid://bkorme2il483" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/105.png" id="186_gv3o1"]
+[ext_resource type="Texture2D" uid="uid://cl6bxu768p28v" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/106.png" id="187_p8bgv"]
+[ext_resource type="Texture2D" uid="uid://dj3r7nwkgvhb0" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/107.png" id="188_6jajc"]
+[ext_resource type="Texture2D" uid="uid://33rs72u00pjy" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/108.png" id="189_6e4ro"]
+[ext_resource type="Texture2D" uid="uid://cerr2ojx5qf2v" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/109.png" id="190_gg74u"]
+[ext_resource type="Texture2D" uid="uid://hs34bsdoovxu" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/110.png" id="191_u6ail"]
+[ext_resource type="Texture2D" uid="uid://d1gdy1k18twto" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/111.png" id="192_0ojpf"]
+[ext_resource type="Texture2D" uid="uid://d3pfbm8xdxs7n" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/112.png" id="193_xf18h"]
+[ext_resource type="Texture2D" uid="uid://flji7i6lgdb1" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/113.png" id="194_kfguu"]
+[ext_resource type="Texture2D" uid="uid://ccjuofj52otuu" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/114.png" id="195_qjwy3"]
+[ext_resource type="Texture2D" uid="uid://ciioh1j6n5kt3" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/115.png" id="196_lic78"]
+[ext_resource type="Texture2D" uid="uid://b450evjdqacna" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/116.png" id="197_lji2f"]
+[ext_resource type="Texture2D" uid="uid://b5bap4827bx26" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/117.png" id="198_hpvl1"]
+[ext_resource type="Texture2D" uid="uid://c4wr6422n7xqw" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/118.png" id="199_juauw"]
+[ext_resource type="Texture2D" uid="uid://c7g1tvvp40moc" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/119.png" id="200_cqjik"]
+[ext_resource type="Texture2D" uid="uid://bgwk15a7ffxvq" path="res://asset/img/AnimatedPlanetsFull/Terran_with_clouds/1/120.png" id="201_0dg5w"]
+[ext_resource type="Texture2D" uid="uid://bsomcp2fsh0xj" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/1.png" id="202_58asm"]
+[ext_resource type="Texture2D" uid="uid://ce4hie8fmuv0g" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/2.png" id="203_qt4i1"]
+[ext_resource type="Texture2D" uid="uid://f4psw8q585b4" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/3.png" id="204_6awuj"]
+[ext_resource type="Texture2D" uid="uid://dm1rlego3632" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/4.png" id="205_pt750"]
+[ext_resource type="Texture2D" uid="uid://do32mgoq3iq8p" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/5.png" id="206_uu5ba"]
+[ext_resource type="Texture2D" uid="uid://ccet7k0l5f5aa" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/6.png" id="207_uehdq"]
+[ext_resource type="Texture2D" uid="uid://boj0jgeiljruh" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/7.png" id="208_hyv2e"]
+[ext_resource type="Texture2D" uid="uid://dxuin021ayrm3" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/8.png" id="209_2n6ig"]
+[ext_resource type="Texture2D" uid="uid://bx8lh0w3qxk5" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/9.png" id="210_5l7ja"]
+[ext_resource type="Texture2D" uid="uid://7kbl7yfpawis" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/10.png" id="211_su436"]
+[ext_resource type="Texture2D" uid="uid://umtt5yffm76g" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/11.png" id="212_ft7u1"]
+[ext_resource type="Texture2D" uid="uid://dtsqtstgmu105" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/12.png" id="213_ydkt1"]
+[ext_resource type="Texture2D" uid="uid://c0jiduv48t6pr" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/13.png" id="214_nymvh"]
+[ext_resource type="Texture2D" uid="uid://bduhccl3q0q3v" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/14.png" id="215_ley4k"]
+[ext_resource type="Texture2D" uid="uid://cetvetqa57ilw" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/15.png" id="216_w7viv"]
+[ext_resource type="Texture2D" uid="uid://cqgp6xkchb8r5" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/16.png" id="217_tja5l"]
+[ext_resource type="Texture2D" uid="uid://bx37cdedb156h" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/17.png" id="218_a262l"]
+[ext_resource type="Texture2D" uid="uid://bxvcggnt84uuy" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/18.png" id="219_g3d8b"]
+[ext_resource type="Texture2D" uid="uid://paqmcibai3o7" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/19.png" id="220_a4576"]
+[ext_resource type="Texture2D" uid="uid://b0kkd1mp2hp57" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/20.png" id="221_rlutr"]
+[ext_resource type="Texture2D" uid="uid://7o6ywssi4lvr" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/21.png" id="222_lh4gi"]
+[ext_resource type="Texture2D" uid="uid://c1l75hwktyu73" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/22.png" id="223_spdjo"]
+[ext_resource type="Texture2D" uid="uid://7r42x2o7uuw5" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/23.png" id="224_x2b01"]
+[ext_resource type="Texture2D" uid="uid://bgjpl2c1e0al2" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/24.png" id="225_4noo5"]
+[ext_resource type="Texture2D" uid="uid://b1siaru4pyyov" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/25.png" id="226_2uhvf"]
+[ext_resource type="Texture2D" uid="uid://dga0yr3l7svg7" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/26.png" id="227_x678e"]
+[ext_resource type="Texture2D" uid="uid://22quo6fia2bj" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/27.png" id="228_ke41d"]
+[ext_resource type="Texture2D" uid="uid://cgw7teacfunhm" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/28.png" id="229_xv6sw"]
+[ext_resource type="Texture2D" uid="uid://cwuxpwpl07rc7" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/29.png" id="230_4hiyu"]
+[ext_resource type="Texture2D" uid="uid://b28qjeodirj74" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/30.png" id="231_sk8g7"]
+[ext_resource type="Texture2D" uid="uid://7fvnqyed5tqg" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/31.png" id="232_m1ifa"]
+[ext_resource type="Texture2D" uid="uid://cvtucrt4c6pte" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/32.png" id="233_o2yib"]
+[ext_resource type="Texture2D" uid="uid://dxp30fjxtlbrc" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/33.png" id="234_226av"]
+[ext_resource type="Texture2D" uid="uid://cpxkoe1c2hkel" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/34.png" id="235_jlucd"]
+[ext_resource type="Texture2D" uid="uid://b8jonjvwbvdvt" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/35.png" id="236_prj5e"]
+[ext_resource type="Texture2D" uid="uid://dgtjmjsrvpps4" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/36.png" id="237_5j4nk"]
+[ext_resource type="Texture2D" uid="uid://dplo6kgtmms1x" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/37.png" id="238_pkoxp"]
+[ext_resource type="Texture2D" uid="uid://ctll3htxhbhiy" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/38.png" id="239_ufn1c"]
+[ext_resource type="Texture2D" uid="uid://cao4ip67vi4gu" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/39.png" id="240_qkxtj"]
+[ext_resource type="Texture2D" uid="uid://clk2n6nvwg20f" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/40.png" id="241_2id1t"]
+[ext_resource type="Texture2D" uid="uid://psgx16v4i7yr" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/41.png" id="242_oixo2"]
+[ext_resource type="Texture2D" uid="uid://cl1hgx8igihlx" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/42.png" id="243_b70yt"]
+[ext_resource type="Texture2D" uid="uid://xuhavm6vww5" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/43.png" id="244_73onw"]
+[ext_resource type="Texture2D" uid="uid://dw8i4bpn55wlk" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/44.png" id="245_bio4t"]
+[ext_resource type="Texture2D" uid="uid://ctek78oowyj8s" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/45.png" id="246_28u4j"]
+[ext_resource type="Texture2D" uid="uid://bng0nxxvgcig7" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/46.png" id="247_ed3w5"]
+[ext_resource type="Texture2D" uid="uid://cuvhxn5m2g17n" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/47.png" id="248_qugfp"]
+[ext_resource type="Texture2D" uid="uid://dlnr70jyi8kq" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/48.png" id="249_im1t5"]
+[ext_resource type="Texture2D" uid="uid://dj8841sv51bkj" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/49.png" id="250_4rwll"]
+[ext_resource type="Texture2D" uid="uid://cjunqb15awwo1" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/50.png" id="251_bfbtu"]
+[ext_resource type="Texture2D" uid="uid://bjxqpb4waue6" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/51.png" id="252_eel44"]
+[ext_resource type="Texture2D" uid="uid://camfourge54en" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/52.png" id="253_qgn67"]
+[ext_resource type="Texture2D" uid="uid://c02agj5vhp66c" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/53.png" id="254_no8h5"]
+[ext_resource type="Texture2D" uid="uid://c2f4q4iyaf7i6" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/54.png" id="255_8bsqm"]
+[ext_resource type="Texture2D" uid="uid://d0h1sxv6purff" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/55.png" id="256_vov5k"]
+[ext_resource type="Texture2D" uid="uid://beuqov783ptvk" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/56.png" id="257_rjohb"]
+[ext_resource type="Texture2D" uid="uid://b8io06fd1oenj" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/57.png" id="258_7u4hx"]
+[ext_resource type="Texture2D" uid="uid://k2sy3y05x5p1" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/58.png" id="259_7g820"]
+[ext_resource type="Texture2D" uid="uid://ildxfddjgrvu" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/59.png" id="260_r4bqr"]
+[ext_resource type="Texture2D" uid="uid://cv3w2yimen41t" path="res://asset/img/AnimatedPlanetsFull/Barren_or_Moon/1/60.png" id="261_nitif"]
 
 [sub_resource type="Animation" id="Animation_sc6kq"]
 length = 0.001
@@ -478,6 +661,126 @@ tracks/32/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("acts/act05/voice2:playing")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("acts/act05/act05-camera3:current")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("acts/act05/nav/ship_interior/ghosts:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("acts/act05/act05-camera4:current")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("acts/act08/act08-camera:current")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("acts/act08/Path3D/PathFollow3D:progress_ratio")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("acts/act08/Path3D/PathFollow3D/starship:visible")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("acts/act08:visible")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("acts/act08/act08-camera:rotation")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("game_interface/hud/transition:color")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_facny"]
@@ -936,7 +1239,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_a5bx4"]
 resource_name = "act05"
-length = 6.0
+length = 14.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -944,10 +1247,10 @@ tracks/0/path = NodePath("acts/act05/act05-camera:current")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 3.5, 6.8, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false, true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1006,10 +1309,10 @@ tracks/5/path = NodePath("acts/act05/act05-camera2:current")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(3.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(3.5, 6.8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -1035,6 +1338,308 @@ tracks/7/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("acts/act05/voice2:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(7.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("acts/act05/act05-camera3:current")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(12),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("game_interface/dialogue")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(14.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0, true],
+"method": &"start_dialogue"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wu5uy"]
+resource_name = "act06"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("acts/act05/nav/ship_interior/ghosts:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("acts/act05:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("acts/act05/act05-camera4:current")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2mmb4"]
+resource_name = "act07"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("acts/act04/act04-camera:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("acts/act03:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("acts/act04:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("acts/act04/starship:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.2, 4.3, 5.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-202, 30, 265), Vector3(-202, 28, 265), Vector3(-202, 30.5, 265), Vector3(-202, 29.5, 265)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("acts/act04/act04-camera:fov")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.2, 5.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [75.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("big_explosions:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("explosions:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mgx2i"]
+resource_name = "act08"
+length = 17.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("acts/act08/act08-camera:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("acts/act08/Path3D/PathFollow3D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("game_interface/dialogue")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(17.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1],
+"method": &"start_dialogue"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("acts/act08/Path3D/PathFollow3D/starship:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("acts/act08/celestial")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"toggle"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("acts/act08/celestial2")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"toggle"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("acts/act08:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("acts/act08/act08-camera:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(11, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(1.5708, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8wuaf"]
+resource_name = "act09"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("game_interface/hud/transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("music")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"fade"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_temp3"]
 _data = {
@@ -1044,7 +1649,11 @@ _data = {
 "act02": SubResource("Animation_quwsw"),
 "act03": SubResource("Animation_d4bty"),
 "act04": SubResource("Animation_lav57"),
-"act05": SubResource("Animation_a5bx4")
+"act05": SubResource("Animation_a5bx4"),
+"act06": SubResource("Animation_wu5uy"),
+"act07": SubResource("Animation_2mmb4"),
+"act08": SubResource("Animation_mgx2i"),
+"act09": SubResource("Animation_8wuaf")
 }
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_t162n"]
@@ -1080,6 +1689,569 @@ point_count = 2
 vertices = PackedVector3Array(-164, 14.5994, 355.5, -164, 14.5994, 360.5, -157, 14.5994, 360.5, -157, 14.5994, 355.5, -163.75, 12.5994, 355.75, -163.75, 12.5994, 360.25, -157, 12.5994, 360.25, -157, 12.5994, 355.75)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
 
+[sub_resource type="Curve3D" id="Curve3D_j4um7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.0193939, 0, 0.754364, 76, 0, -222, -76, 0, 222, 54, 36, 355),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ite0q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("82_pe5uq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_7n614")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_1xwwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_tpv08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_swnn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_q3neh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_ckvww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_drfew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_x868i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_g7quc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_tvaj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_wwqt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_t13wm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_150nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_55tyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_hc8y2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_pk8ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_pklth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_ne8es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_66fm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_eg5j7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_caifn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_xur7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_jqkql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_wystk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_kh4e5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_p8up4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_onq5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_kkepy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_le0vl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_mvly7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_m50na")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_u42kv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_g02vn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_447ba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_1650s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_53wk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_8abg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_746p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_h1wo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_deeux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_wterh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_mxdr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_n12ch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_ndayg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_x05nv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_3mluf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_o7n5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_n07w2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_yg8p6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_7frdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_cgqcr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_u4rbm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_xn37j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_fxdve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_15u1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_ludpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_nc1ms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_tfhsq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_imyfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_0l1gi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_5wuti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_fxkbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_qh1gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_o6fnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_upolw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_hm8ka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_yqxgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_xyv1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_lfehq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_lgnyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_hxy4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_1ix4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_m31qb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_07h7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_i52vq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_nx0ix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_drbih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_2iuhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_alaml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_xuohd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_0b0y7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_ux2f1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_qmhio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_heq4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_tj7p2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_3nmsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_wur04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_mctng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_hi3gm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_bk68y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_0cmv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_xftak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_ggtpe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_ikvj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_kggn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_eovno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_0732c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_qd62w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_qihe7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_ulct8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_rrmrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_liccv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("185_621qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("186_gv3o1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("187_p8bgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("188_6jajc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("189_6e4ro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("190_gg74u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("191_u6ail")
+}, {
+"duration": 1.0,
+"texture": ExtResource("192_0ojpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("193_xf18h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("194_kfguu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("195_qjwy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("196_lic78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("197_lji2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("198_hpvl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("199_juauw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("200_cqjik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("201_0dg5w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4k57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("202_58asm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("203_qt4i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("204_6awuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("205_pt750")
+}, {
+"duration": 1.0,
+"texture": ExtResource("206_uu5ba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("207_uehdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("208_hyv2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("209_2n6ig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("210_5l7ja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("211_su436")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_ft7u1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("213_ydkt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("214_nymvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("215_ley4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("216_w7viv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("217_tja5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("218_a262l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("219_g3d8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("220_a4576")
+}, {
+"duration": 1.0,
+"texture": ExtResource("221_rlutr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("222_lh4gi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("223_spdjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("224_x2b01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("225_4noo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("226_2uhvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("227_x678e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("228_ke41d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("229_xv6sw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("230_4hiyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("231_sk8g7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("232_m1ifa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("233_o2yib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("234_226av")
+}, {
+"duration": 1.0,
+"texture": ExtResource("235_jlucd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("236_prj5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("237_5j4nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("238_pkoxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("239_ufn1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("240_qkxtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("241_2id1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("242_oixo2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("243_b70yt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("244_73onw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("245_bio4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("246_28u4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("247_ed3w5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("248_qugfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("249_im1t5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("250_4rwll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("251_bfbtu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("252_eel44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("253_qgn67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("254_no8h5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("255_8bsqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("256_vov5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("257_rjohb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("258_7u4hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("259_7g820")
+}, {
+"duration": 1.0,
+"texture": ExtResource("260_r4bqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("261_nitif")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="endCinematic" type="Node3D"]
 script = ExtResource("1_kcf14")
 snd_library = Array[AudioStream]([ExtResource("2_0deyk"), ExtResource("3_qt14u"), ExtResource("4_p60dw"), ExtResource("5_rscaq"), ExtResource("6_grb5t"), ExtResource("7_d4svm"), ExtResource("8_c5jsy"), ExtResource("9_er4al"), ExtResource("10_t55gq"), ExtResource("11_2vfw6"), ExtResource("12_iiooq"), ExtResource("13_yt85m"), ExtResource("14_wattc"), ExtResource("15_isbx8"), ExtResource("16_a3rx5"), ExtResource("17_uwo4l"), ExtResource("18_ciuj6"), ExtResource("19_86y5a"), ExtResource("20_ya133"), ExtResource("21_vurxs"), ExtResource("22_73lda"), ExtResource("23_4mtcl"), ExtResource("24_7gcsp"), ExtResource("25_7eant"), ExtResource("26_1exhc")])
@@ -1109,10 +2281,13 @@ bus = &"sfx"
 [node name="countdown_snd" type="AudioStreamPlayer" parent="."]
 bus = &"sfx"
 
-[node name="music" type="AudioStreamPlayer" parent="."]
+[node name="music" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("snd")]
 stream = ExtResource("4_x76xa")
 autoplay = true
 bus = &"music"
+script = ExtResource("43_4ecbs")
+snd = NodePath(".")
+fade_time = 5.0
 
 [node name="explosions" type="Node3D" parent="."]
 
@@ -1321,33 +2496,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121, 14.9598, 100)
 
 [node name="CinExplosions41" parent="big_explosions" instance=ExtResource("59_dxvjx")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -10.2181, 14.9624, 40)
+visible = false
 
 [node name="CinExplosions42" parent="big_explosions" instance=ExtResource("59_dxvjx")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 85.7819, 14.9624, 55)
+visible = false
 
 [node name="CinExplosions43" parent="big_explosions" instance=ExtResource("59_dxvjx")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 52.7819, 14.9624, 157)
+visible = false
 
 [node name="CinExplosions44" parent="big_explosions" instance=ExtResource("59_dxvjx")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -23.2181, 14.9624, 119)
+visible = false
 
 [node name="CinExplosions45" parent="big_explosions" instance=ExtResource("59_dxvjx")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 32.7819, 14.9624, 101)
+visible = false
 
 [node name="CinExplosions46" parent="big_explosions" instance=ExtResource("59_dxvjx")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -7.21812, 14.9624, 187)
+visible = false
 
 [node name="CinExplosions47" parent="big_explosions" instance=ExtResource("59_dxvjx")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -73.2181, 14.9624, 87)
+visible = false
 
 [node name="CinExplosions48" parent="big_explosions" instance=ExtResource("59_dxvjx")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -206.218, 14.9624, 36)
+visible = false
 
 [node name="CinExplosions49" parent="big_explosions" instance=ExtResource("59_dxvjx")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -196.218, 14.9624, 102)
+visible = false
 
 [node name="CinExplosions50" parent="big_explosions" instance=ExtResource("59_dxvjx")]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, -196.218, 14.9624, 102)
+visible = false
 
 [node name="fire" type="Node3D" parent="."]
 
@@ -3209,6 +4394,10 @@ visible = false
 stream = ExtResource("70_04osx")
 bus = &"sfx"
 
+[node name="voice2" type="AudioStreamPlayer" parent="acts/act05"]
+stream = ExtResource("71_gumri")
+bus = &"sfx"
+
 [node name="computer_beep" type="AudioStreamPlayer" parent="acts/act05"]
 stream = ExtResource("71_4wv4q")
 bus = &"sfx"
@@ -3220,6 +4409,14 @@ fov = 56.3
 [node name="act05-camera2" type="Camera3D" parent="acts/act05"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -161.814, 13.0799, 358)
 current = true
+
+[node name="act05-camera3" type="Camera3D" parent="acts/act05"]
+transform = Transform3D(-4.37114e-08, -0.21644, 0.976296, 0, 0.976296, 0.21644, -1, 9.46088e-09, -4.26753e-08, -159, 13.25, 358)
+fov = 57.5
+
+[node name="act05-camera4" type="Camera3D" parent="acts/act05"]
+transform = Transform3D(-4.35587e-08, -0.297208, 0.954813, -3.65007e-09, 0.954813, 0.297208, -1, 9.46088e-09, -4.26753e-08, -157.5, 13.3814, 358)
+fov = 71.8
 
 [node name="nav" type="NavigationRegion3D" parent="acts/act05"]
 navigation_mesh = SubResource("NavigationMesh_84tjw")
@@ -3276,20 +4473,293 @@ quip_play_chance = 0.0
 speed = 4.0
 quip_play_chance = 0.0
 
+[node name="navigationAgent3D" parent="acts/act05/nav/ship_interior/character" index="4"]
+avoidance_enabled = false
+
 [node name="Marker3D" type="Marker3D" parent="acts/act05/nav/ship_interior"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 3)
 
+[node name="ghosts" type="Node3D" parent="acts/act05/nav/ship_interior"]
+visible = false
+
+[node name="character1" parent="acts/act05/nav/ship_interior/ghosts" node_paths=PackedStringArray("nav_agent") instance=ExtResource("23_mohel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50696, 0.00199986, 5)
+nav_agent = NodePath("../../character/navigationAgent3DObjective")
+cinematic = true
+
+[node name="fsm" parent="acts/act05/nav/ship_interior/ghosts/character1" index="0" node_paths=PackedStringArray("character")]
+character = NodePath("../../../character")
+
+[node name="idle" parent="acts/act05/nav/ship_interior/ghosts/character1/fsm" index="0"]
+quip_play_chance = 0.0
+
+[node name="move" parent="acts/act05/nav/ship_interior/ghosts/character1/fsm" index="1"]
+speed = 4.0
+quip_play_chance = 0.0
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character1/fsm/move" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character1/fsm/move-shoot" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="melee" parent="acts/act05/nav/ship_interior/ghosts/character1/fsm" index="4" node_paths=PackedStringArray("snd")]
+snd = NodePath("../../../../character/snd_melee")
+
+[node name="attack" parent="acts/act05/nav/ship_interior/ghosts/character1/fsm_behavior" index="0" node_paths=PackedStringArray("nav_agent", "special_state")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+special_state = NodePath("../../../../character/fsm/special")
+
+[node name="move_to" parent="acts/act05/nav/ship_interior/ghosts/character1/fsm_behavior" index="2" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+
+[node name="navigationAgent3D" parent="acts/act05/nav/ship_interior/ghosts/character1" index="4"]
+avoidance_enabled = false
+
+[node name="img" parent="acts/act05/nav/ship_interior/ghosts/character1" index="10"]
+modulate = Color(0, 1, 1, 0.85)
+
+[node name="character2" parent="acts/act05/nav/ship_interior/ghosts" node_paths=PackedStringArray("nav_agent") instance=ExtResource("23_mohel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79892, 0.00199986, 5)
+nav_agent = NodePath("../../character/navigationAgent3DObjective")
+cinematic = true
+
+[node name="fsm" parent="acts/act05/nav/ship_interior/ghosts/character2" index="0" node_paths=PackedStringArray("character")]
+character = NodePath("../../../character")
+
+[node name="idle" parent="acts/act05/nav/ship_interior/ghosts/character2/fsm" index="0"]
+quip_play_chance = 0.0
+
+[node name="move" parent="acts/act05/nav/ship_interior/ghosts/character2/fsm" index="1"]
+speed = 4.0
+quip_play_chance = 0.0
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character2/fsm/move" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character2/fsm/move-shoot" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="melee" parent="acts/act05/nav/ship_interior/ghosts/character2/fsm" index="4" node_paths=PackedStringArray("snd")]
+snd = NodePath("../../../../character/snd_melee")
+
+[node name="attack" parent="acts/act05/nav/ship_interior/ghosts/character2/fsm_behavior" index="0" node_paths=PackedStringArray("nav_agent", "special_state")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+special_state = NodePath("../../../../character/fsm/special")
+
+[node name="move_to" parent="acts/act05/nav/ship_interior/ghosts/character2/fsm_behavior" index="2" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+
+[node name="navigationAgent3D" parent="acts/act05/nav/ship_interior/ghosts/character2" index="4"]
+avoidance_enabled = false
+
+[node name="img" parent="acts/act05/nav/ship_interior/ghosts/character2" index="10"]
+modulate = Color(0, 1, 1, 0.85)
+
+[node name="character3" parent="acts/act05/nav/ship_interior/ghosts" node_paths=PackedStringArray("nav_agent") instance=ExtResource("23_mohel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53532, 0.00199986, 5)
+nav_agent = NodePath("../../character/navigationAgent3DObjective")
+cinematic = true
+
+[node name="fsm" parent="acts/act05/nav/ship_interior/ghosts/character3" index="0" node_paths=PackedStringArray("character")]
+character = NodePath("../../../character")
+
+[node name="idle" parent="acts/act05/nav/ship_interior/ghosts/character3/fsm" index="0"]
+quip_play_chance = 0.0
+
+[node name="move" parent="acts/act05/nav/ship_interior/ghosts/character3/fsm" index="1"]
+speed = 4.0
+quip_play_chance = 0.0
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character3/fsm/move" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character3/fsm/move-shoot" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="melee" parent="acts/act05/nav/ship_interior/ghosts/character3/fsm" index="4" node_paths=PackedStringArray("snd")]
+snd = NodePath("../../../../character/snd_melee")
+
+[node name="attack" parent="acts/act05/nav/ship_interior/ghosts/character3/fsm_behavior" index="0" node_paths=PackedStringArray("nav_agent", "special_state")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+special_state = NodePath("../../../../character/fsm/special")
+
+[node name="move_to" parent="acts/act05/nav/ship_interior/ghosts/character3/fsm_behavior" index="2" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+
+[node name="navigationAgent3D" parent="acts/act05/nav/ship_interior/ghosts/character3" index="4"]
+avoidance_enabled = false
+
+[node name="img" parent="acts/act05/nav/ship_interior/ghosts/character3" index="10"]
+modulate = Color(0, 1, 1, 0.85)
+
+[node name="character5" parent="acts/act05/nav/ship_interior/ghosts" node_paths=PackedStringArray("nav_agent") instance=ExtResource("23_mohel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50696, 0.00199986, 1)
+nav_agent = NodePath("../../character/navigationAgent3DObjective")
+cinematic = true
+
+[node name="fsm" parent="acts/act05/nav/ship_interior/ghosts/character5" index="0" node_paths=PackedStringArray("character")]
+character = NodePath("../../../character")
+
+[node name="idle" parent="acts/act05/nav/ship_interior/ghosts/character5/fsm" index="0"]
+quip_play_chance = 0.0
+
+[node name="move" parent="acts/act05/nav/ship_interior/ghosts/character5/fsm" index="1"]
+speed = 4.0
+quip_play_chance = 0.0
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character5/fsm/move" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character5/fsm/move-shoot" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="melee" parent="acts/act05/nav/ship_interior/ghosts/character5/fsm" index="4" node_paths=PackedStringArray("snd")]
+snd = NodePath("../../../../character/snd_melee")
+
+[node name="attack" parent="acts/act05/nav/ship_interior/ghosts/character5/fsm_behavior" index="0" node_paths=PackedStringArray("nav_agent", "special_state")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+special_state = NodePath("../../../../character/fsm/special")
+
+[node name="move_to" parent="acts/act05/nav/ship_interior/ghosts/character5/fsm_behavior" index="2" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+
+[node name="navigationAgent3D" parent="acts/act05/nav/ship_interior/ghosts/character5" index="4"]
+avoidance_enabled = false
+
+[node name="img" parent="acts/act05/nav/ship_interior/ghosts/character5" index="10"]
+modulate = Color(0, 1, 1, 0.85)
+
+[node name="character6" parent="acts/act05/nav/ship_interior/ghosts" node_paths=PackedStringArray("nav_agent") instance=ExtResource("23_mohel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79892, 0.00199986, 1)
+nav_agent = NodePath("../../character/navigationAgent3DObjective")
+cinematic = true
+
+[node name="fsm" parent="acts/act05/nav/ship_interior/ghosts/character6" index="0" node_paths=PackedStringArray("character")]
+character = NodePath("../../../character")
+
+[node name="idle" parent="acts/act05/nav/ship_interior/ghosts/character6/fsm" index="0"]
+quip_play_chance = 0.0
+
+[node name="move" parent="acts/act05/nav/ship_interior/ghosts/character6/fsm" index="1"]
+speed = 4.0
+quip_play_chance = 0.0
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character6/fsm/move" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character6/fsm/move-shoot" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="melee" parent="acts/act05/nav/ship_interior/ghosts/character6/fsm" index="4" node_paths=PackedStringArray("snd")]
+snd = NodePath("../../../../character/snd_melee")
+
+[node name="attack" parent="acts/act05/nav/ship_interior/ghosts/character6/fsm_behavior" index="0" node_paths=PackedStringArray("nav_agent", "special_state")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+special_state = NodePath("../../../../character/fsm/special")
+
+[node name="move_to" parent="acts/act05/nav/ship_interior/ghosts/character6/fsm_behavior" index="2" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+
+[node name="navigationAgent3D" parent="acts/act05/nav/ship_interior/ghosts/character6" index="4"]
+avoidance_enabled = false
+
+[node name="img" parent="acts/act05/nav/ship_interior/ghosts/character6" index="10"]
+modulate = Color(0, 1, 1, 0.85)
+
+[node name="character7" parent="acts/act05/nav/ship_interior/ghosts" node_paths=PackedStringArray("nav_agent") instance=ExtResource("23_mohel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.53532, 0.00199986, 1)
+nav_agent = NodePath("../../character/navigationAgent3DObjective")
+cinematic = true
+
+[node name="fsm" parent="acts/act05/nav/ship_interior/ghosts/character7" index="0" node_paths=PackedStringArray("character")]
+character = NodePath("../../../character")
+
+[node name="idle" parent="acts/act05/nav/ship_interior/ghosts/character7/fsm" index="0"]
+quip_play_chance = 0.0
+
+[node name="move" parent="acts/act05/nav/ship_interior/ghosts/character7/fsm" index="1"]
+speed = 4.0
+quip_play_chance = 0.0
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character7/fsm/move" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="npc" parent="acts/act05/nav/ship_interior/ghosts/character7/fsm/move-shoot" index="1" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../../character/navigationAgent3D")
+
+[node name="melee" parent="acts/act05/nav/ship_interior/ghosts/character7/fsm" index="4" node_paths=PackedStringArray("snd")]
+snd = NodePath("../../../../character/snd_melee")
+
+[node name="attack" parent="acts/act05/nav/ship_interior/ghosts/character7/fsm_behavior" index="0" node_paths=PackedStringArray("nav_agent", "special_state")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+special_state = NodePath("../../../../character/fsm/special")
+
+[node name="move_to" parent="acts/act05/nav/ship_interior/ghosts/character7/fsm_behavior" index="2" node_paths=PackedStringArray("nav_agent")]
+nav_agent = NodePath("../../../../character/navigationAgent3D")
+
+[node name="navigationAgent3D" parent="acts/act05/nav/ship_interior/ghosts/character7" index="4"]
+avoidance_enabled = false
+
+[node name="img" parent="acts/act05/nav/ship_interior/ghosts/character7" index="10"]
+modulate = Color(0, 1, 1, 0.85)
+
+[node name="act08" type="Node3D" parent="acts"]
+visible = false
+
+[node name="act08-camera" type="Camera3D" parent="acts/act08"]
+transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 83, 6, 417)
+
+[node name="Path3D" type="Path3D" parent="acts/act08"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, 433)
+curve = SubResource("Curve3D_j4um7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="acts/act08/Path3D"]
+transform = Transform3D(0.98857, -0.0150585, 0.149886, 4.65653e-10, 0.994992, 0.0999599, -0.15064, -0.0988208, 0.983621, 0.0193939, 0, 0.754364)
+use_model_front = true
+
+[node name="starship" parent="acts/act08/Path3D/PathFollow3D" instance=ExtResource("13_wx7br")]
+
+[node name="celestial" parent="acts/act08" instance=ExtResource("81_moree")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 94, 30, 793)
+
+[node name="imgAnim" parent="acts/act08/celestial/container" index="0"]
+pixel_size = 2.5
+sprite_frames = SubResource("SpriteFrames_ite0q")
+autoplay = "default"
+
+[node name="light" parent="acts/act08/celestial/container" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.5)
+omni_range = 112.0
+omni_attenuation = 0.5
+
+[node name="celestial2" parent="acts/act08" instance=ExtResource("81_moree")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 86, 790)
+
+[node name="imgAnim" parent="acts/act08/celestial2/container" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 0, 50)
+pixel_size = 1.25
+sprite_frames = SubResource("SpriteFrames_d4k57")
+autoplay = "default"
+
+[node name="light" parent="acts/act08/celestial2/container" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.9321)
+omni_range = 112.0
+omni_attenuation = 0.5
+
 [node name="game_interface" parent="." instance=ExtResource("12_avvf2")]
 
-[node name="tutorial" parent="game_interface" index="3"]
-can_show = false
-
-[node name="dialogue" parent="game_interface" index="4" node_paths=PackedStringArray("dialogue_tree")]
+[node name="dialogue" parent="game_interface" index="1" node_paths=PackedStringArray("dialogue_tree")]
 dialogue_tree = NodePath("../../dialogueTree")
 pause_when_shown = false
 play_continue_snd = false
 
+[node name="tutorial" parent="game_interface" index="2"]
+can_show = false
+
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="finished" from="music" to="." method="_on_music_finished"]
+[connection signal="dialogue_finished" from="game_interface/dialogue" to="." method="_on_dialogue_finished"]
 
 [editable path="maps/nav/door/toggle-computer-1"]
 [editable path="maps/nav/turrets/turret"]
@@ -3304,4 +4774,13 @@ play_continue_snd = false
 [editable path="acts/act00/pile_of_flesh_red"]
 [editable path="acts/act01/character"]
 [editable path="acts/act05/nav/ship_interior/character"]
+[editable path="acts/act05/nav/ship_interior/ghosts/character1"]
+[editable path="acts/act05/nav/ship_interior/ghosts/character2"]
+[editable path="acts/act05/nav/ship_interior/ghosts/character3"]
+[editable path="acts/act05/nav/ship_interior/ghosts/character5"]
+[editable path="acts/act05/nav/ship_interior/ghosts/character6"]
+[editable path="acts/act05/nav/ship_interior/ghosts/character7"]
+[editable path="acts/act08/celestial"]
+[editable path="acts/act08/celestial2"]
 [editable path="game_interface"]
+[editable path="game_interface/hud"]

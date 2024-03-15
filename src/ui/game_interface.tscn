@@ -12,16 +12,16 @@
 visible = false
 dialogue = NodePath("../dialogue")
 
-[node name="effects" parent="." instance=ExtResource("2_w7tmx")]
-
-[node name="hud" parent="." instance=ExtResource("3_cm2xl")]
+[node name="dialogue" parent="." node_paths=PackedStringArray("game_menu") instance=ExtResource("4_mxvfn")]
+visible = false
+game_menu = NodePath("../game")
 
 [node name="tutorial" parent="." node_paths=PackedStringArray("game_menu") instance=ExtResource("5_cnvty")]
 game_menu = NodePath("../game")
 
-[node name="dialogue" parent="." node_paths=PackedStringArray("game_menu") instance=ExtResource("4_mxvfn")]
-visible = false
-game_menu = NodePath("../game")
+[node name="effects" parent="." instance=ExtResource("2_w7tmx")]
+
+[node name="hud" parent="." instance=ExtResource("3_cm2xl")]
 
 [connection signal="visibility_changed" from="game" to="tutorial" method="_on_game_visibility_changed"]
 [connection signal="visibility_changed" from="game" to="dialogue" method="_on_game_visibility_changed"]

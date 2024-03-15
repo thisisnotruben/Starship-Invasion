@@ -7,7 +7,8 @@ enum Type {
 	BLUE_KEYCARD,
 	GREEN_KEYCARD,
 	RED_KEYCARD,
-	YELLOW_KEYCARD
+	YELLOW_KEYCARD,
+	GUN
 }
 
 @export var type := Type.HEALTH
@@ -21,7 +22,7 @@ func _on_area_3d_body_entered(body: Node3D):
 				if body.health == body.health_max:
 					return
 				body.health += 1
-			Type.ARMOR:
+			Type.ARMOR, Type.GUN:
 				pass
 			_:
 				add_to_inventory(body)
@@ -29,6 +30,6 @@ func _on_area_3d_body_entered(body: Node3D):
 		await $snd.finished
 		queue_free()
 
-func add_to_inventory(character: Character):
-	character.inventory_add({"type": type, \
-		"icon": hud_image, "add": true})
+func add_to_inventory(character: Character, add := true, powerup: Item = null):
+	character.inventory_add({"type": type, "icon": hud_image, \
+		"add": add, "powerup": powerup})

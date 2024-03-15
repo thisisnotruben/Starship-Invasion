@@ -3910,10 +3910,7 @@ avoidance_enabled = false
 
 [node name="game_interface" parent="." instance=ExtResource("3_247ah")]
 
-[node name="tutorial" parent="game_interface" index="3"]
-can_show = false
-
-[node name="dialogue" parent="game_interface" index="4" node_paths=PackedStringArray("dialogue_tree")]
+[node name="dialogue" parent="game_interface" index="1" node_paths=PackedStringArray("dialogue_tree")]
 dialogue_tree = NodePath("../../dialogue_tree")
 pause_when_shown = false
 play_continue_snd = false
@@ -3921,7 +3918,11 @@ play_continue_snd = false
 [node name="bg" parent="game_interface/dialogue" index="4"]
 visible = false
 
+[node name="tutorial" parent="game_interface" index="2"]
+can_show = false
+
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
+[connection signal="finished" from="music" to="." method="_on_music_finished"]
 [connection signal="dialogue_finished" from="game_interface/dialogue" to="." method="_on_dialogue_finished"]
 
 [editable path="maps/NavigationRegion3D/props/door/toggle-computer-1"]
@@ -3956,5 +3957,5 @@ visible = false
 [editable path="act10-survivor/character"]
 [editable path="act12-survivor/character"]
 [editable path="game_interface"]
-[editable path="game_interface/hud"]
 [editable path="game_interface/dialogue"]
+[editable path="game_interface/hud"]

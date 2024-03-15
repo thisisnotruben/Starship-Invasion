@@ -51,6 +51,7 @@ var objective_path := {"lines": [], "points": []}
 
 @export_category("Items")
 @export var inventory: Array[Item.Type] = []
+var powerups := {}
 @export var drop: PackedScene # `Item`
 @export_range(0.0, 1.0, 0.05) var drop_percent := 0.2
 
@@ -153,6 +154,8 @@ func inventory_add(data: Dictionary):
 		if not inventory.has(data["type"]):
 			inventory.append(data["type"])
 			inventory_added.emit(data)
+		if data["powerup"] != null:
+			powerups[data["type"]] = data["powerup"]
 		for objective in objective_map.objectives:
 			match objective["type"]:
 				ObjectiveMap.Type.COLLECT, ObjectiveMap.Type.KILL_COLLECT:
@@ -162,6 +165,8 @@ func inventory_add(data: Dictionary):
 		if inventory.has(data["type"]):
 			inventory.erase(data["type"])
 			inventory_added.emit(data)
+			if data["powerup"] != null:
+				powerups.erase(data["type"])
 
 func on_interacted(interacted_name: String):
 	for objective in objective_map.objectives:

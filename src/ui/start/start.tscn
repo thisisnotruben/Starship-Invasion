@@ -200,6 +200,7 @@ layout_mode = 2
 text = "Settings"
 
 [node name="donate" type="Button" parent="center/panel/margin/tabs/main"]
+visible = false
 layout_mode = 2
 text = "Donate"
 

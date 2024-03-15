@@ -7,7 +7,7 @@ func _init():
 		"marines on their mission to destroy a compromised space station. " + \
 		"Their skills, perils, lives and anguish are of unmatched level and " + \
 		"all agreed to this suicide mission for one purpose:\n\nIt is better " + \
-		"to die for the empress than live for yourself.\n\n" + \
+		"to die for the Empress than live for yourself.\n\n" + \
 		"You...\n\nAn instrument of Empress Muneka's will " + \
 		"took a vow to purge all her enemies and protect her reign at all costs." + \
 		"\n\nThe Heretics called down the thunder and now they got it, " + \

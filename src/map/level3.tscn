@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://cps38a2whdhpg"]
+[gd_scene load_steps=123 format=3 uid="uid://cps38a2whdhpg"]
 
 [ext_resource type="Script" path="res://src/map/level3/level3_objectives.gd" id="1_f5jh4"]
 [ext_resource type="AudioStream" uid="uid://cqsw7vbctdb0b" path="res://asset/snd/DOS-88/DOS-88 - Far From Home - 09 Liquid Metal.ogg" id="1_qisqu"]
@@ -88,6 +88,7 @@
 [ext_resource type="AudioStream" uid="uid://dol4gnj205422" path="res://asset/snd/2896 - Sci-Fi Door Pack/Sci-Fi Doors Close 3.wav" id="76_vy34w"]
 [ext_resource type="Script" path="res://src/map/doodads/start_cinematic.gd" id="76_wxmyh"]
 [ext_resource type="AudioStream" uid="uid://ceoa4rml8825l" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Defense_System_Activated.wav" id="78_arbk7"]
+[ext_resource type="PackedScene" uid="uid://ckvcy8cylfw5d" path="res://src/items/gun.tscn" id="80_8cbnp"]
 [ext_resource type="Script" path="res://src/map/level4/toggle_checkpoint_reached.gd" id="80_a2bso"]
 [ext_resource type="PackedScene" uid="uid://bfd5jjv06mdg6" path="res://src/entity/character/space_sargent/space_sargent_gold.tscn" id="80_c4m0s"]
 [ext_resource type="PackedScene" uid="uid://ccc73rj8vr8ta" path="res://src/entity/celestial/celestial_layout.tscn" id="83_7b4ht"]
@@ -1580,7 +1581,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 148)
 occluder = ExtResource("14_fbgs4")
 
 [node name="ceiling" parent="." instance=ExtResource("13_xb0a5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 148)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.99, 148)
 
 [node name="nav_objective" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -7, 16)
@@ -3250,7 +3251,7 @@ type = 0
 [node name="characters" type="Node3D" parent="."]
 
 [node name="player" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("7_idokq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0.00200105, 150)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0.00200105, 2)
 health_max = 6
 friendly = true
 objective_map = NodePath("../../objectives")
@@ -4941,6 +4942,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 150)
 
 [node name="heart15" parent="items" instance=ExtResource("69_cyq44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 161)
+
+[node name="gun" parent="items" instance=ExtResource("80_8cbnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 142)
+
+[node name="gun2" parent="items" instance=ExtResource("80_8cbnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 172)
 
 [node name="asteroid_shooter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 170)

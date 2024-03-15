@@ -25,10 +25,10 @@ func _init():
 			"name" : Item.Type.RED_KEYCARD
 		},
 		{
-			"path": "toggles/toggle-computer-5",
+			"path": "toggles/toggle-computer3/Marker3D",
 			"completed": false,
 			"blurb": "Enter terminal to unlock door.",
 			"type": Type.INTERACT,
-			"name": "toggle-computer-5"
+			"name": "toggle-computer3"
 		}
 	]

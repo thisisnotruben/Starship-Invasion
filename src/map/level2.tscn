@@ -808,7 +808,7 @@ environment = ExtResource("2_vabjt")
 occluder = ExtResource("21_5ngbp")
 
 [node name="ceiling" parent="." instance=ExtResource("13_svp1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.9704, 4, 296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.97, 3.99, 296)
 
 [node name="nav_objective" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_355ev")

@@ -9,11 +9,16 @@ extends Node3D
 @export var countdown_snd_library: Array[AudioStream] = []
 @export var start_menu_scene: PackedScene = null
 
+var next_act = ""
+
+
 func _init():
 	LevelQuery.last_cinematic_played = true
 
+func _on_music_finished():
+	$music.play()
+
 func _on_anim_animation_finished(anim_name: String):
-	var next_act = ""
 	match anim_name:
 		"act00":
 			next_act = "act01"
@@ -25,8 +30,24 @@ func _on_anim_animation_finished(anim_name: String):
 			next_act = "act04"
 		"act04":
 			next_act = "act05"
-		_:
+		"act05":
+			next_act = "act06"
+			return
+		"act06":
+			next_act = "act07"
+		"act07":
+			next_act = "act08"
+		"act08":
+			next_act = "act09"
+			return
+		"act09":
 			get_tree().change_scene_to_packed(start_menu_scene)
+		_:
+			return
+	if anim.has_animation(next_act):
+		anim.play(next_act)
+
+func _on_dialogue_finished():
 	if anim.has_animation(next_act):
 		anim.play(next_act)
 

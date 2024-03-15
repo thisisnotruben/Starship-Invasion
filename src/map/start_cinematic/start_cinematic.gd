@@ -12,6 +12,9 @@ func _ready():
 	if StartMenu.chosen_level_scene != null:
 		next_level = StartMenu.chosen_level_scene
 
+func _on_music_finished():
+	$music.play()
+
 func _physics_process(_delta: float):
 	$turrets/turret.pivot.look_at($starships/starship1.global_position)
 	$turrets/turret2.pivot.look_at($starships/starship3.global_position)

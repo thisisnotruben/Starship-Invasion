@@ -13,5 +13,5 @@ func _init():
 
 		"By her will, you are ready to go.",
 
-		"The bomb is set, we shall deliver this place to the abyss."
+		"The bomb is set, this place shall be delivered to the abyss."
 	]
