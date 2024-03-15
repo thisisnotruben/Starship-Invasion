@@ -10,6 +10,8 @@ class_name Spawn
 
 var spawn: Node3D = null
 
+signal spawned_character(character: Character)
+
 
 func _ready():
 	if door != null:
@@ -35,6 +37,7 @@ func _on_door_activated(opened: bool):
 		spawn.global_transform.origin = global_transform.origin
 		if action_trigger != null:
 			action_trigger.trigger(spawn)
+		spawned_character.emit(spawn)
 		await get_tree().create_timer(1.25).timeout
 		door.toggle(false)
 		await door.door_activated

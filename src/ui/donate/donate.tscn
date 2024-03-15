@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt1sv5hp65wgy"]
+
+[ext_resource type="Script" path="res://src/ui/donate/donate.gd" id="1_4lmb6"]
+[ext_resource type="AudioStream" uid="uid://ds1ubtvv8d0m1" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 7.wav" id="2_28stl"]
+
+[node name="donate" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4lmb6")
+
+[node name="snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_28stl")
+bus = &"sfx"
+
+[node name="header" type="Label" parent="."]
+layout_mode = 2
+text = "Donate
+--------"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text" type="Label" parent="."]
+layout_mode = 2
+text = "Hi all, Thank you so much for playing my game TODO"
+
+[node name="donate" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_top = NodePath("../back")
+text = "Donate link!"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../donate")
+text = "Back"
+
+[connection signal="draw" from="." to="." method="_on_draw"]
+[connection signal="focus_entered" from="donate" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="donate" to="." method="_on_donate_pressed"]
+[connection signal="focus_entered" from="back" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

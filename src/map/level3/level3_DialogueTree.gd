@@ -11,5 +11,7 @@ func _init():
 		"Obliteration and purification, this station will bathe in flames.\n\n" + \
 		"The beckoning of annihilation calls to you with no skipping beat.",
 
-		"By her will, you are ready to go."
+		"By her will, you are ready to go.",
+
+		"The bomb is set, we shall deliver this place to the abyss."
 	]

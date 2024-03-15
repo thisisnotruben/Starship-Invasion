@@ -1,8 +1,5 @@
 # Starship Invasion
 
-# TODO
-- end credits & donation menu option
-
 ## Maybe
 - ammo reload option?
 - space warrior: special of throwing grenade?

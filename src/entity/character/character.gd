@@ -103,10 +103,10 @@ func _input(event: InputEvent):
 func _set_health(_health: int):
 	health = clampi(_health, 0, health_max)
 	if health >= 0 and fsm.state != CharacterStates.Type.DIE:
-		emit_signal("health_changed", health)
+		health_changed.emit(health)
 	if health == 0:
 		fsm.state = CharacterStates.Type.DIE
-		emit_signal("died", self)
+		died.emit(self)
 		set_performance_process(true)
 
 func set_hit_flags():
@@ -152,7 +152,7 @@ func inventory_add(data: Dictionary):
 	if data["add"]:
 		if not inventory.has(data["type"]):
 			inventory.append(data["type"])
-			emit_signal("inventory_added", data)
+			inventory_added.emit(data)
 		for objective in objective_map.objectives:
 			match objective["type"]:
 				ObjectiveMap.Type.COLLECT, ObjectiveMap.Type.KILL_COLLECT:
@@ -161,7 +161,7 @@ func inventory_add(data: Dictionary):
 	else:
 		if inventory.has(data["type"]):
 			inventory.erase(data["type"])
-			emit_signal("inventory_added", data)
+			inventory_added.emit(data)
 
 func on_interacted(interacted_name: String):
 	for objective in objective_map.objectives:

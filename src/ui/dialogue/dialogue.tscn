@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlr5huenvbia8"]
+[gd_scene load_steps=12 format=3 uid="uid://dlr5huenvbia8"]
 
 [ext_resource type="Script" path="res://src/ui/dialogue/dialogue.gd" id="1_mhki6"]
 [ext_resource type="AudioStream" uid="uid://bgyhqjx3yf8c1" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Crackling Radio Voice 1.wav" id="2_eoilq"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ddrjw05umf57v" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 6.wav" id="7_ob43j"]
 [ext_resource type="AudioStream" uid="uid://bo073rcxici5b" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 8.wav" id="8_majgt"]
 [ext_resource type="AudioStream" uid="uid://doasgi164mq1g" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 4.wav" id="9_khrv2"]
+[ext_resource type="AudioStream" uid="uid://b28p215bebbx2" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 6.wav" id="9_tfegu"]
 [ext_resource type="AudioStream" uid="uid://b2hpi4iqmivtc" path="res://asset/snd/Robotic_Voices/Alert_SFX/Alert3.wav" id="10_q4xse"]
 
 [node name="dialogue" type="Control"]
@@ -23,6 +24,10 @@ script = ExtResource("1_mhki6")
 snd_library = Array[AudioStream]([ExtResource("2_eoilq"), ExtResource("3_gtpuu"), ExtResource("4_t6qh2"), ExtResource("5_crrws"), ExtResource("6_gpiwn"), ExtResource("7_ob43j"), ExtResource("8_majgt")])
 
 [node name="snd" type="AudioStreamPlayer" parent="."]
+bus = &"sfx"
+
+[node name="snd_continue" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_tfegu")
 bus = &"sfx"
 
 [node name="snd_nav" type="AudioStreamPlayer" parent="."]

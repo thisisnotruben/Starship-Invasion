@@ -1,11 +1,12 @@
 extends Control
 class_name StartMenu
 
+const level_template_path := "res://src/map/level%s.tscn"
+
 static var chosen_level_scene: PackedScene = null
 static var next_level := -1
 
 var play_focus_sfx := false
-var thread := Thread.new()
 
 @onready var tab: TabContainer = $center/panel/margin/tabs
 @onready var popup: Control = $center/panel/margin/tabs/popup
@@ -21,7 +22,7 @@ var thread := Thread.new()
 var video_data := {}
 
 var tabs := {"main": 0, "license": 1, "credits": 2, "controls": 3, \
-"popup": 4, "settings": 5, "level": 6, "difficulty": 7}
+"popup": 4, "settings": 5, "level": 6, "difficulty": 7, "donate": 8}
 var tab_back := "main"
 
 
@@ -35,7 +36,8 @@ func _ready():
 func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel") \
 	and [tabs["license"], tabs["credits"], tabs["controls"], \
-	tabs["popup"], tabs["settings"], tabs["level"], tabs["difficulty"]] \
+	tabs["popup"], tabs["settings"], tabs["level"], \
+	tabs["difficulty"], tabs["donate"]] \
 	.has(tab.current_tab):
 		_on_back_pressed()
 
@@ -69,6 +71,11 @@ func _on_credits_pressed():
 	prev_tab = $center/panel/margin/tabs/main/grid/credits
 	tab.current_tab = tabs["credits"]
 
+func _on_donate_pressed():
+	$snd.play()
+	prev_tab = $center/panel/margin/tabs/main/donate
+	tab.current_tab = tabs["donate"]
+
 func _on_exit_pressed():
 	$snd_popup.play()
 	popup.display("Exit Game?", "Exit", "Stay")
@@ -97,7 +104,7 @@ func _on_level_draw():
 	$center/panel/margin/tabs/level/start_cinematic.visible = \
 		LevelQuery.have_played()
 	$center/panel/margin/tabs/level/end_cinematic.visible = \
-		LevelQuery.finished_last_level()
+		LevelQuery.last_cinematic_played
 	play_focus_sfx = false
 	lvl_bttn_focus.grab_focus()
 	play_focus_sfx = true
@@ -120,7 +127,6 @@ func _on_end_cinematic__pressed():
 
 func _on_level_pressed(level: int):
 	next_level = level
-	thread.start(func(): return load("res://src/map/level%s.tscn" % level))
 	tab_back = "level"
 	lvl_bttn_focus = get_node("center/panel/margin/tabs/level/level%s" % level)
 	lvl_bttn_focus.release_focus()
@@ -154,6 +160,8 @@ func _on_difficulty_pressed(difficulty: String):
 	var have_played := LevelQuery.have_played()
 	LevelQuery.unlock_level(next_level)
 
+	var thread := Thread.new()
+	thread.start(func(): return load(level_template_path % next_level))
 	$snd_game.play()
 	await $snd_game.finished
 	chosen_level_scene = thread.wait_to_finish()

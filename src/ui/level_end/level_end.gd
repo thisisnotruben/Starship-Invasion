@@ -1,4 +1,5 @@
 extends Control
+class_name LevelEnd
 
 static var times_died: int = 0
 static var time_started: int = 0
@@ -36,4 +37,5 @@ func _on_draw():
 		% [floor(final_time_sec / 60), int(final_time_sec) % 60]
 
 func _on_finish_pressed():
+	$snd_finish.play()
 	emit_signal("finished")

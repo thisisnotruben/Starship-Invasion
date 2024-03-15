@@ -8,6 +8,10 @@ extends Node
 @export_group("Other")
 @export var space_celestials: Node3D = null
 
+@export_category("Dialogue")
+@export var dialogue: DialogueMenu = null
+@export_range(0, 10, 1) var dialogue_idx = -1
+
 @onready var camera_shake: Node = $camera_shake
 @onready var asteroid_timer: Timer = $asteroid_timer
 @onready var asteroid_visual: GPUParticles3D = $asteroid/asteroids
@@ -15,11 +19,22 @@ extends Node
 @onready var snd_impact: AudioStreamPlayer = $snd_impact
 @onready var hit_box: Area3D = $area3D
 
+var spawned_characters := []
 var in_safe_zone := []
 var active := false
+var passed_by := false
 
 signal on_alert(duration: float, impact: bool)
 
+func _ready():
+	for spawn_point in get_tree().get_nodes_in_group("spawn"):
+		spawn_point.spawned_character.connect(_on_spawn_entered)
+
+func _on_spawn_entered(character: Character):
+	spawned_characters.append(character)
+	character.died.connect(func(c):
+		spawned_characters.erase(c)
+		in_safe_zone.erase(c))
 
 func _on_asteroid_indicator_timer_timeout():
 	camera_shake.shake(0.5)
@@ -27,9 +42,8 @@ func _on_asteroid_indicator_timer_timeout():
 	$snd.play()
 
 func _on_asteroid_timer_timeout():
-	for character in hit_box.get_overlapping_bodies():
-		if not in_safe_zone.has(character):
-			character.health = 0
+	spawned_characters.filter(func(c): return not in_safe_zone.has(c)) \
+		.map(func(c): c.health = 0)
 	if active:
 		emit_signal("on_alert", asteroid_visual.lifetime, true)
 		camera_shake.shake(asteroid_visual.lifetime)
@@ -45,6 +59,10 @@ func _on_asteroid_timer_timeout():
 
 func _on_area_3d_body_entered(body: Node3D):
 	if _is_player(body):
+		if not passed_by and dialogue != null and dialogue_idx != -1:
+			dialogue.start_dialogue(dialogue_idx)
+			passed_by = true
+
 		space_celestials.show()
 		active = true
 		get_tree().call_group("celestial", "toggle", true)
@@ -61,8 +79,7 @@ func _on_area_3d_body_exited(body: Node3D):
 		asteroid_timer.stop()
 		_toggle_spawns(false)
 		$space_sound.fade(false)
-		for character in hit_box.get_overlapping_bodies():
-			character.health = 0
+		spawned_characters.map(func(c): c.health = 0)
 
 func _on_safe_zone_body_entered(body: Node3D):
 	if body is Character and not in_safe_zone.has(body):
@@ -75,9 +92,7 @@ func _is_player(body: Node3D) -> bool:
 	return body is Character and not body.npc
 
 func _toggle_spawns(toggle: bool):
-	for spawn in $spawns.get_children():
-		if spawn is Spawn:
-			spawn.toggle(toggle)
+	get_tree().get_nodes_in_group("spawn").map(func(s): s.toggle(toggle))
 
 func _start_asteroid_timer():
 	if active:

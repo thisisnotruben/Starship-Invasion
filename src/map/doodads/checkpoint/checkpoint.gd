@@ -61,6 +61,17 @@ func get_checkpoint_data():
 
 	data["objectives"] = ObjectiveMap.objectives
 
+	var toggle: ComputerToggle = get_tree() \
+		.get_first_node_in_group("toggle_computer_asteroid")
+	if toggle != null:
+		data["toggle_computer_asteroid"] = toggle.current_characters.is_empty()
+
+	var music: MusicPlayer = get_tree().get_first_node_in_group("music")
+	data["music"] = {
+		"idx": music.music_list.find(music.stream),
+		"pos" : music.get_playback_position()
+	}
+
 static func set_checkpoint_data(_player: Character):
 	if data.is_empty():
 		return
@@ -91,6 +102,15 @@ static func set_checkpoint_data(_player: Character):
 						node.set("passed_by", true)
 			"objectives":
 				ObjectiveMap.objectives = data[datam]
+			"toggle_computer_asteroid":
+				level.get_tree().get_first_node_in_group( \
+					"toggle_computer_asteroid").current_characters.clear()
+			"music":
+				var music: MusicPlayer = level.get_tree() \
+					.get_first_node_in_group("music")
+				music.stop()
+				music.stream = music.music_list[data[datam]["idx"]]
+				music.play(data[datam]["pos"])
 
 	var mapped_toggle := {}
 	for comp_toggle in level.get_tree().get_nodes_in_group("toggle_computer"):

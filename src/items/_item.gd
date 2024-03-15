@@ -18,6 +18,8 @@ func _on_area_3d_body_entered(body: Node3D):
 	if body is Character and not body.npc:
 		match type:
 			Type.HEALTH:
+				if body.health == body.health_max:
+					return
 				body.health += 1
 			Type.ARMOR:
 				pass

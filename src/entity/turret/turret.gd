@@ -26,6 +26,7 @@ class_name AsteroidTurret
 func _ready():
 	set_physics_process(false)
 	reset_laser()
+	start_rand_shoot()
 
 func _physics_process(_delta: float):
 	if ray.is_colliding():
@@ -64,13 +65,15 @@ func _set_rotate(_rotate_gun: bool):
 		$anim.stop()
 
 func _set_rand_shoot(_random_shoot: bool):
-	var timer_callable := func():
-		if _random_shoot:
-			$timer.start(_get_rand_amount())
-		else:
-			$timer.stop()
 	random_shoot = _random_shoot
-	timer_callable.call_deferred()
+	start_rand_shoot.call_deferred()
+
+func start_rand_shoot():
+	if is_node_ready():
+		if random_shoot:
+			timer.start(_get_rand_amount())
+		else:
+			timer.stop()
 
 func _on_timer_timeout():
 	if random_shoot:

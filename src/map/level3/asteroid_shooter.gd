@@ -11,7 +11,7 @@ extends Node3D
 @export_category("Turret")
 @export var turrets: Array[AsteroidTurret] = []
 @export var aim_length := 600
-@export_range(100.0, 1000.0) var turret_aim_speed :=  580.0
+@export_range(100.0, 1000.0) var turret_aim_speed :=  650.0
 var turret_idx: int = 0
 
 @export_category("Asteroid")
@@ -70,6 +70,7 @@ func _physics_process(delta: float):
 			% [floor(game_timer.time_left / 60), int(game_timer.time_left) % 60]
 
 func start_game(start: bool = true, failed := false):
+	game_done = not start
 	set_physics_process(start)
 	set_process_input(start)
 	$space_background.fade(start)
@@ -127,7 +128,6 @@ func _on_space_hull_area_entered(area: Area3D):
 		hull_integrity.value = float(hull_life) / float(max_hull_life)
 	if not game_done:
 		if hull_life == 0:
-			game_done = true
 			emit_signal("game_failed", 0)
 			emit_signal("game_finished")
 			anim.play("death_cam")
@@ -141,5 +141,6 @@ func _on_space_hull_area_entered(area: Area3D):
 		node.destroy()
 
 func _on_dialogue_finished():
-	$snd.play()
-	start_game(true)
+	if not game_done:
+		$snd.play()
+		start_game(true)

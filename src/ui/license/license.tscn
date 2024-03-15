@@ -12,19 +12,30 @@ bus = &"sfx"
 
 [node name="label" type="Label" parent="."]
 layout_mode = 2
-text = "Licenses Attributions
+text = "License Attributions
  ----------------------"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="text" type="Label" parent="."]
+[node name="grid" type="GridContainer" parent="."]
 layout_mode = 2
+columns = 2
+
+[node name="text" type="Label" parent="grid"]
+layout_mode = 2
+size_flags_vertical = 1
 text = "Images:
     - Krishna Palacio
     - Deep-Fold
+3D models:
+    - Maxparata
 Fonts:
-    - Nimble Beasts Collective
-Music:
+    - Nimble Beasts Collective"
+
+[node name="text2" type="Label" parent="grid"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Music:
     - DOS-88
     - Goose Ninja
 Sfx:
@@ -32,7 +43,9 @@ Sfx:
     - Stefan Ruxandra
     - ReadeOnly
     - Robinhood76
-    - Breviceps"
+    - Breviceps
+    - MGW Sound Design
+    - Sound Works 12"
 
 [node name="redirect" type="Button" parent="."]
 layout_mode = 2

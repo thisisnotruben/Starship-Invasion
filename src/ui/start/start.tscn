@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cm6lrl0cgaejr"]
+[gd_scene load_steps=34 format=3 uid="uid://cm6lrl0cgaejr"]
 
 [ext_resource type="Script" path="res://src/ui/start/start.gd" id="1_pxw42"]
 [ext_resource type="AudioStream" uid="uid://b1tmf6dh3f8bg" path="res://asset/snd/DOS-88/DOS-88 - Dream Electro - 09 Summer Forever.ogg" id="2_6hujg"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cu0ekcdh24es1" path="res://src/ui/settings/settings.tscn" id="14_yqrh2"]
 [ext_resource type="AudioStream" uid="uid://cat7nmh5ani4o" path="res://asset/snd/DOS-88/DOS-88 - Only In Dreams.mp3" id="15_cvn0n"]
 [ext_resource type="Script" path="res://src/map/doodads/music.gd" id="16_u5avo"]
+[ext_resource type="PackedScene" uid="uid://dt1sv5hp65wgy" path="res://src/ui/donate/donate.tscn" id="29_oisay"]
 
 [sub_resource type="Animation" id="Animation_as0gl"]
 length = 0.001
@@ -94,7 +95,6 @@ start_cinematic_scenepath = "res://src/map/start_cinematic/start_cinematic.tscn"
 end_cinematic_scenepath = "res://src/map/end_cinematic/end_cinematic.tscn"
 
 [node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_6hujg")
 bus = &"music"
 script = ExtResource("16_u5avo")
 music_list = Array[AudioStream]([ExtResource("15_cvn0n"), ExtResource("2_6hujg")])
@@ -199,6 +199,10 @@ text = "Controls"
 layout_mode = 2
 text = "Settings"
 
+[node name="donate" type="Button" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+text = "Donate"
+
 [node name="exit" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../start")
@@ -294,6 +298,10 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../easy")
 text = "Back"
 
+[node name="donate" parent="center/panel/margin/tabs" instance=ExtResource("29_oisay")]
+visible = false
+layout_mode = 2
+
 [node name="effects" parent="." instance=ExtResource("6_qo541")]
 
 [connection signal="finished" from="music" to="music" method="_on_finished"]
@@ -309,6 +317,8 @@ text = "Back"
 [connection signal="pressed" from="center/panel/margin/tabs/main/grid/controls" to="." method="_on_controls_pressed"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/settings" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/grid/settings" to="." method="_on_settings_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/donate" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/donate" to="." method="_on_donate_pressed"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/exit" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/exit" to="." method="_on_exit_pressed"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/license" to="." method="_on_back_pressed"]
@@ -344,3 +354,5 @@ text = "Back"
 [connection signal="pressed" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_difficulty_pressed" binds= ["hard"]]
 [connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_back_pressed"]
+[connection signal="back_pressed" from="center/panel/margin/tabs/donate" to="." method="_on_back_pressed"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/donate" to="." method="_on_focus_entered"]

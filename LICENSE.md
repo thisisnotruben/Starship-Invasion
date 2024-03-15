@@ -39,11 +39,17 @@ b) Send me a link to the project upon completion.
 	- [Space background](https://deep-fold.itch.io/space-background-generator): "[GitHub](https://github.com/Deep-Fold/PixelSpace)"
 		- [MIT license](https://opensource.org/licenses/MIT)
 
+## 3D models
+
+- [Maxparata](https://maxparata.itch.io/)
+	-[Voxel Spaceship Collection](https://maxparata.itch.io/voxel-spaceships)
+		- [Attribution-NoDerivs 4.0 International](https://creativecommons.org/licenses/by-nd/4.0/deed.en)
+
 ## Fonts
 
 - [Nimble Beasts Collective](https://nimblebeastscollective.itch.io/)
 	- [Magosfonts](https://nimblebeastscollective.itch.io/magosfonts)
-		- [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.orgpublicdomain/zero/1.0/)
+		- [CC0 1.0 Universal (CC0 1.0) Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/deed.en)
 
 ## Audio
 
@@ -87,6 +93,13 @@ U can use it as you please. Thank you!
 	- [Sci-Fi Electricity SFX Pack](https://stormwave-audio.itch.io/sci-fi-electricity-sfx-pack)
 	- [Sci-Fi Radiation SFX Pack](https://stormwave-audio.itch.io/sci-fi-radiation-sfx-pack)
 	- [Unintelligible Male Radio Voice Pack](https://stormwave-audio.com/product/unintelligible-male-radio-voice-pack-1/)
+	- [Alien Insectoid Monster Voice Pack](https://stormwave-audio.com/product/alien-insectoid-monster-voice-pack-1/)
+
+- [MGW Sound Design](https://mgw-sound-design.itch.io/)
+	- [Punch & Flesh SFX](https://mgw-sound-design.itch.io/punch-flesh-sfx)
+
+- [Sound Works 12](https://sound-works-12.itch.io/)
+	- [Big Space Explosions Sound Library](https://sound-works-12.itch.io/big-space-explosions-sound-library)
 
 ```
 All audio content included in this download is licensed to the original

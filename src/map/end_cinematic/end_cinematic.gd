@@ -9,6 +9,8 @@ extends Node3D
 @export var countdown_snd_library: Array[AudioStream] = []
 @export var start_menu_scene: PackedScene = null
 
+func _init():
+	LevelQuery.last_cinematic_played = true
 
 func _on_anim_animation_finished(anim_name: String):
 	var next_act = ""

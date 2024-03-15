@@ -793,7 +793,7 @@ script = ExtResource("2_d61ub")
 [node name="dialogueTree" type="Node" parent="."]
 script = ExtResource("3_isjj5")
 
-[node name="music" type="AudioStreamPlayer" parent="."]
+[node name="music" type="AudioStreamPlayer" parent="." groups=["music"]]
 process_mode = 3
 stream = ExtResource("4_3k688")
 autoplay = true
@@ -808,7 +808,7 @@ environment = ExtResource("2_vabjt")
 occluder = ExtResource("21_5ngbp")
 
 [node name="ceiling" parent="." instance=ExtResource("13_svp1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72, 4, 296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.9704, 4, 296)
 
 [node name="nav_objective" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_355ev")
@@ -4351,10 +4351,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34, 0, 263)
 [node name="heart10" parent="items" instance=ExtResource("72_fr3y2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 259)
 
-[node name="space_walk" parent="." node_paths=PackedStringArray("space_celestials") instance=ExtResource("68_5vthb")]
+[node name="heart11" parent="items" instance=ExtResource("72_fr3y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 14)
+
+[node name="heart12" parent="items" instance=ExtResource("72_fr3y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 14)
+
+[node name="heart13" parent="items" instance=ExtResource("72_fr3y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 0, 62)
+
+[node name="heart14" parent="items" instance=ExtResource("72_fr3y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, 42)
+
+[node name="heart15" parent="items" instance=ExtResource("72_fr3y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, 38)
+
+[node name="heart16" parent="items" instance=ExtResource("72_fr3y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66, 0, 34)
+
+[node name="heart17" parent="items" instance=ExtResource("72_fr3y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 0, 246)
+
+[node name="heart18" parent="items" instance=ExtResource("72_fr3y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 258)
+
+[node name="heart19" parent="items" instance=ExtResource("72_fr3y2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 250)
+
+[node name="space_walk" parent="." node_paths=PackedStringArray("space_celestials", "dialogue") instance=ExtResource("68_5vthb")]
 asteroid_timer_min = 6.0
 asteroid_timer_max = 8.0
 space_celestials = NodePath("../space")
+dialogue = NodePath("../game_interface/dialogue")
+dialogue_idx = 2
 
 [node name="camera_shake" parent="space_walk" index="0" node_paths=PackedStringArray("camera")]
 noise = SubResource("FastNoiseLite_ffv6s")

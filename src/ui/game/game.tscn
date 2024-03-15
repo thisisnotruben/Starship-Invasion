@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bc8j412lenuw0"]
+[gd_scene load_steps=19 format=3 uid="uid://bc8j412lenuw0"]
 
 [ext_resource type="Script" path="res://src/ui/game/game.gd" id="1_4fj3j"]
 [ext_resource type="AudioStream" uid="uid://b28p215bebbx2" path="res://asset/snd/10287 - Sci-Fi Alien Interface Sound Effects Pack/Sci-Fi Alien Interface Sound 6.wav" id="2_0nhrr"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://src/global/snd_fader.gd" id="11_8b2mp"]
 [ext_resource type="PackedScene" uid="uid://cu0ekcdh24es1" path="res://src/ui/settings/settings.tscn" id="13_rx8u8"]
 [ext_resource type="PackedScene" uid="uid://xg0uuf5fiv5b" path="res://src/ui/level_end/level_end.tscn" id="15_a8tta"]
+[ext_resource type="PackedScene" uid="uid://dt1sv5hp65wgy" path="res://src/ui/donate/donate.tscn" id="18_1vifu"]
 
 [node name="game" type="Control"]
 process_mode = 3
@@ -116,25 +117,38 @@ text = "Resume Game"
 layout_mode = 2
 text = "Start Menu"
 
+[node name="restart_game" type="Button" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Restart"
+
 [node name="grid" type="GridContainer" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
 columns = 2
 
 [node name="license" type="Button" parent="center/panel/margin/tabs/main/grid"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "  License  "
 
 [node name="credits" type="Button" parent="center/panel/margin/tabs/main/grid"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "  Credits "
 
 [node name="controls" type="Button" parent="center/panel/margin/tabs/main/grid"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Controls"
 
 [node name="settings" type="Button" parent="center/panel/margin/tabs/main/grid"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Settings"
+
+[node name="donate" type="Button" parent="center/panel/margin/tabs/main"]
+layout_mode = 2
+text = "Donate"
 
 [node name="exit" type="Button" parent="center/panel/margin/tabs/main"]
 layout_mode = 2
@@ -222,11 +236,41 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../easy")
 text = "Back"
 
+[node name="donate" parent="center/panel/margin/tabs" instance=ExtResource("18_1vifu")]
+visible = false
+layout_mode = 2
+
+[node name="restart" type="VBoxContainer" parent="center/panel/margin/tabs"]
+visible = false
+layout_mode = 2
+
+[node name="header" type="Label" parent="center/panel/margin/tabs/restart"]
+layout_mode = 2
+text = "Restart Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart" type="Button" parent="center/panel/margin/tabs/restart"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../back")
+text = "Restart"
+
+[node name="checkpoint" type="Button" parent="center/panel/margin/tabs/restart"]
+layout_mode = 2
+text = " To Checkpoint "
+
+[node name="back" type="Button" parent="center/panel/margin/tabs/restart"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../restart")
+text = "Back"
+
 [connection signal="draw" from="center/panel/margin/tabs/main" to="." method="_on_main_draw"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/resume_game" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/resume_game" to="." method="_on_resume_game_pressed"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/start_menu" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/start_menu" to="." method="_on_start_menu_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/restart_game" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/restart_game" to="." method="_on_restart_game_pressed"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/license" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/grid/license" to="." method="_on_license_pressed"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/credits" to="." method="_on_focus_entered"]
@@ -235,6 +279,8 @@ text = "Back"
 [connection signal="pressed" from="center/panel/margin/tabs/main/grid/controls" to="." method="_on_controls_pressed"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/grid/settings" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/grid/settings" to="." method="_on_settings_pressed"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/main/donate" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/main/donate" to="." method="_on_donate_pressed"]
 [connection signal="focus_entered" from="center/panel/margin/tabs/main/exit" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/main/exit" to="." method="_on_exit_pressed"]
 [connection signal="back_pressed" from="center/panel/margin/tabs/license" to="." method="_on_back_pressed"]
@@ -264,3 +310,12 @@ text = "Back"
 [connection signal="pressed" from="center/panel/margin/tabs/difficulty/hard" to="." method="_on_difficulty_pressed" binds= ["hard"]]
 [connection signal="focus_entered" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="center/panel/margin/tabs/difficulty/back" to="." method="_on_back_pressed" binds= [false]]
+[connection signal="back_pressed" from="center/panel/margin/tabs/donate" to="." method="_on_back_pressed"]
+[connection signal="subcontrol_focused" from="center/panel/margin/tabs/donate" to="." method="_on_focus_entered"]
+[connection signal="draw" from="center/panel/margin/tabs/restart" to="." method="_on_restart_draw"]
+[connection signal="focus_entered" from="center/panel/margin/tabs/restart/restart" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/restart/restart" to="." method="_on_restart_pressed" binds= [NodePath(".")]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/restart/checkpoint" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/restart/checkpoint" to="." method="_on_checkpoint_pressed" binds= [NodePath(".")]]
+[connection signal="focus_entered" from="center/panel/margin/tabs/restart/back" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="center/panel/margin/tabs/restart/back" to="." method="_on_back_pressed"]

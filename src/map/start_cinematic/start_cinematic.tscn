@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://dudokf247b84k"]
+[gd_scene load_steps=85 format=3 uid="uid://dudokf247b84k"]
 
 [ext_resource type="Script" path="res://src/global/snd_fader.gd" id="1_2j50e"]
 [ext_resource type="Script" path="res://src/map/start_cinematic/start_cinematic.gd" id="1_57w32"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://c4hi0ie8sw4sa" path="res://asset/crocotile3d/map4/map_4.tscn" id="12_1x5fx"]
 [ext_resource type="AudioStream" uid="uid://daanni2ptqedj" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Panicked Radio Voice 5.wav" id="12_edoa7"]
 [ext_resource type="PackedScene" uid="uid://cg4k7icoo4jdx" path="res://asset/crocotile3d/map4/ceiling.tscn" id="13_b7mae"]
+[ext_resource type="AudioStream" uid="uid://lxrxprix1r6q" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Voice 6.wav" id="13_peouh"]
 [ext_resource type="PackedScene" uid="uid://cbnd3riidtonx" path="res://asset/crocotile3d/start_cinematic/start_cinematic_asset.tscn" id="14_1jcya"]
 [ext_resource type="AudioStream" uid="uid://ciav57csq6o5c" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Yelling Radio Voice 2.wav" id="14_dei6u"]
 [ext_resource type="PackedScene" uid="uid://ca37jkluxvjp6" path="res://src/entity/door/door.tscn" id="14_xbeuw"]
@@ -1044,6 +1045,18 @@ tracks/81/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/82/type = "value"
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/path = NodePath("act5/AudioStreamPlayer:playing")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_kpu11"]
 resource_name = "act00"
@@ -1934,6 +1947,18 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -2, 0), Vector3(0, 0.5, 0), Vector3(0, -0.5, 0), Vector3(0, 0, 0)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("act5/AudioStreamPlayer:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_deghu"]
 resource_name = "act06"
@@ -2473,6 +2498,20 @@ tracks/9/keys = {
 "method": &"act9_die"
 }, {
 "args": [NodePath("characters/SwarmAlienGreen")],
+"method": &"act9_die"
+}]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(6.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [NodePath("act3-squadron/character8")],
 "method": &"act9_die"
 }]
 }
@@ -3019,7 +3058,7 @@ next_level = ExtResource("3_d3ygr")
 libraries = {
 "": SubResource("AnimationLibrary_gdkl1")
 }
-autoplay = "act02"
+autoplay = "act09"
 
 [node name="worldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_oql53")
@@ -3036,6 +3075,7 @@ script = ExtResource("3_4dun3")
 [node name="act0" type="Camera3D" parent="."]
 transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 48.5, 68.5, 71)
 projection = 1
+current = true
 
 [node name="act1" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.976296, 0.216439, 0, -0.216439, 0.976296, 38, 54.5, -138)
@@ -3078,6 +3118,10 @@ bus = &"sfx"
 
 [node name="act5" type="Camera3D" parent="."]
 transform = Transform3D(0.939693, -0.0740267, 0.333913, 0, 0.976296, 0.216439, -0.34202, -0.203387, 0.917418, 45, 49, -150.5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="act5"]
+stream = ExtResource("13_peouh")
+bus = &"sfx"
 
 [node name="act6" type="Camera3D" parent="."]
 transform = Transform3D(0.642787, -0.262003, 0.719846, 4.4647e-09, 0.939693, 0.34202, -0.766045, -0.219846, 0.604022, 126, 24.5, 80)
@@ -3558,9 +3602,8 @@ nav_agent = NodePath("../character1/navigationAgent3DObjective")
 [node name="idle" parent="start_cinematic_ship/character7/fsm" index="0"]
 quip_play_chance = 0.0
 
-[node name="bomb" parent="start_cinematic_ship" node_paths=PackedStringArray("csg_shapes") instance=ExtResource("38_qj2eb")]
+[node name="bomb" parent="start_cinematic_ship" instance=ExtResource("38_qj2eb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.6196, 3)
-csg_shapes = [null, null, null, null]
 
 [node name="tank_green_intact" parent="start_cinematic_ship" instance=ExtResource("21_b1imh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.1, 1)
@@ -3873,8 +3916,9 @@ can_show = false
 [node name="dialogue" parent="game_interface" index="4" node_paths=PackedStringArray("dialogue_tree")]
 dialogue_tree = NodePath("../../dialogue_tree")
 pause_when_shown = false
+play_continue_snd = false
 
-[node name="bg" parent="game_interface/dialogue" index="3"]
+[node name="bg" parent="game_interface/dialogue" index="4"]
 visible = false
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
