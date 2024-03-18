@@ -44,7 +44,7 @@ func get_checkpoint_data():
 			match item_type:
 				Item.Type.GUN:
 					data["inventory_powerups"][item_type] = \
-						player.powerups[item_type].time_left
+						player.powerups[item_type].timer.time_left
 		else:
 			data["inventory"].append(items[item_type])
 
@@ -88,6 +88,11 @@ static func set_checkpoint_data(_player: Character):
 		data.clear()
 		return
 
+	for node_path in data.get("checkpoint", []):
+		var node := level.get_node_or_null(node_path)
+		if node != null:
+			node.set("passed_by", true)
+
 	for datam in data:
 		match datam:
 			"position":
@@ -102,19 +107,15 @@ static func set_checkpoint_data(_player: Character):
 			"inventory_powerups":
 				for item_type in data[datam]:
 					var powerup: Item = items[item_type].instantiate()
-					match item_type:
-						Item.Type.GUN:
-							powerup.add_powerup(_player, \
-								data[datam][item_type])
+					powerup.remove_from_group("item")
+					powerup.passed_by = true
+					powerup.ready.connect(func():
+						powerup.add_powerup(_player, data[datam][item_type]))
+					_player.add_child(powerup)
 			"npc":
 				_get_difference_and_delete(level, data[datam], "character")
 			"item":
 				_get_difference_and_delete(level, data[datam], "item")
-			"checkpoint":
-				for node_path in data[datam]:
-					var node := level.get_node_or_null(node_path)
-					if node != null:
-						node.set("passed_by", true)
 			"objectives":
 				ObjectiveMap.objectives = data[datam]
 			"toggle_computer_asteroid":
@@ -136,6 +137,12 @@ static func set_checkpoint_data(_player: Character):
 			mapped_toggle[toggle_path].call("activate", _player)
 		else:
 			level.get_node(toggle_path).call("toggle", true)
+
+	# special case: level 4
+	var countdown: CountDown = level.get_tree() \
+		.get_first_node_in_group("countdown")
+	if countdown != null:
+		countdown.start()
 
 static func _get_difference_and_delete(level: Node, alive: Array, group: String):
 	var all := []

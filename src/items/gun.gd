@@ -23,19 +23,22 @@ func _on_area_3d_body_entered(body: Node3D):
 func add_powerup(_character: Character, timeout_sec := time_amount_sec):
 	character = _character
 	passed_by = true
+	$marker3D.hide()
 	data = {"bullet": _character.fsm.get_node("shoot").bullet_scene,
 		"snd_shoot": _character.snd_shoot.stream,
-		"damage": _character.damage}
+		"damage": _character.range_damage}
 	_character.fsm.get_node("shoot").bullet_scene = bullet_scene
+	_character.fsm.get_node("move-shoot").bullet_scene = bullet_scene
 	_character.snd_shoot.stream = snd
-	_character.damage = damage
-	add_to_inventory(_character, true, self)
+	_character.range_damage = damage
 	timer.start(timeout_sec)
+	add_to_inventory(_character, true, self)
 
 func _on_timer_timeout():
 	if character != null:
 		character.fsm.get_node("shoot").bullet_scene = data["bullet"]
+		character.fsm.get_node("move-shoot").bullet_scene = data["bullet"]
 		character.snd_shoot.stream = data["snd_shoot"]
-		character.damage = data["damage"]
+		character.range_damage = data["damage"]
 		add_to_inventory(character, false, self)
 		queue_free()

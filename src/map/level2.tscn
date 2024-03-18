@@ -2387,7 +2387,6 @@ health_max = 6
 friendly = true
 objective_map = NodePath("../../objectives")
 show_light = true
-inventory = Array[int]([4])
 
 [node name="img" parent="characters/player" index="10"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -2994,6 +2993,9 @@ drop = null
 [node name="Space Warrior Purple4" parent="characters" instance=ExtResource("60_k1l6f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 0.00200081, 267)
 drop = null
+
+[node name="pile_of_flesh_red4" parent="characters" instance=ExtResource("61_io8jv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6114, 0.0120013, 99.9454)
 
 [node name="traps" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
@@ -4831,11 +4833,11 @@ current = true
 [node name="game" parent="game_interface" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../../characters/player")
 
-[node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
-player = NodePath("../../characters/player")
-
-[node name="dialogue" parent="game_interface" index="4" node_paths=PackedStringArray("dialogue_tree")]
+[node name="dialogue" parent="game_interface" index="1" node_paths=PackedStringArray("dialogue_tree")]
 dialogue_tree = NodePath("../../dialogueTree")
+
+[node name="hud" parent="game_interface" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
 [connection signal="finished" from="music" to="music" method="_on_finished"]
 [connection signal="body_entered" from="toggles/space-walk/Area3D" to="toggles/space-walk" method="_on_area_3d_body_entered"]

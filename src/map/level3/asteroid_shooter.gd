@@ -55,9 +55,20 @@ func _input(event: InputEvent):
 func _physics_process(delta: float):
 	var input_dir := Input.get_vector("move_w", "move_e", "move_n", "move_s")
 	if not input_dir.is_zero_approx():
-		var target_pos = (Vector2(aim_cursor.global_position.x, \
-			aim_cursor.global_position.y) + input_dir.normalized() \
-			* turret_aim_speed * delta).clamp(Vector2.ZERO, screen_size)
+		var axis := Vector2(Input.get_axis("move_w", "move_e"), \
+			Input.get_axis("move_n", "move_s"))
+		var axis_value := 1.0
+		if axis.x != 0.0:
+			axis_value = abs(axis.x)
+		if axis.y != 0.0:
+			axis_value *= abs(axis.y)
+
+		var current_pos := Vector2(aim_cursor.global_position.x, \
+			aim_cursor.global_position.y)
+		var target_pos := current_pos + input_dir.normalized() \
+			* turret_aim_speed * axis_value
+		target_pos = current_pos.move_toward(target_pos, \
+			delta * turret_aim_speed).clamp(Vector2.ZERO, screen_size)
 		aim_cursor.global_position.x = target_pos.x
 		aim_cursor.global_position.y = target_pos.y
 		update_turret_aim(project_aim(target_pos))
@@ -133,9 +144,13 @@ func _on_space_hull_area_entered(area: Area3D):
 			anim.play("death_cam")
 			_anim.play("end_failed")
 			start_game(false, true)
+			if Input.is_joy_known(0):
+				Input.start_joy_vibration(0, 0.0, 1.0, 1.0)
 		else:
 			emit_signal("hull_hit")
 			$shake_cam.shake(0.5, false)
+			if Input.is_joy_known(0):
+				Input.start_joy_vibration(0, 1.0, 0.0, 0.5)
 	var node := area.owner
 	if node is Asteroid:
 		node.destroy()

@@ -1613,7 +1613,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_8wuaf"]
 resource_name = "act09"
-length = 5.0
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1621,7 +1621,7 @@ tracks/0/path = NodePath("game_interface/hud/transition:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(3, 8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
@@ -1633,7 +1633,7 @@ tracks/1/path = NodePath("music")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(3.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [false],
@@ -4708,7 +4708,7 @@ modulate = Color(0, 1, 1, 0.85)
 visible = false
 
 [node name="act08-camera" type="Camera3D" parent="acts/act08"]
-transform = Transform3D(-1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 83, 6, 417)
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 83, 6, 417)
 
 [node name="Path3D" type="Path3D" parent="acts/act08"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, 433)

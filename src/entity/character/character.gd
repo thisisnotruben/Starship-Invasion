@@ -102,13 +102,19 @@ func _input(event: InputEvent):
 	fsm.input(event)
 
 func _set_health(_health: int):
+	var prev_health := health
 	health = clampi(_health, 0, health_max)
+	var connected_joy := not npc and Input.is_joy_known(0)
 	if health >= 0 and fsm.state != CharacterStates.Type.DIE:
 		health_changed.emit(health)
 	if health == 0:
 		fsm.state = CharacterStates.Type.DIE
 		died.emit(self)
 		set_performance_process(true)
+		if connected_joy:
+			Input.start_joy_vibration(0, 0.0, 1.0, 1.0)
+	elif connected_joy and prev_health > health:
+		Input.start_joy_vibration(0, 1.0, 0.0, 0.5)
 
 func set_hit_flags():
 	var hit_layer := character_hit_flag

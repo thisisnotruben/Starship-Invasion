@@ -1,22 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckvcy8cylfw5d"]
+[gd_scene load_steps=7 format=3 uid="uid://ckvcy8cylfw5d"]
 
 [ext_resource type="PackedScene" uid="uid://cy0njjhnujhfx" path="res://src/items/_item.tscn" id="1_qcf6u"]
 [ext_resource type="Script" path="res://src/items/gun.gd" id="2_amwxb"]
 [ext_resource type="PackedScene" uid="uid://d36cxve141m7o" path="res://asset/3d/gun/gun.glb" id="3_b38lm"]
 [ext_resource type="PackedScene" uid="uid://0gv1iyo7axv2" path="res://src/entity/bullet/bullet_green.tscn" id="3_xhub5"]
 [ext_resource type="AudioStream" uid="uid://bxffifmxs6wlx" path="res://asset/snd/8881 - Sci-Fi Energy Weapon Sound Effects Pack/Sci-Fi Energy Rifle Shot 1.wav" id="4_w13uj"]
+[ext_resource type="Texture2D" uid="uid://d24s1xjb7bspd" path="res://asset/img/icons/gun.png" id="5_apy3n"]
 
 [node name="gun" instance=ExtResource("1_qcf6u")]
 script = ExtResource("2_amwxb")
 bullet_scene = ExtResource("3_xhub5")
 snd = ExtResource("4_w13uj")
 damage = 2
-time_amount_sec = 120.0
+time_amount_sec = 60.0
+type = 6
+hud_image = ExtResource("5_apy3n")
 
 [node name="gun" parent="marker3D" index="0" instance=ExtResource("3_b38lm")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.05, 0, -0.05)
 
-[node name="timer" type="Timer" parent="." index="5"]
+[node name="timer" type="Timer" parent="." index="4"]
 one_shot = true
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

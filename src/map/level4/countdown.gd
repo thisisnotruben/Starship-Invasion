@@ -33,9 +33,7 @@ func _ready():
 	countdown_panel.show()
 	set_process(label != null)
 	shake_cam.noise = FastNoiseLite.new()
-	player.died.connect(func():
-		game_timer.stop()
-		game_audio.stop())
+	player.died.connect(func(_c): end())
 
 func start():
 	if LevelEnd.times_died == 0:
@@ -48,15 +46,22 @@ func start():
 	rand_explode_timer.start( \
 		randf_range(rand_min_explode_sec, rand_max_explode_sec))
 
-func set_text():
-	label.text = "%d:%02d" % [floor(game_timer.time_left / MINUTE), \
-		int(game_timer.time_left) % MINUTE]
+func end():
+	set_process(false)
+	if get_tree().get_nodes_in_group("checkpoint") \
+	.any(func(c): return c.passed_by):
+		time_left = game_timer.time_left
+	game_timer.stop()
+	game_audio.stop()
+	rand_explode_timer.stop()
+
+func set_initial_text():
+	label.text = "%d:%02d" % [floor(countdown_sec / MINUTE), \
+		int(countdown_sec) % MINUTE]
 
 func _process(_delta: float):
-	set_text()
-
-func _on_tree_exiting():
-	time_left = game_timer.time_left
+	label.text = "%d:%02d" % [floor(game_timer.time_left / MINUTE), \
+		int(game_timer.time_left) % MINUTE]
 
 func _on_timer_timeout():
 	snd_explode.play()
@@ -77,5 +82,3 @@ func _on_timer_rand_explode_timeout():
 		shake_cam.shake(randf_range(1.0, shake_cam_sec_max))
 	rand_explode_timer.start( \
 		randf_range(rand_min_explode_sec, rand_max_explode_sec))
-
-

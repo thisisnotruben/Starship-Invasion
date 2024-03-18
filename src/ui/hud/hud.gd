@@ -1,12 +1,14 @@
 extends Control
 
+const hurt_color := [Color("#b50a0a80"), Color("#b50a0a00")]
+const heal_color := [Color("#0ab50a80"), Color("#0ab50a00")]
+
 @export var player: Character = null
-@export var health_scene: PackedScene = null
+@export var hud_inventory: PackedScene = null
 
 @onready var health_container: Control = $margin/vBox/hBox/health
 @onready var inventory_container: Control = $margin/vBox/hBox/inventory
 var health_level := []
-const hurt_color := [Color("#b50a0a80"), Color("#b50a0a00")]
 
 
 func _ready():
@@ -15,7 +17,7 @@ func _ready():
 		player.health_changed.connect(_on_player_health_changed)
 		player.inventory_added.connect(_on_player_inventory_changed)
 		for i in player.health:
-			health_level.append(health_scene.instantiate())
+			health_level.append(hud_inventory.instantiate())
 			health_container.add_child(health_level[-1])
 		Checkpoint.set_checkpoint_data(player)
 
@@ -30,21 +32,20 @@ func _on_show_checkpoint():
 	await get_tree().create_timer(1.0).timeout
 	$margin/vBox/center.modulate = Color.TRANSPARENT
 
-func show_hurt():
-	$hurt.color = hurt_color[0]
-	get_tree().create_tween().tween_property($hurt, "color", \
-		hurt_color[1], 0.5).set_ease(Tween.EASE_IN) \
+func show_health_flash(hurt := true):
+	$health_flash.color = hurt_color[0] if hurt else heal_color[0]
+	get_tree().create_tween().tween_property($health_flash, "color", \
+		hurt_color[1] if hurt else heal_color[1], 0.5).set_ease(Tween.EASE_IN) \
 		.set_trans(Tween.TRANS_BOUNCE)
 
 func _on_player_health_changed(health: int):
 	var amount := health - health_container.get_children() \
 		.filter(func(n): return not n.has_meta("d")).size()
-	if amount < 0:
-		show_hurt()
+	show_health_flash(amount < 0)
 
 	for i in abs(amount):
 		if amount > 0:
-			health_level.append(health_scene.instantiate())
+			health_level.append(hud_inventory.instantiate())
 			health_container.add_child(health_level[-1])
 		elif amount < 0:
 			var lost_health: Control = health_level.pop_back()
@@ -58,12 +59,11 @@ func _on_player_health_changed(health: int):
 
 func _on_player_inventory_changed(data: Dictionary):
 	if data["add"]:
-		var item: TextureRect = health_scene.instantiate()
-		item.texture = data["icon"]
+		var item: TextureRect = hud_inventory.instantiate().init(data)
 		inventory_container.add_child(item)
 		item.name = str(data["type"])
 	else:
-		var item := inventory_container.get_node_or_null(data["type"])
+		var item := inventory_container.get_node_or_null(str(data["type"]))
 		if item != null:
 			item.queue_free()
 

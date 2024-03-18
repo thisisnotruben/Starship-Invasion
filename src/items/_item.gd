@@ -32,4 +32,4 @@ func _on_area_3d_body_entered(body: Node3D):
 
 func add_to_inventory(character: Character, add := true, powerup: Item = null):
 	character.inventory_add({"type": type, "icon": hud_image, \
-		"add": add, "powerup": powerup})
+		"add": add, "powerup": powerup, "character": character})

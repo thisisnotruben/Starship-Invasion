@@ -3058,7 +3058,7 @@ next_level = ExtResource("3_d3ygr")
 libraries = {
 "": SubResource("AnimationLibrary_gdkl1")
 }
-autoplay = "act09"
+autoplay = "act00"
 
 [node name="worldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_oql53")
