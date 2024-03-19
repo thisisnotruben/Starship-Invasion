@@ -10,6 +10,8 @@ enum Type { ACTIVATE, PROXIMITY, TIME_INTERVAL, AUTOSTART }
 @export_category("Time Interval Random")
 @export var time_int_ran := false
 @export_range(0.0, 0.5) var rand_amount := 0.25
+@export_category("Audio")
+@export var snd_libary_hit: Array[AudioStream] = []
 
 @onready var img: AnimatedSprite3D = $img
 @onready var timer: Timer = $timer
@@ -59,6 +61,9 @@ func _on_area_3d_body_entered(body: Node3D):
 func hurt(body: Node3D):
 	if body is Character:
 		body.health -= damage
+		if not snd_libary_hit.is_empty():
+			$snd_hit.stream = snd_libary_hit.pick_random()
+			$snd_hit.play()
 
 func toggle(activate: bool):
 	super.toggle(activate)

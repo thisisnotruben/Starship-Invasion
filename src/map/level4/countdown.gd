@@ -3,8 +3,6 @@ class_name CountDown
 
 const MINUTE: int = 60
 
-static var time_left: float = -1.0
-
 @onready var snd_explode: AudioStreamPlayer = $snd_explode
 @onready var snd_rand_explode: AudioStreamPlayer = $snd_rand_explode
 @onready var snd_countdown: AudioStreamPlayer = $snd_countdown
@@ -35,10 +33,7 @@ func _ready():
 	shake_cam.noise = FastNoiseLite.new()
 	player.died.connect(func(_c): end())
 
-func start():
-	if LevelEnd.times_died == 0:
-		time_left = -1.0
-	var _countdown_sec = time_left if time_left != -1.0 else countdown_sec
+func start(_countdown_sec := countdown_sec):
 	game_timer.wait_time = _countdown_sec
 	game_audio.wait_time = _countdown_sec - 10.0
 	game_timer.start()
@@ -48,9 +43,6 @@ func start():
 
 func end():
 	set_process(false)
-	if get_tree().get_nodes_in_group("checkpoint") \
-	.any(func(c): return c.passed_by):
-		time_left = game_timer.time_left
 	game_timer.stop()
 	game_audio.stop()
 	rand_explode_timer.stop()

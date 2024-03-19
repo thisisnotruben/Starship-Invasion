@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://c4ycqfo6bl5yg" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_02.wav" id="3_qt14u"]
 [ext_resource type="AudioStream" uid="uid://cv0gxa8n2n2kv" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_03.wav" id="4_p60dw"]
 [ext_resource type="PackedScene" uid="uid://bjmbcp7vdja4y" path="res://asset/crocotile3d/map1/ceiling.tscn" id="4_tvlvr"]
-[ext_resource type="AudioStream" uid="uid://ckutl6rifhimf" path="res://asset/snd/Space Music Pack/meet-the-princess.wav" id="4_x76xa"]
 [ext_resource type="AudioStream" uid="uid://cw3jlnacl3i4c" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_04.wav" id="5_rscaq"]
 [ext_resource type="AudioStream" uid="uid://i8wxrrqtbmyf" path="res://asset/snd/Big Space Explosions Sound Library/Explosion/S_Exsplosion_05.wav" id="6_grb5t"]
 [ext_resource type="PackedScene" uid="uid://l45kqdfmr3ss" path="res://asset/crocotile3d/map2/ceiling.tscn" id="6_t3byn"]
@@ -69,6 +68,7 @@
 [ext_resource type="AudioStream" uid="uid://ciwes4crqrt15" path="res://asset/snd/Robotic_Voices/Male/Numbers/__1.wav" id="36_o3iqa"]
 [ext_resource type="AudioStream" uid="uid://bhahtbhn1b6cb" path="res://asset/snd/Robotic_Voices/Male/Phrases/__Destruction_Imminent.wav" id="37_3cbom"]
 [ext_resource type="PackedScene" uid="uid://cm6lrl0cgaejr" path="res://src/ui/start/start.tscn" id="38_wbmw2"]
+[ext_resource type="AudioStream" uid="uid://cyh8r704u2470" path="res://asset/snd/Space Music Pack/meet-the-princess.ogg" id="42_eu8gu"]
 [ext_resource type="Script" path="res://src/global/snd_fader.gd" id="43_4ecbs"]
 [ext_resource type="PackedScene" uid="uid://pssw525ar13h" path="res://src/map/end_cinematic/cin_explosions.tscn" id="59_dxvjx"]
 [ext_resource type="AudioStream" uid="uid://bfperjte44ja2" path="res://asset/snd/6081 - Unintelligible Male Radio Voice Pack 1/Unintelligible Male Neutral Radio Voice 5.wav" id="70_04osx"]
@@ -2282,7 +2282,7 @@ bus = &"sfx"
 bus = &"sfx"
 
 [node name="music" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("snd")]
-stream = ExtResource("4_x76xa")
+stream = ExtResource("42_eu8gu")
 autoplay = true
 bus = &"music"
 script = ExtResource("43_4ecbs")

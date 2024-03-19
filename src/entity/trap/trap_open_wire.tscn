@@ -1,9 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1s8kv22433lg"]
+[gd_scene load_steps=18 format=3 uid="uid://c1s8kv22433lg"]
 
 [ext_resource type="PackedScene" uid="uid://bonktdsothgwv" path="res://src/entity/trap/_trap.tscn" id="1_8g8nu"]
 [ext_resource type="Script" path="res://src/entity/trap/trap_open_wire.gd" id="1_p4tgx"]
+[ext_resource type="AudioStream" uid="uid://8tcgh7nk10xp" path="res://asset/snd/6730 - Sci-Fi Electricity SFX Pack/Sci-Fi Short Electric Shock 1.wav" id="3_48gto"]
 [ext_resource type="AudioStream" uid="uid://b6rohngeh54q" path="res://asset/snd/6730 - Sci-Fi Electricity SFX Pack/Sci-Fi Malfunctioning Electrical Machine Loop 1.wav" id="3_x63nk"]
+[ext_resource type="AudioStream" uid="uid://d0eg3mvufvlh5" path="res://asset/snd/6730 - Sci-Fi Electricity SFX Pack/Sci-Fi Electric Fence Impact 1.wav" id="4_hx8ir"]
 [ext_resource type="Texture2D" uid="uid://b48uw2ru25njc" path="res://asset/img/PixelEffects/Electric.png" id="4_x8coi"]
+[ext_resource type="AudioStream" uid="uid://bf2ufcet7v1x8" path="res://asset/snd/6730 - Sci-Fi Electricity SFX Pack/Sci-Fi Electric Force Field Impact 1.wav" id="5_vqwj3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fk00u"]
 atlas = ExtResource("4_x8coi")
@@ -95,11 +98,12 @@ _data = {
 [node name="trap_open_wire" instance=ExtResource("1_8g8nu")]
 script = ExtResource("1_p4tgx")
 activate_type = 3
+snd_libary_hit = Array[AudioStream]([ExtResource("3_48gto"), ExtResource("4_hx8ir"), ExtResource("5_vqwj3")])
 
 [node name="snd" parent="." index="3"]
 stream = ExtResource("3_x63nk")
 
-[node name="img" parent="." index="4"]
+[node name="img" parent="." index="5"]
 offset = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_xivhk")
 frame_progress = 0.910624

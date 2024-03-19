@@ -80,6 +80,11 @@ func get_checkpoint_data():
 		"pos" : music.get_playback_position()
 	}
 
+	var countdown: CountDown = get_tree() \
+		.get_first_node_in_group("countdown")
+	if countdown != null:
+		data["countdown"] = countdown.game_timer.time_left
+
 static func set_checkpoint_data(_player: Character):
 	if data.is_empty():
 		return
@@ -127,6 +132,11 @@ static func set_checkpoint_data(_player: Character):
 				music.stop()
 				music.stream = music.music_list[data[datam]["idx"]]
 				music.play(data[datam]["pos"])
+			"countdown":
+				var countdown: CountDown = level.get_tree() \
+					.get_first_node_in_group("countdown")
+				if countdown != null:
+					countdown.start(data[datam])
 
 	var mapped_toggle := {}
 	for comp_toggle in level.get_tree().get_nodes_in_group("toggle_computer"):
@@ -137,12 +147,6 @@ static func set_checkpoint_data(_player: Character):
 			mapped_toggle[toggle_path].call("activate", _player)
 		else:
 			level.get_node(toggle_path).call("toggle", true)
-
-	# special case: level 4
-	var countdown: CountDown = level.get_tree() \
-		.get_first_node_in_group("countdown")
-	if countdown != null:
-		countdown.start()
 
 static func _get_difference_and_delete(level: Node, alive: Array, group: String):
 	var all := []

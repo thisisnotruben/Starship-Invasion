@@ -2484,7 +2484,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="player" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("5_2tur1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2)
 health_max = 6
 friendly = true
 objective_map = NodePath("../../objectives")

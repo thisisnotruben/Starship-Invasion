@@ -1971,7 +1971,7 @@ objective_map = NodePath("../../objectives")
 drop = null
 
 [node name="SwarmAlienGreen11" parent="characters" node_paths=PackedStringArray("objective_map") instance=ExtResource("41_4c40r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 1, -84)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0.00215733, -85.2194)
 objective_map = NodePath("../../objectives")
 drop = null
 
@@ -3938,11 +3938,11 @@ transform = Transform3D(1, 0, 0, 0, 0.976296, 0.21644, 0, -0.21644, 0.976296, 0,
 [node name="game" parent="game_interface" index="0" node_paths=PackedStringArray("player")]
 player = NodePath("../../characters/player")
 
-[node name="hud" parent="game_interface" index="2" node_paths=PackedStringArray("player")]
-player = NodePath("../../characters/player")
-
-[node name="dialogue" parent="game_interface" index="4" node_paths=PackedStringArray("dialogue_tree")]
+[node name="dialogue" parent="game_interface" index="1" node_paths=PackedStringArray("dialogue_tree")]
 dialogue_tree = NodePath("../../dialogue_tree")
+
+[node name="hud" parent="game_interface" index="4" node_paths=PackedStringArray("player")]
+player = NodePath("../../characters/player")
 
 [connection signal="finished" from="music" to="music" method="_on_finished"]
 [connection signal="body_entered" from="traps/boss_room/boss_room_trigger" to="traps/boss_room/boss_room_trigger" method="_on_body_entered"]
