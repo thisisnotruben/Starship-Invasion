@@ -15,8 +15,8 @@ func _ready():
 	if times_died == 0:
 		time_started = Time.get_ticks_msec()
 	total_victims = get_tree().get_nodes_in_group("character") \
-		.map(func(c): c.tree_exited.connect(Callable( \
-		self, "_on_victim_died").bind(c))).size() - 1
+		.map(func(c): c.died.connect(Callable( \
+		self, "_on_victim_died"))).size() - 1
 
 func _on_victim_died(victim: Character):
 	if victim.npc:

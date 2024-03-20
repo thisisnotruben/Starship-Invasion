@@ -1,4 +1,5 @@
 extends Node
+class_name SpaceWalk
 
 @export_group("Asteroids")
 @export_range(3.0, 24.0) var asteroid_timer_min := 8.0

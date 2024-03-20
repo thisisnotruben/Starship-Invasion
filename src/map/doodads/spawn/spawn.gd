@@ -34,6 +34,7 @@ func _on_door_activated(opened: bool):
 	if opened:
 		spawn = _spawns.pick_random().instantiate()
 		character_container.add_child(spawn)
+		spawn.add_to_group("space_walk_spawned_character")
 		spawn.global_transform.origin = global_transform.origin
 		if action_trigger != null:
 			action_trigger.trigger(spawn)

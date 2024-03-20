@@ -10,7 +10,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efuhw"]
 
-[node name="space_walk" type="Node3D"]
+[node name="space_walk" type="Node3D" groups=["space_walk"]]
 script = ExtResource("1_e1ifc")
 
 [node name="camera_shake" type="Node" parent="."]

@@ -53,3 +53,9 @@ func _on_bullet_freed(spawn_point_pos: Vector3):
 	character.add_sibling(minion)
 	minion.global_transform.origin = spawn_point_pos
 	minion.aggro(character.target)
+
+	var space_walk: SpaceWalk = get_tree() \
+		.get_first_node_in_group("space_walk")
+	if space_walk != null \
+	and character.is_in_group("space_walk_spawned_character"):
+		space_walk._on_spawn_entered(minion)
