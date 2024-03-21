@@ -32,7 +32,7 @@ window/stretch/mode="viewport"
 [editor]
 
 movie_writer/mjpeg_quality=1.0
-movie_writer/movie_file="C:/Users/ruben/Downloads/ffmpeg-6.1.1-essentials_build/ffmpeg-6.1.1-essentials_build/bin/overmind/recorded_game.png"
+movie_writer/movie_file="C:/Users/ruben/Videos/starship_invasion/dump/recorded_game.png"
 
 [gui]
 
