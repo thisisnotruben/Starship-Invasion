@@ -63,7 +63,8 @@ func _on_area_3d_body_entered(body: Node3D):
 		if not passed_by and dialogue != null and dialogue_idx != -1:
 			dialogue.start_dialogue(dialogue_idx)
 			passed_by = true
-
+		if not spawned_characters.has(body):
+			spawned_characters.append(body)
 		space_celestials.show()
 		active = true
 		get_tree().call_group("celestial", "toggle", true)
@@ -74,6 +75,7 @@ func _on_area_3d_body_entered(body: Node3D):
 func _on_area_3d_body_exited(body: Node3D):
 	if _is_player(body):
 		get_tree().call_group("celestial", "toggle", false)
+		spawned_characters.erase(body)
 		space_celestials.hide()
 		active = false
 		asteroid_indicator_timer.stop()
