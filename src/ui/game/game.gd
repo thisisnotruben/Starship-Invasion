@@ -171,6 +171,7 @@ func next_level(next_level_scene: PackedScene, level: int, dialogue_idx := -1):
 		dialogue.start_dialogue(dialogue_idx)
 		await dialogue.dialogue_finished
 
+	get_tree().paused = true
 	end_level_stats.clean_up()
 	$snd_game.play()
 	await $snd_game.finished
