@@ -1,14 +1,32 @@
 # Starship Invasion
 
-## Maybe
+## Screenshots
+
+![1](screenshots/1.jpg)
+![2](screenshots/2.jpg)
+![3](screenshots/3.jpg)
+![4](screenshots/4.jpg)
+![5](screenshots/5.jpg)
+![6](screenshots/6.jpg)
+
+## Tools used
+
+- [Godot 4.2.1](https://godotengine.org/)
+- [Crocotile3D](https://crocotile3d.com/)
+- [MagicaVoxel](https://ephtracy.github.io/)
+
+## Project configs
+
+### Maybe
 - ammo reload option?
 - space warrior: special of throwing grenade?
 
-## Exporting
+### Exporting
 - maps scaled up to: 4x
 
-## Movies
-ffmpeg -r 60 -f image2 -s 1280x720 -i overmind/recorded_game%08d.png -vcodec libx264 -crf 15 -pix_fmt yuv420p recorded_game.mp4
-ffmpeg -i recorded_game.mp4 -q:v 10 -q:a 10 recorded_game.ogv
+### Movies
+Converting mp4 -> ogv
+```
 SET clip=
-ffmpeg -i %clip%.mp4 -q:v 5 -q:a 0 %clip%.ogv
+ffmpeg -i %clip%.mp4 -q:v 10 -q:a 0 %clip%.ogv
+```
