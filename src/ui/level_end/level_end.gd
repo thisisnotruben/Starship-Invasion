@@ -1,10 +1,10 @@
 extends Control
 class_name LevelEnd
 
+static var victims: int = 0
 static var times_died: int = 0
 static var time_started: int = 0
 
-var victims: int = 0
 var total_victims: int = 0
 var next_level: PackedScene = null
 
@@ -25,6 +25,7 @@ func _on_victim_died(victim: Character):
 		times_died += 1
 
 func clean_up():
+	victims = 0
 	times_died = 0
 	Checkpoint.data.clear()
 

@@ -4758,6 +4758,10 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 2, 14)
 player = NodePath("../../characters/player")
 
+[node name="checkpoint4" parent="checkpoints" node_paths=PackedStringArray("player") instance=ExtResource("204_ip7qe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 2, 73)
+player = NodePath("../../characters/player")
+
 [node name="checkpoint2" parent="checkpoints" node_paths=PackedStringArray("player") instance=ExtResource("204_ip7qe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 2, 114.5)
 player = NodePath("../../characters/player")
@@ -4849,6 +4853,7 @@ player = NodePath("../../characters/player")
 [connection signal="body_entered" from="space_walk/space_walk3" to="space_walk/space_walk3" method="_on_body_entered"]
 [connection signal="body_exited" from="space_walk/space_walk3" to="space_walk/space_walk3" method="_on_body_exited"]
 [connection signal="on_checkpoint_reached" from="checkpoints/checkpoint" to="game_interface/hud" method="_on_show_checkpoint"]
+[connection signal="on_checkpoint_reached" from="checkpoints/checkpoint4" to="game_interface/hud" method="_on_show_checkpoint"]
 [connection signal="on_checkpoint_reached" from="checkpoints/checkpoint2" to="game_interface/hud" method="_on_show_checkpoint"]
 [connection signal="on_checkpoint_reached" from="checkpoints/checkpoint3" to="game_interface/hud" method="_on_show_checkpoint"]
 

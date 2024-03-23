@@ -163,7 +163,6 @@ func next_level(next_level_scene: PackedScene, level: int, dialogue_idx := -1):
 	LevelQuery.unlock_level(level)
 	tab.current_tab = tabs["next_level"]
 	var end_level_stats: Control = tab.get_child(tabs["next_level"])
-	end_level_stats.clean_up()
 	show()
 
 	await end_level_stats.finished
@@ -172,6 +171,7 @@ func next_level(next_level_scene: PackedScene, level: int, dialogue_idx := -1):
 		dialogue.start_dialogue(dialogue_idx)
 		await dialogue.dialogue_finished
 
+	end_level_stats.clean_up()
 	$snd_game.play()
 	await $snd_game.finished
 	get_tree().paused = false
