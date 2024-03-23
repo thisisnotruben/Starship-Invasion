@@ -17,7 +17,7 @@ func _on_draw():
 func _on_redirect_pressed():
 	$snd.play()
 	await $snd.finished
-	OS.shell_open("https://github.com/thisisnotruben/Overmind/blob/main/LICENSE.md")
+	OS.shell_open("https://github.com/thisisnotruben/Starship-Invasion/blob/main/LICENSE.md")
 
 func _on_focus_entered():
 	if play_focus_sfx:
